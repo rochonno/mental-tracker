@@ -4,6 +4,7 @@ package MentalTracker;
 import static com.codename1.ui.CN.*;
 
 import MentalTracker.Components.SideMenu;
+import MentalTracker.Pages.MainPage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Label;
@@ -30,18 +31,6 @@ public class CoreApp {
         // Enable Toolbar on all Forms by default
         Toolbar.setGlobalToolbar(true);
 
-        // Pro only feature
-        Log.bindCrashProtection(true);
-
-        addNetworkErrorListener(err -> {
-            // prevent the event from propagating
-            err.consume();
-            if(err.getError() != null) {
-                Log.e(err.getError());
-            }
-            Log.sendLogAsync();
-            Dialog.show("Connection Error", "There was a networking error in the connection to " + err.getConnectionRequest().getUrl(), "OK", null);
-        });        
     }
     
     public void start() {
@@ -50,15 +39,9 @@ public class CoreApp {
             current.show();
             return;
         }
-        //Form hi = new Form("Hi World", BoxLayout.y());
-        //hi.add(new Label("Hi World"));
-        //hi.show();
+        MainPage main = new MainPage(theme);
 
-        Form MainPage = new Form("MainPage");
-        MainPage.addComponent(new Label("Home Page"));
-        SideMenu menu = new SideMenu(theme, MainPage.getToolbar());
-
-        MainPage.show();
+        main.Show();
     }
 
     public void stop() {
