@@ -14,3 +14,4 @@ lib/
 
 # IntelliJ
 out/
+src/MentalTracker/DataPortions/\.idea/
