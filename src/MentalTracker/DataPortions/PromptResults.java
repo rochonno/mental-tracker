@@ -12,12 +12,14 @@ package MentalTracker.DataPortions;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class PromptResults {
+public class PromptResults implements Externalizable {
 
     private String _TimeStamp;
+    private List<PromptResults> _ResultsList;
 
     public PromptResults ()
     {
         _TimeStamp = new SimpleDateFormat("yyyy.MM.dd HH.mm").format(new Date());
+        _ResultsList = new Vector<PromptResults>();
     }
 }

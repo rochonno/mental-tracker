@@ -10,12 +10,12 @@ package MentalTracker.DataPortions;
 
 import java.util.*;
 
-public class MentalPrompts {
+public class MentalPrompts implements Externalizable {
     private List<MentalPrompt> Prompts;
 
     public MentalPrompts()
     {
-        Prompts = new ArrayList<MentalPrompt>();
+        Prompts = new Vector<MentalPrompt>();
     }
 
     public void add(MentalPrompt prompt)
