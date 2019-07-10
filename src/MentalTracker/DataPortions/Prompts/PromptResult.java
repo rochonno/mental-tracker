@@ -7,7 +7,6 @@
  * Takes the result as a string, then attempts to parse it based on the data type
  *******************************************************************************************/
 package MentalTracker.DataPortions.Prompts;
-import MentalTracker.DataPortions.DataType;
 import MentalTracker.MentalExceptions.EmptyStringException;
 
 public class PromptResult {
