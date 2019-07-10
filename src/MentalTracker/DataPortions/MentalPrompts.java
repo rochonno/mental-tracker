@@ -8,23 +8,53 @@
 
 package MentalTracker.DataPortions;
 
+import com.codename1.io.Externalizable;
+import com.codename1.io.Util;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.*;
 
 public class MentalPrompts implements Externalizable {
-    private List<MentalPrompt> Prompts;
+
+    // Registers the class to enable reading it in
+    static { Util.register("MentalPrompts", MentalPrompts.class); }
+
+    private List<MentalPrompt> _Prompts;
 
     public MentalPrompts()
     {
-        Prompts = new Vector<MentalPrompt>();
+        _Prompts = new Vector<MentalPrompt>();
     }
 
     public void add(MentalPrompt prompt)
     {
-        Prompts.add (prompt);
+        _Prompts.add (prompt);
     }
 
     public boolean remove(MentalPrompt prompt)
     {
-        return Prompts.remove(prompt);
+        return _Prompts.remove(prompt);
+    }
+
+    @Override
+    public int getVersion() {
+        return 0;
+    }
+
+    @Override
+    public void externalize(DataOutputStream out) throws IOException {
+        Util.writeObject(_Prompts, out);
+    }
+
+    @Override
+    public void internalize(int version, DataInputStream in) throws IOException {
+        _Prompts = (List<MentalPrompt>) Util.readObject(in);
+    }
+
+    @Override
+    public String getObjectId() {
+        return "MentalPrompts";
     }
 }
