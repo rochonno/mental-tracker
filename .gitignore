@@ -17,3 +17,5 @@ out/
 src/MentalTracker/DataPortions/\.idea/
 
 *.jar
+
+build/built-jar\.properties
