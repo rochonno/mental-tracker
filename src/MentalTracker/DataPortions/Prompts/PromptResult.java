@@ -11,7 +11,7 @@ import MentalTracker.MentalExceptions.EmptyStringException;
 
 public class PromptResult {
     private String _PromptName;
-    private DataType _ExpectedType;
+    private PromptDataType _ExpectedType;
 
     private String _StringResult;
     private int _IntResult;
@@ -19,7 +19,7 @@ public class PromptResult {
     private boolean _BoolResult;
     private boolean _ValidResult;
 
-    public PromptResult (String name, DataType expectedType, String result) throws EmptyStringException {
+    public PromptResult (String name, PromptDataType expectedType, String result) throws EmptyStringException {
         if (name.isEmpty()) throw new EmptyStringException("Trying to create result with no name", new Throwable());
 
         _PromptName = name;

@@ -14,9 +14,9 @@ public class MentalPrompt {
     private String _Prompt;
     private int _Min;
     private int _Max;
-    private DataType _ResultType;
+    private PromptDataType _ResultType;
 
-    public MentalPrompt (String name, String prompt, DataType resultType)
+    public MentalPrompt (String name, String prompt, PromptDataType resultType)
     {
         _Name = name;
         _Prompt = prompt;
@@ -36,5 +36,5 @@ public class MentalPrompt {
 
     public int GetMin () { return _Min; }
     public int GetMax () { return _Max; }
-    public DataType GetDataType () { return _ResultType; }
+    public PromptDataType GetDataType () { return _ResultType; }
 }
