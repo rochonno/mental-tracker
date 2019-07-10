@@ -1,5 +1,14 @@
+/*******************************************************************************************
+ * @author: Nolan Rochon
+ * @date: 07/07/19
+ * @project: Mental Health Tracker
+ *
+ * This class saves and loads the Prompts and Results from storage on the phone
+ *******************************************************************************************/
 package MentalTracker.DataPortions;
 
+import MentalTracker.DataPortions.Prompts.MentalPrompts;
+import MentalTracker.DataPortions.Prompts.PromptResults;
 import MentalTracker.MentalExceptions.ReadFileException;
 import MentalTracker.MentalExceptions.SaveFileException;
 import com.codename1.io.Storage;

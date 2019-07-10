@@ -6,7 +6,8 @@
  * This class hold a single user result from a specific prompt.
  * Takes the result as a string, then attempts to parse it based on the data type
  *******************************************************************************************/
-package MentalTracker.DataPortions;
+package MentalTracker.DataPortions.Prompts;
+import MentalTracker.DataPortions.DataType;
 import MentalTracker.MentalExceptions.EmptyStringException;
 
 public class PromptResult {
@@ -31,7 +32,6 @@ public class PromptResult {
         {
             _ValidResult = false;
         }
-
     }
 
     private boolean parseResult(String result)

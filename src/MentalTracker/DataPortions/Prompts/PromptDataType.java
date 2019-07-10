@@ -6,7 +6,7 @@
  * Simple enum to hold the different data types that answers can be expected in.
  *******************************************************************************************/
 
-package MentalTracker.DataPortions;
+package MentalTracker.DataPortions.Prompts;
 
 enum DataType
 {

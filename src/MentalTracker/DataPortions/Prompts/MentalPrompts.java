@@ -6,7 +6,7 @@
  * This class holds a list of all the prompts and manages it accordingly
  *******************************************************************************************/
 
-package MentalTracker.DataPortions;
+package MentalTracker.DataPortions.Prompts;
 
 import com.codename1.io.Externalizable;
 import com.codename1.io.Util;

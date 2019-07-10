@@ -7,7 +7,7 @@
  *      questions have been completed to make storage and retrieval of the data simple.
  *******************************************************************************************/
 
-package MentalTracker.DataPortions;
+package MentalTracker.DataPortions.Prompts;
 
 import com.codename1.io.Externalizable;
 import com.codename1.io.Util;

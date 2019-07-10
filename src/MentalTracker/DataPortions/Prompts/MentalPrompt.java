@@ -6,8 +6,7 @@
  * This class holds a single prompt for the user. Once created these objects are stored
  *      in a list retrieved each time the questions are asked.
  *******************************************************************************************/
-
-package MentalTracker.DataPortions;
+package MentalTracker.DataPortions.Prompts;
 
 public class MentalPrompt {
 
@@ -21,6 +20,7 @@ public class MentalPrompt {
     {
         _Name = name;
         _Prompt = prompt;
+        _Min = 0;
     }
 
     public void SetMinMax (int min, int max)
