@@ -3,14 +3,11 @@ package MentalTracker;
 
 import static com.codename1.ui.CN.*;
 
-import MentalTracker.Components.SideMenu;
 import MentalTracker.Pages.MainPage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Dialog;
-import com.codename1.ui.Label;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
 
 /**
