@@ -6,7 +6,10 @@ Fix Insets before resizing this.
 
 package MentalTracker;
 
+import com.codename1.ui.Dialog;
+import com.codename1.ui.TextArea;
 import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.layouts.BorderLayout;
 
 public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     public DailySurveyPgTwoGUI() {
@@ -20,19 +23,40 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     public void oncontinueButtonActionEvent(ActionEvent ev) {
         //Verify Input data
         boolean pass = false;
-        String errors = "The following prompts were't answered: \n";
-        while (pass = false){
+        String errors = "";
+        while (pass == false) {
             pass = true;
-            if (!(gui_depressedButtonNo.isSelected() || gui_depressedButtonYes.isSelected())){
+            if (!(gui_depressedButtonNo.isSelected() || gui_depressedButtonYes.isSelected())) {
                 errors += "Have you felt depressed recently? \n";
             }
-            if (!(gui_panicButtonNo.isSelected() || gui_panicButtonYes.isSelected())){
+            if (!(gui_panicButtonNo.isSelected() || gui_panicButtonYes.isSelected())) {
                 errors += "Any symptoms of panic recently? \n";
             }
-            if (!(gui_exerciseButtonYes.isSelected() || gui_exerciseButtonNo.isSelected())){
+            if (!(gui_exerciseButtonYes.isSelected() || gui_exerciseButtonNo.isSelected())) {
                 errors += "Did you exercise? \n";
             }
-            //if (!())
+
+
+            try{
+            Double.parseDouble(gui_sleepInput.getText());
+            Double.parseDouble(gui_sugarInput.getText());
+            }catch(NumberFormatException | NullPointerException err){
+                errors += "Sleep/Sugar must be entered in number formatting. \n";
+            }
+
+            if (gui_sleepInput.getText().isEmpty()){
+                errors += "How much sleep did you get? \n";
+            }
+            if (gui_sugarInput.getText().isEmpty()){
+                errors += "How much sugar did you consume? \n";
+            }
+
+            if (errors != ""){
+                Dialog.show("Error!", "The following weren't filled in: \n" + errors, "Okay", null);
+                errors = "";
+            }else{
+                //NEXT SCREEN HERE
+            }
         }
     }
 
@@ -144,7 +168,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
                 gui_panicLabel.setInlineStylesTheme(resourceObjectInstance);
         gui_panicLabel.setInlineAllStyles("alignment:center;");
         gui_panicLabel.setName("panicLabel");
-        gui_panicLabel.setIcon(resourceObjectInstance.getImage("panicLabel.png 1"));
+        gui_panicLabel.setIcon(resourceObjectInstance.getImage("panicLabel.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_panicLabel.getParent().getLayout()).setInsets(gui_panicLabel, "2.6455026mm -1.322751mm auto -3.7037036mm").setReferenceComponents(gui_panicLabel, "6 0 -1 0 ").setReferencePositions(gui_panicLabel, "1.0 0.0 0.0 0.0");
         gui_exerciseLabel.setPreferredSizeStr("133.33333mm 10.05291mm");
                 gui_exerciseLabel.setInlineStylesTheme(resourceObjectInstance);
@@ -169,7 +193,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_depressedButtonYes.setGroup("depressedButtonGroup");
         gui_depressedButtonYes.setName("depressedButtonYes");
         gui_depressedButtonYes.setIcon(resourceObjectInstance.getImage("yesButtonUnselect.png"));
-        gui_depressedButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
+        gui_depressedButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png 1"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_depressedButtonYes.getParent().getLayout()).setInsets(gui_depressedButtonYes, "7.632094% 0.0mm auto 0.0mm").setReferenceComponents(gui_depressedButtonYes, "2 16 -1 16 ").setReferencePositions(gui_depressedButtonYes, "0.0 0.0 0.0 0.0");
         gui_yesterdayLabel.setPreferredSizeStr("61.640213mm 9.523809mm");
                 gui_yesterdayLabel.setInlineStylesTheme(resourceObjectInstance);
@@ -203,6 +227,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_panicButtonNo.setGroup("panicButtonGroup");
         gui_panicButtonNo.setName("panicButtonNo");
         gui_panicButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
+        gui_panicButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_panicButtonNo.getParent().getLayout()).setInsets(gui_panicButtonNo, "0.0mm 0.0mm 2.6455002mm 0.0mm").setReferenceComponents(gui_panicButtonNo, "11 17 11 17 ").setReferencePositions(gui_panicButtonNo, "0.0 0.0 0.0 0.0");
         gui_panicButtonYes.setPreferredSizeStr("22.486773mm 8.730159mm");
         gui_panicButtonYes.setSelected(false);
@@ -214,7 +239,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_panicButtonYes.setGroup("panicButtonGroup");
         gui_panicButtonYes.setName("panicButtonYes");
         gui_panicButtonYes.setIcon(resourceObjectInstance.getImage("yesButtonUnselect.png"));
-        gui_panicButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
+        gui_panicButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png 1"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_panicButtonYes.getParent().getLayout()).setInsets(gui_panicButtonYes, "0.7936508mm 0.0mm auto 0.0mm").setReferenceComponents(gui_panicButtonYes, "3 16 -1 16 ").setReferencePositions(gui_panicButtonYes, "1.0 0.0 0.0 0.0");
         gui_exerciseButtonYes.setPreferredSizeStr("21.16402mm 7.142857mm");
         gui_exerciseButtonYes.setSelected(false);
@@ -226,7 +251,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_exerciseButtonYes.setGroup("exerciseButtonGroup");
         gui_exerciseButtonYes.setName("exerciseButtonYes");
         gui_exerciseButtonYes.setIcon(resourceObjectInstance.getImage("yesButtonUnselect.png"));
-        gui_exerciseButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
+        gui_exerciseButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png 1"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonYes.getParent().getLayout()).setInsets(gui_exerciseButtonYes, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonYes, "4 16 -1 16 ").setReferencePositions(gui_exerciseButtonYes, "1.0 0.0 0.0 0.0");
         gui_exerciseButtonNo.setPreferredSizeStr("18.78307mm 6.6137567mm");
         gui_exerciseButtonNo.setSelected(false);
@@ -241,15 +266,20 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_exerciseButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonNo.getParent().getLayout()).setInsets(gui_exerciseButtonNo, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonNo, "4 17 -1 9 ").setReferencePositions(gui_exerciseButtonNo, "1.0 0.0 0.0 0.0");
         gui_sleepInput.setPreferredSizeStr("75.66138mm inherit");
+        gui_sleepInput.setRTL(false);
         gui_sleepInput.setHint("In Hours");
                 gui_sleepInput.setInlineStylesTheme(resourceObjectInstance);
         gui_sleepInput.setName("sleepInput");
         gui_sleepInput.setColumns(8);
-        ((com.codename1.ui.layouts.LayeredLayout)gui_sleepInput.getParent().getLayout()).setInsets(gui_sleepInput, "3.968254mm 37.200737% auto 30.939226%").setReferenceComponents(gui_sleepInput, "5 0 -1 0 ").setReferencePositions(gui_sleepInput, "1.0 0.0 0.0 0.0");
+        gui_sleepInput.setRows(1);
+        gui_sleepInput.setConstraint(com.codename1.ui.TextArea.DECIMAL | com.codename1.ui.TextArea.EMAILADDR | com.codename1.ui.TextArea.URL);
+        ((com.codename1.ui.layouts.LayeredLayout)gui_sleepInput.getParent().getLayout()).setInsets(gui_sleepInput, "0.0mm 36.466793% auto 31.673172%").setReferenceComponents(gui_sleepInput, "5 0 -1 0 ").setReferencePositions(gui_sleepInput, "1.0 0.0 0.0 0.0");
         gui_sugarInput.setPreferredSizeStr("23.015873mm 5.555556mm");
+        gui_sugarInput.setRTL(false);
         gui_sugarInput.setHint("In Grams");
                 gui_sugarInput.setInlineStylesTheme(resourceObjectInstance);
         gui_sugarInput.setName("sugarInput");
+        gui_sugarInput.setConstraint(com.codename1.ui.TextArea.DECIMAL | com.codename1.ui.TextArea.EMAILADDR | com.codename1.ui.TextArea.URL);
         ((com.codename1.ui.layouts.LayeredLayout)gui_sugarInput.getParent().getLayout()).setInsets(gui_sugarInput, "0.0mm 0.0mm auto 57.218094%").setReferenceComponents(gui_sugarInput, "1 9 -1 0 ").setReferencePositions(gui_sugarInput, "1.0 1.0 0.0 0.0");
         gui_yesButtonInset.setPreferredSizeStr("27.513227mm 4.7619047mm");
                 gui_yesButtonInset.setInlineStylesTheme(resourceObjectInstance);
@@ -263,7 +293,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_continueButton.setName("continueButton");
         gui_continueButton.setIcon(resourceObjectInstance.getImage("continueButton.png"));
         gui_continueButton.setPressedIcon(resourceObjectInstance.getImage("continuePress.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_continueButton.getParent().getLayout()).setInsets(gui_continueButton, "auto auto 9.259259mm 22.008547%").setReferenceComponents(gui_continueButton, "0 0 -1 0 ").setReferencePositions(gui_continueButton, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_continueButton.getParent().getLayout()).setInsets(gui_continueButton, "0.0mm auto 0.0mm 25.504587%").setReferenceComponents(gui_continueButton, "15 0 -1 0 ").setReferencePositions(gui_continueButton, "1.0 0.0 0.0 0.0");
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!

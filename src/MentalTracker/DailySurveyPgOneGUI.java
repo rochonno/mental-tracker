@@ -60,7 +60,7 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
     protected com.codename1.ui.Slider gui_stressSlider = new com.codename1.ui.Slider();
     protected com.codename1.ui.Button gui_confirmButton = new com.codename1.ui.Button();
     protected com.codename1.ui.Button gui_backButton = new com.codename1.ui.Button();
-    protected com.codename1.ui.Label gui_Label = new com.codename1.ui.Label();
+    protected com.codename1.ui.Label gui_moodLabels = new com.codename1.ui.Label();
     protected com.codename1.components.ScaleImageLabel gui_moodSlideLabels = new com.codename1.components.ScaleImageLabel();
 
 
@@ -130,7 +130,7 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
         addComponent(gui_stressSlider);
         addComponent(gui_confirmButton);
         addComponent(gui_backButton);
-        addComponent(gui_Label);
+        addComponent(gui_moodLabels);
         addComponent(gui_moodSlideLabels);
         gui_topInset.setPreferredSizeStr("inherit 4.2328043mm");
                 gui_topInset.setInlineStylesTheme(resourceObjectInstance);
@@ -183,21 +183,18 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
         gui_confirmButton.setPreferredSizeStr("64.021164mm 23.544973mm");
                 gui_confirmButton.setInlineStylesTheme(resourceObjectInstance);
         gui_confirmButton.setName("confirmButton");
-        gui_confirmButton.setIcon(resourceObjectInstance.getImage("continueButton.png"));
-        gui_confirmButton.setPressedIcon(resourceObjectInstance.getImage("continuePress.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_confirmButton.getParent().getLayout()).setInsets(gui_confirmButton, "auto 20.833334% 1.8518519mm 21.99074%").setReferenceComponents(gui_confirmButton, "1 0 -1 0 ").setReferencePositions(gui_confirmButton, "1.0 0.0 0.0 0.0");
         gui_backButton.setPreferredSizeStr("28.042328mm 10.8465605mm");
                 gui_backButton.setInlineStylesTheme(resourceObjectInstance);
         gui_backButton.setName("backButton");
-        gui_backButton.setIcon(resourceObjectInstance.getImage("backButton.png"));
-        gui_backButton.setPressedIcon(resourceObjectInstance.getImage("backPressed.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_backButton.getParent().getLayout()).setInsets(gui_backButton, "0.0mm auto auto 0.0mm").setReferenceComponents(gui_backButton, "0 -1 -1 0 ").setReferencePositions(gui_backButton, "1.0 0.0 0.0 0.0");
-        gui_Label.setPreferredSizeStr("126.455025mm 24.338625mm");
-                gui_Label.setInlineStylesTheme(resourceObjectInstance);
-        gui_Label.setInlineAllStyles("alignment:center;");
-        gui_Label.setName("Label");
-        gui_Label.setIcon(resourceObjectInstance.getImage("moodLabel.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Label.getParent().getLayout()).setInsets(gui_Label, "8.0% 0.0mm auto 0.0mm").setReferenceComponents(gui_Label, "0 0 -1 0 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
+        gui_moodLabels.setPreferredSizeStr("126.455025mm 24.338625mm");
+        gui_moodLabels.setText("");
+                gui_moodLabels.setInlineStylesTheme(resourceObjectInstance);
+        gui_moodLabels.setInlineAllStyles("alignment:center;");
+        gui_moodLabels.setName("moodLabels");
+        gui_moodLabels.setIcon(resourceObjectInstance.getImage("moodLabel.png"));
+        ((com.codename1.ui.layouts.LayeredLayout)gui_moodLabels.getParent().getLayout()).setInsets(gui_moodLabels, "8.0% 0.0mm auto 0.0mm").setReferenceComponents(gui_moodLabels, "0 0 -1 0 ").setReferencePositions(gui_moodLabels, "1.0 0.0 0.0 0.0");
         gui_moodSlideLabels.setPreferredSizeStr("37.037037mm 64.28571mm");
                 gui_moodSlideLabels.setInlineStylesTheme(resourceObjectInstance);
         gui_moodSlideLabels.setName("moodSlideLabels");
