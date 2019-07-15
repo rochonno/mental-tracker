@@ -66,9 +66,10 @@ public class LoginGUI extends com.codename1.ui.Form {
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
+        setScrollableX(false);
         setScrollableY(false);
                 setInlineStylesTheme(resourceObjectInstance);
-        setInlineAllStyles("bgColor:efefef;");
+        setInlineAllStyles("border:roundRect stroke(3.0mm fc083b66) -top-left -top-right -bottom-left -bottom-right 2.0mm; bgColor:efefef;");
         setTitle("LoginGUI");
         setName("LoginGUI");
         addComponent(gui_TopInset);

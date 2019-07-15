@@ -188,7 +188,7 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
         gui_stressSlider.setName("stressSlider");
         gui_stressSlider.setGap(2);
         gui_stressSlider.setIncrements(1);
-        gui_stressSlider.setProgress(2);
+        gui_stressSlider.setProgress(1);
         ((com.codename1.ui.layouts.LayeredLayout)gui_stressSlider.getParent().getLayout()).setInsets(gui_stressSlider, "0.0mm 2.3809524mm 82.01944% 0.0mm").setReferenceComponents(gui_stressSlider, "-1 -1 -1 2 ").setReferencePositions(gui_stressSlider, "0.0 0.0 0.0 1.0");
         gui_anxietySlider.setPreferredSizeStr("36.772488mm 17.460318mm");
         gui_anxietySlider.setEditable(true);
@@ -216,7 +216,7 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
                 gui_overallSlider.setInlineStylesTheme(resourceObjectInstance);
         gui_overallSlider.setName("overallSlider");
         gui_overallSlider.setIncrements(1);
-        gui_overallSlider.setProgress(9);
+        gui_overallSlider.setProgress(1);
         ((com.codename1.ui.layouts.LayeredLayout)gui_overallSlider.getParent().getLayout()).setInsets(gui_overallSlider, "-2.6455026mm 0.0mm auto 0.0mm").setReferenceComponents(gui_overallSlider, "3 8 -1 2 ").setReferencePositions(gui_overallSlider, "0.0 1.0 0.0 1.0");
         gui_stressNum.setPreferredSizeStr("6.6137567mm 12.433863mm");
                 gui_stressNum.setInlineStylesTheme(resourceObjectInstance);

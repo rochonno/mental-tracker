@@ -40,19 +40,18 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
                 errors += "Did you exercise? \n";
             }
 
-
-            try{
-            Double.parseDouble(gui_sleepInput.getText());
-            Double.parseDouble(gui_sugarInput.getText());
-            }catch(NumberFormatException | NullPointerException err){
-                errors += "Sleep/Sugar must be entered in number formatting. \n";
-            }
-
             if (gui_sleepInput.getText().isEmpty()){
                 errors += "How much sleep did you get? \n";
             }
             if (gui_sugarInput.getText().isEmpty()){
                 errors += "How much sugar did you consume? \n";
+            }
+
+            try{
+                Double.parseDouble(gui_sleepInput.getText());
+                Double.parseDouble(gui_sugarInput.getText());
+            }catch(NumberFormatException | NullPointerException err){
+                errors += "Sleep/Sugar must be entered in number formatting. \n\n";
             }
 
             if (errors != ""){
@@ -190,7 +189,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_sleepLabel.setIcon(resourceObjectInstance.getImage("sleepLabel.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_sleepLabel.getParent().getLayout()).setInsets(gui_sleepLabel, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_sleepLabel, "12 0 -1 0 ").setReferencePositions(gui_sleepLabel, "1.0 0.0 0.0 0.0");
         gui_depressedButtonYes.setPreferredSizeStr("22.486773mm 6.6137567mm");
-        gui_depressedButtonYes.setSelected(false);
+        gui_depressedButtonYes.setSelected(true);
         gui_depressedButtonYes.setUIID("ToggleButton");
                 gui_depressedButtonYes.setInlineStylesTheme(resourceObjectInstance);
         gui_depressedButtonYes.setInlineAllStyles("border:none; bgColor:efefef;");
@@ -271,20 +270,25 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_exerciseButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
         gui_exerciseButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonNo.getParent().getLayout()).setInsets(gui_exerciseButtonNo, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonNo, "4 17 -1 9 ").setReferencePositions(gui_exerciseButtonNo, "1.0 0.0 0.0 0.0");
-        gui_sleepInput.setPreferredSizeStr("75.66138mm inherit");
+        gui_sleepInput.setPreferredSizeStr("38.62434mm 6.0846562mm");
         gui_sleepInput.setRTL(false);
         gui_sleepInput.setHint("In Hours");
+        gui_sleepInput.setUIID("TextField");
                 gui_sleepInput.setInlineStylesTheme(resourceObjectInstance);
+        gui_sleepInput.setInlineAllStyles("alignment:left;");
         gui_sleepInput.setName("sleepInput");
+        gui_sleepInput.setMaxSize(5);
         gui_sleepInput.setColumns(8);
         gui_sleepInput.setRows(1);
+        gui_sleepInput.setHintIcon(com.codename1.ui.FontImage.createMaterial("\ue8b5".charAt(0), gui_sleepInput.getUnselectedStyle()));
         gui_sleepInput.setConstraint(com.codename1.ui.TextArea.DECIMAL | com.codename1.ui.TextArea.EMAILADDR | com.codename1.ui.TextArea.URL);
-        ((com.codename1.ui.layouts.LayeredLayout)gui_sleepInput.getParent().getLayout()).setInsets(gui_sleepInput, "0.0mm 36.466793% auto 31.673172%").setReferenceComponents(gui_sleepInput, "5 0 -1 0 ").setReferencePositions(gui_sleepInput, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_sleepInput.getParent().getLayout()).setInsets(gui_sleepInput, "0.0mm 0.0mm auto 52.050472%").setReferenceComponents(gui_sleepInput, "5 9 -1 0 ").setReferencePositions(gui_sleepInput, "1.0 1.0 0.0 0.0");
         gui_sugarInput.setPreferredSizeStr("23.015873mm 5.555556mm");
         gui_sugarInput.setRTL(false);
         gui_sugarInput.setHint("In Grams");
                 gui_sugarInput.setInlineStylesTheme(resourceObjectInstance);
         gui_sugarInput.setName("sugarInput");
+        gui_sugarInput.setHintIcon(com.codename1.ui.FontImage.createMaterial("\ue7e9".charAt(0), gui_sugarInput.getUnselectedStyle()));
         gui_sugarInput.setConstraint(com.codename1.ui.TextArea.DECIMAL | com.codename1.ui.TextArea.EMAILADDR | com.codename1.ui.TextArea.URL);
         ((com.codename1.ui.layouts.LayeredLayout)gui_sugarInput.getParent().getLayout()).setInsets(gui_sugarInput, "0.0mm 0.0mm auto 57.218094%").setReferenceComponents(gui_sugarInput, "1 9 -1 0 ").setReferencePositions(gui_sugarInput, "1.0 1.0 0.0 0.0");
         gui_yesButtonInset.setPreferredSizeStr("27.513227mm 4.7619047mm");

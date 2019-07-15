@@ -19,7 +19,7 @@
   <component type="Label" styles="alignment:center;" pressedStyles="alignment:left;" preferredSize="133.33333mm 8.730159mm" icon="resFile:sleepLabel.png" name="sleepLabel">
     <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="12 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 6.6137567mm" group="depressedButtonGroup" selected="false" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png 1" name="depressedButtonYes">
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 6.6137567mm" group="depressedButtonGroup" selected="true" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png 1" name="depressedButtonYes">
     <layoutConstraint insets="7.632094% 0.0mm auto 0.0mm" referenceComponents="2 16 -1 16 " referencePositions="0.0 0.0 0.0 0.0" />
   </component>
   <component type="Label" preferredSize="61.640213mm 9.523809mm" icon="resFile:yesterdayLabel.png" name="yesterdayLabel">
@@ -43,10 +43,10 @@
   <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="18.78307mm 6.6137567mm" group="exerciseButtonGroup" selected="false" toggleButton="true" icon="resFile:noButtonUnsele.png" pressedIcon="resFile:noButtonSelect.png" name="exerciseButtonNo">
     <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="4 17 -1 9 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="TextArea" preferredSize="75.66138mm inherit" hint="In Hours" rtl="false" rows="1" columns="8" constraint="5" name="sleepInput">
-    <layoutConstraint insets="0.0mm 36.466793% auto 31.673172%" referenceComponents="5 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="TextArea" uiid="TextField" styles="alignment:left;" preferredSize="38.62434mm 6.0846562mm" hint="In Hours" hintIcon="fontImage:e8b5" rtl="false" rows="1" columns="8" maxSize="5" constraint="5" name="sleepInput">
+    <layoutConstraint insets="0.0mm 0.0mm auto 52.050472%" referenceComponents="5 9 -1 0 " referencePositions="1.0 1.0 0.0 0.0" />
   </component>
-  <component type="TextField" preferredSize="23.015873mm 5.555556mm" hint="In Grams" rtl="false" constraint="5" name="sugarInput">
+  <component type="TextField" preferredSize="23.015873mm 5.555556mm" hint="In Grams" hintIcon="fontImage:e7e9" rtl="false" constraint="5" name="sugarInput">
     <layoutConstraint insets="0.0mm 0.0mm auto 57.218094%" referenceComponents="1 9 -1 0 " referencePositions="1.0 1.0 0.0 0.0" />
   </component>
   <component type="Label" preferredSize="27.513227mm 4.7619047mm" name="yesButtonInset">

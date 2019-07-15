@@ -27,7 +27,7 @@
     <component type="Label" preferredSize="27.513227462768555mm 10.052909851074219mm" icon="resFile:Overall.png" name="overallLabel">
       <layoutConstraint insets="23.188406% auto 46.376812% 0.0mm" referenceComponents="2 -1 -1 -1" referencePositions="1.0 0.0 0.0 0.0" />
     </component>
-    <component type="Slider" uiid="SliderFull" preferredSize="76.190475mm 17.989418mm" focusable="true" editable="true" rtl="false" thumbImage="resFile:icon.png" gap="2" progress="2" increments="1" maxValue="10" minValue="1" name="stressSlider" actionEvent="true">
+    <component type="Slider" uiid="SliderFull" preferredSize="76.190475mm 17.989418mm" focusable="true" editable="true" rtl="false" thumbImage="resFile:icon.png" gap="2" progress="1" increments="1" maxValue="10" minValue="1" name="stressSlider" actionEvent="true">
       <layoutConstraint insets="0.0mm 2.3809524mm 82.01944% 0.0mm" referenceComponents="-1 -1 -1 2 " referencePositions="0.0 0.0 0.0 1.0" />
     </component>
     <component type="Slider" uiid="SliderFull" preferredSize="36.772488mm 17.460318mm" focusable="true" editable="true" scrollVisible="true" thumbImage="resFile:icon.png" progress="1" increments="1" maxValue="10" minValue="1" name="anxietySlider" actionEvent="true">
@@ -36,7 +36,7 @@
     <component type="Slider" uiid="SliderFull" preferredSize="100.26455mm 18.518518mm" focusable="true" editable="true" thumbImage="resFile:icon.png" progress="1" increments="1" maxValue="10" minValue="1" name="confidenceSlider" actionEvent="true">
       <layoutConstraint insets="auto 0.0mm 38.78788% 0.0mm" referenceComponents="-1 4 -1 2 " referencePositions="0.0 0.0 0.0 1.0" />
     </component>
-    <component type="Slider" uiid="SliderFull" preferredSize="125.92593mm 19.047619mm" focusable="true" editable="true" thumbImage="resFile:icon.png" progress="9" increments="1" maxValue="10" minValue="1" name="overallSlider" actionEvent="true">
+    <component type="Slider" uiid="SliderFull" preferredSize="125.92593mm 19.047619mm" focusable="true" editable="true" thumbImage="resFile:icon.png" progress="1" increments="1" maxValue="10" minValue="1" name="overallSlider" actionEvent="true">
       <layoutConstraint insets="-2.6455026mm 0.0mm auto 0.0mm" referenceComponents="3 8 -1 2 " referencePositions="0.0 1.0 0.0 1.0" />
     </component>
     <component type="Label" styles="fgColor:0;" preferredSize="6.6137567mm 12.433863mm" name="stressNum">
