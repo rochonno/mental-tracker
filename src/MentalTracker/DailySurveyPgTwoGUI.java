@@ -20,12 +20,19 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     public void oncontinueButtonActionEvent(ActionEvent ev) {
         //Verify Input data
         boolean pass = false;
-        String errors = "The following prompts were't answered:";
+        String errors = "The following prompts were't answered: \n";
         while (pass = false){
             pass = true;
             if (!(gui_depressedButtonNo.isSelected() || gui_depressedButtonYes.isSelected())){
-                errors += "Have you felt depressed recently?";
+                errors += "Have you felt depressed recently? \n";
             }
+            if (!(gui_panicButtonNo.isSelected() || gui_panicButtonYes.isSelected())){
+                errors += "Any symptoms of panic recently? \n";
+            }
+            if (!(gui_exerciseButtonYes.isSelected() || gui_exerciseButtonNo.isSelected())){
+                errors += "Did you exercise? \n";
+            }
+            //if (!())
         }
     }
 
