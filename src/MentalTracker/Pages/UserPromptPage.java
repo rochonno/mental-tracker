@@ -1,5 +1,6 @@
 package MentalTracker.Pages;
 
+import MentalTracker.CoreApp;
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
 import MentalTracker.DataPortions.Prompts.MentalPrompts;
 import MentalTracker.DataPortions.Prompts.PromptResult;
@@ -83,7 +84,9 @@ public class UserPromptPage extends Form {
         }
         else
         {
-            // TODO:: CreatePromptDonePage();
+            MainPage main = new MainPage(true);
+            main.setSidePanel();
+            main.show();
         }
     }
 

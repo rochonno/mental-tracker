@@ -38,9 +38,11 @@ public class CoreApp implements LocalNotificationCallback{
             current.show();
             return;
         }
-        MainPage main = new MainPage(theme, new String());
-        main.setSidePanel(theme);
+        MainPage main = new MainPage(false);
+        main.setSidePanel();
         main.show();
+
+        current = main;
 
         //IntegrationTesting intTesting = new IntegrationTesting();
         //intTesting.RunStorageTests();

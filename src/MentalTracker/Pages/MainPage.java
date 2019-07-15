@@ -3,11 +3,11 @@ package MentalTracker.Pages;
 import MentalTracker.Components.SideMenu;
 import MentalTracker.DataPortions.Prompts.*;
 import MentalTracker.GuiComponents.MainPageComponents;
-import MentalTracker.MentalExceptions.ReadFileException;
 import com.codename1.io.Log;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.LayeredLayout;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 
 
@@ -31,16 +31,17 @@ public class MainPage extends Form {
 
     private MentalPrompts _Prompts;
     private PromptResults _Results;
-    private boolean _DoneSurvey;
+    private boolean DoneSurvey;
 
-    public MainPage(Resources theme, String empty)
+    public MainPage(boolean hasAnswered)
     {
         //runOtherPages();
-        this (getGlobalResources(), theme);
+        this (getGlobalResources(), hasAnswered);
     }
 
-    public MainPage (Resources resourcesObjectInstance, Resources theme)
+    public MainPage (Resources resourcesObjectInstance, boolean hasAnswered)
     {
+        DoneSurvey = hasAnswered;
         initialize();
         _Components = new MainPageComponents();
         initGuiBuilderComponents (resourcesObjectInstance);
@@ -53,7 +54,7 @@ public class MainPage extends Form {
         //_Page = new NeedDailyGUI();
         //_Page = new DailySurveyPgOneGUI();
         //_Page = new DailySurveyPgTwoGUI();
-        //_Page = new LoginGUI();
+        _Page = new LoginGUI();
         MentalPrompt samplePrompt = new MentalPrompt( "Exercise", "Have you exercised in the past day?", PromptDataType.BOOL);
         MentalPrompts samplePrompts = GenerateDefaultPrompts.DefaultMorningOnlyPrompts();
         PromptResults results = new PromptResults();
@@ -135,7 +136,7 @@ public class MainPage extends Form {
         }
 
 
-        if (!_DoneSurvey)
+        if (!DoneSurvey)
         {
             addComponent(_Components.StartQuestions);
             _Components.StartQuestions.setPreferredSizeStr("116.93122mm 23.544973mm");
@@ -151,7 +152,7 @@ public class MainPage extends Form {
         addComponent(_Components.PromptTitle);
         _Components.PromptTitle.setName("Prompt");
         _Components.PromptTitle.setAutoSizeMode(true);
-        if (!_DoneSurvey) _Components.PromptTitle.setText("Daily Tracking Is Ready!");
+        if (!DoneSurvey) _Components.PromptTitle.setText("Daily Tracking Is Ready!");
         else _Components.PromptTitle.setText("Keep Up the Good Work!");
         ((LayeredLayout) _Components.PromptTitle.getParent().getLayout()).
                 setInsets(_Components.PromptTitle, "0 auto auto auto").
@@ -181,8 +182,8 @@ public class MainPage extends Form {
         }
     }
 
-    public void setSidePanel(Resources theme)
+    public void setSidePanel()
     {
-        _SideMenu = new SideMenu(theme, this.getToolbar());
+        _SideMenu = new SideMenu(UIManager.initFirstTheme("/theme"), this);
     }
 }
