@@ -1,8 +1,12 @@
 package MentalTracker;
 
+import MentalTracker.Pages.MainPage;
+import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 
 public class NeedDailyGUI extends com.codename1.ui.Form {
+    private Form _Page;
+
     public NeedDailyGUI() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
@@ -11,8 +15,11 @@ public class NeedDailyGUI extends com.codename1.ui.Form {
         initGuiBuilderComponents(resourceObjectInstance);
     }
 
-    public void onTake(ActionEvent ev) {
+    public void onTakeSurveyActionEvent(ActionEvent ev) {
+        _Page = new DailySurveyPgOneGUI();
+        _Page.show();
     }
+
 
 //-- DON'T EDIT BELOW THIS LINE!!!
     protected com.codename1.ui.Label gui_Label = new com.codename1.ui.Label();

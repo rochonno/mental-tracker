@@ -55,6 +55,12 @@ public class UserNotification {
         _Activated = true;
     }
 
+    public void ActivateOnce(){
+        if (_Activated) Deactivate();
+        Display.getInstance().scheduleLocalNotification( _Ln, _TimeInMilli, LocalNotification.REPEAT_NONE);
+        _Activated = true;
+    }
+
     public boolean IsActivated ()
     {
         return _Activated;

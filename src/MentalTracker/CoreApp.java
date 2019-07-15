@@ -38,8 +38,11 @@ public class CoreApp implements LocalNotificationCallback{
             return;
         }
         MainPage main = new MainPage(theme);
+        LoginGUI login = new LoginGUI();
 
-        main.Show();
+        login.show();
+
+        //main.Show();
     }
 
     public void stop() {

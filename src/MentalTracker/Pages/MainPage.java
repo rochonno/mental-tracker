@@ -1,7 +1,6 @@
 package MentalTracker.Pages;
 
 import MentalTracker.Components.SideMenu;
-import MentalTracker.CustomizeQuestions;
 import com.codename1.ui.Form;
 import com.codename1.ui.util.Resources;
 
@@ -28,9 +27,8 @@ public class MainPage {
         //_Page = new DailySurveyPgTwoGUI();
         //_Page = new NeedDailyGUI();
         //_Page = new DailySurveyPgOneGUI();
-        _Page = new DailySurveyPgTwoGUI();
-        //_Page = new LoginGUI();
-        //_Page = new CustomizeQuestions();
+        //_Page = new DailySurveyPgTwoGUI();
+        _Page = new LoginGUI();
 
         //_Page = new Form("MainPage");
 

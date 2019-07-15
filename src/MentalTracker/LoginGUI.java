@@ -18,7 +18,7 @@ public class LoginGUI extends com.codename1.ui.Form {
     public void onButtonActionEvent(ActionEvent ev) {
 
         //Needs Validation that a correct account was input. **************************
-        _Page = new DailySurveyPgOneGUI();
+        _Page = new NeedDailyGUI();
         _Page.show();
     }
 
