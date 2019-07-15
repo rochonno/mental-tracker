@@ -161,8 +161,8 @@ public class UserPromptPage extends Form{
                     _Components.InputSlider.setIncrements(1);
                     _Components.InputSlider.setProgress(5);
                     ((LayeredLayout)_Components.InputSlider.getParent().getLayout()).
-                            setInsets(_Components.InputSlider, "0.0mm 0.0mm auto 0.0mm").
-                            setReferenceComponents(_Components.InputSlider, "2 2 8 2 ").
+                            setInsets(_Components.InputSlider, "0.0mm 0.0mm 0 0.0mm").
+                            setReferenceComponents(_Components.InputSlider, "2 2 2 2 ").
                             setReferencePositions(_Components.InputSlider, "1.0 0.0 0.0 0.0");
                     break;
 
@@ -212,7 +212,7 @@ public class UserPromptPage extends Form{
                     _Components.InputButtonYes.setIcon(resourceObjectInstance.getImage("yesButtonUnselect.png"));
                     _Components.InputButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
                     ((LayeredLayout)_Components.InputButtonYes.getParent().getLayout()).
-                            setInsets(_Components.InputButtonYes, "7.632094% 0.0mm auto 0.0mm").
+                            setInsets(_Components.InputButtonYes, "7.632094% 0.0mm 0 0.0mm").
                             setReferenceComponents(_Components.InputButtonYes, "2 16 -1 16 ").
                             setReferencePositions(_Components.InputButtonYes, "0.0 0.0 0.0 0.0");
                     break;
@@ -221,7 +221,8 @@ public class UserPromptPage extends Form{
                     addComponent(_Components.PromptQuestion);
                     _Components.PromptQuestion.setName("Prompt");
                     ((LayeredLayout) _Components.PromptQuestion.getParent().getLayout()).
-                            setInsets(_Components.PromptQuestion, "25% auto auto 25%").
+                            setInsets(_Components.PromptQuestion, "250% auto auto 25%").
+                            //setReferenceComponentTop(_Components.InputTextBox, _Components.BackButton, 1).
                             setReferenceComponents(_Components.PromptQuestion, "1 0 0 0 ").
                             setReferencePositions(_Components.PromptQuestion, "2 0.0 0.0 0.0");
                     break;
@@ -234,7 +235,8 @@ public class UserPromptPage extends Form{
                     _Components.InputTextBox.setColumns(1);
                     ((LayeredLayout)_Components.InputTextBox.getParent().getLayout()).
                             setInsets(_Components.InputTextBox, "20% 37.200737% auto 38%").
-                            setReferenceComponents(_Components.InputTextBox, "1 0 1 0 ").
+                            //setReferenceComponents(_Components.InputTextBox, "1 0 1 0 ").
+                            setReferenceComponentTop(_Components.InputTextBox, _Components.PromptQuestion, 2).
                             setReferencePositions(_Components.InputTextBox, "3 0.0 0.0 0.0");
                     break;
             }
