@@ -8,7 +8,11 @@
 
 package MentalTracker.DataPortions.Prompts;
 
+import MentalTracker.DataPortions.DataStorage;
+import MentalTracker.MentalExceptions.ReadFileException;
+import MentalTracker.MentalExceptions.SaveFileException;
 import com.codename1.io.Externalizable;
+import com.codename1.io.FileSystemStorage;
 import com.codename1.io.Log;
 import com.codename1.io.Util;
 
@@ -53,6 +57,20 @@ public class MentalPrompts implements Externalizable {
             return null;
         }
     }
+
+    public void SavePrompts (String filename) throws SaveFileException {
+        if (filename == null) filename = FileSystemStorage.getInstance().getAppHomePath() + this.getClass();
+        DataStorage storage = new DataStorage();
+        storage.SavePrompts(filename, this);
+    }
+
+    public MentalPrompts LoadPrompts (String filename) throws ReadFileException {
+        if (filename == null) filename = FileSystemStorage.getInstance().getAppHomePath() + this.getClass();
+        DataStorage storage = new DataStorage();
+        return storage.LoadPrompts(filename, 0);
+    }
+
+    public MentalPrompts
 
     public int get_PromptCount() { return _PromptCount; }
 
