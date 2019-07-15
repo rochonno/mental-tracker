@@ -1,7 +1,7 @@
 package MentalTracker.Pages;
 
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
-import MentalTracker.GuiComponents.ChooseComponents;
+import MentalTracker.GuiComponents.PromptComponentsGenerator;
 import MentalTracker.GuiComponents.ComponantName;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
@@ -13,7 +13,7 @@ import static com.codename1.ui.util.Resources.getGlobalResources;
 public class UserPromptPage extends Form{
     private Form _Page;
     private MentalPrompt _Prompt;
-    private ChooseComponents _Components;
+    private PromptComponentsGenerator _Components;
 
     public UserPromptPage(MentalPrompt prompt)
     {
@@ -23,7 +23,7 @@ public class UserPromptPage extends Form{
     public UserPromptPage (Resources resourceObjectInstance, MentalPrompt prompt)
     {
         _Prompt = prompt;
-        _Components = new ChooseComponents(_Prompt);
+        _Components = new PromptComponentsGenerator(_Prompt);
         initGuiBuilderComponents (resourceObjectInstance);
     }
 
@@ -218,16 +218,16 @@ public class UserPromptPage extends Form{
 
                     break;
 
-                case INPUT_TEXT_FIELD:
-                    addComponent(_Components.InputTextField);
-                    _Components.InputTextField.setHint("In Hours");
-                    _Components.InputTextField.setInlineStylesTheme(resourceObjectInstance);
-                    _Components.InputTextField.setName("sleepInput");
-                    _Components.InputTextField.setColumns(8);
-                    ((LayeredLayout)_Components.InputTextField.getParent().getLayout()).
-                            setInsets(_Components.InputTextField, "3.968254mm 37.200737% auto 30.939226%").
-                            setReferenceComponents(_Components.InputTextField, "5 0 -1 0 ").
-                            setReferencePositions(_Components.InputTextField, "1.0 0.0 0.0 0.0");
+                case INPUT_TEXT_BOX:
+                    addComponent(_Components.InputTextBox);
+                    _Components.InputTextBox.setHint("In Hours");
+                    _Components.InputTextBox.setInlineStylesTheme(resourceObjectInstance);
+                    _Components.InputTextBox.setName("sleepInput");
+                    _Components.InputTextBox.setColumns(1);
+                    ((LayeredLayout)_Components.InputTextBox.getParent().getLayout()).
+                            setInsets(_Components.InputTextBox, "3.968254mm 37.200737% auto 30.939226%").
+                            setReferenceComponents(_Components.InputTextBox, "5 0 -1 0 ").
+                            setReferencePositions(_Components.InputTextBox, "1.0 0.0 0.0 0.0");
                     break;
             }
         }

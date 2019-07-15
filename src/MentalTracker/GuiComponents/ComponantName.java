@@ -9,5 +9,5 @@ public enum ComponantName {
     INPUT_SLIDER,
     INPUT_BUTTON_YES,
     INPUT_BUTTON_NO,
-    INPUT_TEXT_FIELD
+    INPUT_TEXT_BOX
 }

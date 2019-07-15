@@ -6,11 +6,12 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Slider;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
+import com.codename1.ui.TextField;
 
 import java.util.List;
 import java.util.Vector;
 
-public class ChooseComponents {
+public class PromptComponentsGenerator {
     private MentalPrompt _Prompt;
 
     public Label TopInset;
@@ -23,11 +24,11 @@ public class ChooseComponents {
     public Slider InputSlider;
     public RadioButton InputButtonYes;
     public RadioButton InputButtonNo;
-    public TextArea InputTextField;
+    public TextField InputTextBox;
 
     public List<ComponantName> EnabledComponents = new Vector<>();
 
-    public ChooseComponents (MentalPrompt prompt)
+    public PromptComponentsGenerator(MentalPrompt prompt)
     {
         _Prompt = prompt;
 
@@ -82,8 +83,8 @@ public class ChooseComponents {
 
     private void createTextArea()
     {
-        InputTextField = new TextArea();
-        EnabledComponents.add(ComponantName.INPUT_TEXT_FIELD);
+        InputTextBox = new TextField();
+        EnabledComponents.add(ComponantName.INPUT_TEXT_BOX);
     }
 
     private void createYesNo()
@@ -108,7 +109,7 @@ public class ChooseComponents {
 
     public boolean CheckTextArea ()
     {
-        if(InputTextField == null) return false;
+        if(InputTextBox == null) return false;
         return true;
     }
 }
