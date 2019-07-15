@@ -101,24 +101,24 @@ public class LoginGUI extends com.codename1.ui.Form {
         gui_UserPass.setRows(1);
         gui_UserPass.setHintIcon(com.codename1.ui.FontImage.createMaterial("\ue897".charAt(0), gui_UserPass.getUnselectedStyle()));
         ((com.codename1.ui.layouts.LayeredLayout)gui_UserPass.getParent().getLayout()).setInsets(gui_UserPass, "0.0mm 0.0mm 84.73895% 0.0mm").setReferenceComponents(gui_UserPass, "2 0 -1 0 ").setReferencePositions(gui_UserPass, "1.0 0.0 0.0 0.0");
-        gui_Button_1.setPreferredSizeStr("109.78836mm 13.756614mm");
+        gui_Button_1.setPreferredSizeStr("109.78836mm 16.931217mm");
         gui_Button_1.setText("Create Account");
                 gui_Button_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Button_1.setInlineAllStyles("alignment:center;");
         gui_Button_1.setName("Button_1");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Button_1.getParent().getLayout()).setInsets(gui_Button_1, "16.40625% 0.0mm auto 0.0mm").setReferenceComponents(gui_Button_1, "6 0 -1 0 ").setReferencePositions(gui_Button_1, "1.0 0.0 0.0 0.0");
-        gui_Button_2.setPreferredSizeStr("109.78836mm 10.8465605mm");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_Button_1.getParent().getLayout()).setInsets(gui_Button_1, "0.0mm 0.0mm 62.84153% 0.0mm").setReferenceComponents(gui_Button_1, "6 0 -1 0 ").setReferencePositions(gui_Button_1, "1.0 0.0 0.0 0.0");
+        gui_Button_2.setPreferredSizeStr("109.78836mm 17.724869mm");
         gui_Button_2.setText("Forgot Password?");
                 gui_Button_2.setInlineStylesTheme(resourceObjectInstance);
         gui_Button_2.setInlineAllStyles("alignment:center;");
         gui_Button_2.setName("Button_2");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Button_2.getParent().getLayout()).setInsets(gui_Button_2, "-1.5873013mm 0.0mm -1.0582011mm 0.0mm").setReferenceComponents(gui_Button_2, "4 0 -1 0 ").setReferencePositions(gui_Button_2, "1.0 0.0 0.0 0.0");
-        gui_Button.setPreferredSizeStr("86.507935mm inherit");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_Button_2.getParent().getLayout()).setInsets(gui_Button_2, "-1.5873013mm 0.0mm 43.47826% 0.0mm").setReferenceComponents(gui_Button_2, "4 0 -1 0 ").setReferencePositions(gui_Button_2, "1.0 0.0 0.0 0.0");
+        gui_Button.setPreferredSizeStr("86.507935mm 12.698413mm");
                 gui_Button.setInlineStylesTheme(resourceObjectInstance);
         gui_Button.setName("Button");
         gui_Button.setIcon(resourceObjectInstance.getImage("signInButton.png"));
-        gui_Button.setPressedIcon(resourceObjectInstance.getImage("signInPress.png 1"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Button.getParent().getLayout()).setInsets(gui_Button, "2.6455002mm 5.026455mm auto 5.026455mm").setReferenceComponents(gui_Button, "3 -1 -1 -1").setReferencePositions(gui_Button, "1.0 0.0 0.0 0.0");
+        gui_Button.setPressedIcon(resourceObjectInstance.getImage("signInPress.png"));
+        ((com.codename1.ui.layouts.LayeredLayout)gui_Button.getParent().getLayout()).setInsets(gui_Button, "2.6455026mm 5.026455mm 74.69388% 0.0mm").setReferenceComponents(gui_Button, "3 -1 -1 0 ").setReferencePositions(gui_Button, "1.0 0.0 0.0 0.0");
         gui_Button.setPropertyValue("maskName", "");
     }// </editor-fold>
 

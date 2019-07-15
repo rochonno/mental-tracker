@@ -13,14 +13,14 @@
   <component type="TextField" preferredSize="126.455025mm inherit" hint="Password" hintIcon="fontImage:e897" rows="1" name="UserPass">
     <layoutConstraint insets="0.0mm 0.0mm 84.73895% 0.0mm" referenceComponents="2 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="Button" text="Create Account" styles="alignment:center;" preferredSize="109.78836mm 13.756614mm" name="Button_1">
-    <layoutConstraint insets="16.40625% 0.0mm auto 0.0mm" referenceComponents="6 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="Button" text="Create Account" styles="alignment:center;" preferredSize="109.78836mm 16.931217mm" name="Button_1">
+    <layoutConstraint insets="0.0mm 0.0mm 62.84153% 0.0mm" referenceComponents="6 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="Button" text="Forgot Password?" styles="alignment:center;" preferredSize="109.78836mm 10.8465605mm" name="Button_2">
-    <layoutConstraint insets="-1.5873013mm 0.0mm -1.0582011mm 0.0mm" referenceComponents="4 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="Button" text="Forgot Password?" styles="alignment:center;" preferredSize="109.78836mm 17.724869mm" name="Button_2">
+    <layoutConstraint insets="-1.5873013mm 0.0mm 43.47826% 0.0mm" referenceComponents="4 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="Button" preferredSize="86.507935mm inherit" icon="resFile:signInButton.png" pressedIcon="resFile:signInPress.png 1" name="Button" actionEvent="true">
+  <component type="Button" preferredSize="86.507935mm 12.698413mm" icon="resFile:signInButton.png" pressedIcon="resFile:signInPress.png" name="Button" actionEvent="true">
   <custom name="maskName" type="java.lang.String" value=""/>
-    <layoutConstraint insets="2.6455002mm 5.026455mm auto 5.026455mm" referenceComponents="3 -1 -1 -1" referencePositions="1.0 0.0 0.0 0.0" />
+    <layoutConstraint insets="2.6455026mm 5.026455mm 74.69388% 0.0mm" referenceComponents="3 -1 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
 </component>

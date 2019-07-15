@@ -18,7 +18,22 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     }
 
     public void oncontinueButtonActionEvent(ActionEvent ev) {
-
+        //Verify Input data
+        boolean pass = false;
+        String errors = "The following prompts were't answered: \n";
+        while (pass = false){
+            pass = true;
+            if (!(gui_depressedButtonNo.isSelected() || gui_depressedButtonYes.isSelected())){
+                errors += "Have you felt depressed recently? \n";
+            }
+            if (!(gui_panicButtonNo.isSelected() || gui_panicButtonYes.isSelected())){
+                errors += "Any symptoms of panic recently? \n";
+            }
+            if (!(gui_exerciseButtonYes.isSelected() || gui_exerciseButtonNo.isSelected())){
+                errors += "Did you exercise? \n";
+            }
+            //if (!())
+        }
     }
 
 
@@ -123,19 +138,19 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
                 gui_depressedLabel.setInlineStylesTheme(resourceObjectInstance);
         gui_depressedLabel.setInlineAllStyles("alignment:center;");
         gui_depressedLabel.setName("depressedLabel");
-        gui_depressedLabel.setIcon(resourceObjectInstance.getImage("depressedLabel.png 1"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_depressedLabel.getParent().getLayout()).setInsets(gui_depressedLabel, "10.358565% 5.026455mm auto 5.026455mm").setReferenceComponents(gui_depressedLabel, "-1 -1 -1 -1").setReferencePositions(gui_depressedLabel, "0.0 0.0 0.0 0.0");
+        gui_depressedLabel.setIcon(resourceObjectInstance.getImage("depressedLabel.png"));
+        ((com.codename1.ui.layouts.LayeredLayout)gui_depressedLabel.getParent().getLayout()).setInsets(gui_depressedLabel, "auto 5.026455mm 0.0mm 0.0mm").setReferenceComponents(gui_depressedLabel, "-1 -1 8 0 ").setReferencePositions(gui_depressedLabel, "0.0 0.0 0.0 0.0");
         gui_panicLabel.setPreferredSizeStr("133.33333mm 7.936508mm");
                 gui_panicLabel.setInlineStylesTheme(resourceObjectInstance);
         gui_panicLabel.setInlineAllStyles("alignment:center;");
         gui_panicLabel.setName("panicLabel");
-        gui_panicLabel.setIcon(resourceObjectInstance.getImage("panicLabel.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_panicLabel.getParent().getLayout()).setInsets(gui_panicLabel, "2.2132797% -1.322751mm auto -3.7037036mm").setReferenceComponents(gui_panicLabel, "6 0 -1 0 ").setReferencePositions(gui_panicLabel, "1.0 0.0 0.0 0.0");
+        gui_panicLabel.setIcon(resourceObjectInstance.getImage("panicLabel.png 1"));
+        ((com.codename1.ui.layouts.LayeredLayout)gui_panicLabel.getParent().getLayout()).setInsets(gui_panicLabel, "2.6455026mm -1.322751mm auto -3.7037036mm").setReferenceComponents(gui_panicLabel, "6 0 -1 0 ").setReferencePositions(gui_panicLabel, "1.0 0.0 0.0 0.0");
         gui_exerciseLabel.setPreferredSizeStr("133.33333mm 10.05291mm");
                 gui_exerciseLabel.setInlineStylesTheme(resourceObjectInstance);
         gui_exerciseLabel.setInlineAllStyles("alignment:center;");
         gui_exerciseLabel.setName("exerciseLabel");
-        gui_exerciseLabel.setIcon(resourceObjectInstance.getImage("exerciseLabel.png 1"));
+        gui_exerciseLabel.setIcon(resourceObjectInstance.getImage("exerciseLabel.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseLabel.getParent().getLayout()).setInsets(gui_exerciseLabel, "6.267806% 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseLabel, "7 0 -1 0 ").setReferencePositions(gui_exerciseLabel, "1.0 0.0 0.0 0.0");
         gui_sleepLabel.setPreferredSizeStr("133.33333mm 8.730159mm");
                 gui_sleepLabel.setInlineStylesTheme(resourceObjectInstance);
@@ -145,7 +160,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_sleepLabel.setIcon(resourceObjectInstance.getImage("sleepLabel.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_sleepLabel.getParent().getLayout()).setInsets(gui_sleepLabel, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_sleepLabel, "12 0 -1 0 ").setReferencePositions(gui_sleepLabel, "1.0 0.0 0.0 0.0");
         gui_depressedButtonYes.setPreferredSizeStr("22.486773mm 6.6137567mm");
-        gui_depressedButtonYes.setSelected(true);
+        gui_depressedButtonYes.setSelected(false);
         gui_depressedButtonYes.setUIID("ToggleButton");
                 gui_depressedButtonYes.setInlineStylesTheme(resourceObjectInstance);
         gui_depressedButtonYes.setInlineAllStyles("border:none; bgColor:efefef;");
@@ -161,13 +176,13 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_yesterdayLabel.setName("yesterdayLabel");
         gui_yesterdayLabel.setIcon(resourceObjectInstance.getImage("yesterdayLabel.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_yesterdayLabel.getParent().getLayout()).setInsets(gui_yesterdayLabel, "4.4973545mm auto auto 0.0mm").setReferenceComponents(gui_yesterdayLabel, "11 0 -1 0 ").setReferencePositions(gui_yesterdayLabel, "1.0 0.0 0.0 0.0");
-        gui_backButton.setPreferredSizeStr("19.31217mm 8.201058mm");
+        gui_backButton.setPreferredSizeStr("17.724869mm 14.550264mm");
                 gui_backButton.setInlineStylesTheme(resourceObjectInstance);
         gui_backButton.setName("backButton");
         gui_backButton.setIcon(resourceObjectInstance.getImage("backButton.png"));
         gui_backButton.setPressedIcon(resourceObjectInstance.getImage("backPressed.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_backButton.getParent().getLayout()).setInsets(gui_backButton, "4.4973545mm 85.95044% 82.747604% 1.3227515mm").setReferenceComponents(gui_backButton, "-1 -1 -1 -1").setReferencePositions(gui_backButton, "0.0 0.0 0.0 0.0");
-        gui_depressedButtonNo.setPreferredSizeStr("18.78307mm inherit");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_backButton.getParent().getLayout()).setInsets(gui_backButton, "0.0mm 83.553925% 90.45307% 1.3227515mm").setReferenceComponents(gui_backButton, "17 -1 -1 -1").setReferencePositions(gui_backButton, "1.0 0.0 0.0 0.0");
+        gui_depressedButtonNo.setPreferredSizeStr("18.78307mm 6.878307mm");
         gui_depressedButtonNo.setSelected(false);
         gui_depressedButtonNo.setUIID("ToggleButton");
                 gui_depressedButtonNo.setInlineStylesTheme(resourceObjectInstance);
@@ -178,7 +193,8 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_depressedButtonNo.setName("depressedButtonNo");
         gui_depressedButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
         gui_depressedButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_depressedButtonNo.getParent().getLayout()).setInsets(gui_depressedButtonNo, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_depressedButtonNo, "6 17 -1 10 ").setReferencePositions(gui_depressedButtonNo, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_depressedButtonNo.getParent().getLayout()).setInsets(gui_depressedButtonNo, "0.0mm 0.0mm 0.0mm 0.0mm").setReferenceComponents(gui_depressedButtonNo, "6 17 6 10 ").setReferencePositions(gui_depressedButtonNo, "0.0 0.0 0.0 0.0");
+        gui_panicButtonNo.setPreferredSizeStr("inherit 5.555556mm");
         gui_panicButtonNo.setUIID("ToggleButton");
                 gui_panicButtonNo.setInlineStylesTheme(resourceObjectInstance);
         gui_panicButtonNo.setInlineAllStyles("border:none; bgColor:efefef;");
@@ -187,10 +203,9 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_panicButtonNo.setGroup("panicButtonGroup");
         gui_panicButtonNo.setName("panicButtonNo");
         gui_panicButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
-        gui_panicButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_panicButtonNo.getParent().getLayout()).setInsets(gui_panicButtonNo, "0.7936508mm 0.0mm auto 0.0mm").setReferenceComponents(gui_panicButtonNo, "3 17 -1 17 ").setReferencePositions(gui_panicButtonNo, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_panicButtonNo.getParent().getLayout()).setInsets(gui_panicButtonNo, "0.0mm 0.0mm 2.6455002mm 0.0mm").setReferenceComponents(gui_panicButtonNo, "11 17 11 17 ").setReferencePositions(gui_panicButtonNo, "0.0 0.0 0.0 0.0");
         gui_panicButtonYes.setPreferredSizeStr("22.486773mm 8.730159mm");
-        gui_panicButtonYes.setSelected(true);
+        gui_panicButtonYes.setSelected(false);
         gui_panicButtonYes.setUIID("ToggleButton");
                 gui_panicButtonYes.setInlineStylesTheme(resourceObjectInstance);
         gui_panicButtonYes.setInlineAllStyles("border:none; bgColor:efefef;");
@@ -214,7 +229,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_exerciseButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
         ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonYes.getParent().getLayout()).setInsets(gui_exerciseButtonYes, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonYes, "4 16 -1 16 ").setReferencePositions(gui_exerciseButtonYes, "1.0 0.0 0.0 0.0");
         gui_exerciseButtonNo.setPreferredSizeStr("18.78307mm 6.6137567mm");
-        gui_exerciseButtonNo.setSelected(true);
+        gui_exerciseButtonNo.setSelected(false);
         gui_exerciseButtonNo.setUIID("ToggleButton");
                 gui_exerciseButtonNo.setInlineStylesTheme(resourceObjectInstance);
         gui_exerciseButtonNo.setInlineAllStyles("border:none; bgColor:efefef;");
@@ -224,7 +239,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_exerciseButtonNo.setName("exerciseButtonNo");
         gui_exerciseButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
         gui_exerciseButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonNo.getParent().getLayout()).setInsets(gui_exerciseButtonNo, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonNo, "4 17 -1 17 ").setReferencePositions(gui_exerciseButtonNo, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonNo.getParent().getLayout()).setInsets(gui_exerciseButtonNo, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonNo, "4 17 -1 9 ").setReferencePositions(gui_exerciseButtonNo, "1.0 0.0 0.0 0.0");
         gui_sleepInput.setPreferredSizeStr("75.66138mm inherit");
         gui_sleepInput.setHint("In Hours");
                 gui_sleepInput.setInlineStylesTheme(resourceObjectInstance);
@@ -239,7 +254,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_yesButtonInset.setPreferredSizeStr("27.513227mm 4.7619047mm");
                 gui_yesButtonInset.setInlineStylesTheme(resourceObjectInstance);
         gui_yesButtonInset.setName("yesButtonInset");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_yesButtonInset.getParent().getLayout()).setInsets(gui_yesButtonInset, "auto 32.726032% 138.35979mm 25.040606%").setReferenceComponents(gui_yesButtonInset, "-1 17 -1 -1").setReferencePositions(gui_yesButtonInset, "0.0 1.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_yesButtonInset.getParent().getLayout()).setInsets(gui_yesButtonInset, "0.0mm 33.314266% auto 24.45237%").setReferenceComponents(gui_yesButtonInset, "0 17 -1 -1").setReferencePositions(gui_yesButtonInset, "1.0 1.0 0.0 0.0");
         gui_noButtonInset.setPreferredSizeStr("25.132275mm 1.3227513mm");
                 gui_noButtonInset.setInlineStylesTheme(resourceObjectInstance);
         gui_noButtonInset.setName("noButtonInset");
@@ -248,7 +263,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         gui_continueButton.setName("continueButton");
         gui_continueButton.setIcon(resourceObjectInstance.getImage("continueButton.png"));
         gui_continueButton.setPressedIcon(resourceObjectInstance.getImage("continuePress.png"));
-        ((com.codename1.ui.layouts.LayeredLayout)gui_continueButton.getParent().getLayout()).setInsets(gui_continueButton, "0.0mm auto auto 24.816177%").setReferenceComponents(gui_continueButton, "15 0 -1 0 ").setReferencePositions(gui_continueButton, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_continueButton.getParent().getLayout()).setInsets(gui_continueButton, "auto auto 9.259259mm 22.008547%").setReferenceComponents(gui_continueButton, "0 0 -1 0 ").setReferencePositions(gui_continueButton, "1.0 0.0 0.0 0.0");
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
