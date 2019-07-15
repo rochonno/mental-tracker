@@ -21,6 +21,7 @@ public class MentalPrompt {
         _Name = name;
         _Prompt = prompt;
         _Min = 0;
+        _ResultType = resultType;
     }
 
     public void SetMinMax (int min, int max)
