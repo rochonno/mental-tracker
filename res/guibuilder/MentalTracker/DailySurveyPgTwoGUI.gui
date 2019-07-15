@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" layout="LayeredLayout" layeredLayoutPreferredWidthMM="0.0" layeredLayoutPreferredHeightMM="0.0"  autolayout="true" styles="bgColor:efefef;" title="DailySurveyPgTwoGUI" scrollableY="false" name="DailySurveyPgTwoGUI">
+  <component type="Label" preferredSize="inherit 6.6137567mm" name="topInset">
+    <layoutConstraint insets="1.6mm 5.0mm 95.26387% 5.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" styles="alignment:center;" preferredSize="126.190475mm 10.8465605mm" icon="resFile:sugarLabel.png" name="Label">
+    <layoutConstraint insets="-0.26455027mm -1.3227513mm auto -4.497355mm" referenceComponents="14 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" styles="alignment:center;" preferredSize="133.33333mm 10.8465605mm" icon="resFile:depressedLabel.png 1" name="depressedLabel">
+    <layoutConstraint insets="10.358565% 5.026455mm auto 5.026455mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" styles="alignment:center;" preferredSize="133.33333mm 7.936508mm" icon="resFile:panicLabel.png" name="panicLabel">
+    <layoutConstraint insets="2.2132797% -1.322751mm auto -3.7037036mm" referenceComponents="6 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" styles="alignment:center;" preferredSize="133.33333mm 10.05291mm" icon="resFile:exerciseLabel.png 1" name="exerciseLabel">
+    <layoutConstraint insets="6.267806% 0.0mm auto 0.0mm" referenceComponents="7 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" styles="alignment:center;" pressedStyles="alignment:left;" preferredSize="133.33333mm 8.730159mm" icon="resFile:sleepLabel.png" name="sleepLabel">
+    <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="12 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 6.6137567mm" group="depressedButtonGroup" selected="true" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png" name="depressedButtonYes">
+    <layoutConstraint insets="7.632094% 0.0mm auto 0.0mm" referenceComponents="2 16 -1 16 " referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" preferredSize="61.640213mm 9.523809mm" icon="resFile:yesterdayLabel.png" name="yesterdayLabel">
+    <layoutConstraint insets="4.4973545mm auto auto 0.0mm" referenceComponents="11 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Button" preferredSize="19.31217mm 8.201058mm" icon="resFile:backButton.png" pressedIcon="resFile:backPressed.png" name="backButton" actionEvent="true">
+    <layoutConstraint insets="4.4973545mm 85.95044% 82.747604% 1.3227515mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="18.78307mm inherit" group="depressedButtonGroup" selected="false" toggleButton="true" icon="resFile:noButtonUnsele.png" pressedIcon="resFile:noButtonSelect.png" name="depressedButtonNo">
+    <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="6 17 -1 10 " referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" group="panicButtonGroup" toggleButton="true" icon="resFile:noButtonUnsele.png" pressedIcon="resFile:noButtonSelect.png" name="panicButtonNo">
+    <layoutConstraint insets="0.7936508mm 0.0mm auto 0.0mm" referenceComponents="3 17 -1 17 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 8.730159mm" group="panicButtonGroup" selected="true" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png" name="panicButtonYes">
+    <layoutConstraint insets="0.7936508mm 0.0mm auto 0.0mm" referenceComponents="3 16 -1 16 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="21.16402mm 7.142857mm" group="exerciseButtonGroup" selected="false" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png" name="exerciseButtonYes">
+    <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="4 16 -1 16 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="18.78307mm 6.6137567mm" group="exerciseButtonGroup" selected="true" toggleButton="true" icon="resFile:noButtonUnsele.png" pressedIcon="resFile:noButtonSelect.png" name="exerciseButtonNo">
+    <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="4 17 -1 17 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="TextArea" preferredSize="75.66138mm inherit" hint="In Hours" columns="8" name="sleepInput">
+    <layoutConstraint insets="3.968254mm 37.200737% auto 30.939226%" referenceComponents="5 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="TextField" preferredSize="23.015873mm 5.555556mm" hint="In Grams" name="sugarInput">
+    <layoutConstraint insets="0.0mm 0.0mm auto 57.218094%" referenceComponents="1 9 -1 0 " referencePositions="1.0 1.0 0.0 0.0" />
+  </component>
+  <component type="Label" preferredSize="27.513227mm 4.7619047mm" name="yesButtonInset">
+    <layoutConstraint insets="auto 32.726032% 138.35979mm 25.040606%" referenceComponents="-1 17 -1 -1" referencePositions="0.0 1.0 0.0 0.0" />
+  </component>
+  <component type="Label" preferredSize="25.132275mm 1.3227513mm" name="noButtonInset">
+    <layoutConstraint insets="3.174603mm 16.619184% auto 60.144547%" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Button" icon="resFile:continueButton.png" pressedIcon="resFile:continuePress.png" name="continueButton" actionEvent="true">
+    <layoutConstraint insets="0.0mm auto auto 24.816177%" referenceComponents="15 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+</component>
