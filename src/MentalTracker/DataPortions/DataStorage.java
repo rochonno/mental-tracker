@@ -13,8 +13,6 @@ import MentalTracker.MentalExceptions.ReadFileException;
 import MentalTracker.MentalExceptions.SaveFileException;
 import com.codename1.io.Storage;
 
-import java.io.*;
-
 public class DataStorage {
 
     public DataStorage()
@@ -23,53 +21,28 @@ public class DataStorage {
 
     public MentalPrompts LoadPrompts (String filename, int version) throws ReadFileException
     {
-        try ( InputStream iStream = Storage.getInstance().createInputStream(filename)) {
-            DataInputStream iDataStream = new DataInputStream(iStream);
-
-            MentalPrompts prompts = new MentalPrompts();
-            prompts.internalize(version, iDataStream);
-            return prompts;
-        }
-        catch (IOException err) {
-            throw new ReadFileException("Failed to read prompts file: " + filename, new Throwable());
-        }
+        Storage s = Storage.getInstance();
+        MentalPrompts prompts = new MentalPrompts();    // Make sure Util registers the class to read it in
+        return (MentalPrompts) s.readObject(filename);
     }
+
 
     public PromptResults LoadPromptResutls (String filename, int version) throws ReadFileException
     {
-        try ( InputStream iStream = Storage.getInstance().createInputStream(filename)) {
-            DataInputStream iDataStream = new DataInputStream(iStream);
-
-            PromptResults results = new PromptResults();
-            results.internalize(version, iDataStream);
-            return results;
-        }
-        catch (IOException ex) {
-            throw new ReadFileException("Failed to read results file: " + filename, new Throwable(ex));
-        }
+        Storage s = Storage.getInstance();
+        PromptResults results = new PromptResults();    // Make sure Util registers the class to read it in
+        return (PromptResults) s.readObject(filename);
     }
 
     public void SavePrompts (String filename, MentalPrompts prompts) throws SaveFileException
     {
-        try (OutputStream oStream = Storage.getInstance().createOutputStream(filename)) {
-            DataOutputStream oDataStream = new DataOutputStream(oStream);
-
-            prompts.externalize(oDataStream);
-        }
-        catch (IOException ex) {
-            throw new SaveFileException("Failed to save prompts file: " + filename, new Throwable(ex));
-        }
+        Storage s =  Storage.getInstance();
+        s.writeObject(filename, prompts);
     }
 
     public void SavePromptResults (String filename, PromptResults results) throws SaveFileException
     {
-        try (OutputStream oStream = Storage.getInstance().createOutputStream( filename )) {
-            DataOutputStream oDataStream = new DataOutputStream(oStream);
-
-            results.externalize(oDataStream);
-        }
-        catch (IOException ex) {
-            throw new SaveFileException("Failed to save results file: " + filename, new Throwable(ex));
-        }
+        Storage s = Storage.getInstance();
+        s.writeObject(filename, results);
     }
 }
