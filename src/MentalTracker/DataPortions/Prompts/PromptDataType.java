@@ -8,7 +8,7 @@
 
 package MentalTracker.DataPortions.Prompts;
 
-enum PromptDataType
+public enum PromptDataType
 {
     INT, DOUBLE, STRING, BOOL;
 }
