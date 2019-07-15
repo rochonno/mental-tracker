@@ -17,13 +17,15 @@ public class CustomizeQuestions extends com.codename1.ui.Form {
 
     public void onminusButtonActionEvent(ActionEvent ev) {
         questions.remove(questions.get(questions.size() - 1));
-        gui_Box_Layout_Y.remove();
+        gui_Box_Layout_Y.removeComponent(this.getComponentAt(0, this.getComponentCount() + 1));
+        repaint();
 
     }
 
     public void onplusButtonActionEvent(ActionEvent ev) {
         questions.add(new com.codename1.ui.TextArea());
         gui_Box_Layout_Y.add(questions.get(questions.size() - 1));
+        repaint();
     }
 
 

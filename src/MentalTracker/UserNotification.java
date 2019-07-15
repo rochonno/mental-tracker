@@ -26,6 +26,7 @@ public class UserNotification {
         _Ln.setId( title );
         _Ln.setAlertTitle( title );
         _Ln.setAlertBody( body );
+        _Ln.setAlertSound("/notification_sound_chime.mp3");
         _Activated = false;
     }
 
@@ -50,7 +51,13 @@ public class UserNotification {
     public void ActivateWeekly ()
     {
         if (_Activated) Deactivate();
-        Display.getInstance().scheduleLocalNotification( _Ln, _TimeInMilli, LocalNotification.REPEAT_DAY);
+        Display.getInstance().scheduleLocalNotification( _Ln, _TimeInMilli, LocalNotification.REPEAT_WEEK);
+        _Activated = true;
+    }
+
+    public void ActivateOnce(){
+        if (_Activated) Deactivate();
+        Display.getInstance().scheduleLocalNotification( _Ln, _TimeInMilli, LocalNotification.REPEAT_NONE);
         _Activated = true;
     }
 

@@ -7,7 +7,7 @@
   <component type="Label" preferredSize="91.53439mm 8.994709mm" name="TopInset">
     <layoutConstraint insets="1.6mm 5.0mm auto 5.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
   </component>
-  <component type="Button" text="Take Today's Survey!" preferredSize="194.709mm 24.338625mm" name="TakeSurvey">
+  <component type="Button" text="Take Today's Survey!" preferredSize="194.709mm 24.338625mm" name="TakeSurvey" actionEvent="true">
     <layoutConstraint insets="29.36937% 0.0mm 53.333332% 0.0mm" referenceComponents="0 1 -1 1 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
 </component>
