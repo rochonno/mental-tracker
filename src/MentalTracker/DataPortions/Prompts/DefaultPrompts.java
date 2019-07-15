@@ -65,7 +65,7 @@ public class DefaultPrompts {
     public static MentalPrompt CreateMoodShiftPrompt ()
     {
         String name = "Mood Shifts Past Day";
-        String prompt = "How many mood shifts have you experienced since the last check-in?";
+        String prompt = "Mod shifts experienced since the last check-in?";
         PromptDataType promptDataType = PromptDataType.INT;
 
         return CreatePrompt (name, prompt, 0, 20, promptDataType );
@@ -102,8 +102,8 @@ public class DefaultPrompts {
 
     public static MentalPrompt CreatePanicPrompt ()
     {
-        String name = "Panic Symptoms";
-        String prompt = "Have you experiences symptoms of panic recently?";
+        String name = "Recent Panic Symptoms";
+        String prompt = "Any experiences symptoms of panic?";
         PromptDataType promptDataType = PromptDataType.BOOL;
 
         return CreatePrompt (name, prompt, promptDataType);

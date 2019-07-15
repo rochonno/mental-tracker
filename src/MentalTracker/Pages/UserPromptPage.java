@@ -263,29 +263,32 @@ public class UserPromptPage extends Form{
                     _Components.InputButtonNo.setInlineAllStyles("border:none; bgColor:efefef;");
                     _Components.InputButtonNo.setInlineSelectedStyles("border:none;");
                     _Components.InputButtonNo.setInlinePressedStyles("border:none;");
-                    _Components.InputButtonNo.setName("ButtonNo");
+                    _Components.InputButtonNo.setGroup("depressedButtonGroup");
+                    _Components.InputButtonNo.setName("depressedButtonNo");
                     _Components.InputButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
                     _Components.InputButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
                     ((LayeredLayout)_Components.InputButtonNo.getParent().getLayout()).
-                            setInsets(_Components.InputButtonNo, "0 10% auto 10%").
+                            setInsets(_Components.InputButtonNo, "0 60% auto 20%").
                             setReferenceComponentTop(_Components.InputButtonNo, _Components.BackButton, 5f);
                     break;
 
                 case INPUT_BUTTON_YES:
                     addComponent(_Components.InputButtonYes);
-                    _Components.InputButtonYes.setPreferredSizeStr("21.16402mm 7.142857mm");
+                    _Components.InputButtonYes.setPreferredSizeStr("22.486773mm 6.6137567mm");
                     _Components.InputButtonYes.setSelected(false);
                     _Components.InputButtonYes.setUIID("ToggleButton");
                     _Components.InputButtonYes.setInlineStylesTheme(resourceObjectInstance);
                     _Components.InputButtonYes.setInlineAllStyles("border:none; bgColor:efefef;");
                     _Components.InputButtonYes.setInlineSelectedStyles("border:none;");
                     _Components.InputButtonYes.setInlinePressedStyles("border:none;");
-                    _Components.InputButtonYes.setName("ButtonYes");
+                    _Components.InputButtonYes.setGroup("depressedButtonGroup");
+                    _Components.InputButtonYes.setName("depressedButtonYes");
                     _Components.InputButtonYes.setIcon(resourceObjectInstance.getImage("yesButtonUnselect.png"));
                     _Components.InputButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
                     ((LayeredLayout)_Components.InputButtonYes.getParent().getLayout()).
-                            setInsets(_Components.InputButtonYes, "0 10% auto 70%").
-                            setReferenceComponentTop(_Components.InputButtonYes, _Components.BackButton, 5f);
+                            setInsets(_Components.InputButtonYes, "0 auto auto 0").
+                            setReferenceComponentLeft(_Components.InputButtonYes, _Components.InputButtonNo, 2f).
+                            setReferenceComponentTop(_Components.InputButtonYes, _Components.InputButtonNo, 0);
                     break;
 
                 case PROMPT_QUESTION:
