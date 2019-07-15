@@ -15,7 +15,7 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
-public class UserPromptPage extends Form{
+public class UserPromptPage extends Form {
     private Form _NextForm;
     private Form _PrevForm;
 

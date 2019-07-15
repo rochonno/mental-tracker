@@ -31,10 +31,10 @@ public class PromptComponentsGenerator {
     {
         _Prompt = prompt;
 
-        TurnComponentsOn();
+        turnComponentsOn();
     }
 
-    private void TurnComponentsOn()
+    private void turnComponentsOn()
     {
         TopInset = new Label();
         EnabledComponents.add(ComponantName.TOP_INSET);
