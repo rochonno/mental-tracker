@@ -7,19 +7,25 @@ import com.codename1.ui.Slider;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
 
-public class ChooseComponents {
+import java.util.List;
+import java.util.Vector;
 
+public class ChooseComponents {
     private MentalPrompt _Prompt;
+
+    public Label TopInset;
     public Label PromptTitle;
     public Label PromptQuestion;
 
-    public Button ConfirmButton;
+    public Button AdvanceButton;
     public Button BackButton;
 
     public Slider InputSlider;
     public RadioButton InputButtonYes;
     public RadioButton InputButtonNo;
     public TextArea InputTextField;
+
+    public List<ComponantName> EnabledComponents = new Vector<>();
 
     public ChooseComponents (MentalPrompt prompt)
     {
@@ -30,9 +36,14 @@ public class ChooseComponents {
 
     private void TurnComponentsOn()
     {
+        TopInset = new Label();
+        EnabledComponents.add(ComponantName.TOP_INSET);
         createPromptQuestion();
         createPromptTitle();
+        createBackNextButton();
         PromptTitle = new com.codename1.ui.Label();
+        EnabledComponents.add(ComponantName.PROMPT_TITLE);
+
 
         switch (_Prompt.GetDataType()){
             case INT: createSlider(); break;
@@ -46,17 +57,28 @@ public class ChooseComponents {
     {
         PromptTitle = new Label();
         PromptTitle.setText(_Prompt.get_Name());
+        EnabledComponents.add(ComponantName.PROMPT_TITLE);
     }
 
     private void createPromptQuestion()
     {
         PromptQuestion = new Label();
         PromptQuestion.setText(_Prompt.get_Prompt());
+        EnabledComponents.add(ComponantName.PROMPT_QUESTION);
+    }
+
+    private void createBackNextButton()
+    {
+        AdvanceButton = new RadioButton();
+        BackButton = new RadioButton();
+        EnabledComponents.add(ComponantName.ADV_BUTTON);
+        EnabledComponents.add(ComponantName.BACK_BUTTON);
     }
 
     private void createSlider()
     {
         InputSlider = new Slider();
+        EnabledComponents.add(ComponantName.INPUT_SLIDER);
         InputSlider.setMaxValue(_Prompt.GetMax());
         InputSlider.setMinValue(_Prompt.GetMin());
     }
@@ -64,14 +86,16 @@ public class ChooseComponents {
     private void createTextArea()
     {
         InputTextField = new TextArea();
+        EnabledComponents.add(ComponantName.INPUT_TEXT_FIELD);
     }
 
     private void createYesNo()
     {
         InputButtonNo = new RadioButton();
+        EnabledComponents.add(ComponantName.INPUT_BUTTON_NO);
         InputButtonYes = new RadioButton();
+        EnabledComponents.add(ComponantName.INPUT_BUTTON_YES);
     }
-
 
     public boolean CheckSlider ()
     {
@@ -79,13 +103,13 @@ public class ChooseComponents {
         return true;
     }
 
-    public boolean InputButtons ()
+    public boolean CheckInputButtons ()
     {
         if(InputButtonNo == null) return false;
         return true;
     }
 
-    public boolean TextArea ()
+    public boolean CheckTextArea ()
     {
         if(InputTextField == null) return false;
         return true;

@@ -2,6 +2,9 @@ package MentalTracker.Pages;
 
 import MentalTracker.DailySurveyPgOneGUI;
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
+import MentalTracker.GuiComponents.ChooseComponents;
+import MentalTracker.GuiComponents.ComponantName;
+import com.codename1.ui.Component;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.events.ActionEvent;
@@ -13,26 +16,64 @@ import static com.codename1.ui.util.Resources.getGlobalResources;
 public class UserPromptPage extends Form{
     private Form _Page;
     private MentalPrompt _Prompt;
+    private ChooseComponents _Components;
 
     public UserPromptPage(MentalPrompt prompt)
     {
         this (getGlobalResources());
         _Prompt = prompt;
+        generateGuiComponents();
     }
+
+    private void generateGuiComponents()
+    {
+        _Components = new ChooseComponents(_Prompt);
+    }
+
+    private void onSliderActionEvent(ActionEvent ev) {
+
+    }
+
+    private void onSliderDataChangeEvent(Component cmp, int type, int index) {
+
+    }
+
+    private void onNextButtonActionEvent (ActionEvent ev) {
+
+    }
+
+    private void onBackButtonActionEvent (ActionEvent ev) {
+
+    }
+
 
     public UserPromptPage (Resources resourceObjectInstance)
     {
         initGuiBuilderComponents (resourceObjectInstance);
     }
 
-    public void GenerateGuiComponents()
+    private void guiBuilderBindComponentListeners()
     {
+        EventCallbackClass callback = new EventCallbackClass();
 
+        _Components.BackButton.addActionListener(callback);
+        _Components.AdvanceButton.addActionListener(callback);
+
+        if (_Components.CheckInputButtons())
+        {
+            _Components.InputButtonNo.addActionListener(callback);
+            _Components.InputButtonYes.addActionListener(callback);
+        }
+        if (_Components.CheckSlider())
+        {
+            _Components.InputSlider.addActionListener(callback);
+            _Components.InputSlider.addDataChangedListener(callback);
+        }
     }
-
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
         private com.codename1.ui.Component cmp;
+
         public EventCallbackClass(com.codename1.ui.Component cmp) {
             this.cmp = cmp;
         }
@@ -47,46 +88,60 @@ public class UserPromptPage extends Form{
                 sourceComponent = sourceComponent.getParent().getLeadParent();
             }
 
-            if(sourceComponent == gui_anxietySlider) {
-                onanxietySliderActionEvent(ev);
+            if(sourceComponent == _Components.InputSlider) {
+                onSliderActionEvent(ev);
             }
-            if(sourceComponent == gui_stressSlider) {
-                onstressSliderActionEvent(ev);
+            if(sourceComponent == _Components.AdvanceButton) {
+                onNextButtonActionEvent(ev);
             }
-            if(sourceComponent == gui_confirmButton) {
-                onconfirmButtonActionEvent(ev);
-            }
-            if(sourceComponent == gui_backButton) {
-                onbackButtonActionEvent(ev);
+            if(sourceComponent == _Components.BackButton) {
+                onBackButtonActionEvent(ev);
             }
         }
 
         public void dataChanged(int type, int index) {
-            onmoodSliderDataChangeEvent(cmp, type, index);
-            onconfidenceSliderDataChangeEvent(cmp, type, index);
-            onanxietySliderDataChangeEvent(cmp, type, index);
-            onstressSliderDataChangeEvent(cmp, type, index);
+            onSliderDataChangeEvent(cmp, type, index);
         }
     }
 
     private void initGuiBuilderComponents(Resources resourceObjectInstance) {
+        
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
         setScrollableY(false);
         setInlineStylesTheme(resourceObjectInstance);
         setInlineAllStyles("bgColor:efefef;");
-        setTitle("DailySurveyPgOneGUI");
-        setName("DailySurveyPgOneGUI");
-        addComponent(gui_topInset);
-        addComponent(gui_moodSlider);
-        addComponent(gui_confidenceSlider);
-        addComponent(gui_anxietySlider);
-        addComponent(gui_stressSlider);
-        addComponent(gui_confirmButton);
-        addComponent(gui_backButton);
-        addComponent(gui_Label);
-        addComponent(gui_moodSlideLabels);
+        setTitle("UserPromptPage");
+        setName("UserPromptPage");
+        addComponent(_Components.TopInset);
+
+        if (_Components.CheckInputButtons())
+        {
+            _Components.InputButtonNo.addActionListener(callback);
+            _Components.InputButtonYes.addActionListener(callback);
+        }
+        if (_Components.CheckSlider())
+        {
+            _Components.InputSlider.addActionListener(callback);
+            _Components.InputSlider.addDataChangedListener(callback);
+        }
+
+        for (ComponantName component: _Components.EnabledComponents)
+        {
+            switch (component) {
+                case TOP_INSET: addComponent(_Components.TopInset); break;
+                case ADV_BUTTON: addComponent(_Components.AdvanceButton); break;
+                case BACK_BUTTON: addComponent(_Components.BackButton); break;
+                case INPUT_SLIDER: addComponent(_Components.InputSlider); break;
+                case PROMPT_TITLE: addComponent(_Components.PromptTitle); break;
+                case INPUT_BUTTON_NO: addComponent(_Components.InputButtonNo); break;
+                case INPUT_BUTTON_YES: addComponent(_Components.InputButtonYes); break;
+                case PROMPT_QUESTION: addComponent(_Components.PromptQuestion); break;
+                case INPUT_TEXT_FIELD: addComponent(_Components.InputTextField); break;
+            }
+        }
+
         gui_topInset.setPreferredSizeStr("inherit 4.2328043mm");
         gui_topInset.setInlineStylesTheme(resourceObjectInstance);
         gui_topInset.setName("topInset");
