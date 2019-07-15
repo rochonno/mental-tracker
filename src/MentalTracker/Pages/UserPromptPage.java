@@ -6,6 +6,7 @@ import MentalTracker.GuiComponents.ComponantName;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import static com.codename1.ui.util.Resources.getGlobalResources;
@@ -103,7 +104,7 @@ public class UserPromptPage extends Form{
         setScrollableY(false);
         setInlineStylesTheme(resourceObjectInstance);
         setInlineAllStyles("bgColor:efefef;");
-        setTitle(_Prompt.get_Name());
+        setTitle("Track Your Mind");
         setName("UserPromptPage");
 
         for (ComponantName component: _Components.EnabledComponents)
@@ -128,19 +129,22 @@ public class UserPromptPage extends Form{
                     _Components.AdvanceButton.setIcon(resourceObjectInstance.getImage("continueButton.png"));
                     _Components.AdvanceButton.setPressedIcon(resourceObjectInstance.getImage("continuePress.png"));
                     ((LayeredLayout)_Components.AdvanceButton.getParent().getLayout()).
-                            setInsets(_Components.AdvanceButton, "auto 0.0mm 1.0582011mm 0.0mm").
-                            setReferenceComponents(_Components.AdvanceButton, "0 0 -1 0 ").
-                            setReferencePositions(_Components.AdvanceButton, "1.0 0.0 0.0 0.0");
+                            setInsets(_Components.AdvanceButton, "10% auto 25% 25%").
+                            setReferenceComponents(_Components.AdvanceButton, "2 0 -1 0").
+                            setReferencePositions(_Components.AdvanceButton, "2.8 0.0 0.0 0.1");
                     break;
 
                 case BACK_BUTTON:
                     addComponent(_Components.BackButton);
-                    _Components.BackButton.setPreferredSizeStr("28.042328mm 10.8465605mm");
+                    _Components.BackButton.setPreferredSizeStr("20.042328mm 10.8465605mm");
                     _Components.BackButton.setInlineStylesTheme(resourceObjectInstance);
                     _Components.BackButton.setName("backButton");
                     _Components.BackButton.setIcon(resourceObjectInstance.getImage("backButton.png"));
                     _Components.BackButton.setPressedIcon(resourceObjectInstance.getImage("backPressed.png"));
-                    ((LayeredLayout)_Components.BackButton.getParent().getLayout()).setInsets(_Components.BackButton, "0.0mm auto auto 0.0mm").setReferenceComponents(_Components.BackButton, "0 -1 -1 0 ").setReferencePositions(_Components.BackButton, "1.0 0.0 0.0 0.0");
+                    ((LayeredLayout)_Components.BackButton.getParent().getLayout()).
+                            setInsets(_Components.BackButton, "0.0mm auto auto 0.0mm").
+                            setReferenceComponents(_Components.BackButton, "0 -1 -1 0 ").
+                            setReferencePositions(_Components.BackButton, "-1 0.0 0.0 0.0");
                     break;
 
                 case INPUT_SLIDER:
@@ -170,9 +174,9 @@ public class UserPromptPage extends Form{
                     _Components.PromptTitle.setName("Label");
                     _Components.PromptTitle.setIcon(resourceObjectInstance.getImage("moodLabel.png"));
                     ((LayeredLayout)_Components.PromptTitle.getParent().getLayout()).
-                            setInsets(_Components.PromptTitle, "8.0% 0.0mm auto 0.0mm").
-                            setReferenceComponents(_Components.PromptTitle, "0 0 -1 0 ").
-                            setReferencePositions(_Components.PromptTitle, "1.0 0.0 0.0 0.0");
+                            setInsets(_Components.PromptTitle, "25.0% 0.0mm auto 0.0mm").
+                            setReferenceComponents(_Components.PromptTitle, "1 0 0 0 ").
+                            setReferencePositions(_Components.PromptTitle, "3.5 0.0 0.0 0.0");
                     break;
 
                 case INPUT_BUTTON_NO:
@@ -215,7 +219,11 @@ public class UserPromptPage extends Form{
 
                 case PROMPT_QUESTION:
                     addComponent(_Components.PromptQuestion);
-
+                    _Components.PromptQuestion.setName("Prompt");
+                    ((LayeredLayout) _Components.PromptQuestion.getParent().getLayout()).
+                            setInsets(_Components.PromptQuestion, "25% auto auto 25%").
+                            setReferenceComponents(_Components.PromptQuestion, "1 0 0 0 ").
+                            setReferencePositions(_Components.PromptQuestion, "2 0.0 0.0 0.0");
                     break;
 
                 case INPUT_TEXT_BOX:
@@ -225,9 +233,9 @@ public class UserPromptPage extends Form{
                     _Components.InputTextBox.setName("sleepInput");
                     _Components.InputTextBox.setColumns(1);
                     ((LayeredLayout)_Components.InputTextBox.getParent().getLayout()).
-                            setInsets(_Components.InputTextBox, "3.968254mm 37.200737% auto 30.939226%").
-                            setReferenceComponents(_Components.InputTextBox, "5 0 -1 0 ").
-                            setReferencePositions(_Components.InputTextBox, "1.0 0.0 0.0 0.0");
+                            setInsets(_Components.InputTextBox, "20% 37.200737% auto 38%").
+                            setReferenceComponents(_Components.InputTextBox, "1 0 1 0 ").
+                            setReferencePositions(_Components.InputTextBox, "3 0.0 0.0 0.0");
                     break;
             }
         }
