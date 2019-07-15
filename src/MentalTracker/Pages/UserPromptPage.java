@@ -17,14 +17,14 @@ public class UserPromptPage extends Form{
 
     public UserPromptPage(MentalPrompt prompt)
     {
-        this (getGlobalResources());
-        _Prompt = prompt;
-        generateGuiComponents();
+        this (getGlobalResources(), prompt);
     }
 
-    private void generateGuiComponents()
+    public UserPromptPage (Resources resourceObjectInstance, MentalPrompt prompt)
     {
+        _Prompt = prompt;
         _Components = new ChooseComponents(_Prompt);
+        initGuiBuilderComponents (resourceObjectInstance);
     }
 
     private void onSliderActionEvent(ActionEvent ev) {
@@ -41,12 +41,6 @@ public class UserPromptPage extends Form{
 
     private void onBackButtonActionEvent (ActionEvent ev) {
 
-    }
-
-
-    public UserPromptPage (Resources resourceObjectInstance)
-    {
-        initGuiBuilderComponents (resourceObjectInstance);
     }
 
     private void guiBuilderBindComponentListeners()
@@ -102,16 +96,15 @@ public class UserPromptPage extends Form{
     }
 
     private void initGuiBuilderComponents(Resources resourceObjectInstance) {
-        
+
         guiBuilderBindComponentListeners();
         setLayout(new LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
         setScrollableY(false);
         setInlineStylesTheme(resourceObjectInstance);
         setInlineAllStyles("bgColor:efefef;");
-        setTitle("UserPromptPage");
+        setTitle(_Prompt.get_Name());
         setName("UserPromptPage");
-        addComponent(_Components.TopInset);
 
         for (ComponantName component: _Components.EnabledComponents)
         {

@@ -2,6 +2,9 @@ package MentalTracker.Pages;
 
 import MentalTracker.Components.SideMenu;
 import MentalTracker.CustomizeQuestions;
+import MentalTracker.DataPortions.Prompts.MentalPrompt;
+import MentalTracker.DataPortions.Prompts.MentalPrompts;
+import MentalTracker.DataPortions.Prompts.PromptDataType;
 import com.codename1.ui.Form;
 import com.codename1.ui.util.Resources;
 
@@ -30,7 +33,9 @@ public class MainPage {
         //_Page = new DailySurveyPgOneGUI();
         //_Page = new DailySurveyPgTwoGUI();
         //_Page = new LoginGUI();
-        _Page = new CustomizeQuestions();
+        MentalPrompt samplePrompt = new MentalPrompt( "Sleep", "Enter hours of sleep", PromptDataType.DOUBLE);
+        _Page = new UserPromptPage(samplePrompt);
+        //_Page = new CustomizeQuestions();
 
         //_Page = new Form("MainPage");
 

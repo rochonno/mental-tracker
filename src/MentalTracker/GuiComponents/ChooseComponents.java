@@ -41,9 +41,6 @@ public class ChooseComponents {
         createPromptQuestion();
         createPromptTitle();
         createBackNextButton();
-        PromptTitle = new com.codename1.ui.Label();
-        EnabledComponents.add(ComponantName.PROMPT_TITLE);
-
 
         switch (_Prompt.GetDataType()){
             case INT: createSlider(); break;
