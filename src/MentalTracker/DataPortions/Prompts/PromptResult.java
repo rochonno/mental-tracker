@@ -40,12 +40,25 @@ public class PromptResult implements Externalizable {
      */
     public PromptResult (String name, PromptDataType expectedType, String result) throws EmptyStringException {
         if (name.isEmpty()) throw new EmptyStringException("Trying to create result with no name", new Throwable());
+        if (result.isEmpty()) throw new EmptyStringException("Trying to create result with no answer", new Throwable());
 
         _PromptName = name;
         _ExpectedType = expectedType;
         _StringResult = result;
         try {
-            _ValidResult = parseResult(result);
+            _ValidResult = parseResult();
+        }
+        catch (NumberFormatException ex)
+        {
+            _ValidResult = false;
+        }
+    }
+
+    public void ChangeResult (String result) throws EmptyStringException {
+        if (result.isEmpty()) throw new EmptyStringException("Trying to create result with no answer", new Throwable());
+        _StringResult = result;
+        try {
+            _ValidResult = parseResult();
         }
         catch (NumberFormatException ex)
         {
@@ -56,10 +69,9 @@ public class PromptResult implements Externalizable {
     /**
      * Parses the result based on the expected input type
      *
-     * @param result the received result in the form of a String
      * @return if it was successfully parsed
      */
-    private boolean parseResult(String result)
+    private boolean parseResult()
     {
         switch (_ExpectedType)
         {

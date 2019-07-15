@@ -2,8 +2,12 @@ package MentalTracker.Pages;
 
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
 import MentalTracker.DataPortions.Prompts.MentalPrompts;
+import MentalTracker.DataPortions.Prompts.PromptResult;
+import MentalTracker.DataPortions.Prompts.PromptResults;
 import MentalTracker.GuiComponents.PromptComponentsGenerator;
 import MentalTracker.GuiComponents.ComponantName;
+import MentalTracker.MentalExceptions.EmptyStringException;
+import com.codename1.io.Log;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
@@ -18,12 +22,16 @@ public class UserPromptPage extends Form{
     private MentalPrompt _CurrPrompt;
     private MentalPrompts _NextPrompts;
     private PromptComponentsGenerator _Components;
+
     private String _UserAnswer;
+    private PromptResult _Result;
+    private PromptResults _AllResults;
 
 
-    public UserPromptPage(MentalPrompts prompts, Form previous)
+    public UserPromptPage(MentalPrompts prompts, PromptResults results, Form previous)
     {
         this (getGlobalResources(), prompts);
+        _AllResults = results;
         _PrevForm = previous;
     }
 
@@ -47,8 +55,31 @@ public class UserPromptPage extends Form{
     private void onNextButtonActionEvent (ActionEvent ev) {
         if (_NextPrompts.get_PromptCount() > 0)
         {
-            _NextForm = new UserPromptPage(_NextPrompts, this);
-            _NextForm.show();
+
+            if (_UserAnswer != null) {
+                if (_Result == null) {
+                    try {
+                        _Result = new PromptResult(_CurrPrompt.get_Name(), _CurrPrompt.GetDataType(), _UserAnswer);
+                        _AllResults.AddResult(_Result);
+                        _NextForm = new UserPromptPage(_NextPrompts, _AllResults, this);
+                        _NextForm.show();
+                    } catch (EmptyStringException e) {
+                        Log.e(e.getCause());
+                    }
+                }
+                else {
+                    try {
+                        _AllResults.UpdateResult(_Result, _UserAnswer);
+                    } catch (EmptyStringException e) {
+                        Log.e(e.getCause());
+                    }
+                }
+            }
+            else {
+
+                //TODO:: Show error asking them to answer the prompt as best they can
+            }
+
         }
         else
         {

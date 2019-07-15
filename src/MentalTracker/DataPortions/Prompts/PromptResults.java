@@ -9,6 +9,7 @@
 
 package MentalTracker.DataPortions.Prompts;
 
+import MentalTracker.MentalExceptions.EmptyStringException;
 import com.codename1.io.Externalizable;
 import com.codename1.io.Util;
 
@@ -36,6 +37,11 @@ public class PromptResults implements Externalizable {
     public void AddResult (PromptResult result)
     {
         _ResultsList.add (result);
+    }
+
+    public void UpdateResult (PromptResult promptResult, String result) throws EmptyStringException {
+        _ResultsList.remove(promptResult);
+        promptResult.ChangeResult(result);
     }
 
     @Override
