@@ -3,6 +3,7 @@ package MentalTracker;
 
 import static com.codename1.ui.CN.*;
 
+import MentalTracker.MentalTrackerTesting.IntegrateTesting.IntegrationTesting;
 import MentalTracker.Pages.MainPage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Dialog;
@@ -39,6 +40,9 @@ public class CoreApp {
         MainPage main = new MainPage(theme);
 
         main.Show();
+
+        IntegrationTesting intTesting = new IntegrationTesting();
+        intTesting.RunStorageTests();
     }
 
     public void stop() {
