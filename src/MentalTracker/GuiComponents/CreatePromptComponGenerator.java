@@ -52,9 +52,9 @@ public class CreatePromptComponGenerator {
         InputResponseTextArea.setHint("slider, yes/no, number, words");
 
         InputMinTextArea = new TextArea();
-        InputMinTextArea.setHint("Only for slider/number");
+        InputMinTextArea.setHint("Min (for slider/number)");
 
         InputMaxTextArea = new TextArea();
-        InputMaxTextArea.setHint("Only for slider/number");
+        InputMaxTextArea.setHint("Max (for slider/number)");
     }
 }

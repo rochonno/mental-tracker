@@ -37,12 +37,12 @@ public class CoreApp {
             current.show();
             return;
         }
-        MainPage main = new MainPage(theme);
+        MainPage main = new MainPage(theme, new String());
+        main.setSidePanel(theme);
+        main.show();
 
-        main.Show();
-
-        IntegrationTesting intTesting = new IntegrationTesting();
-        intTesting.RunStorageTests();
+        //IntegrationTesting intTesting = new IntegrationTesting();
+        //intTesting.RunStorageTests();
     }
 
     public void stop() {
