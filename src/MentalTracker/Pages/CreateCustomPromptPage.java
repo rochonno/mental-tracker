@@ -33,13 +33,12 @@ public class CreateCustomPromptPage extends Form {
     {
         this (getGlobalResources());
         _Previous = previous;
-        _Components = new CreatePromptComponGenerator();
         _AllPrompts = prompts;
     }
 
     public CreateCustomPromptPage (Resources resourcesObjectInstance)
     {
-
+        _Components = new CreatePromptComponGenerator();
         initGuiBuilderComponents (resourcesObjectInstance);
     }
 
@@ -101,7 +100,7 @@ public class CreateCustomPromptPage extends Form {
     }
 
     private void onNameEnteredEvent(ActionEvent ev) {
-        _Name = _Components.InputNameTextArea.getName();
+        _Name = _Components.InputNameTextArea.getText();
     }
 
 
@@ -215,7 +214,7 @@ public class CreateCustomPromptPage extends Form {
         _Components.InputNameTextArea.getStyle().setAlignment(CENTER);
         _Components.InputNameTextArea.setName("PromptName");
         ((LayeredLayout)_Components.InputNameTextArea.getParent().getLayout()).
-                setInsets(_Components.InputNameTextArea, "0 30% auto 33%").
+                setInsets(_Components.InputNameTextArea, "0 10% auto 5%").
                 setReferenceComponentTop(_Components.InputNameTextArea, _Components.BackButton, 3f);
 
         addComponent(_Components.InputPromptTextArea);
@@ -225,7 +224,7 @@ public class CreateCustomPromptPage extends Form {
         _Components.InputPromptTextArea.getStyle().setAlignment(CENTER);
         _Components.InputPromptTextArea.setName("PromptQuestion");
         ((LayeredLayout)_Components.InputPromptTextArea.getParent().getLayout()).
-                setInsets(_Components.InputPromptTextArea, "0 30% auto 33%").
+                setInsets(_Components.InputPromptTextArea, "0 10% auto 5%").
                 setReferenceComponentTop(_Components.InputPromptTextArea, _Components.BackButton, 4f);
 
         addComponent(_Components.InputResponseTextArea);
@@ -235,7 +234,7 @@ public class CreateCustomPromptPage extends Form {
         _Components.InputResponseTextArea.getStyle().setAlignment(CENTER);
         _Components.InputResponseTextArea.setName("PromptResponse");
         ((LayeredLayout)_Components.InputResponseTextArea.getParent().getLayout()).
-                setInsets(_Components.InputResponseTextArea, "0 30% auto 33%").
+                setInsets(_Components.InputResponseTextArea, "0 10% auto 5%").
                 setReferenceComponentTop(_Components.InputResponseTextArea, _Components.BackButton, 5f);
 
         addComponent(_Components.InputMinTextArea);
@@ -245,7 +244,7 @@ public class CreateCustomPromptPage extends Form {
         _Components.InputMinTextArea.getStyle().setAlignment(CENTER);
         _Components.InputMinTextArea.setName("PromptMin");
         ((LayeredLayout)_Components.InputMinTextArea.getParent().getLayout()).
-                setInsets(_Components.InputMinTextArea, "0 30% auto 33%").
+                setInsets(_Components.InputMinTextArea, "0 10% auto 5%").
                 setReferenceComponentTop(_Components.InputMinTextArea, _Components.BackButton, 6f);
 
         addComponent(_Components.InputMaxTextArea);
@@ -255,7 +254,7 @@ public class CreateCustomPromptPage extends Form {
         _Components.InputMaxTextArea.getStyle().setAlignment(CENTER);
         _Components.InputMaxTextArea.setName("PromptMin");
         ((LayeredLayout)_Components.InputMaxTextArea.getParent().getLayout()).
-                setInsets(_Components.InputMaxTextArea, "0 30% auto 33%").
+                setInsets(_Components.InputMaxTextArea, "0 10% auto 5%").
                 setReferenceComponentTop(_Components.InputMaxTextArea, _Components.BackButton, 7f);
 
     }

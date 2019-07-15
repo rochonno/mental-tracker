@@ -34,7 +34,9 @@ public class MainPage {
         MentalPrompt samplePrompt = new MentalPrompt( "Exercise", "Have you exercised in the past day?", PromptDataType.BOOL);
         MentalPrompts samplePrompts = GenerateDefaultPrompts.DefaultMorningOnlyPrompts();
         PromptResults results = new PromptResults();
-        _Page = new UserPromptPage(samplePrompts, results, null);
+        //_Page = new UserPromptPage(samplePrompts, results, null);
+
+        _Page = new CreateCustomPromptPage(null, samplePrompts);
         //_Page = new CustomizeQuestions();
 
         //_Page = new Form("MainPage");
