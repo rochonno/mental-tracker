@@ -7,11 +7,15 @@ Fix Insets before resizing this.
 package MentalTracker;
 
 import com.codename1.ui.Dialog;
+import com.codename1.ui.Form;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.BorderLayout;
 
 public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
+
+    private Form _Page;
+
     public DailySurveyPgTwoGUI() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
@@ -62,6 +66,8 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
 
 
     public void onbackButtonActionEvent(ActionEvent ev) {
+        _Page = new DailySurveyPgOneGUI();
+        _Page.show();
     }
 
     //-- DON'T EDIT BELOW THIS LINE!!!
