@@ -175,7 +175,15 @@ public class UserPromptPage extends Form{
 
                 case PROMPT_TITLE:
                     addComponent(_Components.PromptTitle);
-
+                    _Components.PromptTitle.setPreferredSizeStr("126.455025mm 24.338625mm");
+                    _Components.PromptTitle.setInlineStylesTheme(resourceObjectInstance);
+                    _Components.PromptTitle.setInlineAllStyles("alignment:center;");
+                    _Components.PromptTitle.setName("Label");
+                    _Components.PromptTitle.setIcon(resourceObjectInstance.getImage("moodLabel.png"));
+                    ((LayeredLayout)_Components.PromptTitle.getParent().getLayout()).
+                            setInsets(_Components.PromptTitle, "8.0% 0.0mm auto 0.0mm").
+                            setReferenceComponents(_Components.PromptTitle, "0 0 -1 0 ").
+                            setReferencePositions(_Components.PromptTitle, "1.0 0.0 0.0 0.0");
                     break;
 
                 case INPUT_BUTTON_NO:
@@ -234,20 +242,6 @@ public class UserPromptPage extends Form{
                     break;
             }
         }
-
-        
-        ((LayeredLayout)_Components.BackButton.getParent().getLayout()).setInsets(_Components.BackButton, "0.0mm auto auto 0.0mm").setReferenceComponents(_Components.BackButton, "0 -1 -1 0 ").setReferencePositions(_Components.BackButton, "1.0 0.0 0.0 0.0");
-        gui_Label.setPreferredSizeStr("126.455025mm 24.338625mm");
-        gui_Label.setInlineStylesTheme(resourceObjectInstance);
-        gui_Label.setInlineAllStyles("alignment:center;");
-        gui_Label.setName("Label");
-        gui_Label.setIcon(resourceObjectInstance.getImage("moodLabel.png"));
-        ((LayeredLayout)gui_Label.getParent().getLayout()).setInsets(gui_Label, "8.0% 0.0mm auto 0.0mm").setReferenceComponents(gui_Label, "0 0 -1 0 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
-        gui_moodSlideLabels.setPreferredSizeStr("38.095238mm 47.089947mm");
-        gui_moodSlideLabels.setInlineStylesTheme(resourceObjectInstance);
-        gui_moodSlideLabels.setName("moodSlideLabels");
-        gui_moodSlideLabels.setIcon(resourceObjectInstance.getImage("moodSlideLabels.png"));
-        ((LayeredLayout)gui_moodSlideLabels.getParent().getLayout()).setInsets(gui_moodSlideLabels, "17.6318% -5.0264544mm 11.764706% -5.026455mm").setReferenceComponents(gui_moodSlideLabels, "7 6 5 0 ").setReferencePositions(gui_moodSlideLabels, "1.0 0.0 1.0 0.0");
-    }// </editor-fold>
+    }
 
 }
