@@ -5,8 +5,8 @@ import MentalTracker.GuiComponents.PromptComponentsGenerator;
 import MentalTracker.GuiComponents.ComponantName;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
+import com.codename1.ui.Graphics;
 import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import static com.codename1.ui.util.Resources.getGlobalResources;
@@ -44,6 +44,15 @@ public class UserPromptPage extends Form{
 
     }
 
+    private void onButtonNoActionEvent (ActionEvent ev) {
+
+    }
+
+    private void onButtonYesActionEvent (ActionEvent ev) {
+
+    }
+
+
     private void guiBuilderBindComponentListeners()
     {
         EventCallbackClass callback = new EventCallbackClass();
@@ -61,6 +70,7 @@ public class UserPromptPage extends Form{
             _Components.InputSlider.addActionListener(callback);
             _Components.InputSlider.addDataChangedListener(callback);
         }
+
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
@@ -88,6 +98,12 @@ public class UserPromptPage extends Form{
             }
             if(sourceComponent == _Components.BackButton) {
                 onBackButtonActionEvent(ev);
+            }
+            if(sourceComponent == _Components.InputButtonNo) {
+                onButtonNoActionEvent (ev);
+            }
+            if(sourceComponent == _Components.InputButtonNo) {
+                onButtonYesActionEvent (ex);
             }
         }
 
@@ -129,9 +145,7 @@ public class UserPromptPage extends Form{
                     _Components.AdvanceButton.setIcon(resourceObjectInstance.getImage("continueButton.png"));
                     _Components.AdvanceButton.setPressedIcon(resourceObjectInstance.getImage("continuePress.png"));
                     ((LayeredLayout)_Components.AdvanceButton.getParent().getLayout()).
-                            setInsets(_Components.AdvanceButton, "10% auto 25% 25%").
-                            setReferenceComponents(_Components.AdvanceButton, "2 0 -1 0").
-                            setReferencePositions(_Components.AdvanceButton, "2.8 0.0 0.0 0.1");
+                            setInsets(_Components.AdvanceButton, "auto -125% 0 auto");
                     break;
 
                 case BACK_BUTTON:
@@ -142,7 +156,7 @@ public class UserPromptPage extends Form{
                     _Components.BackButton.setIcon(resourceObjectInstance.getImage("backButton.png"));
                     _Components.BackButton.setPressedIcon(resourceObjectInstance.getImage("backPressed.png"));
                     ((LayeredLayout)_Components.BackButton.getParent().getLayout()).
-                            setInsets(_Components.BackButton, "0.0mm auto auto 0.0mm").
+                            setInsets(_Components.BackButton, "0.5mm auto auto 0.0mm").
                             setReferenceComponents(_Components.BackButton, "0 -1 -1 0 ").
                             setReferencePositions(_Components.BackButton, "-1 0.0 0.0 0.0");
                     break;
@@ -153,17 +167,16 @@ public class UserPromptPage extends Form{
                     _Components.InputSlider.setEditable(true);
                     _Components.InputSlider.setFocusable(true);
                     _Components.InputSlider.setScrollVisible(true);
-                    _Components.InputSlider.setText("Slider Here");
                     _Components.InputSlider.setInlineStylesTheme(resourceObjectInstance);
                     _Components.InputSlider.setInlineAllStyles("alignment:center;");
                     _Components.InputSlider.setName("Slider");
-                    _Components.InputSlider.setGap(3);
+                    _Components.InputSlider.setGap(2);
                     _Components.InputSlider.setIncrements(1);
-                    _Components.InputSlider.setProgress(5);
+                    _Components.InputSlider.setProgress(2);
+                    _Components.InputSlider.setRenderValueOnTop(true);
                     ((LayeredLayout)_Components.InputSlider.getParent().getLayout()).
-                            setInsets(_Components.InputSlider, "0.0mm 0.0mm 0 0.0mm").
-                            setReferenceComponents(_Components.InputSlider, "2 2 2 2 ").
-                            setReferencePositions(_Components.InputSlider, "1.0 0.0 0.0 0.0");
+                            setInsets(_Components.InputSlider, "0 20% auto 20%").
+                            setReferenceComponentTop(_Components.InputSlider, _Components.BackButton, 5f);
                     break;
 
                 case PROMPT_TITLE:
@@ -174,70 +187,66 @@ public class UserPromptPage extends Form{
                     _Components.PromptTitle.setName("Label");
                     _Components.PromptTitle.setIcon(resourceObjectInstance.getImage("moodLabel.png"));
                     ((LayeredLayout)_Components.PromptTitle.getParent().getLayout()).
-                            setInsets(_Components.PromptTitle, "25.0% 0.0mm auto 0.0mm").
-                            setReferenceComponents(_Components.PromptTitle, "1 0 0 0 ").
-                            setReferencePositions(_Components.PromptTitle, "3.5 0.0 0.0 0.0");
+                            setInsets(_Components.PromptTitle, "0% auto auto 0").
+                            setReferenceComponentTop(_Components.PromptTitle, _Components.BackButton, 7f);
                     break;
 
                 case INPUT_BUTTON_NO:
                     addComponent(_Components.InputButtonNo);
-                    _Components.InputButtonYes.setPreferredSizeStr("18.78307mm 6.878307mm");
-                    _Components.InputButtonYes.setSelected(false);
-                    _Components.InputButtonYes.setUIID("ToggleButton");
-                    _Components.InputButtonYes.setInlineStylesTheme(resourceObjectInstance);
-                    _Components.InputButtonYes.setInlineAllStyles("border:none; bgColor:efefef;");
-                    _Components.InputButtonYes.setInlineSelectedStyles("border:none;");
-                    _Components.InputButtonYes.setInlinePressedStyles("border:none;");
-                    _Components.InputButtonYes.setGroup("depressedButtonGroup");
-                    _Components.InputButtonYes.setName("depressedButtonNo");
-                    _Components.InputButtonYes.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
-                    _Components.InputButtonYes.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
-                    ((LayeredLayout)_Components.InputButtonYes.getParent().getLayout()).
-                            setInsets(_Components.InputButtonYes, "0.0mm 0.0mm 0.0mm 0.0mm").
-                            setReferenceComponents(_Components.InputButtonYes, "6 17 6 10 ").
-                            setReferencePositions(_Components.InputButtonYes, "0.0 0.0 0.0 0.0");
+                    _Components.InputButtonNo.setPreferredSizeStr("18.78307mm 6.6137567mm");
+                    _Components.InputButtonNo.setSelected(false);
+                    _Components.InputButtonNo.setUIID("ToggleButton");
+                    _Components.InputButtonNo.setInlineStylesTheme(resourceObjectInstance);
+                    _Components.InputButtonNo.setInlineAllStyles("border:none; bgColor:efefef;");
+                    _Components.InputButtonNo.setInlineSelectedStyles("border:none;");
+                    _Components.InputButtonNo.setInlinePressedStyles("border:none;");
+                    _Components.InputButtonNo.setGroup("ButtonGroup");
+                    _Components.InputButtonNo.setName("ButtonNo");
+                    _Components.InputButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
+                    _Components.InputButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
+                    ((LayeredLayout)_Components.InputButtonNo.getParent().getLayout()).
+                            setInsets(_Components.InputButtonNo, "0 10% auto 10%").
+                            setReferenceComponentTop(_Components.InputButtonNo, _Components.BackButton, 5f);
                     break;
 
                 case INPUT_BUTTON_YES:
                     addComponent(_Components.InputButtonYes);
-                    _Components.InputButtonYes.setPreferredSizeStr("22.486773mm 6.6137567mm");
+                    _Components.InputButtonYes.setPreferredSizeStr("21.16402mm 7.142857mm");
                     _Components.InputButtonYes.setSelected(false);
                     _Components.InputButtonYes.setUIID("ToggleButton");
                     _Components.InputButtonYes.setInlineStylesTheme(resourceObjectInstance);
                     _Components.InputButtonYes.setInlineAllStyles("border:none; bgColor:efefef;");
                     _Components.InputButtonYes.setInlineSelectedStyles("border:none;");
                     _Components.InputButtonYes.setInlinePressedStyles("border:none;");
-                    _Components.InputButtonYes.setGroup("depressedButtonGroup");
-                    _Components.InputButtonYes.setName("depressedButtonYes");
+                    _Components.InputButtonYes.setGroup("ButtonGroup");
+                    _Components.InputButtonYes.setName("ButtonYes");
                     _Components.InputButtonYes.setIcon(resourceObjectInstance.getImage("yesButtonUnselect.png"));
                     _Components.InputButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
                     ((LayeredLayout)_Components.InputButtonYes.getParent().getLayout()).
-                            setInsets(_Components.InputButtonYes, "7.632094% 0.0mm 0 0.0mm").
-                            setReferenceComponents(_Components.InputButtonYes, "2 16 -1 16 ").
-                            setReferencePositions(_Components.InputButtonYes, "0.0 0.0 0.0 0.0");
+                            setInsets(_Components.InputButtonYes, "0 10% auto 70%").
+                            setReferenceComponentTop(_Components.InputButtonYes, _Components.BackButton, 5f);
                     break;
 
                 case PROMPT_QUESTION:
                     addComponent(_Components.PromptQuestion);
                     _Components.PromptQuestion.setName("Prompt");
                     ((LayeredLayout) _Components.PromptQuestion.getParent().getLayout()).
-                            setInsets(_Components.PromptQuestion, "250% auto auto 25%").
-                            //setReferenceComponentTop(_Components.InputTextBox, _Components.BackButton, 1).
-                            setReferenceComponents(_Components.PromptQuestion, "1 0 0 0 ").
-                            setReferencePositions(_Components.PromptQuestion, "2 0.0 0.0 0.0");
+                            setInsets(_Components.PromptQuestion, "0 auto auto auto").
+                            setReferenceComponentTop(_Components.PromptQuestion, _Components.BackButton, 3f);
                     break;
 
-                case INPUT_TEXT_BOX:
-                    addComponent(_Components.InputTextBox);
-                    _Components.InputTextBox.setHint("In Hours");
-                    _Components.InputTextBox.setInlineStylesTheme(resourceObjectInstance);
-                    _Components.InputTextBox.setName("sleepInput");
-                    _Components.InputTextBox.setColumns(1);
-                    ((LayeredLayout)_Components.InputTextBox.getParent().getLayout()).
-                            setInsets(_Components.InputTextBox, "20% 37.200737% auto 38%").
-                            //setReferenceComponents(_Components.InputTextBox, "1 0 1 0 ").
-                            setReferenceComponentTop(_Components.InputTextBox, _Components.PromptQuestion, 2).
-                            setReferencePositions(_Components.InputTextBox, "3 0.0 0.0 0.0");
+                case INPUT_TEXT_AREA:
+                    addComponent(_Components.InputTextArea);
+                    _Components.InputTextArea.setEditable(true);
+                    _Components.InputTextArea.setSingleLineTextArea(true);
+                    _Components.InputTextArea.setHint("Hours");
+                    _Components.InputTextArea.setInlineStylesTheme(resourceObjectInstance);
+                    _Components.InputTextArea.getStyle().setAlignment(CENTER);
+                    _Components.InputTextArea.setVerticalAlignment(CENTER);
+                    _Components.InputTextArea.setName("sleepInput");
+                    ((LayeredLayout)_Components.InputTextArea.getParent().getLayout()).
+                            setInsets(_Components.InputTextArea, "0 30% auto 33%").
+                            setReferenceComponentTop(_Components.InputTextArea, _Components.BackButton, 5f);
                     break;
             }
         }

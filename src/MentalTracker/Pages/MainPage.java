@@ -33,7 +33,7 @@ public class MainPage {
         //_Page = new DailySurveyPgOneGUI();
         //_Page = new DailySurveyPgTwoGUI();
         //_Page = new LoginGUI();
-        MentalPrompt samplePrompt = new MentalPrompt( "Sleep", "Enter hours of sleep", PromptDataType.DOUBLE);
+        MentalPrompt samplePrompt = new MentalPrompt( "Exercise", "Have you exercised in the past day?", PromptDataType.BOOL);
         _Page = new UserPromptPage(samplePrompt);
         //_Page = new CustomizeQuestions();
 

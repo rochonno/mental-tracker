@@ -6,7 +6,6 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Slider;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
-import com.codename1.ui.TextField;
 
 import java.util.List;
 import java.util.Vector;
@@ -24,7 +23,7 @@ public class PromptComponentsGenerator {
     public Slider InputSlider;
     public RadioButton InputButtonYes;
     public RadioButton InputButtonNo;
-    public TextField InputTextBox;
+    public TextArea InputTextArea;
 
     public List<ComponantName> EnabledComponents = new Vector<>();
 
@@ -83,8 +82,8 @@ public class PromptComponentsGenerator {
 
     private void createTextArea()
     {
-        InputTextBox = new TextField();
-        EnabledComponents.add(ComponantName.INPUT_TEXT_BOX);
+        InputTextArea = new TextArea();
+        EnabledComponents.add(ComponantName.INPUT_TEXT_AREA);
     }
 
     private void createYesNo()
@@ -109,7 +108,7 @@ public class PromptComponentsGenerator {
 
     public boolean CheckTextArea ()
     {
-        if(InputTextBox == null) return false;
+        if(InputTextArea == null) return false;
         return true;
     }
 }
