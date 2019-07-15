@@ -2,10 +2,14 @@ package MentalTracker.Pages;
 
 import MentalTracker.Components.SideMenu;
 import com.codename1.ui.Form;
-import com.codename1.ui.Label;
 import com.codename1.ui.util.Resources;
 
 
+
+   //STRICTLY FOR TESTING PURPOSES. DELETE LATER
+import MentalTracker.DailySurveyPgTwoGUI;
+import MentalTracker.LoginGUI;
+import MentalTracker.DailySurveyPgOneGUI;
 /***
  * This class is for the main page of the application.
  * Automatically displayed upon start-up.
@@ -19,9 +23,16 @@ public class MainPage {
     public MainPage(Resources theme)
     {
         _Theme = theme;
-        _Page = new Form("MainPage");
 
-        _Page.addComponent(new Label("Main Page"));
+        //_Page = new DailySurveyPgTwoGUI();
+        //_Page = new NeedDailyGUI();
+        //_Page = new DailySurveyPgOneGUI();
+        //_Page = new DailySurveyPgTwoGUI();
+        _Page = new LoginGUI();
+
+        //_Page = new Form("MainPage");
+
+        //_Page.addComponent(new Label("Main Page"));
         initialize();
     }
 
