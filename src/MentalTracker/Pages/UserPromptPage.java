@@ -98,6 +98,10 @@ public class UserPromptPage extends Form{
     private void onButtonYesActionEvent (ActionEvent ev) {
         _UserAnswer = "true";
     }
+    private void onTextAreaChangedEvent (ActionEvent ev) {
+        // TODO: Check if valid input
+        _UserAnswer = _Components.InputTextArea.getText();
+    }
 
 
     private void guiBuilderBindComponentListeners()
@@ -116,6 +120,10 @@ public class UserPromptPage extends Form{
         {
             _Components.InputSlider.addActionListener(callback);
             _Components.InputSlider.addDataChangedListener(callback);
+        }
+        if (_Components.CheckTextArea())
+        {
+            _Components.InputTextArea.addActionListener(callback);
         }
 
     }
@@ -147,10 +155,18 @@ public class UserPromptPage extends Form{
                 onBackButtonActionEvent(ev);
             }
             if(sourceComponent == _Components.InputButtonNo) {
+                _Components.InputButtonNo.setSelected(true);
+                _Components.InputButtonYes.setSelected(false);
                 onButtonNoActionEvent (ev);
             }
-            if(sourceComponent == _Components.InputButtonNo) {
+            if(sourceComponent == _Components.InputButtonYes) {
+                _Components.InputButtonNo.setSelected(false);
+                _Components.InputButtonYes.setSelected(true);
                 onButtonYesActionEvent (ev);
+            }
+
+            if(sourceComponent == _Components.InputTextArea) {
+                onTextAreaChangedEvent (ev);
             }
         }
 
@@ -247,7 +263,6 @@ public class UserPromptPage extends Form{
                     _Components.InputButtonNo.setInlineAllStyles("border:none; bgColor:efefef;");
                     _Components.InputButtonNo.setInlineSelectedStyles("border:none;");
                     _Components.InputButtonNo.setInlinePressedStyles("border:none;");
-                    _Components.InputButtonNo.setGroup("ButtonGroup");
                     _Components.InputButtonNo.setName("ButtonNo");
                     _Components.InputButtonNo.setIcon(resourceObjectInstance.getImage("noButtonUnsele.png"));
                     _Components.InputButtonNo.setPressedIcon(resourceObjectInstance.getImage("noButtonSelect.png"));
@@ -265,7 +280,6 @@ public class UserPromptPage extends Form{
                     _Components.InputButtonYes.setInlineAllStyles("border:none; bgColor:efefef;");
                     _Components.InputButtonYes.setInlineSelectedStyles("border:none;");
                     _Components.InputButtonYes.setInlinePressedStyles("border:none;");
-                    _Components.InputButtonYes.setGroup("ButtonGroup");
                     _Components.InputButtonYes.setName("ButtonYes");
                     _Components.InputButtonYes.setIcon(resourceObjectInstance.getImage("yesButtonUnselect.png"));
                     _Components.InputButtonYes.setPressedIcon(resourceObjectInstance.getImage("yesButtonSelect.png"));
