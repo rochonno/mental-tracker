@@ -9,6 +9,7 @@
 package MentalTracker.DataPortions.Prompts;
 
 import com.codename1.io.Externalizable;
+import com.codename1.io.Log;
 import com.codename1.io.Util;
 
 import java.io.DataInputStream;
@@ -40,10 +41,20 @@ public class MentalPrompts implements Externalizable {
         _PromptCount++;
     }
 
-    public boolean remove(MentalPrompt prompt)
+    public MentalPrompt remove(int index)
     {
-        return _Prompts.remove(prompt);
+        try {
+            MentalPrompt prompt = _Prompts.remove(index);
+            _PromptCount--;
+            return prompt;
+        }
+        catch (Exception e) {
+            Log.e(e.getCause());
+            return null;
+        }
     }
+
+    public int get_PromptCount() {return _PromptCount}
 
     @Override
     public int getVersion() {

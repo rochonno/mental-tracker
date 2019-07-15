@@ -1,55 +1,71 @@
 package MentalTracker.Pages;
 
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
+import MentalTracker.DataPortions.Prompts.MentalPrompts;
 import MentalTracker.GuiComponents.PromptComponentsGenerator;
 import MentalTracker.GuiComponents.ComponantName;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
-import com.codename1.ui.Graphics;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
 public class UserPromptPage extends Form{
-    private Form _Page;
-    private MentalPrompt _Prompt;
-    private PromptComponentsGenerator _Components;
+    private Form _NextForm;
+    private Form _PrevForm;
 
-    public UserPromptPage(MentalPrompt prompt)
+    private MentalPrompt _CurrPrompt;
+    private MentalPrompts _NextPrompts;
+    private PromptComponentsGenerator _Components;
+    private String _UserAnswer;
+
+
+    public UserPromptPage(MentalPrompts prompts, Form previous)
     {
-        this (getGlobalResources(), prompt);
+        this (getGlobalResources(), prompts);
+        _PrevForm = previous;
     }
 
-    public UserPromptPage (Resources resourceObjectInstance, MentalPrompt prompt)
+    public UserPromptPage (Resources resourceObjectInstance, MentalPrompts prompts)
     {
-        _Prompt = prompt;
-        _Components = new PromptComponentsGenerator(_Prompt);
+        _CurrPrompt = prompts.remove(0);
+        _NextPrompts = prompts;
+
+        _Components = new PromptComponentsGenerator(_CurrPrompt);
         initGuiBuilderComponents (resourceObjectInstance);
     }
 
     private void onSliderActionEvent(ActionEvent ev) {
-
+        _UserAnswer = "" + _Components.InputSlider.getProgress();
     }
 
     private void onSliderDataChangeEvent(Component cmp, int type, int index) {
-
+        _UserAnswer = "" + index;
     }
 
     private void onNextButtonActionEvent (ActionEvent ev) {
-
+        if (_NextPrompts.get_PromptCount() > 0)
+        {
+            _NextForm = new UserPromptPage(_NextPrompts, this);
+            _NextForm.show();
+        }
+        else
+        {
+            // TODO:: CreatePromptDonePage();
+        }
     }
 
     private void onBackButtonActionEvent (ActionEvent ev) {
-
+        _PrevForm.show();
     }
 
     private void onButtonNoActionEvent (ActionEvent ev) {
-
+        _UserAnswer = "false";
     }
 
     private void onButtonYesActionEvent (ActionEvent ev) {
-
+        _UserAnswer = "true";
     }
 
 
@@ -103,7 +119,7 @@ public class UserPromptPage extends Form{
                 onButtonNoActionEvent (ev);
             }
             if(sourceComponent == _Components.InputButtonNo) {
-                onButtonYesActionEvent (ex);
+                onButtonYesActionEvent (ev);
             }
         }
 
