@@ -54,7 +54,7 @@ public class MentalPrompts implements Externalizable {
         }
     }
 
-    public int get_PromptCount() {return _PromptCount}
+    public int get_PromptCount() { return _PromptCount; }
 
     @Override
     public int getVersion() {

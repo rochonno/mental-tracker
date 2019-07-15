@@ -2,9 +2,7 @@ package MentalTracker.Pages;
 
 import MentalTracker.Components.SideMenu;
 import MentalTracker.CustomizeQuestions;
-import MentalTracker.DataPortions.Prompts.MentalPrompt;
-import MentalTracker.DataPortions.Prompts.MentalPrompts;
-import MentalTracker.DataPortions.Prompts.PromptDataType;
+import MentalTracker.DataPortions.Prompts.*;
 import com.codename1.ui.Form;
 import com.codename1.ui.util.Resources;
 
@@ -34,7 +32,9 @@ public class MainPage {
         //_Page = new DailySurveyPgTwoGUI();
         //_Page = new LoginGUI();
         MentalPrompt samplePrompt = new MentalPrompt( "Exercise", "Have you exercised in the past day?", PromptDataType.BOOL);
-        _Page = new UserPromptPage(samplePrompt);
+        MentalPrompts samplePrompts = GenerateDefaultPrompts.DefaultMorningOnlyPrompts();
+        PromptResults results = new PromptResults();
+        _Page = new UserPromptPage(samplePrompts, results, null);
         //_Page = new CustomizeQuestions();
 
         //_Page = new Form("MainPage");

@@ -9,6 +9,10 @@ package MentalTracker.DataPortions.Prompts;
 
 public class DefaultPrompts {
 
+    /**
+     *
+     * @return MentalPrompt for the hours of sleep
+     */
     public static MentalPrompt CreateSleepPrompt ()
     {
         String name = "Sleep";
@@ -21,17 +25,25 @@ public class DefaultPrompts {
         return sleep;
     }
 
+    /**
+     *
+     * @return MentalPrompt for the mood
+     */
     public static MentalPrompt CreateMoodPrompt ()
     {
         String name = "Mood";
         String prompt = "Rate your current mood (higher is better!)";
         int min = 0;
-        int max = 10;
+        int max = 20;
         PromptDataType promptDataType = PromptDataType.INT;
 
         return CreatePrompt(name, prompt, min, max, promptDataType);
     }
 
+    /**
+     * 
+     * @return
+     */
     public static MentalPrompt CreateExercisePrompt ()
     {
         String name = "Exercise";
@@ -47,7 +59,7 @@ public class DefaultPrompts {
         String prompt = "About how many grams of sugar did you consume?";
         PromptDataType promptDataType = PromptDataType.INT;
 
-        return CreatePrompt(name, prompt, promptDataType);
+        return CreatePrompt(name, prompt, 0, 200, promptDataType);
     }
 
     public static MentalPrompt CreateMoodShiftPrompt ()
@@ -56,7 +68,7 @@ public class DefaultPrompts {
         String prompt = "How many mood shifts have you experienced since the last check-in?";
         PromptDataType promptDataType = PromptDataType.INT;
 
-        return CreatePrompt (name, prompt, promptDataType);
+        return CreatePrompt (name, prompt, 0, 20, promptDataType );
     }
 
     public static MentalPrompt CreateConfidencePrompt ()
@@ -64,9 +76,8 @@ public class DefaultPrompts {
         String name = "Confidence Level";
         String prompt = "How confident have you felt recently?";
         PromptDataType promptDataType = PromptDataType.INT;
-        int max = 10;
 
-        return CreatePrompt (name, prompt, max, promptDataType);
+        return CreatePrompt (name, prompt, 0, 20, promptDataType);
     }
 
     public static MentalPrompt CreateAnxietyPrompt ()
@@ -76,7 +87,7 @@ public class DefaultPrompts {
         PromptDataType promptDataType = PromptDataType.INT;
         int max = 10;
 
-        return CreatePrompt (name, prompt, max, promptDataType);
+        return CreatePrompt (name, prompt, 0, 20, promptDataType);
     }
 
     public static MentalPrompt CreateStressPrompt ()
@@ -86,7 +97,7 @@ public class DefaultPrompts {
         PromptDataType promptDataType = PromptDataType.INT;
         int max = 10;
 
-        return CreatePrompt (name, prompt, max, promptDataType);
+        return CreatePrompt (name, prompt, 0, 20, promptDataType);
     }
 
     public static MentalPrompt CreatePanicPrompt ()
@@ -104,7 +115,7 @@ public class DefaultPrompts {
         String prompt = "Have you experienced a depressed mood?";
         PromptDataType promptDataType = PromptDataType.BOOL;
 
-        return CreatePrompt (name, prompt, promptDataType);
+        return CreatePrompt (name, prompt, 0, 10, promptDataType);
     }
 
     private static MentalPrompt CreatePrompt (String name, String prompt, PromptDataType resultType)
