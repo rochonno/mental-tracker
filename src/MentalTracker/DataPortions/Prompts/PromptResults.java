@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Vector;
 
 public class PromptResults implements Externalizable {
-
     // Registers the class to enable reading it in
     static { Util.register("PromptResults", PromptResults.class); }
 
@@ -32,6 +31,11 @@ public class PromptResults implements Externalizable {
     {
         _TimeStamp = new SimpleDateFormat("yyyy.MM.dd HH.mm").format(new Date());
         _ResultsList = new Vector<PromptResult>();
+    }
+
+    public void AddResult (PromptResult result)
+    {
+        _ResultsList.add (result);
     }
 
     @Override

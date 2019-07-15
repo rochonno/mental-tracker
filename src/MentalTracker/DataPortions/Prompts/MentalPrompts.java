@@ -14,23 +14,30 @@ import com.codename1.io.Util;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.Vector;
+
 
 public class MentalPrompts implements Externalizable {
-
     // Registers the class to enable reading it in
     static { Util.register("MentalPrompts", MentalPrompts.class); }
 
     private List<MentalPrompt> _Prompts;
+    private int _PromptCount = 0;
 
     public MentalPrompts()
     {
         _Prompts = new Vector<MentalPrompt>();
     }
 
+    /**
+     * Adds a MentalPrompt to the Vector
+     * @param prompt the prompt to be added
+     */
     public void add(MentalPrompt prompt)
     {
         _Prompts.add (prompt);
+        _PromptCount++;
     }
 
     public boolean remove(MentalPrompt prompt)
@@ -50,7 +57,7 @@ public class MentalPrompts implements Externalizable {
 
     @Override
     public void internalize(int version, DataInputStream in) throws IOException {
-        _Prompts = (List<MentalPrompt>) Util.readObject(in);
+        _Prompts = (Vector<MentalPrompt>) Util.readObject(in);
     }
 
     @Override
