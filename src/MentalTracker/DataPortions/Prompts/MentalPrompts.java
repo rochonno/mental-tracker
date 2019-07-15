@@ -70,8 +70,6 @@ public class MentalPrompts implements Externalizable {
         return storage.LoadPrompts(filename, 0);
     }
 
-    public MentalPrompts
-
     public int get_PromptCount() { return _PromptCount; }
 
     @Override
