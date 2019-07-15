@@ -1,15 +1,11 @@
 package MentalTracker.Pages;
 
-import MentalTracker.DailySurveyPgOneGUI;
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
 import MentalTracker.GuiComponents.ChooseComponents;
 import MentalTracker.GuiComponents.ComponantName;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
-import com.codename1.ui.Label;
 import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
-import com.codename1.ui.events.DataChangedListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import static com.codename1.ui.util.Resources.getGlobalResources;
