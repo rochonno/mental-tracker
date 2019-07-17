@@ -4,19 +4,15 @@ import MentalTracker.UserNotification;
 
 public class MedReminder {
 
-    private String _Name;
-    private String _Dosage;
     private String _Prompt;
 
     private UserNotification _UserNotify;
     private int _Hour;
     private int _Minute;
 
-    public MedReminder (String name, String dosage)
+    public MedReminder ()
     {
-        _Name = name;
-        _Dosage = dosage;
-        _Prompt = "Time to take " + dosage + " of " + name;
+        _Prompt = "Time to take your dose of medications!";
     }
 
     public void SetNotification (int hour, int minute, boolean isDaily)
@@ -24,8 +20,8 @@ public class MedReminder {
         _Hour = hour;
         _Minute = minute;
 
-        _UserNotify = new UserNotification (_Name, _Prompt);
 
+        _UserNotify = new UserNotification (_Name, _Prompt);
         _UserNotify.SetTime (hour, minute);
         if (isDaily) _UserNotify.ActivateDaily();
         else _UserNotify.ActivateWeekly();
@@ -38,6 +34,4 @@ public class MedReminder {
 
     public int GetHour () { return _Hour; }
     public int GetMinute () { return _Minute; }
-    public String GetName () { return _Name; }
-    public String GetDosage () { return _Dosage; }
 }

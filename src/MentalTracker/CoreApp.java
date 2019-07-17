@@ -42,10 +42,10 @@ public class CoreApp implements LocalNotificationCallback{
         main.setSidePanel();
         main.show();
 
-        current = main;
+        login.show();
 
-        //IntegrationTesting intTesting = new IntegrationTesting();
-        //intTesting.RunStorageTests();
+        //main.Show();
+
     }
 
     public void stop() {
