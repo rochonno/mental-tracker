@@ -10,7 +10,7 @@
   <component type="Label" styles="alignment:center;" preferredSize="133.33333mm 10.8465605mm" icon="resFile:depressedLabel.png" name="depressedLabel">
     <layoutConstraint insets="auto 5.026455mm 0.0mm 0.0mm" referenceComponents="-1 -1 8 0 " referencePositions="0.0 0.0 0.0 0.0" />
   </component>
-  <component type="Label" styles="alignment:center;" preferredSize="133.33333mm 7.936508mm" icon="resFile:panicLabel.png 1" name="panicLabel">
+  <component type="Label" styles="alignment:center;" preferredSize="133.33333mm 7.936508mm" icon="resFile:panicLabel.png" name="panicLabel">
     <layoutConstraint insets="2.6455026mm -1.322751mm auto -3.7037036mm" referenceComponents="6 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
   <component type="Label" styles="alignment:center;" preferredSize="133.33333mm 10.05291mm" icon="resFile:exerciseLabel.png" name="exerciseLabel">
@@ -19,34 +19,34 @@
   <component type="Label" styles="alignment:center;" pressedStyles="alignment:left;" preferredSize="133.33333mm 8.730159mm" icon="resFile:sleepLabel.png" name="sleepLabel">
     <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="12 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 6.6137567mm" group="depressedButtonGroup" selected="false" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png" name="depressedButtonYes">
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 6.6137567mm" group="depressedButtonGroup" selected="true" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png 1" name="depressedButtonYes">
     <layoutConstraint insets="7.632094% 0.0mm auto 0.0mm" referenceComponents="2 16 -1 16 " referencePositions="0.0 0.0 0.0 0.0" />
   </component>
   <component type="Label" preferredSize="61.640213mm 9.523809mm" icon="resFile:yesterdayLabel.png" name="yesterdayLabel">
     <layoutConstraint insets="4.4973545mm auto auto 0.0mm" referenceComponents="11 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="Button" preferredSize="17.724869mm 14.550264mm" icon="resFile:backButton.png" pressedIcon="resFile:backPressed.png" disabledIcon="resFile:backButton.png" name="backButton" actionEvent="true">
+  <component type="Button" preferredSize="17.724869mm 14.550264mm" icon="resFile:backButton.png" pressedIcon="resFile:backPressed.png" name="backButton" actionEvent="true">
     <layoutConstraint insets="0.0mm 83.553925% 90.45307% 1.3227515mm" referenceComponents="17 -1 -1 -1" referencePositions="1.0 0.0 0.0 0.0" />
   </component>
   <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="18.78307mm 6.878307mm" group="depressedButtonGroup" selected="false" toggleButton="true" icon="resFile:noButtonUnsele.png" pressedIcon="resFile:noButtonSelect.png" name="depressedButtonNo">
     <layoutConstraint insets="0.0mm 0.0mm 0.0mm 0.0mm" referenceComponents="6 17 6 10 " referencePositions="0.0 0.0 0.0 0.0" />
   </component>
-  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="inherit 5.555556mm" group="panicButtonGroup" toggleButton="true" icon="resFile:noButtonUnsele.png" name="panicButtonNo">
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="inherit 5.555556mm" group="panicButtonGroup" toggleButton="true" icon="resFile:noButtonUnsele.png" pressedIcon="resFile:noButtonSelect.png" name="panicButtonNo">
     <layoutConstraint insets="0.0mm 0.0mm 2.6455002mm 0.0mm" referenceComponents="11 17 11 17 " referencePositions="0.0 0.0 0.0 0.0" />
   </component>
-  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 8.730159mm" group="panicButtonGroup" selected="false" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png" name="panicButtonYes">
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="22.486773mm 8.730159mm" group="panicButtonGroup" selected="false" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png 1" name="panicButtonYes">
     <layoutConstraint insets="0.7936508mm 0.0mm auto 0.0mm" referenceComponents="3 16 -1 16 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="21.16402mm 7.142857mm" group="exerciseButtonGroup" selected="false" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png" name="exerciseButtonYes">
+  <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="21.16402mm 7.142857mm" group="exerciseButtonGroup" selected="false" toggleButton="true" icon="resFile:yesButtonUnselect.png" pressedIcon="resFile:yesButtonSelect.png 1" name="exerciseButtonYes">
     <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="4 16 -1 16 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
   <component type="RadioButton" uiid="ToggleButton" styles="border:none; bgColor:efefef;" selectedStyles="border:none;" pressedStyles="border:none;" preferredSize="18.78307mm 6.6137567mm" group="exerciseButtonGroup" selected="false" toggleButton="true" icon="resFile:noButtonUnsele.png" pressedIcon="resFile:noButtonSelect.png" name="exerciseButtonNo">
     <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="4 17 -1 9 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="TextArea" preferredSize="75.66138mm inherit" hint="In Hours" columns="8" name="sleepInput">
-    <layoutConstraint insets="3.968254mm 37.200737% auto 30.939226%" referenceComponents="5 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="TextArea" uiid="TextField" styles="alignment:left;" preferredSize="38.62434mm 6.0846562mm" hint="In Hours" hintIcon="fontImage:e8b5" rtl="false" rows="1" columns="8" maxSize="5" constraint="5" name="sleepInput">
+    <layoutConstraint insets="0.0mm 0.0mm auto 52.050472%" referenceComponents="5 9 -1 0 " referencePositions="1.0 1.0 0.0 0.0" />
   </component>
-  <component type="TextField" preferredSize="23.015873mm 5.555556mm" hint="In Grams" name="sugarInput">
+  <component type="TextField" preferredSize="23.015873mm 5.555556mm" hint="In Grams" hintIcon="fontImage:e7e9" rtl="false" constraint="5" name="sugarInput">
     <layoutConstraint insets="0.0mm 0.0mm auto 57.218094%" referenceComponents="1 9 -1 0 " referencePositions="1.0 1.0 0.0 0.0" />
   </component>
   <component type="Label" preferredSize="27.513227mm 4.7619047mm" name="yesButtonInset">
@@ -55,7 +55,7 @@
   <component type="Label" preferredSize="25.132275mm 1.3227513mm" name="noButtonInset">
     <layoutConstraint insets="3.174603mm 16.619184% auto 60.144547%" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
   </component>
-  <component type="Button" icon="resFile:continueButton.png" pressedIcon="resFile:continuePress.png" disabledIcon="resFile:continueButton.png" name="continueButton" actionEvent="true">
-    <layoutConstraint insets="auto auto 9.259259mm 22.008547%" referenceComponents="0 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="Button" icon="resFile:continueButton.png" pressedIcon="resFile:continuePress.png" name="continueButton" actionEvent="true">
+    <layoutConstraint insets="0.0mm auto 0.0mm 25.504587%" referenceComponents="15 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
 </component>

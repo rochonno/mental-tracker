@@ -20,7 +20,8 @@ public class MedReminder {
         _Hour = hour;
         _Minute = minute;
 
-        _UserNotify = new UserNotification ("Medication Reminder", _Prompt);
+
+        _UserNotify = new UserNotification (_Name, _Prompt);
         _UserNotify.SetTime (hour, minute);
         if (isDaily) _UserNotify.ActivateDaily();
         else _UserNotify.ActivateWeekly();

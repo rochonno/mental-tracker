@@ -17,14 +17,16 @@ public class PromptsReminder {
         _Prompt = "Take a break for a minute to answer a few questions!";
     }
 
-    private void SetNotification ( int hour, int min )
+    private void SetNotification ( int hour, int min, boolean isDaily )
     {
         _Hour = hour;
         _Minute = min;
 
         _UserNotify = new UserNotification(_Name, _Prompt);
         _UserNotify.SetTime (hour, min);
-        _UserNotify.ActivateDaily();
+
+        if (isDaily) _UserNotify.ActivateDaily();
+        else _UserNotify.ActivateWeekly();
     }
 
     public void Deactivate ()
