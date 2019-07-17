@@ -3,6 +3,7 @@ package MentalTracker;
 
 import static com.codename1.ui.CN.*;
 
+import MentalTracker.MentalTrackerTesting.IntegrateTesting.IntegrationTesting;
 import MentalTracker.Pages.MainPage;
 import com.codename1.notifications.LocalNotificationCallback;
 import com.codename1.ui.Form;
@@ -43,6 +44,7 @@ public class CoreApp implements LocalNotificationCallback{
         login.show();
 
         //main.Show();
+
     }
 
     public void stop() {
