@@ -6,7 +6,7 @@ import com.codename1.ui.util.Resources;
 
 public class GuiLabel extends GuiComponent{
 
-    public Label _Label;
+    private Label _Label;
 
     public GuiLabel ( String name, Resources instanceTheme )
     {

@@ -5,7 +5,7 @@ import com.codename1.ui.util.Resources;
 
 public class GuiTextArea extends GuiComponent {
 
-    public TextArea _TextArea;
+    private TextArea _TextArea;
 
     public GuiTextArea ( String name, Resources instanceTheme )
     {

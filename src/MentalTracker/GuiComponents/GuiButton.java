@@ -5,7 +5,7 @@ import com.codename1.ui.util.Resources;
 
 public class GuiButton extends GuiComponent {
 
-    public RadioButton _Button;
+    private RadioButton _Button;
 
     /**
      *

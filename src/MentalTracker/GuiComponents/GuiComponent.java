@@ -31,7 +31,6 @@ public class GuiComponent extends Component{
         this.setSmoothScrolling(smooth);
     }
 
-
     public void SetSizeStr (String size) { this.setPreferredSizeStr(size); }
 
     public int GetCenterX () { return this.getX(); }
