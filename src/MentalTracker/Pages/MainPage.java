@@ -2,8 +2,7 @@ package MentalTracker.Pages;
 
 import MentalTracker.Components.SideMenu;
 import MentalTracker.DataPortions.Prompts.*;
-import MentalTracker.GuiComponents.MainPageComponents;
-import com.codename1.io.Log;
+import MentalTracker.ComponentGenerators.MainPageComponents;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.LayeredLayout;
@@ -13,9 +12,7 @@ import com.codename1.ui.util.Resources;
 
 
    //STRICTLY FOR TESTING PURPOSES. DELETE LATER
-import MentalTracker.DailySurveyPgTwoGUI;
 import MentalTracker.LoginGUI;
-import MentalTracker.DailySurveyPgOneGUI;
 
 import static com.codename1.ui.util.Resources.getGlobalResources;
 

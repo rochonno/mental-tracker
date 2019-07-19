@@ -3,7 +3,7 @@ package MentalTracker.Pages;
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
 import MentalTracker.DataPortions.Prompts.MentalPrompts;
 import MentalTracker.DataPortions.Prompts.PromptDataType;
-import MentalTracker.GuiComponents.CreatePromptComponGenerator;
+import MentalTracker.ComponentGenerators.CreatePromptComponGenerator;
 import MentalTracker.MentalExceptions.SaveFileException;
 import com.codename1.io.Log;
 import com.codename1.ui.Form;

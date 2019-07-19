@@ -1,4 +1,4 @@
-package MentalTracker.GuiComponents;
+package MentalTracker.ComponentGenerators;
 
 import com.codename1.components.ImageViewer;
 import com.codename1.io.Log;

@@ -1,4 +1,4 @@
-package MentalTracker.GuiComponents;
+package MentalTracker.ComponentGenerators;
 
 public enum ComponantName {
     TOP_INSET,

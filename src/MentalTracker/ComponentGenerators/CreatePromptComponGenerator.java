@@ -1,4 +1,4 @@
-package MentalTracker.GuiComponents;
+package MentalTracker.ComponentGenerators;
 
 import com.codename1.ui.Button;
 import com.codename1.ui.Label;

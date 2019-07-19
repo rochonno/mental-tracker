@@ -1,12 +1,11 @@
 package MentalTracker.Pages;
 
-import MentalTracker.CoreApp;
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
 import MentalTracker.DataPortions.Prompts.MentalPrompts;
 import MentalTracker.DataPortions.Prompts.PromptResult;
 import MentalTracker.DataPortions.Prompts.PromptResults;
-import MentalTracker.GuiComponents.PromptComponentsGenerator;
-import MentalTracker.GuiComponents.ComponantName;
+import MentalTracker.ComponentGenerators.PromptComponentsGenerator;
+import MentalTracker.ComponentGenerators.ComponantName;
 import MentalTracker.MentalExceptions.EmptyStringException;
 import com.codename1.io.Log;
 import com.codename1.ui.Component;

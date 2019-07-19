@@ -1,4 +1,4 @@
-package MentalTracker.GuiComponents;
+package MentalTracker.ComponentGenerators;
 
 import MentalTracker.DataPortions.Prompts.MentalPrompt;
 import com.codename1.ui.RadioButton;
