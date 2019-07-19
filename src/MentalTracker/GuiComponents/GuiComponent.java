@@ -32,7 +32,7 @@ public class GuiComponent extends Component{
     }
 
 
-    public void SetSize (String size) { this.setPreferredSizeStr(size); }
+    public void SetSizeStr (String size) { this.setPreferredSizeStr(size); }
 
     public int GetCenterX () { return this.getX(); }
     public int GetCenterY () { return this.getY(); }
