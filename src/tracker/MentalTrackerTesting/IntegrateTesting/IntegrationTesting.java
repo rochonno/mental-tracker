@@ -35,7 +35,7 @@ public class IntegrationTesting {
 
     /**
      *
-     * @param storageTest
+     * @param storageTest Expects a storage test object
      * @return if it passed
      */
     private boolean runSingleStorageTest(Object storageTest) {

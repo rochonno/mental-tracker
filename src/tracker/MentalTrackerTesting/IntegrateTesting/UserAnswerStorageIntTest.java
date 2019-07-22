@@ -20,13 +20,13 @@ public class UserAnswerStorageIntTest implements UnitTest {
      * Runs a unit test, if it returns true it passed. If it threw an exception or returned
      *      false it failed.
      *
-     * @returnwhether it passed
+     * @return boolean whether it passed
      * @throws IOException thrown if it could not create a temporary testing directory
      * @throws ReadFileException if file failed to read
      * @throws SaveFileException if file failed to save
      */
     @Override
-    public boolean runTest() throws ReadFileException, SaveFileException {
+    public boolean runTest() throws ReadFileException, SaveFileException, IOException {
 
         DataStorage storage = new DataStorage();
 

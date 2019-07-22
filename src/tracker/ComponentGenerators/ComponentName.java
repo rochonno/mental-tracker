@@ -1,6 +1,11 @@
 package tracker.ComponentGenerators;
 
-public enum ComponantName {
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Contains the names of components that can be generated for a GUI page.
+ ******************************************************************************/
+public enum ComponentName {
     /**
      * Spacing at the top of the page.
      */

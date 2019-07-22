@@ -1,13 +1,21 @@
-package tracker.Components;
+package tracker.GuiComponents;
 
 import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Adds a sidemenu to the current page.
+ ******************************************************************************/
 public class SideMenu {
 
+    /** Theme to be used when creating the sidemenu. */
     private Resources _Theme;
+    /** Toolbar of the page that the sidemenu is being created for. */
     private Toolbar _PageTb;
+    /** If the sidemenu is added and initialized. */
     private boolean _IsInit;
 
     public SideMenu(final Resources theme, final Toolbar tb) {

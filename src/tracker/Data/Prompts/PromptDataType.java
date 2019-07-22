@@ -1,13 +1,10 @@
+package tracker.Data.Prompts;
+
 /*******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/07/19
- * @project: Mental Health Tracker
+ * @author Nolan Rochon
  *
  * Simple enum to hold the different data types that answers can be expected in.
  ******************************************************************************/
-
-package tracker.Data.Prompts;
-
 public enum PromptDataType {
     /**
      * Expected form of data of the user's answers.

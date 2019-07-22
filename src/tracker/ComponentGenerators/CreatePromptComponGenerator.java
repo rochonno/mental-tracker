@@ -5,6 +5,11 @@ import com.codename1.ui.Label;
 import com.codename1.ui.RadioButton;
 import com.codename1.ui.TextArea;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Generates the components needed for the custom prompt creation page.
+ ******************************************************************************/
 public class CreatePromptComponGenerator {
 
     /** Top Inset for spacing on the page. */

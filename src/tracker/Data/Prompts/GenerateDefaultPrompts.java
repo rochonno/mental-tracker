@@ -1,13 +1,10 @@
+package tracker.Data.Prompts;
+
 /*****************************************************************************
- * @author: Nolan Rochon
- * @date: 07/09/19
- * @project: Mental Health Tracker
+ * @author Nolan Rochon
  *
  * This class constructs the basic default Prompts for the user in groups
  ******************************************************************************/
-
-package tracker.Data.Prompts;
-
 public final class GenerateDefaultPrompts {
 
     private GenerateDefaultPrompts() {

@@ -1,11 +1,3 @@
-/*******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/07/19
- * @project: Mental Health Tracker
- *
- * This class hold a single user result from a specific prompt.
- * Takes the result as a string, attempts to parse it based on the data type.
- ******************************************************************************/
 package tracker.Data.Prompts;
 import tracker.MentalExceptions.EmptyStringException;
 import com.codename1.io.Externalizable;
@@ -15,6 +7,12 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+/*******************************************************************************
+ * @author Nolan Rochon
+ *
+ * This class hold a single user result from a specific prompt.
+ * Takes the result as a string, attempts to parse it based on the data type.
+ ******************************************************************************/
 public class PromptResult implements Externalizable {
     // Registers the class to enable reading it in
     static {
