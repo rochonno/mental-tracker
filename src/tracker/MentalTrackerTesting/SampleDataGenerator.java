@@ -13,11 +13,11 @@ public class SampleDataGenerator {
         PromptResults sampleResults = new PromptResults();
 
         try {
-            sampleResults.AddResult( new PromptResult("intResult1", PromptDataType.INT, "1"));
-            sampleResults.AddResult( new PromptResult("intResult2", PromptDataType.INT, "1"));
-            sampleResults.AddResult( new PromptResult("boolResult", PromptDataType.BOOL, "true"));
-            sampleResults.AddResult( new PromptResult("doubleResult", PromptDataType.DOUBLE, "99.99"));
-            sampleResults.AddResult( new PromptResult("stringResult", PromptDataType.STRING, "A Single Answer"));
+            sampleResults.addResult( new PromptResult("intResult1", PromptDataType.INT, "1"));
+            sampleResults.addResult( new PromptResult("intResult2", PromptDataType.INT, "1"));
+            sampleResults.addResult( new PromptResult("boolResult", PromptDataType.BOOL, "true"));
+            sampleResults.addResult( new PromptResult("doubleResult", PromptDataType.DOUBLE, "99.99"));
+            sampleResults.addResult( new PromptResult("stringResult", PromptDataType.STRING, "A Single Answer"));
 
         } catch (EmptyStringException e) {
             Log.e(e);

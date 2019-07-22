@@ -1,10 +1,10 @@
-/*******************************************************************************************
+/*******************************************************************************
  * @author: Nolan Rochon
  * @date: 07/07/19
  * @project: Mental Health Tracker
  *
  * This class holds a list of all the Prompts and manages it accordingly
- *******************************************************************************************/
+ ******************************************************************************/
 
 package tracker.Data.Prompts;
 
@@ -25,70 +25,78 @@ import java.util.Vector;
 
 public class MentalPrompts implements Externalizable {
     // Registers the class to enable reading it in
-    static { Util.register("MentalPrompts", MentalPrompts.class); }
+    static {
+        Util.register("MentalPrompts", MentalPrompts.class); }
 
     private List<MentalPrompt> _Prompts;
     private int _PromptCount = 0;
 
-    public MentalPrompts()
-    {
-        _Prompts = new Vector<MentalPrompt>();
+    public MentalPrompts() {
+        _Prompts = new Vector<>();
     }
 
     /**
-     * Adds a MentalPrompt to the Vector
+     * Adds a MentalPrompt to the Vector.
      * @param prompt the prompt to be added
      */
-    public void add(MentalPrompt prompt)
-    {
-        _Prompts.add (prompt);
+    public void add(final MentalPrompt prompt) {
+        _Prompts.add(prompt);
         _PromptCount++;
     }
 
-    public MentalPrompt remove(int index)
-    {
+    public MentalPrompt remove(final int index) {
         try {
             MentalPrompt prompt = _Prompts.remove(index);
             _PromptCount--;
             return prompt;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e(e.getCause());
             return null;
         }
     }
 
-    public void SavePrompts (String filename) throws SaveFileException {
-        if (filename == null) filename = FileSystemStorage.getInstance().getAppHomePath() + this.getClass();
+    public void savePrompts(String filename) throws SaveFileException {
+        if (filename == null) {
+            filename = FileSystemStorage.getInstance().getAppHomePath()
+                    + this.getClass();
+        }
         DataStorage storage = new DataStorage();
-        storage.SavePrompts(filename, this);
+        storage.savePrompts(filename, this);
     }
 
-    public MentalPrompts LoadPrompts (String filename) throws ReadFileException {
-        if (filename == null) filename = FileSystemStorage.getInstance().getAppHomePath() + this.getClass();
+    public MentalPrompts loadPrompts(String filename)
+            throws ReadFileException {
+        if (filename == null) {
+            filename = FileSystemStorage.getInstance().getAppHomePath()
+                    + this.getClass();
+        }
         DataStorage storage = new DataStorage();
-        return storage.LoadPrompts(filename, 0);
+        return storage.loadPrompts(filename, 0);
     }
 
-    public int get_PromptCount() { return _PromptCount; }
+    public int getPromptCount() {
+        return _PromptCount; }
 
     @Override
     public int getVersion() {
+
         return 0;
     }
 
     @Override
-    public void externalize(DataOutputStream out) throws IOException {
+    public void externalize(final DataOutputStream out) throws IOException {
         Util.writeObject(_Prompts, out);
     }
 
     @Override
-    public void internalize(int version, DataInputStream in) throws IOException {
+    public void internalize(final int version, final DataInputStream in)
+            throws IOException {
         _Prompts = (Vector<MentalPrompt>) Util.readObject(in);
     }
 
     @Override
     public String getObjectId() {
+
         return "MentalPrompts";
     }
 }

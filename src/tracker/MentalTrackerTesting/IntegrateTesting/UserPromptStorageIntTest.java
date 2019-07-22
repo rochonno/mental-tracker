@@ -32,10 +32,10 @@ public class UserPromptStorageIntTest implements UnitTest{
 
         String testFilePath = _TestDir.CreateFilePath(_TestFileName);
 
-        MentalPrompts userPrompts = GenerateDefaultPrompts.DefaultMorningOnlyPrompts();
-        storage.SavePrompts(testFilePath, userPrompts);
+        MentalPrompts userPrompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
+        storage.savePrompts(testFilePath, userPrompts);
 
-        MentalPrompts loadedPrompts = storage.LoadPrompts(testFilePath, _Version);
+        MentalPrompts loadedPrompts = storage.loadPrompts(testFilePath, _Version);
 
         if (userPrompts.equals(loadedPrompts)) return true;
         return false;

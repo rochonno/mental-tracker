@@ -53,14 +53,14 @@ public class UserPromptPage extends Form {
     }
 
     private void onNextButtonActionEvent (ActionEvent ev) {
-        if (_NextPrompts.get_PromptCount() > 0)
+        if (_NextPrompts.getPromptCount() > 0)
         {
 
             if (_UserAnswer != null) {
                 if (_Result == null) {
                     try {
-                        _Result = new PromptResult(_CurrPrompt.get_Name(), _CurrPrompt.GetDataType(), _UserAnswer);
-                        _AllResults.AddResult(_Result);
+                        _Result = new PromptResult(_CurrPrompt.getName(), _CurrPrompt.getDataType(), _UserAnswer);
+                        _AllResults.addResult(_Result);
                         _NextForm = new UserPromptPage(_NextPrompts, _AllResults, this);
                         _NextForm.show();
                     } catch (EmptyStringException e) {
@@ -69,7 +69,7 @@ public class UserPromptPage extends Form {
                 }
                 else {
                     try {
-                        _AllResults.UpdateResult(_Result, _UserAnswer);
+                        _AllResults.updateResult(_Result, _UserAnswer);
                     } catch (EmptyStringException e) {
                         Log.e(e.getCause());
                     }

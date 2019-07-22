@@ -53,7 +53,7 @@ public class MainPage extends Form {
         //_Page = new DailySurveyPgTwoGUI();
         _Page = new LoginGUI();
         MentalPrompt samplePrompt = new MentalPrompt( "Exercise", "Have you exercised in the past day?", PromptDataType.BOOL);
-        MentalPrompts samplePrompts = GenerateDefaultPrompts.DefaultMorningOnlyPrompts();
+        MentalPrompts samplePrompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
         PromptResults results = new PromptResults();
         //_Page = new UserPromptPage(samplePrompts, results, null);
 
@@ -164,14 +164,14 @@ public class MainPage extends Form {
     {
         /*
         try {
-            _Prompts.LoadPrompts(null);
+            _Prompts.loadPrompts(null);
         } catch (ReadFileException e) {
             Log.e(e.getCause());
         }*/
 
         if (_Prompts == null)
         {
-            _Prompts = GenerateDefaultPrompts.DefaultMorningOnlyPrompts();
+            _Prompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
         }
         if (_Results == null)
         {

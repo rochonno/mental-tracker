@@ -141,7 +141,7 @@ public class PromptResult implements Externalizable {
     @Override
     public void internalize(int version, DataInputStream in) throws IOException {
         _PromptName = Util.readUTF(in);
-        _ExpectedType = PromptDataType.FromInt(in.readInt());
+        _ExpectedType = PromptDataType.fromInt(in.readInt());
         _StringResult = Util.readUTF(in);
         _IntResult = in.readInt();
         _DoubleResult = in.readDouble();

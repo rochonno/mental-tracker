@@ -74,7 +74,7 @@ public class CreateCustomPromptPage extends Form {
             _NewPrompt = new MentalPrompt(_Name, _Question, _AnswerType );
             if ((_AnswerType == PromptDataType.INT) || (_AnswerType == PromptDataType.DOUBLE))
             {
-                if (_Max > 0) _NewPrompt.SetMinMax(_Min, _Max);
+                if (_Max > 0) _NewPrompt.setMinMax(_Min, _Max);
                 else if (_AnswerType == PromptDataType.INT) _Error += "Max must be more than 0";
             }
         } catch (Exception e) {
@@ -85,7 +85,7 @@ public class CreateCustomPromptPage extends Form {
         _AllPrompts.add(_NewPrompt);
 
         try {
-            _AllPrompts.SavePrompts(null);
+            _AllPrompts.savePrompts(null);
         } catch (SaveFileException e) {
             Log.e(e.getCause());
         }

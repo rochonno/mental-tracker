@@ -42,7 +42,7 @@ public class PromptComponentsGenerator {
         createPromptTitle();
         createBackNextButton();
 
-        switch (_Prompt.GetDataType()){
+        switch (_Prompt.getDataType()){
             case INT: createSlider(); break;
             case STRING: createTextArea(); break;
             case BOOL: createYesNo(); break;
@@ -53,14 +53,14 @@ public class PromptComponentsGenerator {
     private void createPromptTitle()
     {
         PromptTitle = new Label();
-        PromptTitle.setText(_Prompt.get_Name());
+        PromptTitle.setText(_Prompt.getName());
         EnabledComponents.add(ComponantName.PROMPT_TITLE);
     }
 
     private void createPromptQuestion()
     {
         PromptQuestion = new Label();
-        PromptQuestion.setText(_Prompt.get_Prompt());
+        PromptQuestion.setText(_Prompt.getPrompt());
         EnabledComponents.add(ComponantName.PROMPT_QUESTION);
     }
 
@@ -76,8 +76,8 @@ public class PromptComponentsGenerator {
     {
         InputSlider = new Slider();
         EnabledComponents.add(ComponantName.INPUT_SLIDER);
-        InputSlider.setMaxValue(_Prompt.GetMax());
-        InputSlider.setMinValue(_Prompt.GetMin());
+        InputSlider.setMaxValue(_Prompt.getMax());
+        InputSlider.setMinValue(_Prompt.getMin());
     }
 
     private void createTextArea()

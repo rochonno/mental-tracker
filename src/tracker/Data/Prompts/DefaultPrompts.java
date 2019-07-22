@@ -125,7 +125,7 @@ final class DefaultPrompts {
             final int max,
             final PromptDataType resultType) {
         MentalPrompt newPrompt = new MentalPrompt(name, prompt, resultType);
-        newPrompt.SetMax(max);
+        newPrompt.setMax(max);
         return newPrompt;
     }
 
@@ -136,7 +136,7 @@ final class DefaultPrompts {
             final int max,
             final PromptDataType resultType) {
         MentalPrompt newPrompt = new MentalPrompt(name, prompt, resultType);
-        newPrompt.SetMinMax(min, max);
+        newPrompt.setMinMax(min, max);
         return newPrompt;
     }
 }

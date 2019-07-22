@@ -33,9 +33,9 @@ public class UserAnswerStorageIntTest implements UnitTest {
         String testFilePath = _TestDir.CreateFilePath(_TestFileName);
 
         PromptResults promptResults = SampleDataGenerator.GeneratePromptResults();
-        storage.SavePromptResults(testFilePath, promptResults);
+        storage.savePromptResults(testFilePath, promptResults);
 
-        PromptResults loadedResults = storage.LoadPromptResutls(testFilePath, _Version);
+        PromptResults loadedResults = storage.loadPromptResults(testFilePath, _Version);
 
         if (promptResults.equals(loadedResults)) return true;
         return false;

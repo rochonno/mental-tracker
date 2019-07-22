@@ -1,8 +1,6 @@
 package tracker.Data.Reminders;
 
-import tracker.UserNotification;
-
-public class PromptsReminder {
+public final class PromptsReminder {
 
     private String _Name;
     private String _Prompt;
@@ -11,30 +9,40 @@ public class PromptsReminder {
     private int _Hour;
     private int _Minute;
 
-    private PromptsReminder ( String name )
-    {
+    private PromptsReminder(final String name) {
         _Name = name;
         _Prompt = "Take a break for a minute to answer a few questions!";
     }
 
-    private void SetNotification ( int hour, int min, boolean isDaily )
-    {
+    private void setNotification(
+            final int hour,
+            final int min,
+            final boolean isDaily) {
         _Hour = hour;
         _Minute = min;
 
         _UserNotify = new UserNotification(_Name, _Prompt);
-        _UserNotify.SetTime (hour, min);
+        _UserNotify.setTime(hour, min);
 
-        if (isDaily) _UserNotify.ActivateDaily();
-        else _UserNotify.ActivateWeekly();
+        if (isDaily) {
+            _UserNotify.activateDaily();
+        } else {
+            _UserNotify.activateWeekly();
+        }
     }
 
-    public void Deactivate ()
-    {
-        if (_UserNotify.IsActivated()) _UserNotify.Deactivate();
+    public void deactivate() {
+        if (_UserNotify.isActivated()) {
+            _UserNotify.deactivate();
+        }
     }
 
-    public int GetHour () { return _Hour; }
-    public int GetMinute () { return _Minute; }
-    public String GetName () { return _Name; }
+    public int getHour() {
+        return _Hour; }
+
+    public int getMinute() {
+        return _Minute; }
+
+    public String getName() {
+        return _Name; }
 }

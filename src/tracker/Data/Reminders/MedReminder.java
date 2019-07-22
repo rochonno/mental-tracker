@@ -1,7 +1,5 @@
 package tracker.Data.Reminders;
 
-import tracker.UserNotification;
-
 public class MedReminder {
 
     private String _Prompt;
@@ -9,29 +7,38 @@ public class MedReminder {
     private UserNotification _UserNotify;
     private int _Hour;
     private int _Minute;
+    private static final String NAME = "Medication Reminder";
 
-    public MedReminder ()
-    {
+    public MedReminder() {
         _Prompt = "Time to take your dose of medications!";
     }
 
-    public void SetNotification (int hour, int minute, boolean isDaily)
-    {
+    public void setNotification(
+            final int hour,
+            final int min,
+            final boolean isDaily) {
         _Hour = hour;
-        _Minute = minute;
+        _Minute = min;
 
 
-        _UserNotify = new UserNotification (_Name, _Prompt);
-        _UserNotify.SetTime (hour, minute);
-        if (isDaily) _UserNotify.ActivateDaily();
-        else _UserNotify.ActivateWeekly();
+        _UserNotify = new UserNotification(NAME, _Prompt);
+        _UserNotify.setTime(hour, _Minute);
+        if (isDaily) {
+            _UserNotify.activateDaily();
+        } else {
+            _UserNotify.activateWeekly();
+        }
     }
 
-    public void Deactivate ()
-    {
-        if (_UserNotify.IsActivated()) _UserNotify.Deactivate();
+    public void deactivate() {
+        if (_UserNotify.isActivated()) {
+            _UserNotify.deactivate();
+        }
     }
 
-    public int GetHour () { return _Hour; }
-    public int GetMinute () { return _Minute; }
+    public int getHour() {
+        return _Hour; }
+
+    public int getMinute() {
+        return _Minute; }
 }
