@@ -1,14 +1,13 @@
-/******************************************************************************
- * @author: Nolan Rochon
- * @project: Mental Health Tracker
- *
- * Wrapper for a Button in the GUI.
- ******************************************************************************/
 package tracker.GuiComponents;
 
 import com.codename1.ui.RadioButton;
 import com.codename1.ui.util.Resources;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Wrapper for a Button in the GUI.
+ ******************************************************************************/
 public class GuiButton extends GuiComponent {
 
     /** Button object from the Codename One tools. */

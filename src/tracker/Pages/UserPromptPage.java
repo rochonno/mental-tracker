@@ -15,6 +15,11 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Creates a page for a single user prompt.
+ ******************************************************************************/
 public class UserPromptPage extends Form {
     private Form _NextForm;
     private Form _PrevForm;

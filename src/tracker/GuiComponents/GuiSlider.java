@@ -1,14 +1,13 @@
-/******************************************************************************
- * @author: Nolan Rochon
- * @project: Mental Health Tracker
- *
- * Wrapper for a Slider in the GUI.
- * Used to get numerical input from the user.
- ******************************************************************************/
 package tracker.GuiComponents;
 import com.codename1.ui.Slider;
 import com.codename1.ui.util.Resources;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Wrapper for a Slider in the GUI.
+ * Used to get numerical input from the user.
+ ******************************************************************************/
 public class GuiSlider extends GuiComponent {
 
     /** Codename One object for receiving slider input from user. */

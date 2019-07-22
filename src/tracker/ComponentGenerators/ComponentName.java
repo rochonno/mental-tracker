@@ -1,12 +1,10 @@
+package tracker.ComponentGenerators;
+
 /******************************************************************************
- * @author: Nolan Rochon
- * @project: Mental Health Tracker
+ * @author Nolan Rochon
  *
  * Contains the names of components that can be generated for a GUI page.
  ******************************************************************************/
-
-package tracker.ComponentGenerators;
-
 public enum ComponentName {
     /**
      * Spacing at the top of the page.

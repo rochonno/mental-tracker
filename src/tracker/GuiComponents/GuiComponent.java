@@ -1,13 +1,12 @@
-/******************************************************************************
- * @author: Nolan Rochon
- * @project: Mental Health Tracker
- *
- * Generic methods for configuring a GUI component.
- ******************************************************************************/
 package tracker.GuiComponents;
 
 import com.codename1.ui.Component;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Generic methods for configuring a GUI component.
+ ******************************************************************************/
 public class GuiComponent extends Component {
 
     public void setLocation(final int x, final int y) {

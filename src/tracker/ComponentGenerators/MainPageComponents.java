@@ -1,9 +1,3 @@
-/******************************************************************************
- * @author: Nolan Rochon
- * @project: Mental Health Tracker
- *
- * Generates the components needed for the Main Page
- ******************************************************************************/
 package tracker.ComponentGenerators;
 
 import com.codename1.components.ImageViewer;
@@ -11,6 +5,11 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Label;
 import com.codename1.ui.RadioButton;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Generates the components needed for the Main Page
+ ******************************************************************************/
 public class MainPageComponents {
     /** Top Inset for spacing of the page. */
     public Label TopInset;

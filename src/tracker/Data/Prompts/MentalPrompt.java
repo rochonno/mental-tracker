@@ -1,12 +1,3 @@
-/*******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/07/19
- * @project: Mental Health Tracker
- *
- * This class holds a single prompt for the user.
- * Once created these objects are stored in a list
- *      retrieved each time the questions are asked.
- ******************************************************************************/
 package tracker.Data.Prompts;
 
 import com.codename1.io.Externalizable;
@@ -16,6 +7,13 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+/*******************************************************************************
+ * @author Nolan Rochon
+ *
+ * This class holds a single prompt for the user.
+ * Once created these objects are stored in a list
+ *      retrieved each time the questions are asked.
+ ******************************************************************************/
 public class MentalPrompt implements Externalizable {
     // Registers the class to enable reading it in
     static {

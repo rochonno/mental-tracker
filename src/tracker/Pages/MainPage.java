@@ -16,10 +16,11 @@ import tracker.LoginGUI;
 
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
-/***
- * This class is for the main page of the application.
- * Automatically displayed upon start-up.
- */
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Main page (home) of the GUI. Displayed upon start-up.
+ ******************************************************************************/
 public class MainPage extends Form {
 
     private Form _Page;

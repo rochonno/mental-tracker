@@ -1,18 +1,17 @@
-/******************************************************************************
- * @author: Nolan Rochon
- * @project: Mental Health Tracker
- *
- * Wrapper for a Text Area in the GUI.
- * Used to get text input from the user.
- ******************************************************************************/
 package tracker.GuiComponents;
 
 import com.codename1.ui.TextArea;
 import com.codename1.ui.util.Resources;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Wrapper for a Text Area in the GUI.
+ * Used to get text input from the user.
+ ******************************************************************************/
 public class GuiTextArea extends GuiComponent {
 
-    /** Codename One object for displaying & receiving text input from user. */
+    /** Codename One object for displaying/receiving text input from user. */
     private TextArea _TextArea;
 
     public GuiTextArea(final String name, final Resources instanceTheme) {
