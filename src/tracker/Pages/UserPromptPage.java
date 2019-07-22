@@ -77,7 +77,7 @@ public class UserPromptPage extends Form {
             }
             else {
 
-                //TODO:: Show error asking them to answer the prompt as best they can
+                //TODO:: Show error asking them to answer the Prompt as best they can
             }
 
         }
@@ -113,17 +113,17 @@ public class UserPromptPage extends Form {
         _Components.BackButton.addActionListener(callback);
         _Components.AdvanceButton.addActionListener(callback);
 
-        if (_Components.CheckInputButtons())
+        if (_Components.checkInputButtons())
         {
             _Components.InputButtonNo.addActionListener(callback);
             _Components.InputButtonYes.addActionListener(callback);
         }
-        if (_Components.CheckSlider())
+        if (_Components.checkSlider())
         {
             _Components.InputSlider.addActionListener(callback);
             _Components.InputSlider.addDataChangedListener(callback);
         }
-        if (_Components.CheckTextArea())
+        if (_Components.checkTextArea())
         {
             _Components.InputTextArea.addActionListener(callback);
         }
@@ -195,7 +195,7 @@ public class UserPromptPage extends Form {
                     addComponent(_Components.TopInset);
                     _Components.TopInset.setPreferredSizeStr("inherit 4.2328043mm");
                     _Components.TopInset.setInlineStylesTheme(resourceObjectInstance);
-                    _Components.TopInset.setName("topInset");
+                    _Components.TopInset.setName("TopInset");
                     ((LayeredLayout)_Components.TopInset.getParent().getLayout()).
                             setInsets(_Components.TopInset, "1.6mm 5.0mm auto 5.0mm").
                             setReferenceComponents(_Components.TopInset, "-1 -1 -1 -1").
@@ -217,8 +217,8 @@ public class UserPromptPage extends Form {
                     addComponent(_Components.BackButton);
                     _Components.BackButton.setPreferredSizeStr("20.042328mm 10.8465605mm");
                     _Components.BackButton.setInlineStylesTheme(resourceObjectInstance);
-                    _Components.BackButton.setName("backButton");
-                    _Components.BackButton.setIcon(resourceObjectInstance.getImage("backButton.png"));
+                    _Components.BackButton.setName("BackButton");
+                    _Components.BackButton.setIcon(resourceObjectInstance.getImage("BackButton.png"));
                     _Components.BackButton.setPressedIcon(resourceObjectInstance.getImage("backPressed.png"));
                     ((LayeredLayout)_Components.BackButton.getParent().getLayout()).
                             setInsets(_Components.BackButton, "0.5mm auto auto 0.0mm").

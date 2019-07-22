@@ -1,9 +1,7 @@
 package tracker.Components;
 
-<<<<<<< Updated upstream:src/MentalTracker/Components/SideMenu.java
-=======
+
 import tracker.Pages.MainPage;
->>>>>>> Stashed changes:src/tracker/Components/SideMenu.java
 import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;

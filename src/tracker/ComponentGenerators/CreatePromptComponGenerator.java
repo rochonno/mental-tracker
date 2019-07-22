@@ -7,32 +7,38 @@ import com.codename1.ui.TextArea;
 
 public class CreatePromptComponGenerator {
 
-    public Label TopInsert;
+    /** Top Inset for spacing on the page. */
+    public Label TopInset;
+    /** Displays the name of the current page. */
     public Label Prompt;
 
+    /** Button to confirm the creation of the Prompt. */
     public Button CreateButton;
+    /** Button to return to the previous page. */
     public Button BackButton;
 
+    /** Text Box for user input. */
     public TextArea InputNameTextArea;
+    /** Text Box for user input. */
     public TextArea InputPromptTextArea;
+    /** Text Box for user input. */
     public TextArea InputResponseTextArea;
+    /** Text Box for user input. */
     public TextArea InputMinTextArea;
+    /** Text Box for user input. */
     public TextArea InputMaxTextArea;
 
-    public CreatePromptComponGenerator ()
-    {
+    public CreatePromptComponGenerator() {
         turnComponentsOn();
     }
 
-    private void turnComponentsOn()
-    {
+    private void turnComponentsOn() {
         createUiComponents();
         createInputFields();
     }
 
-    private void createUiComponents()
-    {
-        TopInsert = new Label();
+    private void createUiComponents() {
+        TopInset = new Label();
         Prompt = new Label();
         Prompt.setText("Question Creation");
 
@@ -40,8 +46,7 @@ public class CreatePromptComponGenerator {
         BackButton = new RadioButton();
     }
 
-    private void createInputFields()
-    {
+    private void createInputFields() {
         InputNameTextArea = new TextArea();
         InputNameTextArea.setHint("Question Title");
 

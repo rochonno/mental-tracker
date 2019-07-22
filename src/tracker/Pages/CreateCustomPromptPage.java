@@ -168,14 +168,14 @@ public class CreateCustomPromptPage extends Form {
         setTitle("Track Your Mind");
         setName("CreatePromptPage");
 
-        addComponent(_Components.TopInsert);
-        _Components.TopInsert.setPreferredSizeStr("inherit 4.2328043mm");
-        _Components.TopInsert.setInlineStylesTheme(resourceObjectInstance);
-        _Components.TopInsert.setName("topInset");
-        ((LayeredLayout)_Components.TopInsert.getParent().getLayout()).
-                setInsets(_Components.TopInsert, "1.6mm 5.0mm auto 5.0mm").
-                setReferenceComponents(_Components.TopInsert, "-1 -1 -1 -1").
-                setReferencePositions(_Components.TopInsert, "0.0 0.0 0.0 0.0");
+        addComponent(_Components.TopInset);
+        _Components.TopInset.setPreferredSizeStr("inherit 4.2328043mm");
+        _Components.TopInset.setInlineStylesTheme(resourceObjectInstance);
+        _Components.TopInset.setName("TopInset");
+        ((LayeredLayout)_Components.TopInset.getParent().getLayout()).
+                setInsets(_Components.TopInset, "1.6mm 5.0mm auto 5.0mm").
+                setReferenceComponents(_Components.TopInset, "-1 -1 -1 -1").
+                setReferencePositions(_Components.TopInset, "0.0 0.0 0.0 0.0");
 
         addComponent(_Components.CreateButton);
         _Components.CreateButton.setPreferredSizeStr("116.93122mm 23.544973mm");
@@ -189,8 +189,8 @@ public class CreateCustomPromptPage extends Form {
         addComponent(_Components.BackButton);
         _Components.BackButton.setPreferredSizeStr("20.042328mm 10.8465605mm");
         _Components.BackButton.setInlineStylesTheme(resourceObjectInstance);
-        _Components.BackButton.setName("backButton");
-        _Components.BackButton.setIcon(resourceObjectInstance.getImage("backButton.png"));
+        _Components.BackButton.setName("BackButton");
+        _Components.BackButton.setIcon(resourceObjectInstance.getImage("BackButton.png"));
         _Components.BackButton.setPressedIcon(resourceObjectInstance.getImage("backPressed.png"));
         ((LayeredLayout)_Components.BackButton.getParent().getLayout()).
                 setInsets(_Components.BackButton, "0.5mm auto auto 0.0mm").

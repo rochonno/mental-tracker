@@ -181,6 +181,6 @@ public class MainPage extends Form {
 
     public void setSidePanel()
     {
-        _SideMenu = new SideMenu(UIManager.initFirstTheme("/theme"), this);
+        _SideMenu = new SideMenu(UIManager.initFirstTheme("/theme"), this.getToolbar());
     }
 }
