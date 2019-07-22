@@ -14,8 +14,16 @@ lib/
 
 # IntelliJ
 out/
-src/MentalTracker/DataPortions/\.idea/
+src/tracker/DataPortions/\.idea/
 
 *.jar
 
 build/built-jar\.properties
+
+Versions\.properties
+
+\.classpath
+
+\.idea/checkstyleidea-libs/readme\.txt
+
+\.project
