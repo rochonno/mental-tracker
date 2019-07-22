@@ -9,9 +9,9 @@ public class GuiButton extends GuiComponent {
 
     /**
      *
-     * @param name
-     * @param instanceTheme
-     * @param iconName
+     * @param name Name of the button
+     * @param instanceTheme Current theme to apply
+     * @param iconName Icon for the button (default = unselected)
      * @param pressedIconName Image when pressed. Can be null String
      */
     public GuiButton (String name, Resources instanceTheme, String iconName, String pressedIconName)
