@@ -10,6 +10,11 @@ import com.codename1.ui.TextArea;
 import java.util.List;
 import java.util.Vector;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Generates the components needed for a single prompt.
+ ******************************************************************************/
 public class PromptComponentsGenerator {
     /** The Prompt that the components are being created for. */
     private MentalPrompt _Prompt;

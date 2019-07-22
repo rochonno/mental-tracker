@@ -3,7 +3,11 @@ import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.util.Resources;
 
-
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Wrapper for a Label in the GUI.
+ ******************************************************************************/
 public class GuiLabel extends GuiComponent {
 
     /** Codename One object for a Label Gui component. */

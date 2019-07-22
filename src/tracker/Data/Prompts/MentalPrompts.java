@@ -1,11 +1,3 @@
-/*******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/07/19
- * @project: Mental Health Tracker
- *
- * This class holds a list of all the Prompts and manages it accordingly
- ******************************************************************************/
-
 package tracker.Data.Prompts;
 
 import tracker.Data.DataStorage;
@@ -22,7 +14,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Vector;
 
-
+/*******************************************************************************
+ * @author Nolan Rochon
+ *
+ * This class holds a list of all the Prompts and manages it accordingly
+ ******************************************************************************/
 public class MentalPrompts implements Externalizable {
     // Registers the class to enable reading it in
     static {

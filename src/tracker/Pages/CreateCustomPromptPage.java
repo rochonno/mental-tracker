@@ -10,10 +10,13 @@ import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
-
-
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Creates a page for creating a custom user defined prompt.
+ ******************************************************************************/
 public class CreateCustomPromptPage extends Form {
 
     private Form _Previous;

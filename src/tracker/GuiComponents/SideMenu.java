@@ -4,6 +4,11 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Adds a sidemenu to the current page.
+ ******************************************************************************/
 public class SideMenu {
 
     /** Theme to be used when creating the sidemenu. */

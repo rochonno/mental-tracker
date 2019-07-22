@@ -8,6 +8,12 @@ import com.codename1.ui.events.DataChangedListener;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+/******************************************************************************
+ * @author Nolan Rochon
+ *
+ * Event callback for a GUI object.
+ * Invokes a specified method when an action is detected.
+ ******************************************************************************/
 public class GuiEventCallback implements ActionListener, DataChangedListener {
 
     /** Components that this event callback class is listening for. */
