@@ -9,6 +9,9 @@
 package tracker.Data.Prompts;
 
 public enum PromptDataType {
+    /**
+     * Expected form of data of the user's answers.
+     */
     INT, DOUBLE, STRING, BOOL;
 
     public static PromptDataType fromInt(final int x) {

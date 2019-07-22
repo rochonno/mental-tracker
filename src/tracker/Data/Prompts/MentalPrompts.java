@@ -28,8 +28,8 @@ public class MentalPrompts implements Externalizable {
     static {
         Util.register("MentalPrompts", MentalPrompts.class); }
 
+    /** List of the prompts to ask. */
     private List<MentalPrompt> _Prompts;
-    private int _PromptCount = 0;
 
     public MentalPrompts() {
         _Prompts = new Vector<>();
@@ -41,13 +41,11 @@ public class MentalPrompts implements Externalizable {
      */
     public void add(final MentalPrompt prompt) {
         _Prompts.add(prompt);
-        _PromptCount++;
     }
 
     public MentalPrompt remove(final int index) {
         try {
             MentalPrompt prompt = _Prompts.remove(index);
-            _PromptCount--;
             return prompt;
         } catch (Exception e) {
             Log.e(e.getCause());
@@ -75,11 +73,10 @@ public class MentalPrompts implements Externalizable {
     }
 
     public int getPromptCount() {
-        return _PromptCount; }
+        return _Prompts.size(); }
 
     @Override
     public int getVersion() {
-
         return 0;
     }
 

@@ -22,12 +22,18 @@ public class MentalPrompt implements Externalizable {
         Util.register("MentalPrompt", MentalPrompt.class);
     }
 
+    /** String for the ID of the class. Used for loading from storage. */
     private String _Id = MentalPrompt.class.getName();
 
+    /** Name of the prompt. */
     private String _Name;
+    /** Question to be asked. */
     private String _Prompt;
+    /** Minimum int value for answers. */
     private int _Min;
+    /** Max int value for answers. */
     private int _Max;
+    /** The expected form of the answer. */
     private PromptDataType _ResultType;
 
     public MentalPrompt(
@@ -45,7 +51,7 @@ public class MentalPrompt implements Externalizable {
         _Max = max;
     }
 
-    public void setMax(int max) {
+    public void setMax(final int max) {
         _Max = max;
     }
 

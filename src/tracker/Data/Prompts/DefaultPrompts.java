@@ -10,7 +10,9 @@ package tracker.Data.Prompts;
 
 final class DefaultPrompts {
 
+    /** Default minimum value for slider input. */
     private static final int MIN = 0;
+    /** Default maximum value for slider input. */
     private static final int MAX = 20;
 
     private DefaultPrompts() {
@@ -45,7 +47,7 @@ final class DefaultPrompts {
 
     /**
      * 
-     * @return
+     * @return MentalPrompt
      */
     static MentalPrompt createExercisePrompt() {
         String name = "Exercise Past Day";

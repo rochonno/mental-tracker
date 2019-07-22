@@ -25,9 +25,12 @@ import java.util.Vector;
 public class PromptResults implements Externalizable {
     // Registers the class to enable reading it in
     static {
-        Util.register("PromptResults", PromptResults.class); }
+        Util.register("PromptResults", PromptResults.class);
+    }
 
+    /** Timestamp of the results. Used to load results from a date range. */
     private String _TimeStamp;
+    /** List of the results from the prompts asked. */
     private List<PromptResult> _ResultsList;
 
     public PromptResults() {
@@ -43,7 +46,7 @@ public class PromptResults implements Externalizable {
     public void updateResult(final PromptResult promptRes, final String result)
             throws EmptyStringException {
         _ResultsList.remove(promptRes);
-        promptRes.ChangeResult(result);
+        promptRes.changeResult(result);
     }
 
     @Override
