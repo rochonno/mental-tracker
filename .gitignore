@@ -19,3 +19,11 @@ src/MentalTracker/DataPortions/\.idea/
 *.jar
 
 build/built-jar\.properties
+
+Versions\.properties
+
+\.classpath
+
+\.idea/checkstyleidea-libs/readme\.txt
+
+\.project
