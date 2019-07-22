@@ -1,3 +1,10 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Contains the names of components that can be generated for a GUI page.
+ ******************************************************************************/
+
 package tracker.ComponentGenerators;
 
 public enum ComponentName {

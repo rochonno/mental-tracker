@@ -1,3 +1,10 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Event callback for a GUI object.
+ * Invokes a specified method when an action is detected.
+ ******************************************************************************/
 package tracker.GuiComponents;
 
 import com.codename1.io.Log;

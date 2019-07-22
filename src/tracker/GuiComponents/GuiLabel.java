@@ -1,3 +1,9 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Wrapper for a Label in the GUI.
+ ******************************************************************************/
 package tracker.GuiComponents;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;

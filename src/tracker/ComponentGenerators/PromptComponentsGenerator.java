@@ -1,3 +1,9 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Generates the components needed for a single prompt.
+ ******************************************************************************/
 package tracker.ComponentGenerators;
 
 import tracker.Data.Prompts.MentalPrompt;

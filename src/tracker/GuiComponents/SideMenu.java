@@ -1,3 +1,9 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Adds a sidemenu to the current page.
+ ******************************************************************************/
 package tracker.GuiComponents;
 
 import com.codename1.ui.*;

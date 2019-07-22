@@ -1,3 +1,9 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Generates the components needed for the custom prompt creation page.
+ ******************************************************************************/
 package tracker.ComponentGenerators;
 
 import com.codename1.ui.Button;

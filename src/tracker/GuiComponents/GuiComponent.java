@@ -1,3 +1,9 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Generic methods for configuring a GUI component.
+ ******************************************************************************/
 package tracker.GuiComponents;
 
 import com.codename1.ui.Component;

@@ -1,3 +1,10 @@
+/******************************************************************************
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * Wrapper for a Text Area in the GUI.
+ * Used to get text input from the user.
+ ******************************************************************************/
 package tracker.GuiComponents;
 
 import com.codename1.ui.TextArea;
