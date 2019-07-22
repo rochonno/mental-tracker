@@ -1,4 +1,4 @@
-package MentalTracker.GuiComponents;
+package tracker.GuiComponents;
 
 import com.codename1.ui.Component;
 
