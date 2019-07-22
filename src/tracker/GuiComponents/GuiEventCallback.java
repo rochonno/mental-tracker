@@ -10,22 +10,23 @@ import java.lang.reflect.Method;
 
 public class GuiEventCallback implements ActionListener, DataChangedListener {
 
+    /** Components that this event callback class is listening for. */
     private GuiComponent _Cmp;
+    /** Method to invoke with an action is performed. */
     private Method _CallbackMethod;
 
-    public GuiEventCallback (GuiComponent cmp, Method method)
-    {
+    public GuiEventCallback(final GuiComponent cmp, final Method method) {
         _Cmp = cmp;
         _CallbackMethod = method;
     }
 
     /**
-     * Invoked when an action occurred on a component
+     * Invoked when an action occurred on a component.
      *
      * @param evt event object describing the source of the action as well as
      *            its trigger
      */
-    public void actionPerformed(ActionEvent evt) {
+    public void actionPerformed(final ActionEvent evt) {
         try {
             _CallbackMethod.invoke(evt);
         } catch (IllegalAccessException e) {
@@ -36,12 +37,12 @@ public class GuiEventCallback implements ActionListener, DataChangedListener {
     }
 
     /**
-     * Invoked when there was a change in the underlying model
+     * Invoked when there was a change in the underlying model.
      *
      * @param type  the type data change; REMOVED, ADDED or CHANGED
      * @param index item index in a list model
      */
-    public void dataChanged(int type, int index) {
+    public void dataChanged(final int type, final int index) {
 
     }
 }

@@ -5,6 +5,7 @@ import com.codename1.ui.util.Resources;
 
 public class GuiButton extends GuiComponent {
 
+    /** Button object from the Codename One tools. */
     private RadioButton _Button;
 
     /**
@@ -14,8 +15,12 @@ public class GuiButton extends GuiComponent {
      * @param iconName Icon for the button (default = unselected)
      * @param pressedIconName Image when pressed. Can be null String
      */
-    public GuiButton (String name, Resources instanceTheme, String iconName, String pressedIconName)
-    {
+    public GuiButton(
+            final String name,
+            final Resources instanceTheme,
+            final String iconName,
+            final String pressedIconName) {
+
         _Button = new RadioButton();
         _Button.setName(name);
         _Button.setInlineStylesTheme(instanceTheme);
@@ -25,21 +30,20 @@ public class GuiButton extends GuiComponent {
         _Button.setInlineSelectedStyles("border:none;");
         _Button.setInlinePressedStyles("border:none;");
 
-        if (pressedIconName != null) _Button.setPressedIcon(instanceTheme.getImage(pressedIconName));
+        if (pressedIconName != null) {
+            _Button.setPressedIcon(instanceTheme.getImage(pressedIconName));
+        }
     }
 
-    public void SetSelected (boolean selected)
-    {
+    public void setSelected(final boolean selected) {
         _Button.setSelected(selected);
     }
 
-    public void SetUIID (String uiid)
-    {
+    public void setUIID(final String uiid) {
         _Button.setUIID(uiid);
     }
 
-    public void SetEventCallback (GuiEventCallback callback)
-    {
+    public void setEventCallback(final GuiEventCallback callback) {
         _Button.addActionListener(callback);
     }
 

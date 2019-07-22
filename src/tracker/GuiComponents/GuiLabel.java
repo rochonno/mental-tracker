@@ -4,24 +4,22 @@ import com.codename1.ui.Label;
 import com.codename1.ui.util.Resources;
 
 
-public class GuiLabel extends GuiComponent{
+public class GuiLabel extends GuiComponent {
 
+    /** Codename One object for a Label Gui component. */
     private Label _Label;
 
-    public GuiLabel ( String name, Resources instanceTheme )
-    {
+    public GuiLabel(final String name, final Resources instanceTheme) {
         _Label = new Label();
         _Label.setName(name);
         _Label.setInlineStylesTheme(instanceTheme);
     }
 
-    public void SetText (String text)
-    {
+    public void setText(final String text) {
         _Label.setText(text);
     }
 
-    public void SetIcon(Image image)
-    {
+    public void setIcon(final Image image) {
         _Label.setIcon(image);
     }
 
