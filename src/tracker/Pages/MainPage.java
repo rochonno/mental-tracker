@@ -1,6 +1,6 @@
 package tracker.Pages;
 
-import tracker.Components.SideMenu;
+import tracker.GuiComponents.SideMenu;
 import tracker.Data.Prompts.*;
 import tracker.ComponentGenerators.MainPageComponents;
 import com.codename1.ui.Form;

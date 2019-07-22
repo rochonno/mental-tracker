@@ -1,4 +1,4 @@
-package tracker.Components;
+package tracker.GuiComponents;
 
 import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
