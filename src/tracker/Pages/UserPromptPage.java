@@ -35,13 +35,15 @@ public class UserPromptPage extends Form {
     private PromptResults _AllResults;
 
 
-    public UserPromptPage(MentalPrompts prompts, PromptResults results, Form previous) {
+    public UserPromptPage(
+            MentalPrompts prompts, PromptResults results, Form previous) {
         this (getGlobalResources(), prompts);
         _AllResults = results;
         _PrevForm = previous;
     }
 
-    public UserPromptPage(final Resources resourceObjectInstance, MentalPrompts prompts) {
+    public UserPromptPage(
+            final Resources resourceObjectInstance, MentalPrompts prompts) {
         _CurrPrompt = prompts.remove(0);
         _NextPrompts = prompts;
 
@@ -63,9 +65,11 @@ public class UserPromptPage extends Form {
             if (_UserAnswer != null) {
                 if (_Result == null) {
                     try {
-                        _Result = new PromptResult(_CurrPrompt.getName(), _CurrPrompt.getDataType(), _UserAnswer);
+                        _Result = new PromptResult(_CurrPrompt.getName(),
+                                _CurrPrompt.getDataType(), _UserAnswer);
                         _AllResults.addResult(_Result);
-                        _NextForm = new UserPromptPage(_NextPrompts, _AllResults, this);
+                        _NextForm = new UserPromptPage(
+                                _NextPrompts, _AllResults, this);
                         _NextForm.show();
                     } catch (EmptyStringException e) {
                         Log.e(e.getCause());
@@ -78,29 +82,28 @@ public class UserPromptPage extends Form {
                     }
                 }
             } else {
-                //TODO:: Show error asking them to answer the Prompt as best they can
+                //TODO:: Error asking them to answer the Prompt as best they can
             }
 
-        } else
-        {
+        } else {
             MainPage main = new MainPage(true);
             main.setSidePanel();
             main.show();
         }
     }
 
-    private void onBackButtonActionEvent (final ActionEvent ev) {
+    private void onBackButtonActionEvent(final ActionEvent ev) {
         _PrevForm.show();
     }
 
-    private void onButtonNoActionEvent (final ActionEvent ev) {
+    private void onButtonNoActionEvent(final ActionEvent ev) {
         _UserAnswer = "false";
     }
 
-    private void onButtonYesActionEvent (final ActionEvent ev) {
+    private void onButtonYesActionEvent(final ActionEvent ev) {
         _UserAnswer = "true";
     }
-    private void onTextAreaChangedEvent (final ActionEvent ev) {
+    private void onTextAreaChangedEvent(final ActionEvent ev) {
         // TODO: Check if valid input
         _UserAnswer = _Components.InputTextArea.getText();
     }
