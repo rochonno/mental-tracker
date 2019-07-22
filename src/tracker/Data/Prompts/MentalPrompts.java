@@ -8,13 +8,12 @@
 
 package tracker.Data.Prompts;
 
-<<<<<<< Updated upstream:src/MentalTracker/DataPortions/Prompts/MentalPrompts.java
-=======
 import tracker.Data.DataStorage;
 import tracker.MentalExceptions.ReadFileException;
 import tracker.MentalExceptions.SaveFileException;
->>>>>>> Stashed changes:src/tracker/Data/Prompts/MentalPrompts.java
 import com.codename1.io.Externalizable;
+import com.codename1.io.FileSystemStorage;
+import com.codename1.io.Log;
 import com.codename1.io.Util;
 
 import java.io.DataInputStream;
@@ -46,10 +45,32 @@ public class MentalPrompts implements Externalizable {
         _PromptCount++;
     }
 
-    public boolean remove(MentalPrompt prompt)
+    public MentalPrompt remove(int index)
     {
-        return _Prompts.remove(prompt);
+        try {
+            MentalPrompt prompt = _Prompts.remove(index);
+            _PromptCount--;
+            return prompt;
+        }
+        catch (Exception e) {
+            Log.e(e.getCause());
+            return null;
+        }
     }
+
+    public void SavePrompts (String filename) throws SaveFileException {
+        if (filename == null) filename = FileSystemStorage.getInstance().getAppHomePath() + this.getClass();
+        DataStorage storage = new DataStorage();
+        storage.SavePrompts(filename, this);
+    }
+
+    public MentalPrompts LoadPrompts (String filename) throws ReadFileException {
+        if (filename == null) filename = FileSystemStorage.getInstance().getAppHomePath() + this.getClass();
+        DataStorage storage = new DataStorage();
+        return storage.LoadPrompts(filename, 0);
+    }
+
+    public int get_PromptCount() { return _PromptCount; }
 
     @Override
     public int getVersion() {

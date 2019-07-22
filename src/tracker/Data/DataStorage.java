@@ -7,18 +7,11 @@
  *******************************************************************************************/
 package tracker.Data;
 
-<<<<<<< Updated upstream:src/MentalTracker/DataPortions/DataStorage.java
-import MentalTracker.DataPortions.Prompts.MentalPrompts;
-import MentalTracker.DataPortions.Prompts.PromptResults;
-import MentalTracker.MentalExceptions.ReadFileException;
-import MentalTracker.MentalExceptions.SaveFileException;
-=======
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.MentalPrompts;
 import tracker.Data.Prompts.PromptResults;
 import tracker.MentalExceptions.ReadFileException;
 import tracker.MentalExceptions.SaveFileException;
->>>>>>> Stashed changes:src/tracker/Data/DataStorage.java
 import com.codename1.io.Storage;
 
 public class DataStorage {
@@ -30,8 +23,11 @@ public class DataStorage {
     public MentalPrompts LoadPrompts (String filename, int version) throws ReadFileException
     {
         Storage s = Storage.getInstance();
-        MentalPrompts prompts = new MentalPrompts();    // Make sure Util registers the class to read it in
-        return (MentalPrompts) s.readObject(filename);
+        MentalPrompts tempPrompts = new MentalPrompts();    // Make sure Util registers the class to read it in
+        new MentalPrompt("this", "ispointless", null);
+
+            tempPrompts = (MentalPrompts) s.readObject(filename);
+            return tempPrompts;
     }
 
 

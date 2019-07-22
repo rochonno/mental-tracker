@@ -9,10 +9,7 @@
 
 package tracker.Data.Prompts;
 
-<<<<<<< Updated upstream:src/MentalTracker/DataPortions/Prompts/PromptResults.java
-=======
 import tracker.MentalExceptions.EmptyStringException;
->>>>>>> Stashed changes:src/tracker/Data/Prompts/PromptResults.java
 import com.codename1.io.Externalizable;
 import com.codename1.io.Util;
 
@@ -40,6 +37,11 @@ public class PromptResults implements Externalizable {
     public void AddResult (PromptResult result)
     {
         _ResultsList.add (result);
+    }
+
+    public void UpdateResult (PromptResult promptResult, String result) throws EmptyStringException {
+        _ResultsList.remove(promptResult);
+        promptResult.ChangeResult(result);
     }
 
     @Override
