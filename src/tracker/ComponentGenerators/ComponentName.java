@@ -1,6 +1,6 @@
 package tracker.ComponentGenerators;
 
-public enum ComponantName {
+public enum ComponentName {
     /**
      * Spacing at the top of the page.
      */

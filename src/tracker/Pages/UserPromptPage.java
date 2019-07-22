@@ -5,7 +5,7 @@ import tracker.Data.Prompts.MentalPrompts;
 import tracker.Data.Prompts.PromptResult;
 import tracker.Data.Prompts.PromptResults;
 import tracker.ComponentGenerators.PromptComponentsGenerator;
-import tracker.ComponentGenerators.ComponantName;
+import tracker.ComponentGenerators.ComponentName;
 import tracker.MentalExceptions.EmptyStringException;
 import com.codename1.io.Log;
 import com.codename1.ui.Component;
@@ -188,7 +188,7 @@ public class UserPromptPage extends Form {
         setTitle("Track Your Mind");
         setName("UserPromptPage");
 
-        for (ComponantName component: _Components.EnabledComponents)
+        for (ComponentName component: _Components.EnabledComponents)
         {
             switch (component) {
                 case TOP_INSET:

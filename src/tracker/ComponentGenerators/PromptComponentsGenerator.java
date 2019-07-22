@@ -36,7 +36,7 @@ public class PromptComponentsGenerator {
     public TextArea InputTextArea;
 
     /** List of generated components for the page. */
-    public List<ComponantName> EnabledComponents = new Vector<>();
+    public List<ComponentName> EnabledComponents = new Vector<>();
 
     public PromptComponentsGenerator(final MentalPrompt prompt) {
         _Prompt = prompt;
@@ -46,7 +46,7 @@ public class PromptComponentsGenerator {
 
     private void turnComponentsOn() {
         TopInset = new Label();
-        EnabledComponents.add(ComponantName.TOP_INSET);
+        EnabledComponents.add(ComponentName.TOP_INSET);
         createPromptQuestion();
         createPromptTitle();
         createBackNextButton();
@@ -63,39 +63,39 @@ public class PromptComponentsGenerator {
     private void createPromptTitle() {
         PromptTitle = new Label();
         PromptTitle.setText(_Prompt.getName());
-        EnabledComponents.add(ComponantName.PROMPT_TITLE);
+        EnabledComponents.add(ComponentName.PROMPT_TITLE);
     }
 
     private void createPromptQuestion() {
         PromptQuestion = new Label();
         PromptQuestion.setText(_Prompt.getPrompt());
-        EnabledComponents.add(ComponantName.PROMPT_QUESTION);
+        EnabledComponents.add(ComponentName.PROMPT_QUESTION);
     }
 
     private void createBackNextButton() {
         AdvanceButton = new RadioButton();
         BackButton = new RadioButton();
-        EnabledComponents.add(ComponantName.ADV_BUTTON);
-        EnabledComponents.add(ComponantName.BACK_BUTTON);
+        EnabledComponents.add(ComponentName.ADV_BUTTON);
+        EnabledComponents.add(ComponentName.BACK_BUTTON);
     }
 
     private void createSlider() {
         InputSlider = new Slider();
-        EnabledComponents.add(ComponantName.INPUT_SLIDER);
+        EnabledComponents.add(ComponentName.INPUT_SLIDER);
         InputSlider.setMaxValue(_Prompt.getMax());
         InputSlider.setMinValue(_Prompt.getMin());
     }
 
     private void createTextArea() {
         InputTextArea = new TextArea();
-        EnabledComponents.add(ComponantName.INPUT_TEXT_AREA);
+        EnabledComponents.add(ComponentName.INPUT_TEXT_AREA);
     }
 
     private void createYesNo() {
         InputButtonNo = new RadioButton();
-        EnabledComponents.add(ComponantName.INPUT_BUTTON_NO);
+        EnabledComponents.add(ComponentName.INPUT_BUTTON_NO);
         InputButtonYes = new RadioButton();
-        EnabledComponents.add(ComponantName.INPUT_BUTTON_YES);
+        EnabledComponents.add(ComponentName.INPUT_BUTTON_YES);
     }
 
     public boolean checkSlider() {
