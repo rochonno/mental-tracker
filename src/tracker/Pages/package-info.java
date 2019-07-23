@@ -1,4 +1,4 @@
 /**
-* Individual GUI pages that are cunstructed with the GUI components.
+* Individual GUI pages created using the GUI builder
 */
 package tracker.Pages;

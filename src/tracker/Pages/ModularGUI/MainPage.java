@@ -1,4 +1,4 @@
-package tracker.Pages;
+package tracker.Pages.ModularGUI;
 
 import com.codename1.ui.events.ActionListener;
 import tracker.GuiComponents.SideMenu;
@@ -9,10 +9,10 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
+import tracker.Pages.LoginGUI;
 
 
-
-   //STRICTLY FOR TESTING PURPOSES. DELETE LATER
+//STRICTLY FOR TESTING PURPOSES. DELETE LATER
 
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
