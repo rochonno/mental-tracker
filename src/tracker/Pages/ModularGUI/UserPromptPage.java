@@ -1,4 +1,4 @@
-package tracker.Pages;
+package tracker.Pages.ModularGUI;
 
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.events.DataChangedListener;
@@ -15,6 +15,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
+
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
 /******************************************************************************

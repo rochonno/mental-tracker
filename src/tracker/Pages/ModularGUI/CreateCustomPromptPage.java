@@ -1,4 +1,4 @@
-package tracker.Pages;
+package tracker.Pages.ModularGUI;
 
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.events.DataChangedListener;
