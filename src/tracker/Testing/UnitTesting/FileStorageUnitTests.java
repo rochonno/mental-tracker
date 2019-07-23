@@ -1,4 +1,4 @@
-package tracker.MentalTrackerTesting.UnitTesting;
+package tracker.Testing.UnitTesting;
 
 public class FileStorageUnitTests {
 }

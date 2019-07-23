@@ -1,4 +1,4 @@
-package tracker.MentalTrackerTesting;
+package tracker.Testing;
 
 public class Codename1TestConstants {
 

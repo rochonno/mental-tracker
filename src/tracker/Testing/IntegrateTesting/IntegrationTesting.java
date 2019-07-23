@@ -1,18 +1,19 @@
-package tracker.MentalTrackerTesting.IntegrateTesting;
-import tracker.MentalTrackerTesting.Codename1TestConstants;
+package tracker.Testing.IntegrateTesting;
+import tracker.Testing.Codename1TestConstants;
 import com.codename1.io.Log;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class IntegrationTesting {
 
-    public IntegrationTesting() {
+    IntegrationTesting() {
 
     }
 
-    public void RunStorageTests() {
-        RunUserPromptStorageTest();
-        RunUserAnswerStorageTest();
+    public static void RunStorageTests() {
+        IntegrationTesting test = new IntegrationTesting();
+        test.RunUserPromptStorageTest();
+        test.RunUserAnswerStorageTest();
     }
 
     /**
