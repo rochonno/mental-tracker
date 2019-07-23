@@ -1,5 +1,6 @@
 package tracker.Pages;
 
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 
@@ -18,8 +19,13 @@ public class LoginGUI extends com.codename1.ui.Form {
     public void onButtonActionEvent(ActionEvent ev) {
 
         //Needs Validation that a correct account was input. **************************
-        _Page = new NeedDailyGUI();
-        _Page.show();
+        if(gui_UserPass.getText() != "" && gui_UserLogin.getText() != "") {
+            _Page = new NeedDailyGUI();
+            _Page.show();
+        }
+        else{
+            Dialog.show("Error!", "Make sure you entered a Username and Password.", "Okay", null);
+        }
     }
 
     //-- DON'T EDIT BELOW THIS LINE!!!
