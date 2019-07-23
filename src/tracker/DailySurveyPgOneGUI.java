@@ -1,63 +1,17 @@
-package tracker.Pages;
+package tracker;
 
+import com.codename1.ui.Container;
 import com.codename1.ui.Form;
-import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.Dialog;
+import com.codename1.ui.util.Resources;
 
 
-
-
-/*
-Break up side Label into four pieces and fix insets on back button to fix scaling issues.
- */
-
-public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
-    private Form _Page;
-
-    public DailySurveyPgOneGUI() {
-        this(com.codename1.ui.util.Resources.getGlobalResources());
-    }
-    
+public class DailySurveyPgOneGUI extends Form  {
     public DailySurveyPgOneGUI(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
 
-    public void onoverallSliderActionEvent(ActionEvent ev) {
-        gui_overallNum.setText("" + gui_overallSlider.getProgress());
-        gui_overallNum.repaint();
-    }
-
-    public void onconfidenceSliderActionEvent(ActionEvent ev) {
-        gui_confidenceNum.setText("" + gui_confidenceSlider.getProgress());
-        gui_confidenceNum.repaint();
-    }
-
-
-    public void onbackButtonActionEvent(ActionEvent ev) {
-        _Page = new NeedDailyGUI();
-        _Page.show();
-    }
-
-    public void onconfirmButtonActionEvent(ActionEvent ev) {
-
-        //Needs to confirm input!
-        _Page = new DailySurveyPgTwoGUI();
-        _Page.show();
-
-    }
-
-
-    public void onstressSliderActionEvent(ActionEvent ev) {
-        gui_stressNum.setText("" + gui_stressSlider.getScrollable());
-        gui_stressNum.repaint();
-    }
-
-
-    public void onanxietySliderActionEvent(ActionEvent ev) {
-        gui_anxietyNum.setText("" + gui_anxietySlider.getScrollable());
-        gui_anxietyNum.repaint();
-    }
-
-    //-- DON'T EDIT BELOW THIS LINE!!!
+//-- DON'T EDIT BELOW THIS LINE!!!
     protected com.codename1.ui.Label gui_topInset = new com.codename1.ui.Label();
     protected com.codename1.ui.Button gui_confirmButton = new com.codename1.ui.Button();
     protected com.codename1.ui.Button gui_backButton = new com.codename1.ui.Button();
@@ -89,7 +43,9 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
+        private com.codename1.ui.Component cmp;
         public EventCallbackClass(com.codename1.ui.Component cmp) {
+            this.cmp = cmp;
         }
 
         public EventCallbackClass() {
@@ -258,6 +214,5 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
         ((com.codename1.ui.layouts.LayeredLayout)gui_Container.getLayout()).setPreferredHeightMM((float)90.47619);
         ((com.codename1.ui.layouts.LayeredLayout)gui_Container.getParent().getLayout()).setInsets(gui_Container, "4.926351% 0.0mm auto 0.0mm").setReferenceComponents(gui_Container, "3 -1 -1 -1").setReferencePositions(gui_Container, "1.0 0.0 0.0 0.0");
     }// </editor-fold>
-
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

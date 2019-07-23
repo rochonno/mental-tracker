@@ -1,35 +1,17 @@
-package tracker.Pages;
+package tracker;
 
-import com.codename1.ui.Dialog;
+import com.codename1.ui.Container;
 import com.codename1.ui.Form;
-import com.codename1.ui.events.ActionEvent;
-import tracker.Pages.NeedDailyGUI;
+import com.codename1.ui.Dialog;
+import com.codename1.ui.util.Resources;
 
-public class LoginGUI extends com.codename1.ui.Form {
 
-    private Form _Page;
-
-    public LoginGUI() {
-        this(com.codename1.ui.util.Resources.getGlobalResources());
-    }
-    
-    public LoginGUI(com.codename1.ui.util.Resources resourceObjectInstance) {
+public class tracker.Pages.LoginGUI extends Form  {
+    public tracker.Pages.LoginGUI(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
 
-    public void onButtonActionEvent(ActionEvent ev) {
-
-        //Needs Validation that a correct account was input. **************************
-        if(gui_UserPass.getText() != "" && gui_UserLogin.getText() != "") {
-            _Page = new NeedDailyGUI();
-            _Page.show();
-        }
-        else{
-            Dialog.show("Error!", "Make sure you entered a Username and Password.", "Okay", null);
-        }
-    }
-
-    //-- DON'T EDIT BELOW THIS LINE!!!
+//-- DON'T EDIT BELOW THIS LINE!!!
     protected com.codename1.ui.Label gui_TopInset = new com.codename1.ui.Label();
     protected com.codename1.components.ScaleImageLabel gui_Scaled_Label = new com.codename1.components.ScaleImageLabel();
     protected com.codename1.ui.TextField gui_UserLogin = new com.codename1.ui.TextField();
@@ -46,7 +28,9 @@ public class LoginGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
+        private com.codename1.ui.Component cmp;
         public EventCallbackClass(com.codename1.ui.Component cmp) {
+            this.cmp = cmp;
         }
 
         public EventCallbackClass() {
@@ -127,6 +111,5 @@ public class LoginGUI extends com.codename1.ui.Form {
         ((com.codename1.ui.layouts.LayeredLayout)gui_Button_2.getParent().getLayout()).setInsets(gui_Button_2, "-1.5873013mm 0.0mm 43.47826% 0.0mm").setReferenceComponents(gui_Button_2, "4 0 -1 0 ").setReferencePositions(gui_Button_2, "1.0 0.0 0.0 0.0");
         ((com.codename1.ui.layouts.LayeredLayout)gui_Button.getParent().getLayout()).setInsets(gui_Button, "2.6455026mm 5.026455mm 74.69388% 0.0mm").setReferenceComponents(gui_Button, "3 -1 -1 0 ").setReferencePositions(gui_Button, "1.0 0.0 0.0 0.0");
     }// </editor-fold>
-
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
