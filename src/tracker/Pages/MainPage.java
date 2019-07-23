@@ -52,8 +52,11 @@ public class MainPage extends Form {
         //_Page = new DailySurveyPgOneGUI();
         //_Page = new DailySurveyPgTwoGUI();
         _Page = new LoginGUI();
-        MentalPrompt samplePrompt = new MentalPrompt("Exercise",
+
+        /*MentalPrompt samplePrompt = new MentalPrompt("Exercise",
                 "Have you exercised in the past day?", PromptDataType.BOOL);
+        */
+
         MentalPrompts samplePrompts =
                 GenerateDefaultPrompts.defaultMorningOnlyPrompts();
         PromptResults results = new PromptResults();
