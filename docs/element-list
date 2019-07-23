@@ -5,7 +5,4 @@ tracker.Data.Prompts
 tracker.Data.Reminders
 tracker.GuiComponents
 tracker.MentalExceptions
-tracker.Testing
-tracker.Testing.IntegrateTesting
-tracker.Testing.UnitTesting
 tracker.Pages
