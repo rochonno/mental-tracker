@@ -16,13 +16,10 @@ import com.codename1.ui.Toolbar;
 public class CoreApp implements LocalNotificationCallback{
 
     private Form current;
-    private Resources theme;
 
     public void init(Object context) {
         // use two network threads instead of one
         updateNetworkThreadCount(2);
-
-        theme = UIManager.initFirstTheme("/theme");
 
         // Enable Toolbar on all Forms by default
         Toolbar.setGlobalToolbar(true);

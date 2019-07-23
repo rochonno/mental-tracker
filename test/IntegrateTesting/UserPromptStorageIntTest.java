@@ -30,7 +30,7 @@ public class UserPromptStorageIntTest implements UnitTest{
 
         DataStorage storage = new DataStorage();
 
-        String testFilePath = _TestDir.CreateFilePath(_TestFileName);
+        String testFilePath = _TestDir.createFilePath(_TestFileName);
 
         MentalPrompts userPrompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
         storage.savePrompts(testFilePath, userPrompts);
@@ -55,7 +55,7 @@ public class UserPromptStorageIntTest implements UnitTest{
      */
     @Override
     public void cleanup() {
-        _TestDir.DeleteTempFiles();
+        _TestDir.deleteTempFiles();
     }
 
     /**

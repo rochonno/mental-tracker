@@ -59,7 +59,6 @@ public class MainPage extends Form {
 
         MentalPrompts samplePrompts =
                 GenerateDefaultPrompts.defaultMorningOnlyPrompts();
-        PromptResults results = new PromptResults();
         //_Page = new UserPromptPage(samplePrompts, results, null);
 
         _Page = new CreateCustomPromptPage(this, samplePrompts);
@@ -84,7 +83,6 @@ public class MainPage extends Form {
 
     class EventCallbackClass implements ActionListener,
             com.codename1.ui.events.DataChangedListener {
-        private com.codename1.ui.Component cmp;
 
         EventCallbackClass() {
         }

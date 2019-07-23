@@ -10,17 +10,17 @@ public class IntegrationTesting {
 
     }
 
-    public static void RunStorageTests() {
+    public static void runStorageTests() {
         IntegrationTesting test = new IntegrationTesting();
-        test.RunUserPromptStorageTest();
-        test.RunUserAnswerStorageTest();
+        test.runUserPromptStorageTest();
+        test.runUserAnswerStorageTest();
     }
 
     /**
      *
      * @return if it passed
      */
-    public boolean RunUserPromptStorageTest() {
+    public boolean runUserPromptStorageTest() {
         UserPromptStorageIntTest intStorageTest = new UserPromptStorageIntTest();
         return runSingleStorageTest (intStorageTest);
     }
@@ -29,7 +29,7 @@ public class IntegrationTesting {
      *
      * @return if it passed
      */
-    public boolean RunUserAnswerStorageTest() {
+    public boolean runUserAnswerStorageTest() {
         UserAnswerStorageIntTest intStorageTest = new UserAnswerStorageIntTest();
         return runSingleStorageTest(intStorageTest);
     }

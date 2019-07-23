@@ -30,9 +30,9 @@ public class UserAnswerStorageIntTest implements UnitTest {
 
         DataStorage storage = new DataStorage();
 
-        String testFilePath = _TestDir.CreateFilePath(_TestFileName);
+        String testFilePath = _TestDir.createFilePath(_TestFileName);
 
-        PromptResults promptResults = SampleDataGenerator.GeneratePromptResults();
+        PromptResults promptResults = SampleDataGenerator.generatePromptResults();
         storage.savePromptResults(testFilePath, promptResults);
 
         PromptResults loadedResults = storage.loadPromptResults(testFilePath, _Version);
@@ -55,7 +55,7 @@ public class UserAnswerStorageIntTest implements UnitTest {
      */
     @Override
     public void cleanup() {
-        _TestDir.DeleteTempFiles();
+        _TestDir.deleteTempFiles();
     }
 
     /**

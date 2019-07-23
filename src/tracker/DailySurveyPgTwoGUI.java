@@ -42,17 +42,17 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
                 errors += "How much sleep did you get? \n";
             }
             if (gui_sugarInput.getText().isEmpty()){
-                errors += "How much sugar did you consume? \n";
+                errors = errors.concat("How much sugar did you consume? \n");
             }
 
             try{
                 Double.parseDouble(gui_sleepInput.getText());
                 Double.parseDouble(gui_sugarInput.getText());
             }catch(NumberFormatException | NullPointerException err){
-                errors += "Sleep/Sugar must be entered in number formatting. \n\n";
+                errors = errors.concat("Sleep/Sugar must be entered in number formatting. \n\n");
             }
 
-            if (errors != ""){
+            if (!errors.equals("")){
                 Dialog.show("Error!", "The following weren't filled in: \n" + errors, "Okay", null);
                 errors = "";
             }else{
@@ -97,9 +97,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
-        private com.codename1.ui.Component cmp;
         public EventCallbackClass(com.codename1.ui.Component cmp) {
-            this.cmp = cmp;
         }
 
         public EventCallbackClass() {

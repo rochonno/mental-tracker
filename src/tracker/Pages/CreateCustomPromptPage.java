@@ -125,7 +125,6 @@ public class CreateCustomPromptPage extends Form {
     }
 
     class EventCallbackClass implements ActionListener, DataChangedListener {
-        private com.codename1.ui.Component cmp;
 
         EventCallbackClass() {
         }

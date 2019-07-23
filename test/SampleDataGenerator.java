@@ -8,7 +8,7 @@ import com.codename1.io.Log;
 
 public class SampleDataGenerator {
 
-    public static PromptResults GeneratePromptResults ()
+    public static PromptResults generatePromptResults()
     {
         PromptResults sampleResults = new PromptResults();
 

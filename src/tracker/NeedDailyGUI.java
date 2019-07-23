@@ -33,9 +33,7 @@ public class NeedDailyGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
-        private com.codename1.ui.Component cmp;
         public EventCallbackClass(com.codename1.ui.Component cmp) {
-            this.cmp = cmp;
         }
 
         public EventCallbackClass() {
