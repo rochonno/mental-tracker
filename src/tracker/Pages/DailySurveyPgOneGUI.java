@@ -53,8 +53,8 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
 
 
     public void onanxietySliderActionEvent(ActionEvent ev) {
-        gui_stressNum.setText("" + gui_stressSlider.getScrollable());
-        gui_stressNum.repaint();
+        gui_anxietyNum.setText("" + gui_anxietySlider.getScrollable());
+        gui_anxietyNum.repaint();
     }
 
     //-- DON'T EDIT BELOW THIS LINE!!!
