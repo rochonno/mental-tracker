@@ -1,13 +1,10 @@
+package tracker.Data.Prompts;
+
 /******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/09/19
- * @project: Mental Health Tracker
+ * @author Nolan Rochon
  *
  * This class constructs the basic default Prompts for the user individually
  ******************************************************************************/
-
-package tracker.Data.Prompts;
-
 final class DefaultPrompts {
 
     /** Default minimum value for slider input. */
@@ -67,7 +64,7 @@ final class DefaultPrompts {
 
     static MentalPrompt createMoodShiftPrompt() {
         String name = "Mood Shifts Past Day";
-        String prompt = "Mod shifts experienced since the last check-in?";
+        String prompt = "Mood shifts experienced since the last check-in?";
         PromptDataType promptDataType = PromptDataType.INT;
 
         return createPrompt(name, prompt, MIN, MAX, promptDataType);
@@ -118,16 +115,6 @@ final class DefaultPrompts {
             final String prompt,
             final PromptDataType resultType) {
         MentalPrompt newPrompt = new MentalPrompt(name, prompt, resultType);
-        return newPrompt;
-    }
-
-    private static MentalPrompt createPrompt(
-            final String name,
-            final String prompt,
-            final int max,
-            final PromptDataType resultType) {
-        MentalPrompt newPrompt = new MentalPrompt(name, prompt, resultType);
-        newPrompt.setMax(max);
         return newPrompt;
     }
 

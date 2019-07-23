@@ -1,13 +1,10 @@
+package tracker.MentalExceptions;
+
 /*******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/07/19
- * @project: Mental Health Tracker
+ * @author Nolan Rochon
  *
  * This exception is thrown when a file fails to load
  ******************************************************************************/
-
-package tracker.MentalExceptions;
-
 public class ReadFileException extends Exception {
 
     public ReadFileException(final String message, final Throwable cause) {

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/07/19
- * @project: Mental Health Tracker
- *
- * This class holds the results from all the Prompts.
- * A time stamp is added once the questions have been completed to
- *      make storage and retrieval of the data simple.
- ******************************************************************************/
-
 package tracker.Data.Prompts;
 
 import tracker.MentalExceptions.EmptyStringException;
@@ -22,6 +12,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
+/*******************************************************************************
+ * @author Nolan Rochon
+ *
+ * This class holds the results from all the Prompts.
+ * A time stamp is added once the questions have been completed to
+ *      make storage and retrieval of the data simple.
+ ******************************************************************************/
 public class PromptResults implements Externalizable {
     // Registers the class to enable reading it in
     static {
