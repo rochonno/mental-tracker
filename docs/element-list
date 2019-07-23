@@ -6,3 +6,4 @@ tracker.Data.Reminders
 tracker.GuiComponents
 tracker.MentalExceptions
 tracker.Pages
+tracker.Pages.ModularGUI
