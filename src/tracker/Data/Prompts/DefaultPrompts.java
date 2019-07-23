@@ -121,16 +121,6 @@ final class DefaultPrompts {
     private static MentalPrompt createPrompt(
             final String name,
             final String prompt,
-            final int max,
-            final PromptDataType resultType) {
-        MentalPrompt newPrompt = new MentalPrompt(name, prompt, resultType);
-        newPrompt.setMax(max);
-        return newPrompt;
-    }
-
-    private static MentalPrompt createPrompt(
-            final String name,
-            final String prompt,
             final int min,
             final int max,
             final PromptDataType resultType) {

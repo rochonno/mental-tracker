@@ -6,21 +6,21 @@ import com.codename1.ui.Dialog;
 import com.codename1.ui.util.Resources;
 
 
-public class MainDailyInput extends Form  {
-    public MainDailyInput(com.codename1.ui.util.Resources resourceObjectInstance) {
+public class MainGUI extends Form  {
+    public MainGUI(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
 
 //-- DON'T EDIT BELOW THIS LINE!!!
 
 
-// <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
-                setInlineStylesTheme(resourceObjectInstance);
-        setTitle("MainDailyInput");
-        setName("MainDailyInput");
+        setInlineStylesTheme(resourceObjectInstance);
+        setTitle("MainGUI");
+        setName("MainGUI");
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!

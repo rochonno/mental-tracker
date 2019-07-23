@@ -1,10 +1,10 @@
-package tracker;
-public class DailySurveyPg2GUI extends com.codename1.ui.Form {
-    public DailySurveyPg2GUI() {
+package tracker.Pages;
+public class Example extends com.codename1.ui.Form {
+    public Example() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
     
-    public DailySurveyPg2GUI(com.codename1.ui.util.Resources resourceObjectInstance) {
+    public Example(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
     
@@ -16,8 +16,8 @@ public class DailySurveyPg2GUI extends com.codename1.ui.Form {
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
                 setInlineStylesTheme(resourceObjectInstance);
-        setTitle("DailySurveyPg2GUI");
-        setName("DailySurveyPg2GUI");
+        setTitle("Example");
+        setName("Example");
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!

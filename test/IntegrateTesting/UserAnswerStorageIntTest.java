@@ -1,19 +1,19 @@
 package tracker.Testing.IntegrateTesting;
 
 import tracker.Data.DataStorage;
-import tracker.Data.Prompts.GenerateDefaultPrompts;
-import tracker.Data.Prompts.MentalPrompts;
+import tracker.Data.Prompts.*;
 import tracker.MentalExceptions.ReadFileException;
 import tracker.MentalExceptions.SaveFileException;
+import tracker.Testing.SampleDataGenerator;
 import tracker.Testing.TempTestingDirectory;
 import com.codename1.io.Log;
 import com.codename1.testing.UnitTest;
 import java.io.IOException;
 
-public class UserPromptStorageIntTest implements UnitTest{
+public class UserAnswerStorageIntTest implements UnitTest {
 
     private final int _Version = 0;
-    private final String _TestFileName = "SavingPrompts";
+    private final String _TestFileName = "SavingAnswers";
     private TempTestingDirectory _TestDir;
 
     /**
@@ -30,14 +30,14 @@ public class UserPromptStorageIntTest implements UnitTest{
 
         DataStorage storage = new DataStorage();
 
-        String testFilePath = _TestDir.CreateFilePath(_TestFileName);
+        String testFilePath = _TestDir.createFilePath(_TestFileName);
 
-        MentalPrompts userPrompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
-        storage.savePrompts(testFilePath, userPrompts);
+        PromptResults promptResults = SampleDataGenerator.generatePromptResults();
+        storage.savePromptResults(testFilePath, promptResults);
 
-        MentalPrompts loadedPrompts = storage.loadPrompts(testFilePath, _Version);
+        PromptResults loadedResults = storage.loadPromptResults(testFilePath, _Version);
 
-        if (userPrompts.equals(loadedPrompts)) return true;
+        if (promptResults.equals(loadedResults)) return true;
         return false;
     }
 
@@ -55,7 +55,7 @@ public class UserPromptStorageIntTest implements UnitTest{
      */
     @Override
     public void cleanup() {
-        _TestDir.DeleteTempFiles();
+        _TestDir.deleteTempFiles();
     }
 
     /**
@@ -77,4 +77,6 @@ public class UserPromptStorageIntTest implements UnitTest{
     public boolean shouldExecuteOnEDT() {
         return false;
     }
+
+
 }

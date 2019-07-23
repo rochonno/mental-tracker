@@ -35,7 +35,7 @@ public class CreatePagesUnitTest extends AbstractTest {
         waitForFormName("MainPage");
         clickButtonByName("confirmButton");
         waitForFormName("UserPromptPage");
-        goBack();
+        clickButtonByName("backButton");
         waitForFormName("MainPage");
         clickButtonByName("confirmButton");
         return false;

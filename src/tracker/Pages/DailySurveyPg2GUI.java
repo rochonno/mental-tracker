@@ -1,16 +1,13 @@
-package tracker;
-
-import com.codename1.ui.Container;
-import com.codename1.ui.Form;
-import com.codename1.ui.Dialog;
-import com.codename1.ui.util.Resources;
-
-
-public class MainGUI extends Form  {
-    public MainGUI(com.codename1.ui.util.Resources resourceObjectInstance) {
+package tracker.Pages;
+public class DailySurveyPg2GUI extends com.codename1.ui.Form {
+    public DailySurveyPg2GUI() {
+        this(com.codename1.ui.util.Resources.getGlobalResources());
+    }
+    
+    public DailySurveyPg2GUI(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
-
+    
 //-- DON'T EDIT BELOW THIS LINE!!!
 
 
@@ -19,8 +16,9 @@ public class MainGUI extends Form  {
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
                 setInlineStylesTheme(resourceObjectInstance);
-        setTitle("MainGUI");
-        setName("MainGUI");
+        setTitle("DailySurveyPg2GUI");
+        setName("DailySurveyPg2GUI");
     }// </editor-fold>
+
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
