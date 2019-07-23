@@ -64,7 +64,7 @@ final class DefaultPrompts {
 
     static MentalPrompt createMoodShiftPrompt() {
         String name = "Mood Shifts Past Day";
-        String prompt = "Mod shifts experienced since the last check-in?";
+        String prompt = "Mood shifts experienced since the last check-in?";
         PromptDataType promptDataType = PromptDataType.INT;
 
         return createPrompt(name, prompt, MIN, MAX, promptDataType);
