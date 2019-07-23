@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<component type="Form" layout="LayeredLayout" layeredLayoutPreferredWidthMM="0.0" layeredLayoutPreferredHeightMM="0.0"  autolayout="true" styles="border:roundRect stroke(3.0mm fc083b66) -top-left -top-right -bottom-left -bottom-right 2.0mm; bgColor:efefef;" title="LoginGUI" scrollableX="false" scrollableY="false" name="LoginGUI">
+<component type="Form" layout="LayeredLayout" layeredLayoutPreferredWidthMM="0.0" layeredLayoutPreferredHeightMM="0.0"  autolayout="true" styles="border:roundRect stroke(3.0mm fc083b66) -top-left -top-right -bottom-left -bottom-right 2.0mm; bgColor:efefef;" title="tracker.Pages.LoginGUI" scrollableX="false" scrollableY="false" name="tracker.Pages.LoginGUI">
   <component type="Label" preferredSize="inherit 7.936508mm" name="TopInset">
     <layoutConstraint insets="1.6mm 5.0mm auto 5.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
   </component>
