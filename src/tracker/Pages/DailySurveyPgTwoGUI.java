@@ -4,7 +4,7 @@
 Fix Insets before resizing this.
  */
 
-package tracker;
+package tracker.Pages;
 
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;

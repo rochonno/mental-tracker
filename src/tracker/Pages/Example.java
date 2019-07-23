@@ -1,4 +1,4 @@
-package tracker;
+package tracker.Pages;
 public class Example extends com.codename1.ui.Form {
     public Example() {
         this(com.codename1.ui.util.Resources.getGlobalResources());

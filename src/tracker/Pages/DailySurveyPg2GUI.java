@@ -1,4 +1,4 @@
-package tracker;
+package tracker.Pages;
 public class DailySurveyPg2GUI extends com.codename1.ui.Form {
     public DailySurveyPg2GUI() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
