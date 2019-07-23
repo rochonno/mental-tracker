@@ -6,6 +6,7 @@ Fix Insets before resizing this.
 
 package tracker.Pages;
 
+import com.codename1.ui.Component;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
@@ -22,11 +23,11 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         initGuiBuilderComponents(resourceObjectInstance);
     }
 
-    public void oncontinueButtonActionEvent(ActionEvent ev) {
+    public void oncontinueButtonActionEvent(final ActionEvent ev) {
         //Verify Input data
         boolean pass = false;
         String errors = "";
-        while (pass == false) {
+        while (!pass) {
             pass = true;
             if (!(gui_depressedButtonNo.isSelected() || gui_depressedButtonYes.isSelected())) {
                 errors += "Have you felt depressed recently? \n";
@@ -48,7 +49,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
             try {
                 Double.parseDouble(gui_sleepInput.getText());
                 Double.parseDouble(gui_sugarInput.getText());
-            }catch(NumberFormatException | NullPointerException err){
+            } catch (NumberFormatException | NullPointerException err) {
                 errors = errors.concat("Sleep/Sugar must be entered in number formatting. \n\n");
             }
 
@@ -62,7 +63,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     }
 
 
-    public void onbackButtonActionEvent(ActionEvent ev) {
+    public void onbackButtonActionEvent(final ActionEvent ev) {
         _Page = new DailySurveyPgOneGUI();
         _Page.show();
     }
@@ -97,10 +98,10 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
-        public EventCallbackClass(com.codename1.ui.Component cmp) {
+        EventCallbackClass(final Component cmp) {
         }
 
-        public EventCallbackClass() {
+        EventCallbackClass() {
         }
 
         public void actionPerformed(com.codename1.ui.events.ActionEvent ev) {
@@ -300,7 +301,7 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         ((com.codename1.ui.layouts.LayeredLayout) gui_yesButtonInset.getParent().getLayout()).setInsets(gui_yesButtonInset, "0.0mm 33.314266% auto 24.45237%").setReferenceComponents(gui_yesButtonInset, "0 17 -1 -1").setReferencePositions(gui_yesButtonInset, "1.0 1.0 0.0 0.0");
         ((com.codename1.ui.layouts.LayeredLayout) gui_noButtonInset.getParent().getLayout()).setInsets(gui_noButtonInset, "3.174603mm 16.619184% auto 60.144547%").setReferenceComponents(gui_noButtonInset, "-1 -1 -1 -1").setReferencePositions(gui_noButtonInset, "0.0 0.0 0.0 0.0");
         ((com.codename1.ui.layouts.LayeredLayout) gui_continueButton.getParent().getLayout()).setInsets(gui_continueButton, "0.0mm auto 0.0mm 25.504587%").setReferenceComponents(gui_continueButton, "15 0 -1 0 ").setReferencePositions(gui_continueButton, "1.0 0.0 0.0 0.0");
-    }// </editor-fold>
+    } // </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

@@ -11,18 +11,18 @@ public class CustomizeQuestions extends com.codename1.ui.Form {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
     
-    public CustomizeQuestions(com.codename1.ui.util.Resources resourceObjectInstance) {
+    public CustomizeQuestions(final com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
 
-    public void onminusButtonActionEvent(ActionEvent ev) {
+    public void onminusButtonActionEvent(final ActionEvent ev) {
         questions.remove(questions.get(questions.size() - 1));
         gui_Box_Layout_Y.removeComponent(this.getComponentAt(0, this.getComponentCount() + 1));
         repaint();
 
     }
 
-    public void onplusButtonActionEvent(ActionEvent ev) {
+    public void onplusButtonActionEvent(final ActionEvent ev) {
         questions.add(new com.codename1.ui.TextArea());
         gui_Box_Layout_Y.add(questions.get(questions.size() - 1));
         repaint();
@@ -51,13 +51,13 @@ public class CustomizeQuestions extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
-        public EventCallbackClass(com.codename1.ui.Component cmp) {
+        EventCallbackClass(final com.codename1.ui.Component cmp) {
         }
 
-        public EventCallbackClass() {
+        EventCallbackClass() {
         }
 
-        public void actionPerformed(com.codename1.ui.events.ActionEvent ev) {
+        public void actionPerformed(final com.codename1.ui.events.ActionEvent ev) {
             com.codename1.ui.Component sourceComponent = ev.getComponent();
 
             if (sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
@@ -72,10 +72,10 @@ public class CustomizeQuestions extends com.codename1.ui.Form {
             }
         }
 
-        public void dataChanged(int type, int index) {
+        public void dataChanged(final int type, final int index) {
         }
     }
-    private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
+    private void initGuiBuilderComponents(final com.codename1.ui.util.Resources resourceObjectInstance) {
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
@@ -136,11 +136,11 @@ public class CustomizeQuestions extends com.codename1.ui.Form {
         gui_Box_Layout_Y.addComponent(gui_Text_Area);
         gui_Box_Layout_Y.addComponent(gui_Text_Area_1);
         gui_Box_Layout_Y.addComponent(gui_Text_Area_3);
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Label.getParent().getLayout()).setInsets(gui_Label, "8.143323% auto auto 12.406577%").setReferenceComponents(gui_Label, "-1 -1 -1 -1").setReferencePositions(gui_Label, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_plusButton.getParent().getLayout()).setInsets(gui_plusButton, "0.0mm 30.941704% 0.0mm auto").setReferenceComponents(gui_plusButton, "0 -1 2 -1").setReferencePositions(gui_plusButton, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_minusButton.getParent().getLayout()).setInsets(gui_minusButton, "0.0mm 14.05082% auto auto").setReferenceComponents(gui_minusButton, "0 -1 -1 -1").setReferencePositions(gui_minusButton, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Box_Layout_Y.getParent().getLayout()).setInsets(gui_Box_Layout_Y, "2.6455002mm 5.8201065mm 5.291008mm 2.9100533mm").setReferenceComponents(gui_Box_Layout_Y, "0 -1 -1 -1").setReferencePositions(gui_Box_Layout_Y, "1.0 0.0 0.0 0.0");
-    }// </editor-fold>
+        ((com.codename1.ui.layouts.LayeredLayout) gui_Label.getParent().getLayout()).setInsets(gui_Label, "8.143323% auto auto 12.406577%").setReferenceComponents(gui_Label, "-1 -1 -1 -1").setReferencePositions(gui_Label, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_plusButton.getParent().getLayout()).setInsets(gui_plusButton, "0.0mm 30.941704% 0.0mm auto").setReferenceComponents(gui_plusButton, "0 -1 2 -1").setReferencePositions(gui_plusButton, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_minusButton.getParent().getLayout()).setInsets(gui_minusButton, "0.0mm 14.05082% auto auto").setReferenceComponents(gui_minusButton, "0 -1 -1 -1").setReferencePositions(gui_minusButton, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_Box_Layout_Y.getParent().getLayout()).setInsets(gui_Box_Layout_Y, "2.6455002mm 5.8201065mm 5.291008mm 2.9100533mm").setReferenceComponents(gui_Box_Layout_Y, "0 -1 -1 -1").setReferencePositions(gui_Box_Layout_Y, "1.0 0.0 0.0 0.0");
+    } // </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

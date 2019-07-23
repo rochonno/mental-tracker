@@ -52,7 +52,7 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
     }
 
 
-    public void onanxietySliderActionEvent(ActionEvent ev) {
+    public void onanxietySliderActionEvent(final ActionEvent ev) {
         gui_anxietyNum.setText("" + gui_anxietySlider.getScrollable());
         gui_anxietyNum.repaint();
     }
@@ -89,10 +89,10 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
-        public EventCallbackClass(final com.codename1.ui.Component cmp) {
+        EventCallbackClass(final com.codename1.ui.Component cmp) {
         }
 
-        public EventCallbackClass() {
+        EventCallbackClass() {
         }
 
         public void actionPerformed(final com.codename1.ui.events.ActionEvent ev) {
@@ -257,7 +257,7 @@ public class DailySurveyPgOneGUI extends com.codename1.ui.Form {
         ((com.codename1.ui.layouts.LayeredLayout) gui_Container.getLayout()).setPreferredWidthMM((float) 106.084656);
         ((com.codename1.ui.layouts.LayeredLayout) gui_Container.getLayout()).setPreferredHeightMM((float) 90.47619);
         ((com.codename1.ui.layouts.LayeredLayout) gui_Container.getParent().getLayout()).setInsets(gui_Container, "4.926351% 0.0mm auto 0.0mm").setReferenceComponents(gui_Container, "3 -1 -1 -1").setReferencePositions(gui_Container, "1.0 0.0 0.0 0.0");
-    }// </editor-fold>
+    } // </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

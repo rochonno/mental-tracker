@@ -1,8 +1,6 @@
 package tracker.Pages;
 
-import com.codename1.ui.Container;
 import com.codename1.ui.Form;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.util.Resources;
 
 
@@ -15,13 +13,13 @@ public class MainGUI extends Form  {
 
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
+    private void initGuiBuilderComponents(final Resources resourceObjectInstance) {
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
         setInlineStylesTheme(resourceObjectInstance);
         setTitle("MainGUI");
         setName("MainGUI");
-    }// </editor-fold>
+    } // </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
