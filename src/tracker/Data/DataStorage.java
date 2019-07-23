@@ -23,10 +23,10 @@ public class DataStorage {
             throws ReadFileException {
         Storage s = Storage.getInstance();
         // Make sure Util registers the class to read it in
-        MentalPrompts tempPrompts = new MentalPrompts();
+        new MentalPrompts();
         new MentalPrompt("this", "ispointless", null);
 
-            tempPrompts = (MentalPrompts) s.readObject(filename);
+            MentalPrompts tempPrompts = (MentalPrompts) s.readObject(filename);
             return tempPrompts;
     }
 
@@ -36,7 +36,7 @@ public class DataStorage {
             throws ReadFileException {
         Storage s = Storage.getInstance();
         // Make sure Util registers the class to read it in
-        PromptResults results = new PromptResults();
+        new PromptResults();
         return (PromptResults) s.readObject(filename);
     }
 
