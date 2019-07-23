@@ -60,14 +60,14 @@ public class CustomizeQuestions extends com.codename1.ui.Form {
         public void actionPerformed(com.codename1.ui.events.ActionEvent ev) {
             com.codename1.ui.Component sourceComponent = ev.getComponent();
 
-            if(sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
+            if (sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
                 sourceComponent = sourceComponent.getParent().getLeadParent();
             }
 
-            if(sourceComponent == gui_plusButton) {
+            if (sourceComponent == gui_plusButton) {
                 onplusButtonActionEvent(ev);
             }
-            if(sourceComponent == gui_minusButton) {
+            if (sourceComponent == gui_minusButton) {
                 onminusButtonActionEvent(ev);
             }
         }

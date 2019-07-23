@@ -12,11 +12,11 @@ public class LoginGUI extends com.codename1.ui.Form {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
     
-    public LoginGUI(com.codename1.ui.util.Resources resourceObjectInstance) {
+    public LoginGUI(final com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
 
-    public void onButtonActionEvent(ActionEvent ev) {
+    public void onButtonActionEvent(final ActionEvent ev) {
 
         //Needs Validation that a correct account was input. **************************
         if(gui_UserPass.getText() != "" && gui_UserLogin.getText() != "") {
@@ -45,28 +45,28 @@ public class LoginGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
-        public EventCallbackClass(com.codename1.ui.Component cmp) {
+        public EventCallbackClass(final com.codename1.ui.Component cmp) {
         }
 
         public EventCallbackClass() {
         }
 
-        public void actionPerformed(com.codename1.ui.events.ActionEvent ev) {
+        public void actionPerformed(final com.codename1.ui.events.ActionEvent ev) {
             com.codename1.ui.Component sourceComponent = ev.getComponent();
 
-            if(sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
+            if (sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
                 sourceComponent = sourceComponent.getParent().getLeadParent();
             }
 
-            if(sourceComponent == gui_Button) {
+            if (sourceComponent == gui_Button) {
                 onButtonActionEvent(ev);
             }
         }
 
-        public void dataChanged(int type, int index) {
+        public void dataChanged(final int type, final int index) {
         }
     }
-    private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
+    private void initGuiBuilderComponents(final com.codename1.ui.util.Resources resourceObjectInstance) {
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
@@ -118,13 +118,13 @@ public class LoginGUI extends com.codename1.ui.Form {
         addComponent(gui_Button_1);
         addComponent(gui_Button_2);
         addComponent(gui_Button);
-        ((com.codename1.ui.layouts.LayeredLayout)gui_TopInset.getParent().getLayout()).setInsets(gui_TopInset, "1.6mm 5.0mm auto 5.0mm").setReferenceComponents(gui_TopInset, "-1 -1 -1 -1").setReferencePositions(gui_TopInset, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Scaled_Label.getParent().getLayout()).setInsets(gui_Scaled_Label, "15.082956% auto auto auto").setReferenceComponents(gui_Scaled_Label, "-1 -1 -1 -1").setReferencePositions(gui_Scaled_Label, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_UserLogin.getParent().getLayout()).setInsets(gui_UserLogin, "11.25402% 0.0mm 76.52733% 0.0mm").setReferenceComponents(gui_UserLogin, "1 0 -1 0 ").setReferencePositions(gui_UserLogin, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_UserPass.getParent().getLayout()).setInsets(gui_UserPass, "0.0mm 0.0mm 84.73895% 0.0mm").setReferenceComponents(gui_UserPass, "2 0 -1 0 ").setReferencePositions(gui_UserPass, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Button_1.getParent().getLayout()).setInsets(gui_Button_1, "0.0mm 0.0mm 62.84153% 0.0mm").setReferenceComponents(gui_Button_1, "6 0 -1 0 ").setReferencePositions(gui_Button_1, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Button_2.getParent().getLayout()).setInsets(gui_Button_2, "-1.5873013mm 0.0mm 43.47826% 0.0mm").setReferenceComponents(gui_Button_2, "4 0 -1 0 ").setReferencePositions(gui_Button_2, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Button.getParent().getLayout()).setInsets(gui_Button, "2.6455026mm 5.026455mm 74.69388% 0.0mm").setReferenceComponents(gui_Button, "3 -1 -1 0 ").setReferencePositions(gui_Button, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_TopInset.getParent().getLayout()).setInsets(gui_TopInset, "1.6mm 5.0mm auto 5.0mm").setReferenceComponents(gui_TopInset, "-1 -1 -1 -1").setReferencePositions(gui_TopInset, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_Scaled_Label.getParent().getLayout()).setInsets(gui_Scaled_Label, "15.082956% auto auto auto").setReferenceComponents(gui_Scaled_Label, "-1 -1 -1 -1").setReferencePositions(gui_Scaled_Label, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_UserLogin.getParent().getLayout()).setInsets(gui_UserLogin, "11.25402% 0.0mm 76.52733% 0.0mm").setReferenceComponents(gui_UserLogin, "1 0 -1 0 ").setReferencePositions(gui_UserLogin, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_UserPass.getParent().getLayout()).setInsets(gui_UserPass, "0.0mm 0.0mm 84.73895% 0.0mm").setReferenceComponents(gui_UserPass, "2 0 -1 0 ").setReferencePositions(gui_UserPass, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_Button_1.getParent().getLayout()).setInsets(gui_Button_1, "0.0mm 0.0mm 62.84153% 0.0mm").setReferenceComponents(gui_Button_1, "6 0 -1 0 ").setReferencePositions(gui_Button_1, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_Button_2.getParent().getLayout()).setInsets(gui_Button_2, "-1.5873013mm 0.0mm 43.47826% 0.0mm").setReferenceComponents(gui_Button_2, "4 0 -1 0 ").setReferencePositions(gui_Button_2, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_Button.getParent().getLayout()).setInsets(gui_Button, "2.6455026mm 5.026455mm 74.69388% 0.0mm").setReferenceComponents(gui_Button, "3 -1 -1 0 ").setReferencePositions(gui_Button, "1.0 0.0 0.0 0.0");
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!

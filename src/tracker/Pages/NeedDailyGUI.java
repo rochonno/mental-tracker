@@ -78,9 +78,9 @@ public class NeedDailyGUI extends com.codename1.ui.Form {
         addComponent(gui_Label);
         addComponent(gui_TopInset);
         addComponent(gui_TakeSurvey);
-        ((com.codename1.ui.layouts.LayeredLayout)gui_Label.getParent().getLayout()).setInsets(gui_Label, "5.47504% 0.0mm auto 0.0mm").setReferenceComponents(gui_Label, "1 1 -1 1 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_TopInset.getParent().getLayout()).setInsets(gui_TopInset, "1.6mm 5.0mm auto 5.0mm").setReferenceComponents(gui_TopInset, "-1 -1 -1 -1").setReferencePositions(gui_TopInset, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout)gui_TakeSurvey.getParent().getLayout()).setInsets(gui_TakeSurvey, "29.36937% 0.0mm 53.333332% 0.0mm").setReferenceComponents(gui_TakeSurvey, "0 1 -1 1 ").setReferencePositions(gui_TakeSurvey, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_Label.getParent().getLayout()).setInsets(gui_Label, "5.47504% 0.0mm auto 0.0mm").setReferenceComponents(gui_Label, "1 1 -1 1 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_TopInset.getParent().getLayout()).setInsets(gui_TopInset, "1.6mm 5.0mm auto 5.0mm").setReferenceComponents(gui_TopInset, "-1 -1 -1 -1").setReferencePositions(gui_TopInset, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout) gui_TakeSurvey.getParent().getLayout()).setInsets(gui_TakeSurvey, "29.36937% 0.0mm 53.333332% 0.0mm").setReferenceComponents(gui_TakeSurvey, "0 1 -1 1 ").setReferencePositions(gui_TakeSurvey, "1.0 0.0 0.0 0.0");
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
