@@ -34,10 +34,10 @@ public class MainPage extends Form {
 
     public MainPage(final boolean hasAnswered) {
         //runOtherPages();
-        this (getGlobalResources(), hasAnswered);
+        this(getGlobalResources(), hasAnswered);
     }
 
-    public MainPage(final Resources resourcesObjectInstance,
+    MainPage(final Resources resourcesObjectInstance,
                     final boolean hasAnswered) {
         DoneSurvey = hasAnswered;
         initialize();
@@ -52,14 +52,17 @@ public class MainPage extends Form {
         //_Page = new DailySurveyPgOneGUI();
         //_Page = new DailySurveyPgTwoGUI();
         _Page = new LoginGUI();
-        MentalPrompt samplePrompt = new MentalPrompt("Exercise",
+
+        /*MentalPrompt samplePrompt = new MentalPrompt("Exercise",
                 "Have you exercised in the past day?", PromptDataType.BOOL);
+        */
+
         MentalPrompts samplePrompts =
                 GenerateDefaultPrompts.defaultMorningOnlyPrompts();
         PromptResults results = new PromptResults();
         //_Page = new UserPromptPage(samplePrompts, results, null);
 
-        _Page = new CreateCustomPromptPage(null, samplePrompts);
+        _Page = new CreateCustomPromptPage(this, samplePrompts);
         //_Page = new CustomizeQuestions();
 
         //_Page = new Form("MainPage");

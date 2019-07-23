@@ -1,4 +1,4 @@
-package tracker.MentalTrackerTesting;
+package tracker.Testing;
 
 import com.codename1.io.FileSystemStorage;
 

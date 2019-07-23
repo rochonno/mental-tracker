@@ -1,4 +1,4 @@
-package tracker.MentalTrackerTesting;
+package tracker.Testing;
 
 import tracker.Data.Prompts.PromptDataType;
 import tracker.Data.Prompts.PromptResult;

@@ -5,7 +5,7 @@ tracker.Data.Prompts
 tracker.Data.Reminders
 tracker.GuiComponents
 tracker.MentalExceptions
-tracker.MentalTrackerTesting
-tracker.MentalTrackerTesting.IntegrateTesting
-tracker.MentalTrackerTesting.UnitTesting
+tracker.Testing
+tracker.Testing.IntegrateTesting
+tracker.Testing.UnitTesting
 tracker.Pages

@@ -1,11 +1,11 @@
-package tracker.MentalTrackerTesting.IntegrateTesting;
+package tracker.Testing.IntegrateTesting;
 
 import tracker.Data.DataStorage;
 import tracker.Data.Prompts.*;
 import tracker.MentalExceptions.ReadFileException;
 import tracker.MentalExceptions.SaveFileException;
-import tracker.MentalTrackerTesting.SampleDataGenerator;
-import tracker.MentalTrackerTesting.TempTestingDirectory;
+import tracker.Testing.SampleDataGenerator;
+import tracker.Testing.TempTestingDirectory;
 import com.codename1.io.Log;
 import com.codename1.testing.UnitTest;
 import java.io.IOException;
