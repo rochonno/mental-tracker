@@ -22,5 +22,6 @@ public class MainDailyInput extends Form  {
         setTitle("MainDailyInput");
         setName("MainDailyInput");
     }// </editor-fold>
+
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

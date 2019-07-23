@@ -22,5 +22,6 @@ public class MainGUI extends Form  {
         setTitle("MainGUI");
         setName("MainGUI");
     }// </editor-fold>
+
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
