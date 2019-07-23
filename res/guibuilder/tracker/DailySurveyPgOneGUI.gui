@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" layout="LayeredLayout" layeredLayoutPreferredWidthMM="0.0" layeredLayoutPreferredHeightMM="0.0"  autolayout="true" styles="bgColor:efefef;" title="DailySurveyPgOneGUI" scrollableY="false" name="DailySurveyPgOneGUI">
+  <component type="Label" preferredSize="inherit 4.2328043mm" name="topInset">
+    <layoutConstraint insets="1.6mm 5.0mm auto 5.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Button" preferredSize="64.021164mm 23.544973mm" icon="resFile:continueButton.png" pressedIcon="resFile:continuePress.png" name="confirmButton" actionEvent="true">
+    <layoutConstraint insets="auto auto auto auto" referenceComponents="4 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Button" preferredSize="28.042328mm 10.8465605mm" icon="resFile:backButton.png" pressedIcon="resFile:backPressed.png" name="backButton" actionEvent="true">
+    <layoutConstraint insets="0.0mm auto auto 0.0mm" referenceComponents="0 -1 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" styles="alignment:center;" preferredSize="126.455025mm 24.338625mm" icon="resFile:moodLabel.png" name="moodLabels">
+    <layoutConstraint insets="8.0% 0.0mm auto 0.0mm" referenceComponents="0 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Container" layout="LayeredLayout" layeredLayoutPreferredWidthMM="106.084656" layeredLayoutPreferredHeightMM="90.47619"  name="Container">
+    <layoutConstraint insets="4.926351% 0.0mm auto 0.0mm" referenceComponents="3 -1 -1 -1" referencePositions="1.0 0.0 0.0 0.0" />
+    <component type="Label" preferredSize="21.16402mm 9.259259mm" icon="resFile:Stress.png" name="stressLabel">
+      <layoutConstraint insets="4.7619047mm auto auto 0.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+    </component>
+    <component type="Label" preferredSize="29.100528717041016mm 8.994709014892578mm" icon="resFile:Anxiety.png 1" name="anxietyLabel">
+      <layoutConstraint insets="23.809525% auto auto 0.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+    </component>
+    <component type="Label" preferredSize="39.153438568115234mm 9.523809432983398mm" icon="resFile:Confidence.png" name="confidenceLabel">
+      <layoutConstraint insets="15.566038% auto 65.09434% 0.0mm" referenceComponents="1 -1 -1 -1" referencePositions="1.0 0.0 0.0 0.0" />
+    </component>
+    <component type="Label" preferredSize="27.513227462768555mm 10.052909851074219mm" icon="resFile:Overall.png" name="overallLabel">
+      <layoutConstraint insets="23.188406% auto 46.376812% 0.0mm" referenceComponents="2 -1 -1 -1" referencePositions="1.0 0.0 0.0 0.0" />
+    </component>
+    <component type="Slider" uiid="SliderFull" preferredSize="76.190475mm 17.989418mm" focusable="true" editable="true" rtl="false" thumbImage="resFile:icon.png" gap="2" progress="1" increments="1" maxValue="10" minValue="1" name="stressSlider" actionEvent="true">
+      <layoutConstraint insets="0.0mm 2.3809524mm 82.01944% 0.0mm" referenceComponents="-1 -1 -1 2 " referencePositions="0.0 0.0 0.0 1.0" />
+    </component>
+    <component type="Slider" uiid="SliderFull" preferredSize="36.772488mm 17.460318mm" focusable="true" editable="true" scrollVisible="true" thumbImage="resFile:icon.png" progress="1" increments="1" maxValue="10" minValue="1" name="anxietySlider" actionEvent="true">
+      <layoutConstraint insets="-1.0582008mm 0.0mm 0.0mm 0.0mm" referenceComponents="1 7 6 2 " referencePositions="0.0 0.0 1.0 1.0" />
+    </component>
+    <component type="Slider" uiid="SliderFull" preferredSize="100.26455mm 18.518518mm" focusable="true" editable="true" thumbImage="resFile:icon.png" progress="1" increments="1" maxValue="10" minValue="1" name="confidenceSlider" actionEvent="true">
+      <layoutConstraint insets="auto 0.0mm 38.78788% 0.0mm" referenceComponents="-1 4 -1 2 " referencePositions="0.0 0.0 0.0 1.0" />
+    </component>
+    <component type="Slider" uiid="SliderFull" preferredSize="125.92593mm 19.047619mm" focusable="true" editable="true" thumbImage="resFile:icon.png" progress="1" increments="1" maxValue="10" minValue="1" name="overallSlider" actionEvent="true">
+      <layoutConstraint insets="-2.6455026mm 0.0mm auto 0.0mm" referenceComponents="3 8 -1 2 " referencePositions="0.0 1.0 0.0 1.0" />
+    </component>
+    <component type="Label" styles="fgColor:0;" preferredSize="6.6137567mm 12.433863mm" name="stressNum">
+      <layoutConstraint insets="0.0mm 0.0mm auto auto" referenceComponents="4 10 0 -1" referencePositions="0.0 0.0 0.0 0.0" />
+    </component>
+    <component type="Label" styles="fgColor:0;" preferredSize="6.3492064mm 9.78836mm" name="anxietyNum">
+      <layoutConstraint insets="0.0mm auto 0.0mm 0.0mm" referenceComponents="1 -1 1 5 " referencePositions="0.0 0.0 0.0 1.0" />
+    </component>
+    <component type="Label" styles="fgColor:0;" preferredSize="6.0846562mm 9.78836mm" name="confidenceNum">
+      <layoutConstraint insets="84.0% 0.0mm -1.3227513mm auto" referenceComponents="-1 -1 2 -1" referencePositions="0.0 0.0 0.0 0.0" />
+    </component>
+    <component type="Label" styles="fgColor:0;" preferredSize="6.0846562mm inherit" name="overallNum">
+      <layoutConstraint insets="67.251465% 0.0mm 20.760235% 0.0mm" referenceComponents="-1 -1 -1 10 " referencePositions="0.0 0.0 0.0 0.0" />
+    </component>
+  </component>
+</component>
