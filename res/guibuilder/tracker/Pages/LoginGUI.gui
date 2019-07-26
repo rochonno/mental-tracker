@@ -4,22 +4,22 @@
   <component type="Label" preferredSize="inherit 7.936508mm" name="TopInset">
     <layoutConstraint insets="1.6mm 5.0mm auto 5.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
   </component>
-  <component type="ScaleImageLabel" styles="bgType:image_scaled_fill; bgImage:Logo.png;" preferredSize="63.756615mm 41.534393mm" backgroundType="33" icon="resFile:Logo.png" name="Scaled_Label">
-    <layoutConstraint insets="10.087719% auto auto auto" referenceComponents="0 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="ScaleImageLabel" styles="bgType:image_scaled_fit; bgImage:Logo.png;" preferredSize="52.1164mm 41.534393mm" backgroundType="34" icon="resFile:Logo.png" name="Scaled_Label">
+    <layoutConstraint insets="9.921882% 20.530313% auto 19.073715%" referenceComponents="0 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="TextField" preferredSize="126.719574mm inherit" hint="Username" hintIcon="fontImage:e7fd" name="UserLogin">
-    <layoutConstraint insets="11.25402% 0.0mm 76.52733% 0.0mm" referenceComponents="1 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="TextField" preferredSize="85.44974mm inherit" hint="Username" hintIcon="fontImage:e7fd" name="UserLogin">
+    <layoutConstraint insets="10.835914% 2.9802322E-7mm 76.16099% 2.9802322E-7mm" referenceComponents="1 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
   <component type="TextField" preferredSize="126.455025mm inherit" hint="Password" hintIcon="fontImage:e897" rows="1" name="UserPass">
-    <layoutConstraint insets="0.0mm 0.0mm 84.73895% 0.0mm" referenceComponents="2 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+    <layoutConstraint insets="0.0mm 0.0mm auto 0.0mm" referenceComponents="2 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
   <component type="Button" text="Create Account" styles="alignment:center;" preferredSize="109.78836mm 8.994709mm" name="Button_1">
-    <layoutConstraint insets="18.761887% 0.0mm auto 0.0mm" referenceComponents="6 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+    <layoutConstraint insets="auto -5.026455mm 56.57895% auto" referenceComponents="6 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
   <component type="Button" text="Forgot Password?" styles="alignment:center;" preferredSize="114.81482mm 9.523809mm" name="Button_2">
     <layoutConstraint insets="2.910053mm 0.0mm auto 0.0mm" referenceComponents="4 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
   </component>
-  <component type="Button" styles="bgColor:efefef; bgType:image_scaled; bgImage:signInButton - Copy.png;" pressedStyles="bgType:image_scaled; bgImage:signInPressed1 - Copy.png;" preferredSize="36.243385mm 15.079365mm" name="Button" actionEvent="true">
-    <layoutConstraint insets="2.9100504mm 33.71665% 69.49152% 33.915512%" referenceComponents="3 0 -1 0 " referencePositions="1.0 0.0 0.0 0.0" />
+  <component type="Button" styles="bgColor:efefef; bgType:image_scaled; bgImage:signInButton - Copy.png;" pressedStyles="bgType:image_scaled; bgImage:signInPressed1 - Copy.png;" preferredSize="28.571428mm 10.8465605mm" name="Button" actionEvent="true">
+    <layoutConstraint insets="2.910053mm auto auto auto" referenceComponents="3 -1 -1 -1" referencePositions="1.0 0.0 0.0 0.0" />
   </component>
 </component>

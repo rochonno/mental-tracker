@@ -40,12 +40,12 @@ public class CoreApp implements LocalNotificationCallback {
         }
 
 
-        //LoginGUI login = new LoginGUI();
-        //login.show();
+        LoginGUI login = new LoginGUI();
+        login.show();
         //SurveyPageOne test = new SurveyPageOne();
         //test.show();
-        SurveyPg1 test = new SurveyPg1();
-        test.show();
+        //SurveyPg1 test = new SurveyPg1();
+        //test.show();
 
 
 
