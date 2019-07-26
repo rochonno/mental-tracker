@@ -36,29 +36,31 @@ public class NeedDailyGUI extends com.codename1.ui.Form {
         gui_TakeSurvey.addActionListener(callback);
     }
 
-    class EventCallbackClass implements ActionListener, DataChangedListener {
-        EventCallbackClass(final Component cmp) {
+    class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
+        private com.codename1.ui.Component cmp;
+        public EventCallbackClass(com.codename1.ui.Component cmp) {
+            this.cmp = cmp;
         }
 
-        EventCallbackClass() {
+        public EventCallbackClass() {
         }
 
-        public void actionPerformed(final ActionEvent ev) {
+        public void actionPerformed(com.codename1.ui.events.ActionEvent ev) {
             com.codename1.ui.Component sourceComponent = ev.getComponent();
 
-            if (sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
+            if(sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
                 sourceComponent = sourceComponent.getParent().getLeadParent();
             }
 
-            if (sourceComponent == gui_TakeSurvey) {
+            if(sourceComponent == gui_TakeSurvey) {
                 onTakeSurveyActionEvent(ev);
             }
         }
 
-        public void dataChanged(final int type, final int index) {
+        public void dataChanged(int type, int index) {
         }
     }
-    private void initGuiBuilderComponents(final Resources resourceObjectInstance) {
+    private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
@@ -82,10 +84,10 @@ public class NeedDailyGUI extends com.codename1.ui.Form {
         addComponent(gui_Label);
         addComponent(gui_TopInset);
         addComponent(gui_TakeSurvey);
-        ((com.codename1.ui.layouts.LayeredLayout) gui_Label.getParent().getLayout()).setInsets(gui_Label, "5.47504% 0.0mm auto 0.0mm").setReferenceComponents(gui_Label, "1 1 -1 1 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_TopInset.getParent().getLayout()).setInsets(gui_TopInset, "1.6mm 5.0mm auto 5.0mm").setReferenceComponents(gui_TopInset, "-1 -1 -1 -1").setReferencePositions(gui_TopInset, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_TakeSurvey.getParent().getLayout()).setInsets(gui_TakeSurvey, "29.36937% 0.0mm 53.333332% 0.0mm").setReferenceComponents(gui_TakeSurvey, "0 1 -1 1 ").setReferencePositions(gui_TakeSurvey, "1.0 0.0 0.0 0.0");
-    } // </editor-fold>
+        ((com.codename1.ui.layouts.LayeredLayout)gui_Label.getParent().getLayout()).setInsets(gui_Label, "5.47504% 0.0mm auto 0.0mm").setReferenceComponents(gui_Label, "1 1 -1 1 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_TopInset.getParent().getLayout()).setInsets(gui_TopInset, "1.6mm 5.0mm auto 5.0mm").setReferenceComponents(gui_TopInset, "-1 -1 -1 -1").setReferencePositions(gui_TopInset, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_TakeSurvey.getParent().getLayout()).setInsets(gui_TakeSurvey, "29.36937% 0.0mm 53.333332% 0.0mm").setReferenceComponents(gui_TakeSurvey, "0 1 -1 1 ").setReferencePositions(gui_TakeSurvey, "1.0 0.0 0.0 0.0");
+    }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

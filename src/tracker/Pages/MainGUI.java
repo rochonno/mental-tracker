@@ -12,14 +12,14 @@ public class MainGUI extends Form  {
 //-- DON'T EDIT BELOW THIS LINE!!!
 
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initGuiBuilderComponents(final Resources resourceObjectInstance) {
+// <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
-        setInlineStylesTheme(resourceObjectInstance);
+                setInlineStylesTheme(resourceObjectInstance);
         setTitle("MainGUI");
         setName("MainGUI");
-    } // </editor-fold>
+    }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" layout="LayeredLayout" layeredLayoutPreferredWidthMM="0.0" layeredLayoutPreferredHeightMM="0.0"  autolayout="true" styles="bgColor:efefef;" title="tracker.Pages.SurveyPg1" scrollableY="false" name="tracker.Pages.SurveyPg1">
+  <component type="Button" styles="bgType:image_scaled_fit; bgImage:backButton.png;" pressedStyles="bgType:image_scaled_fit; bgImage:backButtonPressed.png;" preferredSize="15.873016mm 12.1693125mm" name="Button_1">
+    <layoutConstraint insets="4.003797% auto 90.02962% 3.9473686%" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Label" styles="bgType:image_scaled_fit; bgImage:moodLabel.png;" preferredSize="128.83598mm 29.100529mm" name="moodLabel">
+    <layoutConstraint insets="1.3227522mm 16.45274% auto 3.4391534mm" referenceComponents="-1 -1 -1 0 " referencePositions="0.0 0.0 0.0 1.0" />
+  </component>
+  <component type="Container" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="4"  preferredSize="213.75662mm 113.492065mm" scrollableY="false" name="slideGrid">
+    <layoutConstraint insets="17.396593% -0.52910054mm auto 0.0mm" referenceComponents="-1 -1 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+    <component type="Container" layout="BoxLayout" boxLayoutAxis="Y"  preferredSize="48.67725mm 97.8836mm" name="anxietyBox">
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:10.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_10">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:9.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_9">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:8.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_8">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:7.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_7">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:6.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_6">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:5.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_5">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:4.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_4">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:3.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_3">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:2.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_2">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:1.png;" preferredSize="7.936508mm 8.465609mm" name="anxiety_1">
+      </component>
+      <component type="Label" text="Anxiety" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="anxietyLabel">
+      </component>
+      <component type="Label" text="0" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="anxietyNum">
+      </component>
+    </component>
+    <component type="Container" layout="BoxLayout" boxLayoutAxis="Y"  preferredSize="48.67725mm 111.90476mm" name="confidenceBox">
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:10.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_10">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:9.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_9">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:8.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_8">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:7.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_7">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:6.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_6">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:5.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_5">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:4.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_4">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:3.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_3">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:2.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_2">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:1.png;" preferredSize="7.936508mm 8.465609mm" name="confidence_1">
+      </component>
+      <component type="Label" text="Confidence" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="confidenceLabel">
+      </component>
+      <component type="Label" text="0" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="confidenceNum">
+      </component>
+    </component>
+    <component type="Container" layout="BoxLayout" boxLayoutAxis="Y"  preferredSize="48.67725mm 111.90476mm" name="stressBox">
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:10.png;" preferredSize="7.936508mm 8.465609mm" name="stress_10">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:9.png;" preferredSize="7.936508mm 8.465609mm" name="stress_9">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:8.png;" preferredSize="7.936508mm 8.465609mm" name="stress_8">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:7.png;" preferredSize="7.936508mm 8.465609mm" name="stress_7">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:6.png;" preferredSize="7.936508mm 8.465609mm" name="stress_6">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:5.png;" preferredSize="7.936508mm 8.465609mm" name="stress_5">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:4.png;" preferredSize="7.936508mm 8.465609mm" name="stress_4">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:3.png;" preferredSize="7.936508mm 8.465609mm" name="stress_3">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:2.png;" preferredSize="7.936508mm 8.465609mm" name="stress_2">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:1.png;" preferredSize="7.936508mm 8.465609mm" name="stress_1">
+      </component>
+      <component type="Label" text="Stress" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="stressLabel">
+      </component>
+      <component type="Label" text="0" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="stressNum">
+      </component>
+    </component>
+    <component type="Container" layout="BoxLayout" boxLayoutAxis="Y"  preferredSize="48.67725mm 111.90476mm" name="overallBox">
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:10.png;" preferredSize="7.936508mm 8.465609mm" name="overall_10">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:9.png;" preferredSize="7.936508mm 8.465609mm" name="overall_9">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:8.png;" preferredSize="7.936508mm 8.465609mm" name="overall_8">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:7.png;" preferredSize="7.936508mm 8.465609mm" name="overall_7">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:6.png;" preferredSize="7.936508mm 8.465609mm" name="overall_6">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:5.png;" preferredSize="7.936508mm 8.465609mm" name="overall_5">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:4.png;" preferredSize="7.936508mm 8.465609mm" name="overall_4">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:3.png;" preferredSize="7.936508mm 8.465609mm" name="overall_3">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:2.png;" preferredSize="7.936508mm 8.465609mm" name="overall_2">
+      </component>
+      <component type="Label" styles="bgType:image_scaled_fit; bgImage:1.png;" preferredSize="7.936508mm 8.465609mm" name="overall_1">
+      </component>
+      <component type="Label" text="Overall" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="overallLabel">
+      </component>
+      <component type="Label" text="0" styles="font:native:MainRegular native:MainRegular; alignment:center;" name="overallNum">
+      </component>
+    </component>
+  </component>
+  <component type="Slider" uiid="SliderFull" preferredSize="11.904762mm 96.031746mm" focusable="true" vertical="true" editable="true" thumbImage="resFile:ovalSlider.png" progress="1" increments="1" maxValue="10" minValue="1" name="overallSlider" actionEvent="true">
+    <layoutConstraint insets="16.966806% 8.033015% auto auto" referenceComponents="-1 2 -1 -1" referencePositions="0.0 0.0 0.0 0.0" />
+  </component>
+  <component type="Slider" uiid="SliderFull" preferredSize="11.640212mm 96.296295mm" focusable="true" vertical="true" editable="true" thumbImage="resFile:ovalSlider.png" progress="9" increments="1" maxValue="10" minValue="1" name="stressSlider" actionEvent="true">
+    <layoutConstraint insets="17.121435% 16.191483% 25.776398% 68.76972%" referenceComponents="-1 3 -1 -1" referencePositions="0.0 1.0 0.0 0.0" />
+  </component>
+  <component type="Slider" uiid="SliderFull" preferredSize="14.285714mm 96.296295mm" focusable="true" vertical="true" editable="true" thumbImage="resFile:ovalSlider.png" progress="9" increments="1" maxValue="10" minValue="1" name="confidenceSlider" actionEvent="true">
+    <layoutConstraint insets="17.184776% 23.457268% auto auto" referenceComponents="-1 4 -1 -1" referencePositions="0.0 1.0 0.0 0.0" />
+  </component>
+  <component type="Slider" uiid="SliderFull" preferredSize="11.111112mm 97.3545mm" focusable="true" vertical="true" editable="true" thumbImage="resFile:ovalSlider.png" progress="1" increments="1" maxValue="10" minValue="1" name="anxietySlider" actionEvent="true">
+    <layoutConstraint insets="16.770185% 43.08943% auto 6.349207mm" referenceComponents="-1 5 -1 2 " referencePositions="0.0 1.0 0.0 0.0" />
+  </component>
+</component>

@@ -21,7 +21,7 @@ public class DailySurveyPg2GUI extends com.codename1.ui.Form {
                 setInlineStylesTheme(resourceObjectInstance);
         setTitle("DailySurveyPg2GUI");
         setName("DailySurveyPg2GUI");
-    } // </editor-fold>
+    }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
