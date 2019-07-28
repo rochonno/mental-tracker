@@ -151,16 +151,8 @@ public class SinglePromptDisplay implements PropertyChangeListener {
          * @param ev the event to be processed
          */
         public void actionPerformed(final ActionEvent ev) {
-            Component sourceComponent = ev.getComponent();
 
-            if (sourceComponent.getParent().getLeadParent() != null
-                    && (sourceComponent.getParent().getLeadParent()
-                    instanceof com.codename1.components.MultiButton
-                    || sourceComponent.getParent().getLeadParent()
-                    instanceof com.codename1.components.SpanButton)) {
-                sourceComponent = sourceComponent.getParent().getLeadParent();
-            }
-            String sourceName = sourceComponent.getName();
+            String sourceName = ev.getComponent().getName();
 
             if (_YesButton != null) {
                 if (sourceName.equals(_YesButton.getName())) {
