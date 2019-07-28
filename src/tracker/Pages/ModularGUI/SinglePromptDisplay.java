@@ -62,9 +62,10 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     private void setLocation(final int location)
     {
         switch (location) {
-            case 1: _Location = 1f; break;
-            case 2: _Location = 4f; break;
-            case 3: _Location = 6f; break;
+            case 1: _Location = 1; break;
+            case 2: _Location = 3; break;
+            case 3: _Location = 5; break;
+            case 4: _Location = 7; break;
             default: _Location = 1f; break;
         }
     }
@@ -181,7 +182,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
         createSlider();
         createYesNo();
         createTextArea();
-        createTitle();
+        //createTitle();
     }
 
     public void createTitle() {

@@ -31,6 +31,7 @@ public class MultiUserPrompt extends Form {
     private SinglePromptDisplay _Prompt1;
     private SinglePromptDisplay _Prompt2;
     private SinglePromptDisplay _Prompt3;
+    private SinglePromptDisplay _Prompt4;
 
     public MultiUserPrompt(
             MentalPrompts prompts, PromptResults results, Form previous) {
@@ -40,8 +41,9 @@ public class MultiUserPrompt extends Form {
         _AllPrompts = prompts;
 
         initilizeLayout();
-
-        if (prompts.getPromptCount() >= 3) {
+        if (prompts.getPromptCount() >= 4) {
+            createFourPrompts();
+        } else if (prompts.getPromptCount() == 3) {
             createThreePrompts();
         } else if (prompts.getPromptCount() == 2) {
             createTwoPrompts();
@@ -129,6 +131,11 @@ public class MultiUserPrompt extends Form {
                 "auto -125% 0 auto");
     }
 
+    private void createFourPrompts() {
+        createThreePrompts();
+        _Prompt4 = createPrompt(4);
+    }
+
     private void createThreePrompts() {
         createTwoPrompts();
         _Prompt3 = createPrompt(3);
@@ -144,7 +151,7 @@ public class MultiUserPrompt extends Form {
     }
 
     private void promptsComplete() {
-        
+
     }
 
     private SinglePromptDisplay createPrompt(final int location) {
