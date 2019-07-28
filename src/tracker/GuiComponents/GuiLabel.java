@@ -8,7 +8,7 @@ import com.codename1.ui.util.Resources;
  *
  * Wrapper for a Label in the GUI.
  ******************************************************************************/
-public class GuiLabel extends GuiComponent {
+public class GuiLabel {
 
     /** Codename One object for a Label Gui component. */
     private Label _Label;
@@ -30,5 +30,49 @@ public class GuiLabel extends GuiComponent {
     public Label getLabel()
     {
         return _Label;
+    }
+
+    public void setLocation(int x, int y) {
+        _Label.setX(x);
+        _Label.setY(y);
+    }
+
+    public void centerAllign(boolean center) {
+        if (center) {
+            _Label.setInlineAllStyles("alignment:center");
+        }
+    }
+
+    public void setRefLocation(int refX, int refY, int x, int y) {
+        setLocation(refX + x, refY + y);
+    }
+
+    public void setTraverseIndex(int index) {
+        _Label.setTraversable(true);
+        _Label.setPreferredTabIndex(index);
+    }
+
+    public void setSmoothScroll(boolean smooth) {
+        _Label.setSmoothScrolling(smooth);
+    }
+
+    public void setSizeStr(String size) {
+        _Label.setPreferredSizeStr(size);
+    }
+
+    public int getCenterX() {
+        return _Label.getX();
+    }
+
+    public int getCenterY() {
+        return _Label.getY();
+    }
+
+    public int getTotalWidth() {
+        return _Label.getWidth();
+    }
+
+    public int getTotalHeight() {
+        return _Label.getHeight();
     }
 }
