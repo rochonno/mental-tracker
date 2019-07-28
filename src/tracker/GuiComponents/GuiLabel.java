@@ -27,4 +27,8 @@ public class GuiLabel extends GuiComponent {
         _Label.setIcon(image);
     }
 
+    public Label getLabel()
+    {
+        return _Label;
+    }
 }

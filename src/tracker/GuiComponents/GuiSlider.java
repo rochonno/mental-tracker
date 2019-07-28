@@ -1,5 +1,6 @@
 package tracker.GuiComponents;
 import com.codename1.ui.Slider;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 
 /******************************************************************************
@@ -30,6 +31,10 @@ public class GuiSlider extends GuiComponent {
         setGap(2);
     }
 
+    public void setActionListener(final ActionListener listener) {
+        _Slider.addActionListener(listener);
+    }
+
     public void setBounds(final int min, final int max) {
         _Slider.setMinValue(min);
         _Slider.setMaxValue(max);
@@ -49,5 +54,13 @@ public class GuiSlider extends GuiComponent {
 
     public void setUiid(final String uiid) {
         _Slider.setUIID(uiid);
+    }
+
+    public int getNumber() {
+        return _Slider.getProgress();
+    }
+
+    public Slider getSlider() {
+        return _Slider;
     }
 }

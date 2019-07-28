@@ -1,6 +1,7 @@
 package tracker.GuiComponents;
 
 import com.codename1.ui.RadioButton;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 
 /******************************************************************************
@@ -40,6 +41,10 @@ public class GuiButton extends GuiComponent {
         }
     }
 
+    public void setActionListener(final ActionListener listener) {
+        _Button.addActionListener(listener);
+    }
+
     public void setSelected(final boolean selected) {
         _Button.setSelected(selected);
     }
@@ -48,8 +53,7 @@ public class GuiButton extends GuiComponent {
         _Button.setUIID(uiid);
     }
 
-    public void setEventCallback(final GuiEventCallback callback) {
-        _Button.addActionListener(callback);
+    public RadioButton getButton() {
+        return _Button;
     }
-
 }

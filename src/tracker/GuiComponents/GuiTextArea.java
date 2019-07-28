@@ -1,7 +1,9 @@
 package tracker.GuiComponents;
 
 import com.codename1.ui.TextArea;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
+import org.w3c.dom.Text;
 
 /******************************************************************************
  * @author Nolan Rochon
@@ -37,8 +39,15 @@ public class GuiTextArea extends GuiComponent {
         _TextArea.setVerticalAlignment(alignment);
     }
 
-    public void setEventCallback(final GuiEventCallback callback) {
+    public void setActionListener(final ActionListener callback) {
         _TextArea.addActionListener(callback);
     }
 
+    public String getText() {
+        return _TextArea.getText();
+    }
+
+    public TextArea getTextArea() {
+        return _TextArea;
+    }
 }
