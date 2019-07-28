@@ -14,6 +14,12 @@ import tracker.GuiComponents.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+/**
+ * @author Nolan Rochon
+ *
+ * This creates all components needed for asking a single prompt.
+ * Spacing is done to allow up to 4 on each page.
+ */
 public class SinglePromptDisplay implements PropertyChangeListener {
     private Form _Page;
     private MentalPrompt _CurrPrompt;
@@ -267,6 +273,14 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
+    }
+
+    public MentalPrompt getPrompt() {
+        return _CurrPrompt;
+    }
+
+    public String getResult() {
+        return _UserAnswer;
     }
 
 }

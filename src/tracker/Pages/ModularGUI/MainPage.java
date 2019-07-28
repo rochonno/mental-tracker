@@ -69,8 +69,10 @@ public class MainPage extends Form {
     }
 
     private void onStartQuestionsEvent(final ActionEvent ev) {
-        Form prompts = new UserPromptPage(_Prompts, _Results, this);
-        prompts.show();
+        
+        // new questions page
+        MultiUserPrompt prompt = new MultiUserPrompt(_Prompts, _Results, this);
+        prompt.show();
     }
 
 

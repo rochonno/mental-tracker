@@ -1,5 +1,6 @@
 package tracker.Pages.ModularGUI;
 
+import com.codename1.io.Log;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
@@ -8,12 +9,23 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.MentalPrompts;
+import tracker.Data.Prompts.PromptResult;
 import tracker.Data.Prompts.PromptResults;
 import tracker.GuiComponents.GuiButton;
 import tracker.GuiComponents.GuiLabel;
+import tracker.MentalExceptions.EmptyStringException;
+
+import java.util.List;
+import java.util.Vector;
 
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
+/**
+ * @author Nolan Rochon
+ *
+ * Parent page for the prompts.
+ * This genereates each prompt and collects the input from the user.
+ */
 public class MultiUserPrompt extends Form {
 
     private Form _NextForm;
@@ -32,6 +44,8 @@ public class MultiUserPrompt extends Form {
     private SinglePromptDisplay _Prompt2;
     private SinglePromptDisplay _Prompt3;
     private SinglePromptDisplay _Prompt4;
+
+    private List<SinglePromptDisplay> _GuiPrompts = new Vector<>();
 
     public MultiUserPrompt(
             MentalPrompts prompts, PromptResults results, Form previous) {
@@ -80,7 +94,7 @@ public class MultiUserPrompt extends Form {
                 ImageNames.CONTINUE_UNSELECT,
                 _ResourceInstance,
                 ImageNames.CONTINUE_UNSELECT,
-                ImageNames.BACK_SELECT
+                ImageNames.CONTINUE_SELECT
 
         );
 
@@ -133,21 +147,21 @@ public class MultiUserPrompt extends Form {
 
     private void createFourPrompts() {
         createThreePrompts();
-        _Prompt4 = createPrompt(4);
+        _GuiPrompts.add(createPrompt(4));
     }
 
     private void createThreePrompts() {
         createTwoPrompts();
-        _Prompt3 = createPrompt(3);
+        _GuiPrompts.add(createPrompt(3));
     }
 
     private void createTwoPrompts() {
         createSinglePrompt();
-        _Prompt2 = createPrompt(2);
+        _GuiPrompts.add(createPrompt(2));
     }
 
     private void createSinglePrompt() {
-        _Prompt1 = createPrompt(1);
+        _GuiPrompts.add(createPrompt(1));
     }
 
     private void promptsComplete() {
@@ -166,7 +180,51 @@ public class MultiUserPrompt extends Form {
     }
 
     private void onNextButtonEvent(final ActionEvent ev) {
-        // TODO: check for answers from every prompt
+
+        if (!checkForAnswers()) {
+            // TODO: remind the user to answer all the prompts
+            return;
+        }
+        convertAnswers();
+        MultiUserPrompt nextPrompts =
+                new MultiUserPrompt(_AllPrompts, _AllResults, this);
+        nextPrompts.show();
+
+    }
+
+    private boolean checkForAnswers()
+    {
+        boolean answered = true;
+
+        for (SinglePromptDisplay guiPrompt : _GuiPrompts) {
+            if (guiPrompt.getResult() == null) {
+                answered = false;
+            } else if (guiPrompt.getResult().length() == 0) {
+                answered = false;
+            }
+        }
+
+        return answered;
+    }
+
+    private void convertAnswers() {
+        for (SinglePromptDisplay guiPrompt : _GuiPrompts) {
+            MentalPrompt prompt = guiPrompt.getPrompt();
+            PromptResult result = null;
+            try {
+                result = new PromptResult(
+                        prompt.getName(),
+                        prompt.getDataType(),
+                        guiPrompt.getResult()
+                );
+            } catch (EmptyStringException ex) {
+                Log.e(ex.getCause());
+            }
+
+            if (result != null) {
+                _AllResults.addResult(result);
+            }
+        }
     }
 
 
