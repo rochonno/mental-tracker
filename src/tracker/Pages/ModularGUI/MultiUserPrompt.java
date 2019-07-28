@@ -176,7 +176,7 @@ public class MultiUserPrompt extends Form {
     }
 
     private void onBackButtonEvent(final ActionEvent ev) {
-        _PrevForm.show();
+        _PrevForm.showBack();
     }
 
     private void onNextButtonEvent(final ActionEvent ev) {
