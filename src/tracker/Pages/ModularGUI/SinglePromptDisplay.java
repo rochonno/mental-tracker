@@ -1,5 +1,6 @@
 package tracker.Pages.ModularGUI;
 
+import com.codename1.ui.Component;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
@@ -22,7 +23,8 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     private int _Location;
 
 
-    public SinglePromptDisplay(final MentalPrompt prompt, Resources resources) {
+    public SinglePromptDisplay(Form parentPage, final MentalPrompt prompt, Resources resources) {
+        _Page = parentPage;
         _Resources = resources;
         _CurrPrompt = prompt;
     }
@@ -131,16 +133,33 @@ public class SinglePromptDisplay implements PropertyChangeListener {
          * @param ev the event to be processed
          */
         public void actionPerformed(final ActionEvent ev) {
-            String sourceName = ev.getComponent().getName();
+            Component sourceComponent = ev.getComponent();
 
-            if (sourceName == _YesButton.getName()) {
-                onYesButtonEvent(ev);
-            } else if (sourceName == _NoButton.getName()) {
-                onNoButtonEvent(ev);
-            } else if (sourceName == _InputText.getName()) {
-                onTextChangedEvent(ev);
-            } else if (sourceName == _Slider.getName()) {
-                onSliderEvent(ev);
+            if (sourceComponent.getParent().getLeadParent() != null
+                    && (sourceComponent.getParent().getLeadParent()
+                    instanceof com.codename1.components.MultiButton
+                    || sourceComponent.getParent().getLeadParent()
+                    instanceof com.codename1.components.SpanButton)) {
+                sourceComponent = sourceComponent.getParent().getLeadParent();
+            }
+            String sourceName = sourceComponent.getName();
+
+            if (_YesButton != null) {
+                if (sourceName.equals(_YesButton.getName())) {
+                    onYesButtonEvent(ev);
+                } else if (sourceName.equals(_NoButton.getName())) {
+                    onNoButtonEvent(ev);
+                }
+            }
+            if (_InputText != null) {
+                if (sourceName.equals(_InputText.getName())) {
+                    onTextChangedEvent(ev);
+                }
+            }
+            if (_Slider != null) {
+                if (sourceName.equals(_Slider.getName())) {
+                    onSliderEvent(ev);
+                }
             }
         }
     }
@@ -163,8 +182,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
         if (_Location == 1) {
             ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
-                    setInsets(_Title.getLabel(), "0% auto auto 0").
-                    setReferencePositions(_Title.getLabel(), "0, 0, 0, 0");
+                    setInsets(_Title.getLabel(), "auto auto auto 0");
         } else if (_Location == 2) {
             ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
                     setInsets(_Title.getLabel(), "0% auto auto 0").
@@ -184,6 +202,10 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     }
 
     private void createSlider() {
+        if (_Slider == null) {
+            return;
+        }
+
         _Slider.setSizeStr("88.88889mm 11.111112mm");
         _Slider.centerAllign(true);
         _Page.addComponent(_Slider.getSlider());
@@ -194,8 +216,13 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     }
 
     private void createYesNo() {
+        if ((_YesButton == null) || (_NoButton == null)) {
+            return;
+        }
+
         _NoButton.setUIID("ToggleButton");
         _NoButton.setSizeStr("18.78307mm 6.6137567mm");
+        _Page.addComponent(_NoButton.getButton());
 
         ((LayeredLayout) _NoButton.getButton().getParent().getLayout()).
                 setInsets(_NoButton.getButton(),"0 60% auto 20%").
@@ -203,6 +230,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
         _YesButton.setUIID("ToggleButton");
         _YesButton.setSizeStr("22.486773mm 6.6137567mm");
+        _Page.addComponent(_YesButton.getButton());
 
         ((LayeredLayout) _YesButton.getButton().getParent().getLayout()).
                 setInsets(_YesButton.getButton(),"0 auto auto 0").
@@ -211,9 +239,14 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     }
 
     private void createTextArea() {
+        if (_InputText == null) {
+            return;
+        }
+
         _InputText.centerAllign(true);
         _InputText.setSingleLine(true);
         _InputText.setVertAlign(4);
+        _Page.addComponent(_InputText.getTextArea());
 
         ((LayeredLayout) _InputText.getTextArea().getParent().getLayout()).
                 setInsets(_InputText.getTextArea(), "0 30% auto 33%").
