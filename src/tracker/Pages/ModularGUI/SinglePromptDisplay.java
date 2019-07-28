@@ -20,7 +20,9 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     private String _UserAnswer;
     private PromptResult _Result;
     private Resources _Resources;
-    private int _Location;
+
+    private Component _RefComponent;
+    private float _Location;
 
 
     public SinglePromptDisplay(Form parentPage, final MentalPrompt prompt, Resources resources) {
@@ -36,15 +38,14 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     private GuiSlider _Slider;
     private GuiTextArea _InputText;
 
-    private GuiEventCallback _NoCallback;
-    private GuiEventCallback _YesCallback;
-    private GuiEventCallback _SliderCallback;
-    private GuiEventCallback _TextCallback;
 
-    public void initialize(final int location) {
-        _Location = location;
+    public void initialize(final int location, final Component refComponent) {
+        setLocation(location);
+        _RefComponent = refComponent;
+
         _Title = new GuiLabel(_CurrPrompt.getName(), _Resources);
-        _Question = new GuiLabel(_CurrPrompt.getPrompt(), _Resources);
+        _Question = new GuiLabel("prompt", _Resources);
+
         PromptCallbackClass callback = new PromptCallbackClass();
 
         switch (_CurrPrompt.getDataType()) {
@@ -56,6 +57,16 @@ public class SinglePromptDisplay implements PropertyChangeListener {
         }
 
         createComponents();
+    }
+
+    private void setLocation(final int location)
+    {
+        switch (location) {
+            case 1: _Location = 1f; break;
+            case 2: _Location = 4f; break;
+            case 3: _Location = 6f; break;
+            default: _Location = 1f; break;
+        }
     }
 
 
@@ -166,39 +177,32 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
 
     private void createComponents() {
-        createTitle();
         createQuestion();
         createSlider();
         createYesNo();
         createTextArea();
+        createTitle();
     }
 
     public void createTitle() {
+        _Title.setText(_CurrPrompt.getName());
         _Title.setSizeStr("126.455025mm 24.338625mm");
         _Title.setLocation(50, 70);
         _Title.centerAllign(true);
 
         _Page.addComponent(_Title.getLabel());
 
-        if (_Location == 1) {
-            ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
-                    setInsets(_Title.getLabel(), "auto auto auto 0");
-        } else if (_Location == 2) {
-            ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
-                    setInsets(_Title.getLabel(), "0% auto auto 0").
-                    setReferencePositions(_Title.getLabel(), "1, 0, 0, 0");
-        } else if (_Location == 3) {
-            ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
-                    setInsets(_Title.getLabel(), "0% auto auto 0").
-                    setReferencePositions(_Title.getLabel(), "2, 0, 0, 0");
-        }
+        ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
+                setInsets(_Title.getLabel(), "-92% 0 0 -70%").
+                setReferenceComponentTop(_Title.getLabel(), _Question.getLabel(), 1f);
     }
 
     public void createQuestion() {
+        _Question.setText(_CurrPrompt.getPrompt());
         _Page.addComponent(_Question.getLabel());
         ((LayeredLayout) _Question.getLabel().getParent().getLayout()).
                 setInsets(_Question.getLabel(), "0% auto auto auto").
-                setReferenceComponentTop(_Question.getLabel(), _Title.getLabel(), 1f);
+                setReferenceComponentTop(_Question.getLabel(), _RefComponent, _Location);
     }
 
     private void createSlider() {
@@ -212,7 +216,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
         ((LayeredLayout) _Slider.getSlider().getParent().getLayout()).
                 setInsets(_Slider.getSlider(), "0 20% auto 20%").
-                setReferenceComponentTop(_Slider.getSlider(), _Title.getLabel(), 2f);
+                setReferenceComponentTop(_Slider.getSlider(), _Question.getLabel(), 1f);
     }
 
     private void createYesNo() {
@@ -226,7 +230,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
         ((LayeredLayout) _NoButton.getButton().getParent().getLayout()).
                 setInsets(_NoButton.getButton(),"0 60% auto 20%").
-                setReferenceComponentTop(_NoButton.getButton(), _Title.getLabel(), 2f);
+                setReferenceComponentTop(_NoButton.getButton(), _Question.getLabel(), 1f);
 
         _YesButton.setUIID("ToggleButton");
         _YesButton.setSizeStr("22.486773mm 6.6137567mm");
@@ -250,7 +254,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
         ((LayeredLayout) _InputText.getTextArea().getParent().getLayout()).
                 setInsets(_InputText.getTextArea(), "0 30% auto 33%").
-                setReferenceComponentTop(_InputText.getTextArea(), _Title.getLabel(), 2f);
+                setReferenceComponentTop(_InputText.getTextArea(), _Question.getLabel(), 1f);
     }
 
     /**
@@ -263,6 +267,5 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
 
     }
-
 
 }

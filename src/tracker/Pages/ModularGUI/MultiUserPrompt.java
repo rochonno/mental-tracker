@@ -144,13 +144,13 @@ public class MultiUserPrompt extends Form {
     }
 
     private void promptsComplete() {
-
+        
     }
 
     private SinglePromptDisplay createPrompt(final int location) {
         MentalPrompt prompt = _AllPrompts.remove(0);
         SinglePromptDisplay newPrompt = new SinglePromptDisplay(this, prompt, _ResourceInstance);
-        newPrompt.initialize(location);
+        newPrompt.initialize(location, _BackButton.getButton());
         return newPrompt;
     }
 
