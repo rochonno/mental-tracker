@@ -1,4 +1,4 @@
-package tracker.Pages.ModularGUI;
+package tracker.GuiComponents;
 
 public class ImageNames {
     private ImageNames() {
@@ -16,4 +16,9 @@ public class ImageNames {
     public static final String CONTINUE_UNSELECT = "continueButton.png";
     public static final String CONTINUE_SELECT = "continuePress.png";
 
+    public static final String EDIT_PENCIL = "edit24px.png";
+    public static final String DELETE_X = "deleteSign48px.png";
+
+    public static final String CUSTOM_PROMPT = "custom30x.png";
+    public static final String DEFAULT_PROMPT = "default40x.png";
 }
