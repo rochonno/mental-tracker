@@ -2,6 +2,7 @@ package tracker.Pages.ModularGUI;
 
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.events.DataChangedListener;
+import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.MentalPrompts;
 import tracker.Data.Prompts.PromptResult;
@@ -27,29 +28,23 @@ public class UserPromptPage extends Form {
     private Form _NextForm;
     private Form _PrevForm;
 
-    private MentalPrompt _CurrPrompt;
-    private MentalPrompts _NextPrompts;
     private PromptComponentsGenerator _Components;
+    private InstanceData _Data;
+
+    private MentalPrompt _CurrPrompt;
 
     private String _UserAnswer;
     private PromptResult _Result;
     private PromptResults _AllResults;
 
 
-    public UserPromptPage(
-            MentalPrompts prompts, PromptResults results, Form previous) {
-        this (getGlobalResources(), prompts);
-        _AllResults = results;
+    public UserPromptPage(InstanceData data, Form previous) {
+        _Data = data;
         _PrevForm = previous;
-    }
 
-    public UserPromptPage(
-            final Resources resourceObjectInstance, MentalPrompts prompts) {
-        _CurrPrompt = prompts.remove(0);
-        _NextPrompts = prompts;
-
+        _CurrPrompt = _Data.getInstancePrompts().remove(0);
         _Components = new PromptComponentsGenerator(_CurrPrompt);
-        initGuiBuilderComponents(resourceObjectInstance);
+        initGuiBuilderComponents(getGlobalResources());
     }
 
     private void onSliderActionEvent(final ActionEvent ev) {
@@ -62,15 +57,14 @@ public class UserPromptPage extends Form {
     }
 
     private void onNextButtonActionEvent(final ActionEvent ev) {
-        if (_NextPrompts.getPromptCount() > 0) {
+        if (_Data.getInstancePrompts().getPromptCount() > 0) {
             if (_UserAnswer != null) {
                 if (_Result == null) {
                     try {
                         _Result = new PromptResult(_CurrPrompt.getName(),
                                 _CurrPrompt.getDataType(), _UserAnswer);
                         _AllResults.addResult(_Result);
-                        _NextForm = new UserPromptPage(
-                                _NextPrompts, _AllResults, this);
+                        _NextForm = new UserPromptPage(_Data, this);
                         _NextForm.show();
                     } catch (EmptyStringException e) {
                         Log.e(e.getCause());
@@ -87,8 +81,7 @@ public class UserPromptPage extends Form {
             }
 
         } else {
-            MainPage main = new MainPage(true);
-            main.setSidePanel();
+            MainPage main = new MainPage(_Data);
             main.show();
         }
     }

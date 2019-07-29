@@ -7,12 +7,13 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.events.DataChangedListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
+import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
-import tracker.Data.Prompts.MentalPrompts;
 import tracker.Data.Prompts.PromptResult;
-import tracker.Data.Prompts.PromptResults;
-import tracker.GuiComponents.GuiButton;
-import tracker.GuiComponents.GuiLabel;
+import tracker.GuiComponents.Containers.SinglePromptDisplay;
+import tracker.GuiComponents.Individual.GuiButton;
+import tracker.GuiComponents.Individual.GuiLabel;
+import tracker.GuiComponents.ImageNames;
 import tracker.MentalExceptions.EmptyStringException;
 
 import java.util.List;
@@ -31,8 +32,7 @@ public class MultiUserPrompt extends Form {
     private Form _NextForm;
     private Form _PrevForm;
 
-    private MentalPrompts _AllPrompts;
-    private PromptResults _AllResults;
+    private InstanceData _Data;
 
     private Resources _ResourceInstance;
 
@@ -40,28 +40,21 @@ public class MultiUserPrompt extends Form {
     private GuiLabel _TopInset;
     private GuiButton _NextButton;
 
-    private SinglePromptDisplay _Prompt1;
-    private SinglePromptDisplay _Prompt2;
-    private SinglePromptDisplay _Prompt3;
-    private SinglePromptDisplay _Prompt4;
-
     private List<SinglePromptDisplay> _GuiPrompts = new Vector<>();
 
-    public MultiUserPrompt(
-            MentalPrompts prompts, PromptResults results, Form previous) {
+    public MultiUserPrompt(InstanceData data, Form previous) {
+        _Data = data;
         _PrevForm = previous;
         _ResourceInstance = getGlobalResources();
-        _AllResults = results;
-        _AllPrompts = prompts;
 
         initilizeLayout();
-        if (prompts.getPromptCount() >= 4) {
+        if (_Data.getInstancePrompts().getPromptCount() >= 4) {
             createFourPrompts();
-        } else if (prompts.getPromptCount() == 3) {
+        } else if (_Data.getInstancePrompts().getPromptCount() == 3) {
             createThreePrompts();
-        } else if (prompts.getPromptCount() == 2) {
+        } else if (_Data.getInstancePrompts().getPromptCount() == 2) {
             createTwoPrompts();
-        } else if (prompts.getPromptCount() == 1) {
+        } else if (_Data.getInstancePrompts().getPromptCount() == 1) {
             createSinglePrompt();
         } else {
             promptsComplete();
@@ -75,7 +68,7 @@ public class MultiUserPrompt extends Form {
         setInlineStylesTheme(_ResourceInstance);
         setInlineAllStyles("bgColor:efefef;");
         setTitle("Mental Tracker");
-        setName("UserPrompts");
+        setName("Questionnaire");
 
         createDefaultComponents();
     }
@@ -169,7 +162,7 @@ public class MultiUserPrompt extends Form {
     }
 
     private SinglePromptDisplay createPrompt(final int location) {
-        MentalPrompt prompt = _AllPrompts.remove(0);
+        MentalPrompt prompt = _Data.getInstancePrompts().remove(0);
         SinglePromptDisplay newPrompt = new SinglePromptDisplay(this, prompt, _ResourceInstance);
         newPrompt.initialize(location, _BackButton.getButton());
         return newPrompt;
@@ -187,7 +180,7 @@ public class MultiUserPrompt extends Form {
         }
         convertAnswers();
         MultiUserPrompt nextPrompts =
-                new MultiUserPrompt(_AllPrompts, _AllResults, this);
+                new MultiUserPrompt(_Data, this);
         nextPrompts.show();
 
     }
@@ -222,7 +215,7 @@ public class MultiUserPrompt extends Form {
             }
 
             if (result != null) {
-                _AllResults.addResult(result);
+                _Data.getInstanceResults().addResult(result);
             }
         }
     }

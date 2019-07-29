@@ -1,4 +1,4 @@
-package tracker.Pages.ModularGUI;
+package tracker.GuiComponents.Containers;
 
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
@@ -9,7 +9,11 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.PromptResult;
-import tracker.GuiComponents.*;
+import tracker.GuiComponents.ImageNames;
+import tracker.GuiComponents.Individual.GuiButton;
+import tracker.GuiComponents.Individual.GuiLabel;
+import tracker.GuiComponents.Individual.GuiSlider;
+import tracker.GuiComponents.Individual.GuiTextArea;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -27,15 +31,15 @@ public class SinglePromptDisplay implements PropertyChangeListener {
     private PromptResult _Result;
     private Resources _Resources;
 
-    private Component _RefComponent;
-    private float _Location;
-
 
     public SinglePromptDisplay(Form parentPage, final MentalPrompt prompt, Resources resources) {
         _Page = parentPage;
         _Resources = resources;
         _CurrPrompt = prompt;
     }
+
+    private float _Location;
+    private Component _RefComponent;
 
     private GuiLabel _Title;
     private GuiLabel _Question;
@@ -50,7 +54,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
         _RefComponent = refComponent;
 
         _Title = new GuiLabel(_CurrPrompt.getName(), _Resources);
-        _Question = new GuiLabel("prompt", _Resources);
+        _Question = new GuiLabel("PromptName", _Resources);
 
         PromptCallbackClass callback = new PromptCallbackClass();
 

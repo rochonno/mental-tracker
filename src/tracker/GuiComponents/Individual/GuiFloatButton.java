@@ -40,6 +40,10 @@ public class GuiFloatButton {
         return _Button;
     }
 
+    public String getName() {
+        return _Button.getName();
+    }
+
     public String getSub1Name() {
         return _Sub1.getName();
     }
