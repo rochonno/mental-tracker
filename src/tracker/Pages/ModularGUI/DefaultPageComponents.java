@@ -23,7 +23,7 @@ public class DefaultPageComponents extends Form {
 
     private DefaultButtonListener _Callback;
 
-    public DefaultPageComponents(InstanceData data, Form previous, final String pageName) {
+    public DefaultPageComponents(final InstanceData data, Form previous, final String pageName) {
         _Data = data;
         _PreviousForm = previous;
         _ResourceInstance = Resources.getGlobalResources();
@@ -34,11 +34,15 @@ public class DefaultPageComponents extends Form {
     private void initializeLayout(final String pageName) {
         setLayout(new LayeredLayout());
         setInlineStylesTheme(_ResourceInstance);
-        setScrollableY(true);
+        setScrollableY(false);
         setInlineStylesTheme(_ResourceInstance);
         setInlineAllStyles("bgColor:efefef;");
         setTitle("Mental Tracker");
         setName(pageName);
+    }
+
+    protected void setIsScrollable() {
+        setScrollableY(true);
     }
 
     protected void initDefault() {
@@ -138,9 +142,13 @@ public class DefaultPageComponents extends Form {
          *            as its trigger
          */
         @Override
-        public void actionPerformed(ActionEvent evt) {
-            if (evt.getComponent().getName().equals(_BackButton.getName())) {
+        public void actionPerformed(final ActionEvent evt) {
+            String compName = evt.getComponent().getName();
+
+            if (compName.equals(_BackButton.getName())) {
                 onBackButton();
+            } else if (compName.equals(_ConfirmButton.getName())) {
+                onConfirmButton();
             }
         }
     }

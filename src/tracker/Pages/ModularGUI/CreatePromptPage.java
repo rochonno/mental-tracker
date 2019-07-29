@@ -31,5 +31,6 @@ public class CreatePromptPage extends ChangePromptComponents {
     protected void onConfirmButton() {
         getData().addPrompt(getNewPrompt());
         Form promptList = new PromptList(getData(), new MainPage(getData()));
+        promptList.showBack();
     }
 }
