@@ -49,6 +49,10 @@ public class MentalPrompts implements Externalizable {
         }
     }
 
+    public void deletePrompt(final MentalPrompt prompt) {
+        _Prompts.remove(prompt);
+    }
+
     public void savePrompts(String filename) throws SaveFileException {
         if (filename == null) {
             filename = FileSystemStorage.getInstance().getAppHomePath()
@@ -69,7 +73,12 @@ public class MentalPrompts implements Externalizable {
     }
 
     public int getPromptCount() {
-        return _Prompts.size(); }
+        return _Prompts.size();
+    }
+
+    public List<MentalPrompt> getPrompts() {
+        return _Prompts;
+    }
 
     @Override
     public int getVersion() {
