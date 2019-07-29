@@ -3,7 +3,6 @@ package tracker.GuiComponents.Individual;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
-import org.w3c.dom.Text;
 
 /******************************************************************************
  * @author Nolan Rochon
@@ -47,6 +46,10 @@ public class GuiTextArea {
         return _TextArea.getText();
     }
 
+    public void setText(String text) {
+        _TextArea.setText(text);
+    }
+
     public TextArea getTextArea() {
         return _TextArea;
     }
@@ -59,6 +62,7 @@ public class GuiTextArea {
     public void centerAllign(boolean center) {
         if (center) {
             _TextArea.setInlineAllStyles("alignment:center");
+            _TextArea.getStyle().setAlignment(4);
         }
     }
 

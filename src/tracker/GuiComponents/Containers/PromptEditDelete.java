@@ -16,7 +16,7 @@ public class PromptEditDelete {
     private Form _Page;
     private MentalPrompt _CurrPrompt;
     private Resources _Resources;
-    private java.awt.event.ActionListener _NotifyDelete;
+    private java.awt.event.ActionListener _NotifyChange;
 
     public PromptEditDelete(
             Form parentPage,
@@ -27,7 +27,7 @@ public class PromptEditDelete {
         _Page = parentPage;
         _Resources = resources;
         _CurrPrompt = prompt;
-        _NotifyDelete = callback;
+        _NotifyChange = callback;
     }
 
     private float _Location;
@@ -66,11 +66,13 @@ public class PromptEditDelete {
     }
 
     private void onRemoveButton() {
-        _NotifyDelete.actionPerformed(new java.awt.event.ActionEvent(this, 0, "DeletePrompt"));
+        _NotifyChange.actionPerformed(
+                new java.awt.event.ActionEvent(this, 0, "DeletePrompt"));
     }
 
     private void onEditButton() {
-
+        _NotifyChange.actionPerformed(
+                new java.awt.event.ActionEvent(this, 0, "EditPrompt"));
     }
 
     class EditDeleteCallback implements  ActionListener {

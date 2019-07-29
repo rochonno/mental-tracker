@@ -21,7 +21,6 @@ import static com.codename1.ui.util.Resources.getGlobalResources;
 
 public class PromptList extends Form {
 
-    private Form _NextForm;
     private Form _PrevForm;
     private Resources _ResourceInstance;
 
@@ -47,7 +46,7 @@ public class PromptList extends Form {
         setInlineStylesTheme(_ResourceInstance);
         setInlineAllStyles("bgColor:efefef;");
         setTitle("Mental Tracker");
-        setName("Mental Prompts");
+        setName("Questions");
 
         createDefaultComponents();
     }
@@ -91,7 +90,7 @@ public class PromptList extends Form {
 
     }
 
-    public class PromptListCallback implements ActionListener {
+    class PromptListCallback implements ActionListener {
 
         /**
          * Invoked when an action occurred on a component.
@@ -125,9 +124,11 @@ public class PromptList extends Form {
     }
 
     private void onEditPrompt(Object source) {
-        PromptEditDelete targetPrompt = (PromptEditDelete) source;
-        MentalPrompt prompt = targetPrompt.getPrompt();
+        PromptEditDelete target = (PromptEditDelete) source;
+        MentalPrompt targetPrompt = target.getPrompt();
 
+        EditPromptPage editPage = new EditPromptPage(_Data, this, targetPrompt);
+        editPage.show();
     }
 
     class PromptChangedCallback implements java.awt.event.ActionListener {

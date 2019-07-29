@@ -4,7 +4,6 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.events.DataChangedListener;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
-import tracker.Data.Prompts.MentalPrompts;
 import tracker.Data.Prompts.PromptResult;
 import tracker.Data.Prompts.PromptResults;
 import tracker.ComponentGenerators.PromptComponentsGenerator;
