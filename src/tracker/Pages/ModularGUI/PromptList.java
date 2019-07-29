@@ -79,7 +79,6 @@ public class PromptList extends Form {
     }
 
     private void onAddPrompt() {
-
     }
 
     private void onAddDefault() {
@@ -87,7 +86,8 @@ public class PromptList extends Form {
     }
 
     private void onAddCustom() {
-
+        Form createPrompt = new CreatePromptPage(_Data, this);
+        createPrompt.show();
     }
 
     class PromptListCallback implements ActionListener {
