@@ -1,4 +1,4 @@
-package tracker.GuiComponents;
+package tracker.GuiComponents.Individual;
 
 import com.codename1.ui.TextArea;
 import com.codename1.ui.events.ActionListener;

@@ -1,4 +1,4 @@
-package tracker.GuiComponents;
+package tracker.GuiComponents.Individual;
 import com.codename1.ui.Slider;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;

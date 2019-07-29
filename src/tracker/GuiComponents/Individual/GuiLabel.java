@@ -1,4 +1,4 @@
-package tracker.GuiComponents;
+package tracker.GuiComponents.Individual;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.util.Resources;
