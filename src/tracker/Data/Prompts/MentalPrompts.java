@@ -53,6 +53,12 @@ public class MentalPrompts implements Externalizable {
         _Prompts.remove(prompt);
     }
 
+    public void changePrompt(final MentalPrompt target, final MentalPrompt changed) {
+        int index = _Prompts.indexOf(target);
+        _Prompts.remove(target);
+        _Prompts.add(index, changed);
+    }
+
     public void savePrompts(String filename) throws SaveFileException {
         if (filename == null) {
             filename = FileSystemStorage.getInstance().getAppHomePath()

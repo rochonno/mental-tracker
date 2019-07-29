@@ -20,6 +20,10 @@ public class InstanceData {
         _AllPrompts.deletePrompt(prompt);
     }
 
+    public void changePrompt(MentalPrompt target, MentalPrompt changed) {
+        _AllPrompts.changePrompt(target, changed);
+    }
+
     public void addPrompt(MentalPrompt prompt) {
         _AllPrompts.add(prompt);
     }

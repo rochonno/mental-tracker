@@ -19,7 +19,7 @@ import static com.codename1.ui.util.Resources.getGlobalResources;
  *
  * Creates a page for creating a custom user defined prompt.
  ******************************************************************************/
-public class CreateCustomPromptPage extends Form {
+public class CreatePromptPage extends Form {
 
     private Form _Previous;
     private MentalPrompt _NewPrompt;
@@ -34,14 +34,14 @@ public class CreateCustomPromptPage extends Form {
 
     private String _Error = "";
 
-    public CreateCustomPromptPage(
+    public CreatePromptPage(
             final Form previous, final MentalPrompts prompts) {
         this (getGlobalResources());
         _Previous = previous;
         _AllPrompts = prompts;
     }
 
-    public CreateCustomPromptPage(final Resources resourcesObjectInstance) {
+    public CreatePromptPage(final Resources resourcesObjectInstance) {
         _Components = new CreatePromptComponGenerator();
         initGuiBuilderComponents(resourcesObjectInstance);
     }

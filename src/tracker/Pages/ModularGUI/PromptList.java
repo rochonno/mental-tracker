@@ -4,7 +4,6 @@ import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
-import com.codename1.ui.events.DataChangedListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.InstanceData;
@@ -92,7 +91,7 @@ public class PromptList extends Form {
 
     }
 
-    public class PromptListCallback implements ActionListener, DataChangedListener {
+    public class PromptListCallback implements ActionListener {
 
         /**
          * Invoked when an action occurred on a component.
@@ -114,26 +113,21 @@ public class PromptList extends Form {
                 onAddPrompt();
             }
         }
-
-        /**
-         * Invoked when there was a change in the underlying model.
-         *
-         * @param type  the type data change; REMOVED, ADDED or CHANGED
-         * @param index item index in a list model
-         */
-        @Override
-        public void dataChanged(int type, int index) {
-
-        }
     }
 
     private void onDeletePrompt(Object source) {
         PromptEditDelete targetPrompt = (PromptEditDelete) source;
         MentalPrompt prompt = targetPrompt.getPrompt();
-        _Data.getInstancePrompts().getPrompts().remove(prompt);
+        _Data.getInstancePrompts().deletePrompt(prompt);
 
         PromptList newList = new PromptList(_Data, _PrevForm);
         newList.show();
+    }
+
+    private void onEditPrompt(Object source) {
+        PromptEditDelete targetPrompt = (PromptEditDelete) source;
+        MentalPrompt prompt = targetPrompt.getPrompt();
+
     }
 
     class PromptChangedCallback implements java.awt.event.ActionListener {
@@ -149,6 +143,8 @@ public class PromptList extends Form {
 
             if (command.equals("DeletePrompt")) {
                 onDeletePrompt(e.getSource());
+            } else if (command.equals("EditPrompt")) {
+                onEditPrompt(e.getSource());
             }
         }
     }

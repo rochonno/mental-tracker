@@ -55,7 +55,7 @@ public class MainPage extends Form {
                 GenerateDefaultPrompts.defaultMorningOnlyPrompts();
         //_Page = new UserPromptPage(samplePrompts, results, null);
 
-        _Page = new CreateCustomPromptPage(this, samplePrompts);
+        _Page = new CreatePromptPage(this, samplePrompts);
         //_Page = new CustomizeQuestions();
 
         //_Page = new Form("MainPage");
