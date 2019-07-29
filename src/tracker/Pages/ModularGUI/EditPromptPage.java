@@ -4,27 +4,15 @@ import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
-import com.codename1.ui.util.Resources;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.PromptDataType;
-import tracker.GuiComponents.ImageNames;
-import tracker.GuiComponents.Individual.GuiButton;
-import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiTextArea;
 
-public class EditPromptPage extends Form {
+public class EditPromptPage extends DefaultPageComponents {
 
-    private Form _PreviousForm;
-    private Resources _ResourceInstance;
-
-    private InstanceData _Data;
     private MentalPrompt _OriginalPrompt;
     private MentalPrompt _NewPrompt;
-
-    private GuiLabel _TopInset;
-    private GuiButton _BackButton;
-    private GuiButton _ConfirmButton;
 
     private GuiTextArea _NameTextArea;
     private GuiTextArea _PromptTextArea;
@@ -33,75 +21,43 @@ public class EditPromptPage extends Form {
     private GuiTextArea _MaxTextArea;
 
     public EditPromptPage(InstanceData data, Form previous, MentalPrompt target) {
-        _PreviousForm = previous;
-        _Data = data;
+        super(data, previous, "EditPrompt");
         _OriginalPrompt = target;
         _NewPrompt = _OriginalPrompt;
-        _ResourceInstance = Resources.getGlobalResources();
-
-        initializeLayout();
-    }
-
-    private void initializeLayout() {
-        setLayout(new LayeredLayout());
-        setInlineStylesTheme(_ResourceInstance);
-        setScrollableY(true);
-        setInlineStylesTheme(_ResourceInstance);
-        setInlineAllStyles("bgColor:efefef;");
-        setTitle("Mental Tracker");
-        setName("Edit Question");
 
         createDefaultComponents();
+        initInputFields(new EditPromptCallback());
+        createInputFields();
     }
 
     private void createDefaultComponents() {
-        EditPromptCallback callback = new EditPromptCallback();
-
-        _TopInset = new GuiLabel("TopInset", _ResourceInstance);
-
-        _BackButton = new GuiButton(
-                ImageNames.BACK_UNSELECT,
-                _ResourceInstance,
-                ImageNames.BACK_UNSELECT,
-                ImageNames.BACK_SELECT
-        );
-        _BackButton.setActionListener(callback);
-
-        _ConfirmButton = new GuiButton(
-                ImageNames.CONTINUE_UNSELECT,
-                _ResourceInstance,
-                ImageNames.CONTINUE_UNSELECT,
-                ImageNames.CONTINUE_SELECT
-
-        );
-        _ConfirmButton.setActionListener(callback);
-
-        createInputFields(callback);
-        initializeComponents();
+        initDefault();
+        initConfirmButton();
+        createComponents();
     }
 
-    private void createInputFields(ActionListener callback) {
-        _NameTextArea = new GuiTextArea("Name", _ResourceInstance);
+    private void initInputFields(ActionListener callback) {
+        _NameTextArea = new GuiTextArea("Name", getResources());
         _NameTextArea.setHint("Question Title");
         _NameTextArea.setText(_OriginalPrompt.getName());
         _NameTextArea.setActionListener(callback);
 
-        _PromptTextArea = new GuiTextArea("Prompt", _ResourceInstance);
+        _PromptTextArea = new GuiTextArea("Prompt", getResources());
         _PromptTextArea.setHint("Prompt goes here");
         _PromptTextArea.setText(_OriginalPrompt.getPrompt());
         _PromptTextArea.setActionListener(callback);
 
-        _ResponseTextArea = new GuiTextArea("Type", _ResourceInstance);
+        _ResponseTextArea = new GuiTextArea("Type", getResources());
         _ResponseTextArea.setHint("slider, yes/no, number, words");
         _ResponseTextArea.setActionListener(callback);
         _ResponseTextArea.setText(getAnswerFromText());
 
-        _MinTextArea = new GuiTextArea("Min", _ResourceInstance);
+        _MinTextArea = new GuiTextArea("Min", getResources());
         _MinTextArea.setHint("Min (for slider/number)");
         _MinTextArea.setText(Integer.toString(_OriginalPrompt.getMin()));
         _MinTextArea.setActionListener(callback);
 
-        _MaxTextArea = new GuiTextArea("Max", _ResourceInstance);
+        _MaxTextArea = new GuiTextArea("Max", getResources());
         _MaxTextArea.setHint("Max (for slider/number)");
         _MaxTextArea.setText(Integer.toString(_OriginalPrompt.getMax()));
         _MaxTextArea.setActionListener(callback);
@@ -119,11 +75,7 @@ public class EditPromptPage extends Form {
         return text;
     }
 
-    private void initializeComponents() {
-        initTopInset();
-        initBackButton();
-        initConfirmButton();
-
+    private void createInputFields() {
         initNameTextArea();
         initPromptTextArea();
         initResponseTextArea();
@@ -131,44 +83,6 @@ public class EditPromptPage extends Form {
         initMaxTextArea();
     }
 
-    private void initTopInset() {
-        _TopInset.setSizeStr("inherit 4.2328043mm");
-        _TopInset.getLabel();
-        addComponent(_TopInset.getLabel());
-
-        ((LayeredLayout) _TopInset.getLabel().
-                getParent().getLayout()).setInsets(
-                _TopInset.getLabel(),
-                "1.6mm 5.0mm auto 5.0mm").
-                setReferenceComponents(
-                        _TopInset.getLabel(), "-1 -1 -1 -1").
-                setReferencePositions(
-                        _TopInset.getLabel(), "0.0 0.0 0.0 0.0");
-    }
-
-    private void initBackButton() {
-        _BackButton.setSizeStr("20.042328mm 10.8465605mm");
-        addComponent(_BackButton.getButton());
-
-        ((LayeredLayout) _BackButton.getButton().
-                getParent().getLayout()).setInsets(
-                _BackButton.getButton(),
-                "0.5mm auto auto 0.0mm").
-                setReferenceComponents(
-                        _BackButton.getButton(), "0 -1 -1 0 ").
-                setReferencePositions(
-                        _BackButton.getButton(), "-1 0.0 0.0 0.0");
-    }
-
-    private void initConfirmButton() {
-        _ConfirmButton.setSizeStr( "116.93122mm 23.544973mm");
-        addComponent(_ConfirmButton.getButton());
-
-        ((LayeredLayout) _ConfirmButton.getButton().
-                getParent().getLayout()).setInsets(
-                _ConfirmButton.getButton(),
-                "auto -125% 0 auto");
-    }
 
     private void initNameTextArea() {
         addComponent(_NameTextArea.getTextArea());
@@ -177,7 +91,7 @@ public class EditPromptPage extends Form {
         ((LayeredLayout) _NameTextArea.getTextArea().getParent().getLayout()).
                 setInsets(_NameTextArea.getTextArea(), "0 10% auto 5%").
                 setReferenceComponentTop(_NameTextArea.getTextArea(),
-                        _BackButton.getButton(), 3f);
+                        getBackButton().getButton(), 3f);
     }
 
     private void initPromptTextArea() {
@@ -187,7 +101,7 @@ public class EditPromptPage extends Form {
         ((LayeredLayout) _PromptTextArea.getTextArea().getParent().getLayout()).
                 setInsets(_PromptTextArea.getTextArea(), "0 10% auto 5%").
                 setReferenceComponentTop(_PromptTextArea.getTextArea(),
-                        _BackButton.getButton(), 4f);
+                        getBackButton().getButton(), 4f);
     }
 
     private void initResponseTextArea() {
@@ -197,7 +111,7 @@ public class EditPromptPage extends Form {
         ((LayeredLayout) _ResponseTextArea.getTextArea().getParent().getLayout()).
                 setInsets(_ResponseTextArea.getTextArea(), "0 10% auto 5%").
                 setReferenceComponentTop(_ResponseTextArea.getTextArea(),
-                        _BackButton.getButton(), 5f);
+                        getBackButton().getButton(), 5f);
     }
 
     private void initMinTextArea() {
@@ -207,7 +121,7 @@ public class EditPromptPage extends Form {
         ((LayeredLayout) _MinTextArea.getTextArea().getParent().getLayout()).
                 setInsets(_MinTextArea.getTextArea(), "0 10% auto 5%").
                 setReferenceComponentTop(_MinTextArea.getTextArea(),
-                        _BackButton.getButton(), 6f);
+                        getBackButton().getButton(), 6f);
     }
 
     private void initMaxTextArea() {
@@ -217,16 +131,13 @@ public class EditPromptPage extends Form {
         ((LayeredLayout) _MaxTextArea.getTextArea().getParent().getLayout()).
                 setInsets(_MaxTextArea.getTextArea(), "0 10% auto 5%").
                 setReferenceComponentTop(_MaxTextArea.getTextArea(),
-                        _BackButton.getButton(), 7f);
+                        getBackButton().getButton(), 7f);
     }
 
-    private void onBackButton() {
-        _PreviousForm.showBack();
-    }
-
-    private void onConfirmButton() {
-        _Data.changePrompt(_OriginalPrompt, _NewPrompt);
-        _PreviousForm.showBack();
+    @Override
+    protected void onConfirmButton() {
+        getData().changePrompt(_OriginalPrompt, _NewPrompt);
+        getPreviousForm().showBack();
     }
 
     private void onNameTextArea() {
@@ -272,11 +183,7 @@ public class EditPromptPage extends Form {
         public void actionPerformed(ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
-            if (sourceName.equals(_BackButton.getName())) {
-                onBackButton();
-            } else if (sourceName.equals(_ConfirmButton.getName())) {
-                onConfirmButton();
-            } else if (sourceName.equals(_NameTextArea.getName())) {
+            if (sourceName.equals(_NameTextArea.getName())) {
                 onNameTextArea();
             } else if (sourceName.equals(_PromptTextArea.getName())) {
                 onPromptTextArea();
