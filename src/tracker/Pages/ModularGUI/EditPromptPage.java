@@ -16,7 +16,7 @@ public class EditPromptPage extends ChangePromptComponents {
     @Override
     protected void onConfirmButton() {
         getData().changePrompt(getTargetPrompt(), getNewPrompt());
-        Form promptList = new PromptList(getData(), new MainPage(getData()));
+        Form promptList = new PromptListPage(getData(), new MainPage(getData()));
         promptList.showBack();
     }
 
