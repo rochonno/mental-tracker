@@ -1,5 +1,6 @@
-package tracker.GuiComponents;
+package tracker.GuiComponents.Individual;
 import com.codename1.ui.Slider;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 
 /******************************************************************************
@@ -8,7 +9,7 @@ import com.codename1.ui.util.Resources;
  * Wrapper for a Slider in the GUI.
  * Used to get numerical input from the user.
  ******************************************************************************/
-public class GuiSlider extends GuiComponent {
+public class GuiSlider {
 
     /** Codename One object for receiving slider input from user. */
     private Slider _Slider;
@@ -30,6 +31,10 @@ public class GuiSlider extends GuiComponent {
         setGap(2);
     }
 
+    public void setActionListener(final ActionListener listener) {
+        _Slider.addActionListener(listener);
+    }
+
     public void setBounds(final int min, final int max) {
         _Slider.setMinValue(min);
         _Slider.setMaxValue(max);
@@ -49,5 +54,61 @@ public class GuiSlider extends GuiComponent {
 
     public void setUiid(final String uiid) {
         _Slider.setUIID(uiid);
+    }
+
+    public int getNumber() {
+        return _Slider.getProgress();
+    }
+
+    public Slider getSlider() {
+        return _Slider;
+    }
+
+    public void setLocation(int x, int y) {
+        _Slider.setX(x);
+        _Slider.setY(y);
+    }
+
+    public void centerAllign(boolean center) {
+        if (center) {
+            _Slider.setInlineAllStyles("alignment:center");
+        }
+    }
+
+    public void setRefLocation(int refX, int refY, int x, int y) {
+        setLocation(refX + x, refY + y);
+    }
+
+    public void setTraverseIndex(int index) {
+        _Slider.setTraversable(true);
+        _Slider.setPreferredTabIndex(index);
+    }
+
+    public void setSmoothScroll(final boolean smooth) {
+        _Slider.setSmoothScrolling(smooth);
+    }
+
+    public void setSizeStr(final String size) {
+        _Slider.setPreferredSizeStr(size);
+    }
+
+    public int getCenterX() {
+        return _Slider.getX();
+    }
+
+    public int getCenterY() {
+        return _Slider.getY();
+    }
+
+    public int getTotalWidth() {
+        return _Slider.getWidth();
+    }
+
+    public int getTotalHeight() {
+        return _Slider.getHeight();
+    }
+
+    public String getName() {
+        return _Slider.getName();
     }
 }

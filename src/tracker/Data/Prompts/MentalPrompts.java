@@ -49,6 +49,16 @@ public class MentalPrompts implements Externalizable {
         }
     }
 
+    public void deletePrompt(final MentalPrompt prompt) {
+        _Prompts.remove(prompt);
+    }
+
+    public void changePrompt(final MentalPrompt target, final MentalPrompt changed) {
+        int index = _Prompts.indexOf(target);
+        _Prompts.remove(target);
+        _Prompts.add(index, changed);
+    }
+
     public void savePrompts(String filename) throws SaveFileException {
         if (filename == null) {
             filename = FileSystemStorage.getInstance().getAppHomePath()
@@ -69,7 +79,20 @@ public class MentalPrompts implements Externalizable {
     }
 
     public int getPromptCount() {
-        return _Prompts.size(); }
+        return _Prompts.size();
+    }
+
+    public List<MentalPrompt> getPrompts() {
+        return _Prompts;
+    }
+
+    public MentalPrompt getPrompt(int index) {
+        return _Prompts.get(index);
+    }
+
+    public int getIndex(MentalPrompt prompt) {
+        return _Prompts.indexOf(prompt);
+    }
 
     @Override
     public int getVersion() {
