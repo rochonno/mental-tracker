@@ -31,6 +31,7 @@ public class GuiSlider {
         setIncrements(1);
         setProgress(1);
         setGap(2);
+
         _Slider.setThumbImage(
                 FontImage.createMaterial(FontImage.MATERIAL_RADIO_BUTTON_CHECKED, "sliderOval.png", 4).toImage());
     }

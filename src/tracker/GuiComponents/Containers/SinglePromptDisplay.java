@@ -115,10 +115,15 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
     private void onNoButtonEvent(final ActionEvent ev) {
         _UserAnswer = "false";
+        _NoButton.setSelected(true);
+        _YesButton.setSelected(false);
     }
 
     private void onYesButtonEvent(final ActionEvent ev) {
         _UserAnswer = "true";
+        _YesButton.setSelected(true);
+        _NoButton.setSelected(false);
+
     }
 
     private void onTextChangedEvent(final ActionEvent ev) {
