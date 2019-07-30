@@ -19,9 +19,9 @@ import java.util.Vector;
  */
 public class MultiPromptsPage extends DefaultPageComponents {
 
-    /* Current index in the prompt list. */
+    /** Current index in the prompt list. */
     private int _PromptIndex;
-    /* List of all prompts created in the Gui. */
+    /** List of all prompts created in the Gui. */
     private List<SinglePromptDisplay> _GuiPrompts = new Vector<>();
 
     /**

@@ -21,13 +21,20 @@ import static tracker.Data.Prompts.PromptDataType.*;
  ******************************************************************************/
 class ChangePromptComponents extends DefaultPageComponents {
 
+    /** The prompt being changed (can be null). */
     private MentalPrompt _CurrPrompt;
+    /** The new prompts after creating or changing one. */
     private MentalPrompt _NewPrompt;
 
+    /** Text Area for name of prompt. */
     private GuiTextArea _NameTextArea;
+    /** Text Area for question of prompt. */
     private GuiTextArea _PromptTextArea;
+    /** Text Area for expected answer type of prompt. */
     private GuiTextArea _ResponseTextArea;
+    /** Text Area for min of prompt. */
     private GuiTextArea _MinTextArea;
+    /** Text Area for max of prompt. */
     private GuiTextArea _MaxTextArea;
 
     /**
@@ -211,7 +218,9 @@ class ChangePromptComponents extends DefaultPageComponents {
         //TODO:: check if empty
     }
 
-
+    /**
+     * Called when the answer type text area is changed
+     */
     private void onResponseTextArea() {
         switch (_ResponseTextArea.getText()) {
             case "slider": _NewPrompt.setDataType(INT); break;

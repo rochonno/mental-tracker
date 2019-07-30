@@ -10,19 +10,39 @@ import tracker.GuiComponents.ImageNames;
 import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.Individual.GuiLabel;
 
+/******************************************************************************
+ * Parent class that holds/controls the default components used by every Page.
+ * Creates a top inset and back button.
+ *      Confirm/Next button must be created by calling the appropriate functions
+ *
+ *  Functions to call for no Confirm button:
+ *          initDefault(), createComponents()
+ *  For Confirm button as well:
+ *          initDefault(), initConfirmButton(), createComponents()
+ ******************************************************************************/
 class DefaultPageComponents extends Form {
 
+    /** The previous Page. */
     private Form _PreviousForm;
+    /** Current Resource Instance. */
     private Resources _ResourceInstance;
 
+    /** Data of the current instance (prompts and answers). */
     private InstanceData _Data;
 
+    /** Default TopInset. */
     private GuiLabel _TopInset;
+    /** Default BackButton. */
     private GuiButton _BackButton;
+    /** Confirm Button. Need to initialize before use. */
     private GuiButton _ConfirmButton;
 
-    private DefaultButtonListener _Callback;
-
+    /**
+     * Constructor for the DefaultComponents class.
+     * @param data instance data
+     * @param previous previous page
+     * @param pageName name of the current page
+     */
     DefaultPageComponents(final InstanceData data, Form previous, final String pageName) {
         _Data = data;
         _PreviousForm = previous;
@@ -31,6 +51,10 @@ class DefaultPageComponents extends Form {
         initializeLayout(pageName);
     }
 
+    /**
+     * Initializes the Layered Layout.
+     * @param pageName name of the current page
+     */
     private void initializeLayout(final String pageName) {
         setLayout(new LayeredLayout());
         setInlineStylesTheme(_ResourceInstance);
@@ -41,10 +65,16 @@ class DefaultPageComponents extends Form {
         setName(pageName);
     }
 
+    /**
+     * Sets the page to be scrollable vertically.
+     */
     void setIsScrollable() {
         setScrollableY(true);
     }
 
+    /**
+     * Initializes the default components. No Confirm button.
+     */
     void initDefault() {
         initTopInset();
         initBackButton();
@@ -64,6 +94,9 @@ class DefaultPageComponents extends Form {
         _BackButton.setActionListener(new DefaultButtonListener());
     }
 
+    /**
+     * Initialized the confirm button. Need before calling createComponents().
+     */
     void initConfirmButton() {
         _ConfirmButton = new GuiButton(
                 ImageNames.CONTINUE_UNSELECT,
@@ -75,6 +108,9 @@ class DefaultPageComponents extends Form {
         _ConfirmButton.setActionListener(new DefaultButtonListener());
     }
 
+    /**
+     * Creates the default components in the Layered Layout.
+     */
     void createComponents() {
         if (_TopInset == null) {
             return;
@@ -125,14 +161,24 @@ class DefaultPageComponents extends Form {
                 "auto -125% 0 auto");
     }
 
+    /**
+     * Called when the back button is pressed
+     */
     private void onBackButton() {
         _PreviousForm.showBack();
     }
 
+    /**
+     * Needs to be overridden for functionality.
+     * Function changes based on current page.
+     */
     void onConfirmButton() {
         
     }
 
+    /**
+     * Action Listener class for the default components.
+     */
     class DefaultButtonListener implements ActionListener {
 
         /**
