@@ -11,7 +11,15 @@ import tracker.GuiComponents.Individual.GuiTextArea;
 
 import static tracker.Data.Prompts.PromptDataType.*;
 
-public class ChangePromptComponents extends DefaultPageComponents {
+/******************************************************************************
+ * A parent class for creating/changing a prompt.
+ * Meant to be extended.
+ * Child class of DefaultPageComponents.
+ *      Adds to this by creating the components needed to edit/create a prompt.
+ *
+ * setTextAreas() must be called if editing an existing prompt
+ ******************************************************************************/
+class ChangePromptComponents extends DefaultPageComponents {
 
     private MentalPrompt _CurrPrompt;
     private MentalPrompt _NewPrompt;
@@ -22,7 +30,17 @@ public class ChangePromptComponents extends DefaultPageComponents {
     private GuiTextArea _MinTextArea;
     private GuiTextArea _MaxTextArea;
 
-    public ChangePromptComponents(
+    /**
+     * Constructor for this parent class
+     *
+     * @param data All the current data for this instance of the app
+     * @param previous The previous Form
+     *                 (usually the form creating this one)
+     * @param target The intended Prompt to be changed
+     *               If creating a new prompt, pass null to this
+     * @param pageName Name of the page being created
+     */
+    ChangePromptComponents(
             final InstanceData data,
             Form previous,
             final MentalPrompt target,
@@ -41,12 +59,18 @@ public class ChangePromptComponents extends DefaultPageComponents {
         createInputFields();
     }
 
+    /**
+     * Initializes and adds the components
+     */
     private void createDefaultComponents() {
         initDefault();
         initConfirmButton();
         createComponents();
     }
 
+    /**
+     * Initializes the input fields (without text)
+     */
     private void initInputFields() {
         ChangePromptCallback callback = new ChangePromptCallback();
 
@@ -72,7 +96,11 @@ public class ChangePromptComponents extends DefaultPageComponents {
 
     }
 
-    protected void setTextAreas() {
+    /**
+     * Sets the textAreas to contain the values of the existing prompt.
+     * Used for editing a prompt only.
+     */
+    void setTextAreas() {
         if (_CurrPrompt == null) {
             return;
         }
@@ -84,14 +112,21 @@ public class ChangePromptComponents extends DefaultPageComponents {
         _MaxTextArea.setText(Integer.toString(_CurrPrompt.getMax()));
     }
 
+    /**
+     * Puts all the input fields onto the Form
+     */
     private void createInputFields() {
-        initNameTextArea();
+        createNameTextArea();
         initPromptTextArea();
         initResponseTextArea();
         initMinTextArea();
         initMaxTextArea();
     }
 
+    /**
+     * Parses the expected answer type into its respective input type.
+     * @return text The resulting text to be displayed
+     */
     private String getTextFromAnswer() {
         String text;
         switch (_CurrPrompt.getDataType()) {
@@ -104,8 +139,8 @@ public class ChangePromptComponents extends DefaultPageComponents {
         return text;
     }
 
-
-    private void initNameTextArea() {
+    
+    private void createNameTextArea() {
         addComponent(_NameTextArea.getTextArea());
         _NameTextArea.centerAllign(true);
 
@@ -156,19 +191,26 @@ public class ChangePromptComponents extends DefaultPageComponents {
     }
 
     @Override
-    protected void onConfirmButton() {
+    void onConfirmButton() {
 
     }
 
+    /**
+     * Called with the prompt name text area is changed.
+     */
     private void onNameTextArea() {
         _NewPrompt.setName(_NameTextArea.getText());
         //TODO: check if empty
     }
 
+    /**
+     * Called when the question text area is changed.
+     */
     private void onPromptTextArea() {
         _NewPrompt.setPrompt(_PromptTextArea.getText());
         //TODO:: check if empty
     }
+
 
     private void onResponseTextArea() {
         switch (_ResponseTextArea.getText()) {
@@ -180,17 +222,25 @@ public class ChangePromptComponents extends DefaultPageComponents {
         }
     }
 
+    /**
+     * Called when the min text area is changed.
+     */
     private void onMinTextArea() {
         _NewPrompt.setMin(Integer.parseInt(_MinTextArea.getText()));
         //TODO: check for valid input
     }
 
+    /**
+     * Called when the max text area is changed
+     */
     private void onMaxTextArea() {
         _NewPrompt.setMin(Integer.parseInt(_MaxTextArea.getText()));
         //TODO: check for valid input
     }
 
-
+    /**
+     * Event callback for the components in ChangePromptComponents class.
+     */
     class ChangePromptCallback implements ActionListener {
 
         /**
@@ -217,11 +267,11 @@ public class ChangePromptComponents extends DefaultPageComponents {
         }
     }
 
-    protected MentalPrompt getTargetPrompt() {
+    MentalPrompt getTargetPrompt() {
         return _CurrPrompt;
     }
 
-    protected MentalPrompt getNewPrompt() {
+    MentalPrompt getNewPrompt() {
         return _NewPrompt;
     }
 

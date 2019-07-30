@@ -16,35 +16,43 @@ public class InstanceData {
 
     private boolean _HasAnswered;
 
-    public void deletePrompt(MentalPrompt prompt) {
+    public void deletePrompt(final MentalPrompt prompt) {
         _AllPrompts.deletePrompt(prompt);
     }
 
-    public void changePrompt(MentalPrompt target, MentalPrompt changed) {
+    public void changePrompt(final MentalPrompt target, MentalPrompt changed) {
         _AllPrompts.changePrompt(target, changed);
     }
 
-    public void addPrompt(MentalPrompt prompt) {
+    public void addPrompt(final MentalPrompt prompt) {
         _AllPrompts.add(prompt);
+    }
+
+    public MentalPrompt getSinglePrompt(int index) {
+        return _AllPrompts.getPrompt(index);
+    }
+
+    public int getPromptIndex(MentalPrompt prompt) {
+        return _AllPrompts.getIndex(prompt);
     }
 
     public MentalPrompts getInstancePrompts() {
         return _AllPrompts;
     }
 
-    public void setInstancePrompts(MentalPrompts prompts) {
+    public void setInstancePrompts(final MentalPrompts prompts) {
         _AllPrompts = prompts;
     }
 
-    public void addResult(PromptResult result) {
-        _AllAnswers.addResult(result);
+    public void addResult(final PromptResult result, final int index) {
+        _AllAnswers.addResult(result, index);
     }
 
     public PromptResults getInstanceResults() {
         return _AllAnswers;
     }
 
-    public void setInstanceResults(PromptResults results) {
+    public void setInstanceResults(final PromptResults results) {
         _AllAnswers = results;
     }
 
@@ -52,7 +60,7 @@ public class InstanceData {
         return _HasAnswered;
     }
 
-    public void setHasAnswered(boolean hasAnswered) {
+    public void setHasAnswered(final boolean hasAnswered) {
         _HasAnswered = true;
     }
 }

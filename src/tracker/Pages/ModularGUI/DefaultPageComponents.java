@@ -10,7 +10,7 @@ import tracker.GuiComponents.ImageNames;
 import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.Individual.GuiLabel;
 
-public class DefaultPageComponents extends Form {
+class DefaultPageComponents extends Form {
 
     private Form _PreviousForm;
     private Resources _ResourceInstance;
@@ -23,7 +23,7 @@ public class DefaultPageComponents extends Form {
 
     private DefaultButtonListener _Callback;
 
-    public DefaultPageComponents(final InstanceData data, Form previous, final String pageName) {
+    DefaultPageComponents(final InstanceData data, Form previous, final String pageName) {
         _Data = data;
         _PreviousForm = previous;
         _ResourceInstance = Resources.getGlobalResources();
@@ -41,11 +41,11 @@ public class DefaultPageComponents extends Form {
         setName(pageName);
     }
 
-    protected void setIsScrollable() {
+    void setIsScrollable() {
         setScrollableY(true);
     }
 
-    protected void initDefault() {
+    void initDefault() {
         initTopInset();
         initBackButton();
     }
@@ -64,7 +64,7 @@ public class DefaultPageComponents extends Form {
         _BackButton.setActionListener(new DefaultButtonListener());
     }
 
-    protected void initConfirmButton() {
+    void initConfirmButton() {
         _ConfirmButton = new GuiButton(
                 ImageNames.CONTINUE_UNSELECT,
                 _ResourceInstance,
@@ -75,7 +75,7 @@ public class DefaultPageComponents extends Form {
         _ConfirmButton.setActionListener(new DefaultButtonListener());
     }
 
-    protected void createComponents() {
+    void createComponents() {
         if (_TopInset == null) {
             return;
         }
@@ -129,7 +129,7 @@ public class DefaultPageComponents extends Form {
         _PreviousForm.showBack();
     }
 
-    protected void onConfirmButton() {
+    void onConfirmButton() {
         
     }
 
@@ -153,23 +153,23 @@ public class DefaultPageComponents extends Form {
         }
     }
 
-    protected InstanceData getData() {
+    InstanceData getData() {
         return _Data;
     }
 
-    protected Form getPreviousForm() {
+    Form getPreviousForm() {
         return _PreviousForm;
     }
 
-    protected GuiLabel getTopInset() {
+    GuiLabel getTopInset() {
         return _TopInset;
     }
 
-    protected GuiButton getBackButton() {
+    GuiButton getBackButton() {
         return _BackButton;
     }
 
-    protected Resources getResources() {
+    Resources getResources() {
         return _ResourceInstance;
     }
 }

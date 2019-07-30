@@ -6,7 +6,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.InstanceData;
-import tracker.Pages.ModularGUI.PromptList;
+import tracker.Pages.ModularGUI.PromptListPage;
 
 /******************************************************************************
  * @author Nolan Rochon
@@ -67,7 +67,7 @@ public class SideMenu {
     }
 
     private void onPromptsListSelected() {
-        PromptList promptList = new PromptList(_Data, _PageTb.getComponentForm());
+        PromptListPage promptList = new PromptListPage(_Data, _PageTb.getComponentForm());
         promptList.show();
     }
 

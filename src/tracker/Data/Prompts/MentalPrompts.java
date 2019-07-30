@@ -86,6 +86,14 @@ public class MentalPrompts implements Externalizable {
         return _Prompts;
     }
 
+    public MentalPrompt getPrompt(int index) {
+        return _Prompts.get(index);
+    }
+
+    public int getIndex(MentalPrompt prompt) {
+        return _Prompts.indexOf(prompt);
+    }
+
     @Override
     public int getVersion() {
         return 0;
