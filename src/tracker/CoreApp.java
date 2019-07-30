@@ -9,6 +9,7 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.codename1.ui.Toolbar;
 import tracker.Data.InstanceData;
+import tracker.GuiComponents.GuiCharts.ScatterChart;
 import tracker.GuiComponents.GuiCharts.createPieChartForm;
 import tracker.Pages.ModularGUI.MainPage;
 
@@ -50,8 +51,11 @@ public class CoreApp implements LocalNotificationCallback {
         //MainPage main = new MainPage(_Data);
         //main.show();
 
-        createPieChartForm pie = new createPieChartForm();
-        pie.createPieChartForm();
+        //createPieChartForm pie = new createPieChartForm();
+        //pie.createPieChartForm();
+        
+        ScatterChart scatter = new ScatterChart();
+        scatter.execute();
 
     }
 

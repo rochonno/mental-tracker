@@ -13,6 +13,7 @@ import java.util.Random;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Component;
 
+import com.codename1.ui.layouts.BorderLayout;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 
 /**
@@ -90,6 +91,10 @@ public class ScatterChart extends AbstractDemoChart {
         initRendererer(renderer);
 
         com.codename1.charts.views.ScatterChart chart = new com.codename1.charts.views.ScatterChart(getDataSet(), renderer);
+        ChartComponent c = new ChartComponent(chart);
+        Form f = new Form("Budget", new BorderLayout());
+        f.add(BorderLayout.CENTER, c);
+        f.show();  //Pass back instead?
         return newChart(chart);
 
     }
