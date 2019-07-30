@@ -164,7 +164,7 @@ class DefaultPageComponents extends Form {
     }
 
     /**
-     * Called when the back button is pressed
+     * Called when the back button is pressed.
      */
     private void onBackButton() {
         _PreviousForm.showBack();

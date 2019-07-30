@@ -27,7 +27,7 @@ import java.beans.PropertyChangeListener;
 public class SinglePromptDisplay implements PropertyChangeListener {
     private Form _Page;
     private MentalPrompt _CurrPrompt;
-    private String _UserAnswer;
+    private String _UserAnswer = "";
     private PromptResult _Result;
     private Resources _Resources;
 
@@ -113,28 +113,60 @@ public class SinglePromptDisplay implements PropertyChangeListener {
         _YesButton.setActionListener(callback);
     }
 
-    private void onNoButtonEvent(final ActionEvent ev) {
+    /**
+     * Called when the no button is selected.
+     * Swapped images to simulate a toggle and confirm input.
+     * Set back to the unselected state to make the check-mark disappear
+     */
+    private void onNoButtonEvent() {
+        _NoButton.setSelected(false);
+        _NoButton.switchIcons();
+        if (_UserAnswer.equals("true")) {
+            _YesButton.switchIcons();
+        }
         _UserAnswer = "false";
     }
 
-    private void onYesButtonEvent(final ActionEvent ev) {
+    /**
+     * Called when the yes button is selected.
+     * Swapped images to simulate a toggle and confirm input.
+     * Set back to the unselected state to make the check-mark disappear
+     */
+    private void onYesButtonEvent() {
+        _YesButton.setSelected(false);
+        _YesButton.switchIcons();
+        if (_UserAnswer.equals("false")) {
+            _NoButton.switchIcons();
+        }
         _UserAnswer = "true";
     }
 
-    private void onTextChangedEvent(final ActionEvent ev) {
+    /**
+     * Called when the contents of the input text box are changed.
+     */
+    private void onTextChangedEvent() {
         // TODO: Check if valid input
         _UserAnswer = _InputText.getText();
     }
 
-    public void onSliderEvent(final ActionEvent ev) {
+    /**
+     * Called when the slider is changed.
+     */
+    private void onSliderEvent() {
         _UserAnswer = "" + _Slider.getNumber();
     }
 
+    /**
+     * Also called when the slider data is changed.
+     * @param index The number on the slider
+     */
     private void onSliderDataChangeEvent(final int index) {
         _UserAnswer = "" + index;
     }
 
-
+    /**
+     * Event callback class for the prompt.
+     */
     class PromptCallbackClass implements ActionListener, DataChangedListener {
 
         PromptCallbackClass() {
@@ -160,25 +192,28 @@ public class SinglePromptDisplay implements PropertyChangeListener {
 
             if (_YesButton != null) {
                 if (sourceName.equals(_YesButton.getName())) {
-                    onYesButtonEvent(ev);
+                    onYesButtonEvent();
                 } else if (sourceName.equals(_NoButton.getName())) {
-                    onNoButtonEvent(ev);
+                    onNoButtonEvent();
                 }
             }
             if (_InputText != null) {
                 if (sourceName.equals(_InputText.getName())) {
-                    onTextChangedEvent(ev);
+                    onTextChangedEvent();
                 }
             }
             if (_Slider != null) {
                 if (sourceName.equals(_Slider.getName())) {
-                    onSliderEvent(ev);
+                    onSliderEvent();
                 }
             }
         }
     }
 
-
+    /**
+     * Create the components on the Page.
+     * Only the needed ones are made.
+     */
     private void createComponents() {
         createQuestion();
         createSlider();
@@ -200,7 +235,7 @@ public class SinglePromptDisplay implements PropertyChangeListener {
                 setReferenceComponentTop(_Title.getLabel(), _Question.getLabel(), 1f);
     }
 
-    public void createQuestion() {
+    private void createQuestion() {
         _Question.setText(_CurrPrompt.getPrompt());
         _Page.addComponent(_Question.getLabel());
         ((LayeredLayout) _Question.getLabel().getParent().getLayout()).
@@ -227,18 +262,21 @@ public class SinglePromptDisplay implements PropertyChangeListener {
             return;
         }
 
-        _NoButton.setUIID("ToggleButton");
+        _NoButton.setSelected(false);
         _NoButton.setSizeStr("18.78307mm 6.6137567mm");
-        _Page.addComponent(_NoButton.getButton());
+        _NoButton.getButton().setGroup("toggleButton");
 
+        _Page.addComponent(_NoButton.getButton());
         ((LayeredLayout) _NoButton.getButton().getParent().getLayout()).
                 setInsets(_NoButton.getButton(),"0 60% auto 20%").
                 setReferenceComponentTop(_NoButton.getButton(), _Question.getLabel(), 1f);
 
-        _YesButton.setUIID("ToggleButton");
-        _YesButton.setSizeStr("22.486773mm 6.6137567mm");
-        _Page.addComponent(_YesButton.getButton());
 
+        _YesButton.setSelected(false);
+        _YesButton.setSizeStr("22.486773mm 6.6137567mm");
+        _YesButton.getButton().setGroup("toggleButton");
+
+        _Page.addComponent(_YesButton.getButton());
         ((LayeredLayout) _YesButton.getButton().getParent().getLayout()).
                 setInsets(_YesButton.getButton(),"0 auto auto 0").
                 setReferenceComponentLeft(_YesButton.getButton(), _NoButton.getButton(), 2f).
