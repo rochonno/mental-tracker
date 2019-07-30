@@ -54,7 +54,8 @@ public class PromptListPage extends DefaultPageComponents {
      *      not already in use.
      */
     private void onAddDefault() {
-
+        Form addDefault = new AddDefaultPromptPage(getData(), getPreviousForm());
+        addDefault.show();
     }
 
     /**
@@ -98,7 +99,7 @@ public class PromptListPage extends DefaultPageComponents {
     private void onDeletePrompt(Object source) {
         PromptEditDelete targetPrompt = (PromptEditDelete) source;
         MentalPrompt prompt = targetPrompt.getPrompt();
-        getData().getInstancePrompts().deletePrompt(prompt);
+        getData().deletePrompt(prompt);
 
         PromptListPage newList = new PromptListPage(getData(), getPreviousForm());
         newList.show();

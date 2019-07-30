@@ -94,6 +94,15 @@ public class MentalPrompts implements Externalizable {
         return _Prompts.indexOf(prompt);
     }
 
+    public boolean doesContain(MentalPrompt searchPrompt) {
+        for (MentalPrompt prompt : _Prompts) {
+            if (prompt.equals(searchPrompt)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public int getVersion() {
         return 0;
