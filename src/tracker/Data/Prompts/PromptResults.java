@@ -31,7 +31,8 @@ public class PromptResults implements Externalizable {
     private List<PromptResult> _ResultsList;
 
     public PromptResults() {
-        _TimeStamp = new SimpleDateFormat("yyyy.MM.dd HH.mm").
+        //Edited to only make the filename the date.
+        _TimeStamp = new SimpleDateFormat("yyyy.MM.dd").
                 format(new Date());
         _ResultsList = new Vector<>();
     }
@@ -68,5 +69,13 @@ public class PromptResults implements Externalizable {
     @Override
     public String getObjectId() {
         return "PromptResults";
+    }
+
+    public List<PromptResult> get_ResultsList() {
+        return _ResultsList;
+    }
+
+    public void set_ResultsList(List<PromptResult> _ResultsList) {
+        this._ResultsList = _ResultsList;
     }
 }
