@@ -15,13 +15,13 @@ public class MainDailyInput extends Form  {
 
 
 // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initGuiBuilderComponents(final Resources resourceObjectInstance) {
+    private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         setLayout(new com.codename1.ui.layouts.LayeredLayout());
         setInlineStylesTheme(resourceObjectInstance);
                 setInlineStylesTheme(resourceObjectInstance);
         setTitle("MainDailyInput");
         setName("MainDailyInput");
-    } // </editor-fold>
+    }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }

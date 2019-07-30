@@ -98,23 +98,25 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
-        EventCallbackClass(final Component cmp) {
+        private com.codename1.ui.Component cmp;
+        public EventCallbackClass(com.codename1.ui.Component cmp) {
+            this.cmp = cmp;
         }
 
-        EventCallbackClass() {
+        public EventCallbackClass() {
         }
 
         public void actionPerformed(com.codename1.ui.events.ActionEvent ev) {
             com.codename1.ui.Component sourceComponent = ev.getComponent();
 
-            if (sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
+            if(sourceComponent.getParent().getLeadParent() != null && (sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.MultiButton || sourceComponent.getParent().getLeadParent() instanceof com.codename1.components.SpanButton)) {
                 sourceComponent = sourceComponent.getParent().getLeadParent();
             }
 
-            if (sourceComponent == gui_backButton) {
+            if(sourceComponent == gui_backButton) {
                 onbackButtonActionEvent(ev);
             }
-            if (sourceComponent == gui_continueButton) {
+            if(sourceComponent == gui_continueButton) {
                 oncontinueButtonActionEvent(ev);
             }
         }
@@ -282,26 +284,26 @@ public class DailySurveyPgTwoGUI extends com.codename1.ui.Form {
         addComponent(gui_yesButtonInset);
         addComponent(gui_noButtonInset);
         addComponent(gui_continueButton);
-        ((com.codename1.ui.layouts.LayeredLayout) gui_topInset.getParent().getLayout()).setInsets(gui_topInset, "1.6mm 5.0mm 95.26387% 5.0mm").setReferenceComponents(gui_topInset, "-1 -1 -1 -1").setReferencePositions(gui_topInset, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_Label.getParent().getLayout()).setInsets(gui_Label, "-0.26455027mm -1.3227513mm auto -4.497355mm").setReferenceComponents(gui_Label, "14 0 -1 0 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_depressedLabel.getParent().getLayout()).setInsets(gui_depressedLabel, "auto 5.026455mm 0.0mm 0.0mm").setReferenceComponents(gui_depressedLabel, "-1 -1 8 0 ").setReferencePositions(gui_depressedLabel, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_panicLabel.getParent().getLayout()).setInsets(gui_panicLabel, "2.6455026mm -1.322751mm auto -3.7037036mm").setReferenceComponents(gui_panicLabel, "6 0 -1 0 ").setReferencePositions(gui_panicLabel, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_exerciseLabel.getParent().getLayout()).setInsets(gui_exerciseLabel, "6.267806% 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseLabel, "7 0 -1 0 ").setReferencePositions(gui_exerciseLabel, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_sleepLabel.getParent().getLayout()).setInsets(gui_sleepLabel, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_sleepLabel, "12 0 -1 0 ").setReferencePositions(gui_sleepLabel, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_depressedButtonYes.getParent().getLayout()).setInsets(gui_depressedButtonYes, "7.632094% 0.0mm auto 0.0mm").setReferenceComponents(gui_depressedButtonYes, "2 16 -1 16 ").setReferencePositions(gui_depressedButtonYes, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_yesterdayLabel.getParent().getLayout()).setInsets(gui_yesterdayLabel, "4.4973545mm auto auto 0.0mm").setReferenceComponents(gui_yesterdayLabel, "11 0 -1 0 ").setReferencePositions(gui_yesterdayLabel, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_backButton.getParent().getLayout()).setInsets(gui_backButton, "0.0mm 83.553925% 90.45307% 1.3227515mm").setReferenceComponents(gui_backButton, "17 -1 -1 -1").setReferencePositions(gui_backButton, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_depressedButtonNo.getParent().getLayout()).setInsets(gui_depressedButtonNo, "0.0mm 0.0mm 0.0mm 0.0mm").setReferenceComponents(gui_depressedButtonNo, "6 17 6 10 ").setReferencePositions(gui_depressedButtonNo, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_panicButtonNo.getParent().getLayout()).setInsets(gui_panicButtonNo, "0.0mm 0.0mm 2.6455002mm 0.0mm").setReferenceComponents(gui_panicButtonNo, "11 17 11 17 ").setReferencePositions(gui_panicButtonNo, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_panicButtonYes.getParent().getLayout()).setInsets(gui_panicButtonYes, "0.7936508mm 0.0mm auto 0.0mm").setReferenceComponents(gui_panicButtonYes, "3 16 -1 16 ").setReferencePositions(gui_panicButtonYes, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_exerciseButtonYes.getParent().getLayout()).setInsets(gui_exerciseButtonYes, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonYes, "4 16 -1 16 ").setReferencePositions(gui_exerciseButtonYes, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_exerciseButtonNo.getParent().getLayout()).setInsets(gui_exerciseButtonNo, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonNo, "4 17 -1 9 ").setReferencePositions(gui_exerciseButtonNo, "1.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_sleepInput.getParent().getLayout()).setInsets(gui_sleepInput, "0.0mm 0.0mm auto 52.050472%").setReferenceComponents(gui_sleepInput, "5 9 -1 0 ").setReferencePositions(gui_sleepInput, "1.0 1.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_sugarInput.getParent().getLayout()).setInsets(gui_sugarInput, "0.0mm 0.0mm auto 57.218094%").setReferenceComponents(gui_sugarInput, "1 9 -1 0 ").setReferencePositions(gui_sugarInput, "1.0 1.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_yesButtonInset.getParent().getLayout()).setInsets(gui_yesButtonInset, "0.0mm 33.314266% auto 24.45237%").setReferenceComponents(gui_yesButtonInset, "0 17 -1 -1").setReferencePositions(gui_yesButtonInset, "1.0 1.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_noButtonInset.getParent().getLayout()).setInsets(gui_noButtonInset, "3.174603mm 16.619184% auto 60.144547%").setReferenceComponents(gui_noButtonInset, "-1 -1 -1 -1").setReferencePositions(gui_noButtonInset, "0.0 0.0 0.0 0.0");
-        ((com.codename1.ui.layouts.LayeredLayout) gui_continueButton.getParent().getLayout()).setInsets(gui_continueButton, "0.0mm auto 0.0mm 25.504587%").setReferenceComponents(gui_continueButton, "15 0 -1 0 ").setReferencePositions(gui_continueButton, "1.0 0.0 0.0 0.0");
-    } // </editor-fold>
+        ((com.codename1.ui.layouts.LayeredLayout)gui_topInset.getParent().getLayout()).setInsets(gui_topInset, "1.6mm 5.0mm 95.26387% 5.0mm").setReferenceComponents(gui_topInset, "-1 -1 -1 -1").setReferencePositions(gui_topInset, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_Label.getParent().getLayout()).setInsets(gui_Label, "-0.26455027mm -1.3227513mm auto -4.497355mm").setReferenceComponents(gui_Label, "14 0 -1 0 ").setReferencePositions(gui_Label, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_depressedLabel.getParent().getLayout()).setInsets(gui_depressedLabel, "auto 5.026455mm 0.0mm 0.0mm").setReferenceComponents(gui_depressedLabel, "-1 -1 8 0 ").setReferencePositions(gui_depressedLabel, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_panicLabel.getParent().getLayout()).setInsets(gui_panicLabel, "2.6455026mm -1.322751mm auto -3.7037036mm").setReferenceComponents(gui_panicLabel, "6 0 -1 0 ").setReferencePositions(gui_panicLabel, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseLabel.getParent().getLayout()).setInsets(gui_exerciseLabel, "6.267806% 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseLabel, "7 0 -1 0 ").setReferencePositions(gui_exerciseLabel, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_sleepLabel.getParent().getLayout()).setInsets(gui_sleepLabel, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_sleepLabel, "12 0 -1 0 ").setReferencePositions(gui_sleepLabel, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_depressedButtonYes.getParent().getLayout()).setInsets(gui_depressedButtonYes, "7.632094% 0.0mm auto 0.0mm").setReferenceComponents(gui_depressedButtonYes, "2 16 -1 16 ").setReferencePositions(gui_depressedButtonYes, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_yesterdayLabel.getParent().getLayout()).setInsets(gui_yesterdayLabel, "4.4973545mm auto auto 0.0mm").setReferenceComponents(gui_yesterdayLabel, "11 0 -1 0 ").setReferencePositions(gui_yesterdayLabel, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_backButton.getParent().getLayout()).setInsets(gui_backButton, "0.0mm 83.553925% 90.45307% 1.3227515mm").setReferenceComponents(gui_backButton, "17 -1 -1 -1").setReferencePositions(gui_backButton, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_depressedButtonNo.getParent().getLayout()).setInsets(gui_depressedButtonNo, "0.0mm 0.0mm 0.0mm 0.0mm").setReferenceComponents(gui_depressedButtonNo, "6 17 6 10 ").setReferencePositions(gui_depressedButtonNo, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_panicButtonNo.getParent().getLayout()).setInsets(gui_panicButtonNo, "0.0mm 0.0mm 2.6455002mm 0.0mm").setReferenceComponents(gui_panicButtonNo, "11 17 11 17 ").setReferencePositions(gui_panicButtonNo, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_panicButtonYes.getParent().getLayout()).setInsets(gui_panicButtonYes, "0.7936508mm 0.0mm auto 0.0mm").setReferenceComponents(gui_panicButtonYes, "3 16 -1 16 ").setReferencePositions(gui_panicButtonYes, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonYes.getParent().getLayout()).setInsets(gui_exerciseButtonYes, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonYes, "4 16 -1 16 ").setReferencePositions(gui_exerciseButtonYes, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_exerciseButtonNo.getParent().getLayout()).setInsets(gui_exerciseButtonNo, "0.0mm 0.0mm auto 0.0mm").setReferenceComponents(gui_exerciseButtonNo, "4 17 -1 9 ").setReferencePositions(gui_exerciseButtonNo, "1.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_sleepInput.getParent().getLayout()).setInsets(gui_sleepInput, "0.0mm 0.0mm auto 52.050472%").setReferenceComponents(gui_sleepInput, "5 9 -1 0 ").setReferencePositions(gui_sleepInput, "1.0 1.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_sugarInput.getParent().getLayout()).setInsets(gui_sugarInput, "0.0mm 0.0mm auto 57.218094%").setReferenceComponents(gui_sugarInput, "1 9 -1 0 ").setReferencePositions(gui_sugarInput, "1.0 1.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_yesButtonInset.getParent().getLayout()).setInsets(gui_yesButtonInset, "0.0mm 33.314266% auto 24.45237%").setReferenceComponents(gui_yesButtonInset, "0 17 -1 -1").setReferencePositions(gui_yesButtonInset, "1.0 1.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_noButtonInset.getParent().getLayout()).setInsets(gui_noButtonInset, "3.174603mm 16.619184% auto 60.144547%").setReferenceComponents(gui_noButtonInset, "-1 -1 -1 -1").setReferencePositions(gui_noButtonInset, "0.0 0.0 0.0 0.0");
+        ((com.codename1.ui.layouts.LayeredLayout)gui_continueButton.getParent().getLayout()).setInsets(gui_continueButton, "0.0mm auto 0.0mm 25.504587%").setReferenceComponents(gui_continueButton, "15 0 -1 0 ").setReferencePositions(gui_continueButton, "1.0 0.0 0.0 0.0");
+    }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
