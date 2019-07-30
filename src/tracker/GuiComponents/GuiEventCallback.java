@@ -16,13 +16,10 @@ import java.lang.reflect.Method;
  ******************************************************************************/
 public class GuiEventCallback implements ActionListener, DataChangedListener {
 
-    /** Components that this event callback class is listening for. */
-    private GuiComponent _Cmp;
     /** Method to invoke with an action is performed. */
     private Method _CallbackMethod;
 
-    public GuiEventCallback(final GuiComponent cmp, final Method method) {
-        _Cmp = cmp;
+    public GuiEventCallback(final Method method) {
         _CallbackMethod = method;
     }
 

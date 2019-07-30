@@ -1,6 +1,7 @@
 package tracker.Pages.ModularGUI;
 
 import com.codename1.ui.events.ActionListener;
+import tracker.Data.InstanceData;
 import tracker.GuiComponents.SideMenu;
 import tracker.Data.Prompts.*;
 import tracker.ComponentGenerators.MainPageComponents;
@@ -27,21 +28,15 @@ public class MainPage extends Form {
     private SideMenu _SideMenu;
     private MainPageComponents _Components;
 
-    private MentalPrompts _Prompts;
-    private PromptResults _Results;
-    private boolean DoneSurvey;
+    private InstanceData _Data;
 
-    public MainPage(final boolean hasAnswered) {
+    public MainPage(InstanceData data) {
+        _Data = data;
         //runOtherPages();
-        this(getGlobalResources(), hasAnswered);
-    }
 
-    MainPage(final Resources resourcesObjectInstance,
-                    final boolean hasAnswered) {
-        DoneSurvey = hasAnswered;
         initialize();
         _Components = new MainPageComponents();
-        initGuiBuilderComponents(resourcesObjectInstance);
+        initGuiBuilderComponents(getGlobalResources());
     }
 
     private void runOtherPages() {
@@ -60,7 +55,7 @@ public class MainPage extends Form {
                 GenerateDefaultPrompts.defaultMorningOnlyPrompts();
         //_Page = new UserPromptPage(samplePrompts, results, null);
 
-        _Page = new CreateCustomPromptPage(this, samplePrompts);
+        _Page = new CreatePromptPage(_Data, this);
         //_Page = new CustomizeQuestions();
 
         //_Page = new Form("MainPage");
@@ -69,8 +64,10 @@ public class MainPage extends Form {
     }
 
     private void onStartQuestionsEvent(final ActionEvent ev) {
-        Form prompts = new UserPromptPage(_Prompts, _Results, this);
-        prompts.show();
+
+        // new questions page
+        MultiUserPrompt prompt = new MultiUserPrompt(_Data, this);
+        prompt.show();
     }
 
 
@@ -80,8 +77,7 @@ public class MainPage extends Form {
         _Components.StartQuestions.addActionListener(callback);
     }
 
-    class EventCallbackClass implements ActionListener,
-            com.codename1.ui.events.DataChangedListener {
+    class EventCallbackClass implements ActionListener {
 
         EventCallbackClass() {
         }
@@ -100,9 +96,6 @@ public class MainPage extends Form {
                 onStartQuestionsEvent(ev);
             }
 
-        }
-
-        public void dataChanged(final int type, final int index) {
         }
     }
 
@@ -139,7 +132,7 @@ public class MainPage extends Form {
 
         }
 
-        if (!DoneSurvey) {
+        if (!_Data.getHasAnswered()) {
             addComponent(_Components.StartQuestions);
             _Components.StartQuestions.setPreferredSizeStr(
                     "116.93122mm 23.544973mm");
@@ -158,7 +151,7 @@ public class MainPage extends Form {
         addComponent(_Components.PromptTitle);
         _Components.PromptTitle.setName("Prompt");
         _Components.PromptTitle.setAutoSizeMode(true);
-        if (!DoneSurvey) {
+        if (!_Data.getHasAnswered()) {
             _Components.PromptTitle.setText("Daily Tracking Is Ready!");
         } else {
             _Components.PromptTitle.setText("Keep Up the Good Work!");
@@ -181,16 +174,21 @@ public class MainPage extends Form {
             Log.e(e.getCause());
         }*/
 
-        if (_Prompts == null) {
-            _Prompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
+        if (_Data.getInstancePrompts() == null) {
+            _Data.setInstancePrompts(GenerateDefaultPrompts.defaultMorningOnlyPrompts());
         }
-        if (_Results == null) {
-            _Results = new PromptResults();
+        if (_Data.getInstanceResults() == null) {
+            _Data.setInstanceResults(new PromptResults());
         }
+
+        setSidePanel();
     }
 
-    public void setSidePanel() {
+    private void setSidePanel() {
         _SideMenu = new SideMenu(
-                UIManager.initFirstTheme("/theme"), this.getToolbar());
+                UIManager.initFirstTheme("/theme"),
+                this.getToolbar(),
+                _Data
+                );
     }
 }

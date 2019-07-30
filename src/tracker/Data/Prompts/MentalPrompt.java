@@ -53,20 +53,41 @@ public class MentalPrompt implements Externalizable {
         _Max = max;
     }
 
+    public void setMin(final int min) {
+        _Min = min;
+    }
+
     public String getName() {
-        return _Name; }
+        return _Name;
+    }
+
+    public void setName(final String name) {
+        _Name = name;
+    }
 
     public String getPrompt() {
-        return _Prompt; }
+        return _Prompt;
+    }
+
+    public void setPrompt(String prompt) {
+        _Prompt = prompt;
+    }
 
     public int getMin() {
-        return _Min; }
+        return _Min;
+    }
 
     public int getMax() {
-        return _Max; }
+        return _Max;
+    }
 
     public PromptDataType getDataType() {
-        return _ResultType; }
+        return _ResultType;
+    }
+
+    public void setDataType(PromptDataType dataType) {
+        _ResultType = dataType;
+    }
 
     /**
      * Returns the version for the current persistance code.

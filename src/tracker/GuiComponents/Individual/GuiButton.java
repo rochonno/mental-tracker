@@ -1,6 +1,7 @@
-package tracker.GuiComponents;
+package tracker.GuiComponents.Individual;
 
 import com.codename1.ui.RadioButton;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 
 /******************************************************************************
@@ -8,7 +9,7 @@ import com.codename1.ui.util.Resources;
  *
  * Wrapper for a Button in the GUI.
  ******************************************************************************/
-public class GuiButton extends GuiComponent {
+public class GuiButton {
 
     /** Button object from the Codename One tools. */
     private RadioButton _Button;
@@ -40,6 +41,10 @@ public class GuiButton extends GuiComponent {
         }
     }
 
+    public void setActionListener(final ActionListener listener) {
+        _Button.addActionListener(listener);
+    }
+
     public void setSelected(final boolean selected) {
         _Button.setSelected(selected);
     }
@@ -48,8 +53,55 @@ public class GuiButton extends GuiComponent {
         _Button.setUIID(uiid);
     }
 
-    public void setEventCallback(final GuiEventCallback callback) {
-        _Button.addActionListener(callback);
+    public RadioButton getButton() {
+        return _Button;
     }
 
+    public void setLocation(int x, int y) {
+        _Button.setX(x);
+        _Button.setY(y);
+    }
+
+    public void centerAllign(boolean center) {
+        if (center) {
+            _Button.setInlineAllStyles("alignment:center");
+        }
+    }
+
+    public void setRefLocation(int refX, int refY, int x, int y) {
+        setLocation(refX + x, refY + y);
+    }
+
+    public void setTraverseIndex(int index) {
+        _Button.setTraversable(true);
+        _Button.setPreferredTabIndex(index);
+    }
+
+    public void setSmoothScroll(boolean smooth) {
+        _Button.setSmoothScrolling(smooth);
+    }
+
+    public void setSizeStr(String size) {
+        _Button.setPreferredSizeStr(size);
+    }
+
+    public int getCenterX() {
+        return _Button.getX();
+    }
+
+    public int getCenterY() {
+        return _Button.getY();
+    }
+
+    public int getTotalWidth() {
+        return _Button.getWidth();
+    }
+
+    public int getTotalHeight() {
+        return _Button.getHeight();
+    }
+
+    public String getName() {
+        return _Button.getName();
+    }
 }
