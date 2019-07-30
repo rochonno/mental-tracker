@@ -22,5 +22,6 @@ public class Example extends Form  {
         setTitle("Example");
         setName("Example");
     }// </editor-fold>
+
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
