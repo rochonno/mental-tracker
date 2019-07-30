@@ -1,5 +1,6 @@
 package tracker.GuiComponents.Individual;
 
+import com.codename1.ui.Image;
 import com.codename1.ui.RadioButton;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
@@ -39,6 +40,16 @@ public class GuiButton {
         if (pressedIconName != null) {
             _Button.setPressedIcon(instanceTheme.getImage(pressedIconName));
         }
+    }
+
+    /**
+     * Swaps the selected icon with the unselected.
+     * Used in place of toggle buttons and to avoid check-marks.
+     */
+    public void switchIcons() {
+        Image oldPressed = _Button.getPressedIcon();
+        _Button.setPressedIcon(_Button.getIcon());
+        _Button.setIcon(oldPressed);
     }
 
     public void setActionListener(final ActionListener listener) {
