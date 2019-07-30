@@ -41,8 +41,8 @@ public class SideMenu {
     }
 
     private void initialize() {
-        Image sampleIcon = _Theme.getImage("icon.png");
-        Container topBar = BorderLayout.east(new Label(sampleIcon));
+        //Image sampleIcon = _Theme.getImage(ImageNames.LOGO);
+        Container topBar = BorderLayout.east(new Label());
 
         SideMenuActionListener callback = new SideMenuActionListener();
 

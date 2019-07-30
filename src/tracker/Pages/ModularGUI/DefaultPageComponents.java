@@ -30,12 +30,6 @@ class DefaultPageComponents extends Form {
     /** Data of the current instance (prompts and answers). */
     private InstanceData _Data;
 
-    /** Default TopInset. */
-    private GuiLabel _TopInset;
-    /** Default BackButton. */
-    private GuiButton _BackButton;
-    /** Confirm Button. Need to initialize before use. */
-    private GuiButton _ConfirmButton;
 
     /**
      * Constructor for the DefaultComponents class.
@@ -50,6 +44,14 @@ class DefaultPageComponents extends Form {
 
         initializeLayout(pageName);
     }
+
+    /** Default TopInset. */
+    private GuiLabel _TopInset;
+    /** Default BackButton. */
+    private GuiButton _BackButton;
+    /** Confirm Button. Need to initialize before use. */
+    private GuiButton _ConfirmButton;
+
 
     /**
      * Initializes the Layered Layout.
