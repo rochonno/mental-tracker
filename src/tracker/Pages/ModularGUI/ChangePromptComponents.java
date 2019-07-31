@@ -1,18 +1,15 @@
 package tracker.Pages.ModularGUI;
 
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
-import tracker.Data.Prompts.PromptDataType;
 import tracker.GuiComponents.Individual.GuiLabel;
-import tracker.GuiComponents.Individual.GuiPicker;
 import tracker.GuiComponents.Individual.GuiStringPicker;
 import tracker.GuiComponents.Individual.GuiTextArea;
-
-import java.util.List;
 
 import static tracker.Data.Prompts.PromptDataType.*;
 
@@ -319,16 +316,24 @@ class ChangePromptComponents extends DefaultPageComponents {
      * Called with the prompt name text area is changed.
      */
     private void onNameTextArea() {
-        _NewPrompt.setName(_NameTextArea.getText());
-        //TODO: check if empty
+        String name = _NameTextArea.getText();
+        if (name.isEmpty()) {
+            return;
+        }
+
+        _NewPrompt.setName(name);
     }
 
     /**
      * Called when the question text area is changed.
      */
     private void onPromptTextArea() {
-        _NewPrompt.setPrompt(_PromptTextArea.getText());
-        //TODO:: check if empty
+        String prompt = _PromptTextArea.getText();
+        if (prompt.isEmpty()) {
+            return;
+        }
+
+        _NewPrompt.setPrompt(prompt);
     }
 
     /**
@@ -351,18 +356,62 @@ class ChangePromptComponents extends DefaultPageComponents {
 
     /**
      * Called when the min text area is changed.
+     * Input must be an integer.
      */
     private void onMinTextArea() {
-        _NewPrompt.setMin(Integer.parseInt(_MinTextArea.getText()));
-        //TODO: check for valid input
+        String minStr = _MinTextArea.getText();
+        int min = Integer.MIN_VALUE;
+
+        if (minStr.isEmpty()) {
+            return;
+        } else {
+            try {
+                min = Integer.parseInt(minStr);
+            } catch (NumberFormatException ex) {
+                _MinTextArea.setText("");
+                Dialog.show(
+                        "Invalid Input",
+                        "Min input must be an integer",
+                        "I Got It!",
+                        null
+                );
+                return;
+            }
+        }
+
+        if (min != Integer.MIN_VALUE) {
+            _NewPrompt.setMin(min);
+        }
     }
 
     /**
-     * Called when the max text area is changed
+     * Called when the max text area is changed.
+     * Input must be an integer.
      */
     private void onMaxTextArea() {
-        _NewPrompt.setMin(Integer.parseInt(_MaxTextArea.getText()));
-        //TODO: check for valid input
+        String maxStr = _MaxTextArea.getText();
+        int max = Integer.MAX_VALUE;
+
+        if (maxStr.isEmpty()) {
+            return;
+        } else {
+            try {
+                max = Integer.parseInt(maxStr);
+            } catch (NumberFormatException ex) {
+                _MaxTextArea.setText("");
+                Dialog.show(
+                        "Invalid Input",
+                        "Max input must be an integer",
+                        "I Got It!",
+                        null
+                );
+                return;
+            }
+        }
+
+        if (max != Integer.MAX_VALUE) {
+            _NewPrompt.setMax(max);
+        }
     }
 
     /**
@@ -377,7 +426,7 @@ class ChangePromptComponents extends DefaultPageComponents {
          *            as its trigger
          */
         @Override
-        public void actionPerformed(ActionEvent evt) {
+        public void actionPerformed(final ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
             if (sourceName.equals(_NameTextArea.getName())) {

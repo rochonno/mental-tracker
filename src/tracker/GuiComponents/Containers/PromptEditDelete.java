@@ -54,11 +54,13 @@ public class PromptEditDelete extends PromptListComponent {
     }
 
     private void onRemoveButton() {
+        _RemoveButton.setSelected(false);
         _NotifyChange.actionPerformed(
                 new java.awt.event.ActionEvent(this, 0, "DeletePrompt"));
     }
 
     private void onEditButton() {
+        _EditButton.setSelected(false);
         _NotifyChange.actionPerformed(
                 new java.awt.event.ActionEvent(this, 0, "EditPrompt"));
     }

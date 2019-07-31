@@ -1,6 +1,7 @@
 package tracker.Pages.ModularGUI;
 
 import com.codename1.io.Log;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
@@ -46,11 +47,12 @@ public class MultiPromptsPage extends DefaultPageComponents {
      */
     private void createPrompts() {
 
+        int index = _PromptIndex;
         for (int location = 1; location <= 4; location++) {
-            if (_PromptIndex >= getData().getInstancePrompts().getPromptCount()) {
+            if (index >= getData().getInstancePrompts().getPromptCount()) {
                 break;
             }
-            _GuiPrompts.add(createPrompt(location));
+            _GuiPrompts.add(createPrompt(location, index++));
         }
     }
 
@@ -68,8 +70,8 @@ public class MultiPromptsPage extends DefaultPageComponents {
      *                      passed through in initialize().
      * @return SinglePromptDisplay The Gui for an individual prompt.
      */
-    private SinglePromptDisplay createPrompt(final int location) {
-        MentalPrompt prompt = getData().getSinglePrompt(_PromptIndex++);
+    private SinglePromptDisplay createPrompt(final int location, final int index) {
+        MentalPrompt prompt = getData().getSinglePrompt(index);
         SinglePromptDisplay newPrompt = new SinglePromptDisplay(this, prompt, getResources());
         newPrompt.initialize(location, getBackButton().getButton());
         return newPrompt;
@@ -83,7 +85,6 @@ public class MultiPromptsPage extends DefaultPageComponents {
     @Override
     void onConfirmButton() {
         if (!checkForAnswers()) {
-            // TODO: remind the user to answer all the prompts
             return;
         }
         convertAnswers();
@@ -94,7 +95,7 @@ public class MultiPromptsPage extends DefaultPageComponents {
         }
 
         MultiPromptsPage nextPrompts =
-                new MultiPromptsPage(getData(), this, _PromptIndex);
+                new MultiPromptsPage(getData(), this, _PromptIndex + _GuiPrompts.size());
         nextPrompts.show();
     }
 
@@ -102,15 +103,25 @@ public class MultiPromptsPage extends DefaultPageComponents {
      * Checks if all the prompts have been answered.
      * @return boolean If all prompts have been answered.
      */
-    private boolean checkForAnswers()
-    {
+    private boolean checkForAnswers() {
         boolean answered = true;
 
         for (SinglePromptDisplay guiPrompt : _GuiPrompts) {
+            boolean currAnswer = true;
             if (guiPrompt.getResult() == null) {
-                answered = false;
+                currAnswer = false;
             } else if (guiPrompt.getResult().length() == 0) {
+                currAnswer = false;
+            }
+
+            if (!currAnswer) {
                 answered = false;
+                Dialog.show(
+                        "Missing Answer",
+                        guiPrompt.getPrompt().getName() + " has not been answered",
+                        "OK!",
+                        null
+                );
             }
         }
 
