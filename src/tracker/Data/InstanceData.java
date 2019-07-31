@@ -5,6 +5,9 @@ import tracker.Data.Prompts.MentalPrompts;
 import tracker.Data.Prompts.PromptResult;
 import tracker.Data.Prompts.PromptResults;
 
+/**
+ * Holds all the data needed for normal running of the application.
+ */
 public class InstanceData {
 
     public InstanceData() {
@@ -65,6 +68,16 @@ public class InstanceData {
      */
     public int getPromptIndex(MentalPrompt prompt) {
         return _AllPrompts.getIndex(prompt);
+    }
+
+    /**
+     * Gets if the list has the prompt.
+     *
+     * @param prompt What prompt to look for
+     * @return boolean if the prompt is found
+     */
+    public boolean hasPrompt(MentalPrompt prompt) {
+        return _AllPrompts.doesContain(prompt);
     }
 
     /**

@@ -90,6 +90,26 @@ public class MentalPrompt implements Externalizable {
     }
 
     /**
+     * Overrides the equals method.
+     * Only compares the fields that matter for a prompt.
+     *
+     * @param obj The object being compared
+     * @return boolean If the objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() == MentalPrompt.class) {
+            MentalPrompt prompt = (MentalPrompt) obj;
+            if ((_Prompt.equals(prompt._Prompt)) && (_Name.equals(prompt._Name))) {
+                if (_ResultType == prompt._ResultType) {
+                    return (_Min == prompt._Min) && (_Max == prompt._Max);
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Returns the version for the current persistance code.
      * The version will be passed to internalized.
      * Thus allowing the internalize method to recognize.
