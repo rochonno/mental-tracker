@@ -18,8 +18,8 @@ public class createPieChartForm {
      */
     private DefaultRenderer buildCategoryRenderer(int[] colors) {
         DefaultRenderer renderer = new DefaultRenderer();
-        renderer.setLabelsTextSize(15);
-        renderer.setLegendTextSize(15);
+        renderer.setLabelsTextSize(30);
+        renderer.setLegendTextSize(30);
         renderer.setMargins(new int[]{20, 30, 15, 0});
         for (int color : colors) {
             SimpleSeriesRenderer r = new SimpleSeriesRenderer();
@@ -97,7 +97,10 @@ public class createPieChartForm {
     }
 
     public Form createYesNoPieChart(String title) {
-        double[] values = new double[]{2, 3};  //Yes/No values in order. These will be a parameter strictly for testing.
+        /**
+         * this array will be sorted before hand and passed as a parameter.
+         */
+        double[] values = new double[]{2, 3};
         int[] colors = new int[]{ColorUtil.GREEN, ColorUtil.BLUE};
         DefaultRenderer renderer = buildCategoryRenderer(colors);
         renderer.setZoomButtonsVisible(true);
@@ -120,13 +123,15 @@ public class createPieChartForm {
 
     public Form createCategoricalPieChart(String title) {
         Random rand = new Random();
+        /**
+         * this array will be sorted before hand and passed as a parameter.
+         */
         double[] values = new double[]{2, 7, 1, 5, 6};
         int[] colors = new int[values.length];
         int i = 0;
         for (double value : values) {
             colors[i] = ColorUtil.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
             i++;
-            System.out.println("TEST");
         }
         DefaultRenderer renderer = buildCategoryRenderer(colors);
         renderer.setZoomButtonsVisible(true);
