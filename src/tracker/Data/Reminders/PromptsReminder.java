@@ -14,33 +14,34 @@ public final class PromptsReminder {
 
     private int _Hour;
     private int _Minute;
+    private boolean _IsEnabled;
 
-    private PromptsReminder(final String name) {
+    public PromptsReminder(final String name) {
         _Name = name;
         _Prompt = "Take a break for a minute to answer a few questions!";
     }
 
-    private void setNotification(
-            final int hour,
-            final int min,
-            final boolean isDaily) {
-        _Hour = hour;
-        _Minute = min;
+    public void createNotification() {
 
         _UserNotify = new UserNotification(_Name, _Prompt);
-        _UserNotify.setTime(hour, min);
+        _UserNotify.setTime(_Hour, _Minute);
 
-        if (isDaily) {
-            _UserNotify.activateDaily();
-        } else {
-            _UserNotify.activateWeekly();
-        }
+        _UserNotify.activateDaily();
+        _IsEnabled = true;
     }
 
     public void deactivate() {
-        if (_UserNotify.isActivated()) {
+        if (_IsEnabled) {
             _UserNotify.deactivate();
         }
+    }
+
+    public void setMinute(int min) {
+        _Minute = min;
+    }
+
+    public void setHour(int hour) {
+        _Hour = hour;
     }
 
     public int getHour() {
@@ -50,5 +51,6 @@ public final class PromptsReminder {
         return _Minute; }
 
     public String getName() {
-        return _Name; }
+        return _Name;
+    }
 }
