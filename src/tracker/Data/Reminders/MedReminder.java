@@ -21,7 +21,10 @@ public class MedReminder {
         _IsEnabled = false;
     }
 
-    public void setNotification() {
+    public void createNotification() {
+        if (_IsEnabled) {
+            deactivate();
+        }
         _UserNotify = new UserNotification(NAME, _Prompt);
         _UserNotify.setTime(_Hour, _Minute);
         _UserNotify.activateDaily();
@@ -31,6 +34,7 @@ public class MedReminder {
     public void deactivate() {
         if(_IsEnabled) {
             _UserNotify.deactivate();
+            _IsEnabled = false;
         }
     }
 

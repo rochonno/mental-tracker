@@ -16,7 +16,7 @@ public class UserNotification {
     private LocalNotification _Ln;
     private String _Id;
 
-    private int _TimeInMilli;
+    private long _TimeInMilli;
 
     public UserNotification(final String title, final String body) {
         _Ln = new LocalNotification();
@@ -34,7 +34,8 @@ public class UserNotification {
      * @param minute - Minute of the hour the notification will occur
      */
     public void setTime(final int hour, final int minute) {
-        _TimeInMilli = (hour * 60 * 60 * 1000) + (minute * 60 * 1000);
+        _TimeInMilli = System.currentTimeMillis()
+                + (hour * 60 * 60 * 1000) + (minute * 60 * 1000);
     }
 
     public void activateDaily() {

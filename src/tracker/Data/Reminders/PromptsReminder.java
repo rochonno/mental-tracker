@@ -8,7 +8,6 @@ package tracker.Data.Reminders;
 
 public final class PromptsReminder {
 
-    private String _Name;
     private String _Prompt;
     private UserNotification _UserNotify;
 
@@ -16,14 +15,18 @@ public final class PromptsReminder {
     private int _Minute;
     private boolean _IsEnabled;
 
-    public PromptsReminder(final String name) {
-        _Name = name;
+    private static final String NAME = "Prompts Reminder";
+
+    public PromptsReminder() {
         _Prompt = "Take a break for a minute to answer a few questions!";
+        _IsEnabled = false;
     }
 
     public void createNotification() {
-
-        _UserNotify = new UserNotification(_Name, _Prompt);
+        if (_IsEnabled) {
+            deactivate();
+        }
+        _UserNotify = new UserNotification(NAME,_Prompt);
         _UserNotify.setTime(_Hour, _Minute);
 
         _UserNotify.activateDaily();
@@ -31,8 +34,10 @@ public final class PromptsReminder {
     }
 
     public void deactivate() {
+
         if (_IsEnabled) {
             _UserNotify.deactivate();
+            _IsEnabled = false;
         }
     }
 
@@ -50,7 +55,4 @@ public final class PromptsReminder {
     public int getMinute() {
         return _Minute; }
 
-    public String getName() {
-        return _Name;
-    }
 }

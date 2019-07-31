@@ -5,6 +5,8 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
+import tracker.Data.Reminders.MedReminder;
+import tracker.Data.Reminders.PromptsReminder;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiSwitch;
 import tracker.GuiComponents.Individual.GuiTimePicker;
@@ -22,6 +24,9 @@ public class NotificationPage extends DefaultPageComponents {
 
         createAllComponents();
     }
+
+    private PromptsReminder _PromptsReminder;
+    private MedReminder _MedReminder;
 
     /**
      * Initializes and creates all components for this page.
@@ -98,19 +103,59 @@ public class NotificationPage extends DefaultPageComponents {
     }
 
     private void onPromptRemindSwitch() {
+        if (_PromptsReminder == null) {
+            _PromptsReminder = new PromptsReminder();
+        }
 
+        if (_PromptRemindSwitch.getValue()) {
+            _PromptsReminder.createNotification();
+        } else {
+            _PromptsReminder.deactivate();
+        }
     }
 
     private void onMedRemindSwitch() {
+        if (_MedReminder == null) {
+            _MedReminder = new MedReminder();
+        }
 
+        if (_MedRemindSwitch.getValue()) {
+            _MedReminder.createNotification();
+        } else {
+            _MedReminder.deactivate();
+        }
     }
 
     private void onPromptTime() {
+        if (_PromptsReminder == null) {
+            _PromptsReminder = new PromptsReminder();
+        }
+        int minutes = _PromptTime.getTotalMins();
+        int hour = minutes / 60;
+        int min = minutes % 60;
 
+        _PromptsReminder.setHour(hour);
+        _PromptsReminder.setMinute(min);
+
+        if (_PromptRemindSwitch.getValue()) {
+            _PromptsReminder.createNotification();
+        }
     }
 
     private void onMedTime() {
+        if (_MedReminder == null) {
+            _MedReminder = new MedReminder();
+        }
+        int minutes = _MedTime.getTotalMins();
+        int hour = minutes / 60;
+        int min = minutes % 60;
 
+        _MedReminder.setHour(hour);
+        _MedReminder.setMin(min);
+
+        if (_MedRemindSwitch.getValue()) {
+            _MedReminder.createNotification();
+        }
     }
 
 
