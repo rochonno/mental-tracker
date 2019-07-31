@@ -1,11 +1,14 @@
 package tracker.Pages.ModularGUI;
 
 import com.codename1.ui.Form;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.GenerateDefaultPrompts;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.MentalPrompts;
 import tracker.GuiComponents.Containers.PromptAdd;
+import tracker.GuiComponents.Individual.GuiButton;
 
 import java.util.List;
 import java.util.Vector;
@@ -55,18 +58,17 @@ public class AddDefaultPromptPage extends DefaultPageComponents {
      * Class that is called whenever the user chooses to edit or delete a prompt.
      * This is passed through to each prompt and invoke in it's method.
      */
-    class PromptAddCallback implements java.awt.event.ActionListener {
+    class PromptAddCallback implements ActionListener {
 
         /**
          * Invoked when an action occurs.
          *
          * @param e the event to be processed
          */
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent e) {
-            String command = e.getActionCommand();
+        public void actionPerformed(ActionEvent e) {
 
-            if (command.equals("AddPrompt")) {
+
+            if (e.getKeyEvent() == 0) {
                 onAddPrompt(e.getSource());
             }
         }

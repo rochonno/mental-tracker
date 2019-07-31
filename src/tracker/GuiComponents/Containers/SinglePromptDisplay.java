@@ -15,16 +15,13 @@ import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiSlider;
 import tracker.GuiComponents.Individual.GuiTextArea;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
 /**
  * @author Nolan Rochon
  *
  * This creates all components needed for asking a single prompt.
  * Spacing is done to allow up to 4 on each page.
  */
-public class SinglePromptDisplay implements PropertyChangeListener {
+public class SinglePromptDisplay {
     private Form _Page;
     private MentalPrompt _CurrPrompt;
     private String _UserAnswer = "";
@@ -296,17 +293,6 @@ public class SinglePromptDisplay implements PropertyChangeListener {
         ((LayeredLayout) _InputText.getTextArea().getParent().getLayout()).
                 setInsets(_InputText.getTextArea(), "0 30% auto 33%").
                 setReferenceComponentTop(_InputText.getTextArea(), _Question.getLabel(), 1f);
-    }
-
-    /**
-     * This method gets called when a bound property is changed.
-     *
-     * @param evt A PropertyChangeEvent object describing the event source
-     *            and the property that has changed.
-     */
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-
     }
 
     public MentalPrompt getPrompt() {

@@ -1,6 +1,7 @@
 package tracker.GuiComponents.Individual;
 
 import com.codename1.ui.Display;
+import com.codename1.ui.util.Resources;
 
 import java.util.Date;
 
@@ -9,8 +10,8 @@ import java.util.Date;
  */
 public class GuiDatePicker extends GuiPicker {
 
-    public GuiDatePicker(final String name) {
-        super(name, Display.PICKER_TYPE_CALENDAR);
+    public GuiDatePicker(final String name, Resources instanceTheme) {
+        super(name, Display.PICKER_TYPE_CALENDAR, instanceTheme);
     }
 
     public Date getDate() {

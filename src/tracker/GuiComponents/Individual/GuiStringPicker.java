@@ -1,6 +1,7 @@
 package tracker.GuiComponents.Individual;
 
 import com.codename1.ui.Display;
+import com.codename1.ui.util.Resources;
 
 /**
  * Class for a gui picker for a list of strings.
@@ -8,8 +9,8 @@ import com.codename1.ui.Display;
  */
 public class GuiStringPicker extends GuiPicker {
 
-    public GuiStringPicker(final String name) {
-        super(name, Display.PICKER_TYPE_STRINGS);
+    public GuiStringPicker(final String name, Resources instanceTheme) {
+        super(name, Display.PICKER_TYPE_STRINGS, instanceTheme);
     }
 
     public void setStrings(final String[] strArray) {
