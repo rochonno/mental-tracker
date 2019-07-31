@@ -9,6 +9,8 @@ import com.codename1.charts.views.PieChart;
 import com.codename1.ui.Form;
 import com.codename1.ui.layouts.BorderLayout;
 
+import java.util.Random;
+
 public class createPieChartForm {
 
     /**
@@ -30,7 +32,7 @@ public class createPieChartForm {
     /**
      * Builds a category series using the provided values.
      *
-     * @param title the series titles
+     * @param title  the series titles
      * @param values the values
      * @return the category series
      */
@@ -49,6 +51,16 @@ public class createPieChartForm {
         int k = 0;
         series.add("Yes", values[0]);
         series.add("No", values[1]);
+        return series;
+    }
+
+    protected CategorySeries buildCategoryDatasetCategorical(String title, double[] values) {
+        CategorySeries series = new CategorySeries(title);
+        int k = 0;
+        for (double value : values){                          //Change this to use value names instead.
+            series.add("Project " + ++k, value);
+        }
+
         return series;
     }
 
@@ -84,8 +96,8 @@ public class createPieChartForm {
 
     }
 
-    public Form createYesNoPieChart(String title){
-        double[] values = new double[]{2, 3};
+    public Form createYesNoPieChart(String title) {
+        double[] values = new double[]{2, 3};  //Yes/No values in order. These will be a parameter strictly for testing.
         int[] colors = new int[]{ColorUtil.GREEN, ColorUtil.BLUE};
         DefaultRenderer renderer = buildCategoryRenderer(colors);
         renderer.setZoomButtonsVisible(true);
@@ -94,12 +106,38 @@ public class createPieChartForm {
         renderer.setDisplayValues(true);
         renderer.setShowLabels(true);
         SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
-        //r.setGradientEnabled(true);
-        //r.setGradientStart(0, ColorUtil.BLUE);
-        //r.setGradientStop(0, ColorUtil.GREEN);
         r.setHighlighted(true);
 
-        PieChart chart = new PieChart (buildCategoryDatasetYesNo(title, values), renderer);
+        PieChart chart = new PieChart(buildCategoryDatasetCategorical(title, values), renderer);
+
+        ChartComponent c = new ChartComponent(chart);
+
+        Form f = new Form(title, new BorderLayout());
+        f.add(BorderLayout.CENTER, c);
+        f.show();
+        return f;
+    }
+
+    public Form createCategoricalPieChart(String title) {
+        Random rand = new Random();
+        double[] values = new double[]{2, 7, 1, 5, 6};
+        int[] colors = new int[values.length];
+        int i = 0;
+        for (double value : values) {
+            colors[i] = ColorUtil.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+            i++;
+            System.out.println("TEST");
+        }
+        DefaultRenderer renderer = buildCategoryRenderer(colors);
+        renderer.setZoomButtonsVisible(true);
+        renderer.setZoomEnabled(true);
+        renderer.setChartTitleTextSize(24);
+        renderer.setDisplayValues(true);
+        renderer.setShowLabels(true);
+        SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
+        r.setHighlighted(true);
+
+        PieChart chart = new PieChart(buildCategoryDatasetCategorical(title, values), renderer);
 
         ChartComponent c = new ChartComponent(chart);
 

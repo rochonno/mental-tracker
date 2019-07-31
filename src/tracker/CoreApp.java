@@ -60,7 +60,9 @@ public class CoreApp implements LocalNotificationCallback {
         createLocalData create = new createLocalData();
 
         createPieChartForm pie = new createPieChartForm();
-        pie.createYesNoPieChart("Yes/No");
+        //pie.createYesNoPieChart("Yes/No");
+
+        pie.createCategoricalPieChart("Test");
 
     }
 
