@@ -7,6 +7,7 @@ import com.codename1.ui.events.ActionListener;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.GuiComponents.Containers.PromptEditDelete;
+import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.Individual.GuiFloatButton;
 
 import java.util.List;
@@ -35,11 +36,11 @@ public class PromptListPage extends DefaultPageComponents {
      */
     private void createAllComponents() {
         initDefault();
-        createComponents();
+        createDefaults();
 
         initFloatButton();
         createFloatButton();
-        initPromptList();
+        createPromptList();
     }
 
     /**
@@ -121,20 +122,19 @@ public class PromptListPage extends DefaultPageComponents {
      * Class that is called whenever the user chooses to edit or delete a prompt.
      * This is passed through to each prompt and invoke in it's method.
      */
-    class PromptChangedCallback implements java.awt.event.ActionListener {
+    class PromptChangedCallback implements ActionListener {
 
         /**
          * Invoked when an action occurs.
          *
          * @param e the event to be processed
          */
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent e) {
-            String command = e.getActionCommand();
+        public void actionPerformed(ActionEvent e) {
+            int event = e.getKeyEvent();
 
-            if (command.equals("DeletePrompt")) {
+            if (event == 0) {
                 onDeletePrompt(e.getSource());
-            } else if (command.equals("EditPrompt")) {
+            } else if (event == 1) {
                 onEditPrompt(e.getSource());
             }
         }
@@ -160,7 +160,7 @@ public class PromptListPage extends DefaultPageComponents {
      * Initialize all the prompts on the screen individually.
      * Stores each prompt in a list (_PromptList).
      */
-    private void initPromptList() {
+    private void createPromptList() {
         PromptChangedCallback callback = new PromptChangedCallback();
 
         float location = 1F;

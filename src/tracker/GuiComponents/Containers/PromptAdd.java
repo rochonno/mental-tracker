@@ -3,17 +3,16 @@ package tracker.GuiComponents.Containers;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.GuiComponents.ImageNames;
 import tracker.GuiComponents.Individual.GuiButton;
 
-import java.awt.event.ActionListener;
-
 public class PromptAdd extends PromptListComponent {
 
-    private java.awt.event.ActionListener _NotifyChange;
+    private ActionListener _NotifyChange;
 
     public PromptAdd(
             Form parentPage,
@@ -43,8 +42,7 @@ public class PromptAdd extends PromptListComponent {
     }
 
     private void onAddButton() {
-        _NotifyChange.actionPerformed(
-                new java.awt.event.ActionEvent(this, 0, "AddPrompt"));
+        _NotifyChange.actionPerformed(new ActionEvent(this, 0));
     }
 
     class AddEventCallback implements com.codename1.ui.events.ActionListener {

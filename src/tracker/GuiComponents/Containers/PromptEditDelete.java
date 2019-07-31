@@ -13,13 +13,13 @@ import tracker.GuiComponents.ImageNames;
 
 public class PromptEditDelete extends PromptListComponent {
 
-    private java.awt.event.ActionListener _NotifyChange;
+    private ActionListener _NotifyChange;
 
     public PromptEditDelete(
             Form parentPage,
             final MentalPrompt prompt,
             Resources resources,
-            final java.awt.event.ActionListener callback) {
+            final ActionListener callback) {
 
         super(parentPage, prompt, resources);
         _NotifyChange = callback;
@@ -34,7 +34,7 @@ public class PromptEditDelete extends PromptListComponent {
         EditDeleteCallback callback = new EditDeleteCallback();
 
         _RemoveButton = new GuiButton(
-                "DeleteButton",
+                "RemoveButton",
                 getResources(),
                 ImageNames.DELETE_X,
                 ImageNames.DELETE_X
@@ -56,13 +56,13 @@ public class PromptEditDelete extends PromptListComponent {
     private void onRemoveButton() {
         _RemoveButton.setSelected(false);
         _NotifyChange.actionPerformed(
-                new java.awt.event.ActionEvent(this, 0, "DeletePrompt"));
+                new ActionEvent(this,0));
     }
 
     private void onEditButton() {
         _EditButton.setSelected(false);
         _NotifyChange.actionPerformed(
-                new java.awt.event.ActionEvent(this, 0, "EditPrompt"));
+                new ActionEvent(this, 1));
     }
 
     class EditDeleteCallback implements  ActionListener {
@@ -106,5 +106,13 @@ public class PromptEditDelete extends PromptListComponent {
                 setInsets(_EditButton.getButton(),"0 auto auto 0").
                 setReferenceComponentLeft(_EditButton.getButton(), _RemoveButton.getButton(), 1).
                 setReferenceComponentTop(_EditButton.getButton(), _RemoveButton.getButton(), 0);
+    }
+
+    public String getEditName() {
+        return _EditButton.getName();
+    }
+
+    public String getRemoveName() {
+        return _RemoveButton.getName();
     }
 }

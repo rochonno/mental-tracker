@@ -6,6 +6,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.InstanceData;
+import tracker.Pages.ModularGUI.NotificationPage;
 import tracker.Pages.ModularGUI.PromptListPage;
 
 /******************************************************************************
@@ -72,7 +73,8 @@ public class SideMenu {
     }
 
     private void onRemindersSelected() {
-
+        Form notificationPage = new NotificationPage(_Data, _PageTb.getComponentForm());
+        notificationPage.show();
     }
 
     private void onAboutSelected() {

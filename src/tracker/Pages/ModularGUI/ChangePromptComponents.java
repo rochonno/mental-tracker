@@ -84,7 +84,7 @@ class ChangePromptComponents extends DefaultPageComponents {
     private void createDefaultComponents() {
         initDefault();
         initConfirmButton();
-        createComponents();
+        createDefaults();
     }
 
     private void initInputLabels() {
@@ -119,7 +119,7 @@ class ChangePromptComponents extends DefaultPageComponents {
         _PromptTextArea.setSingleLine(true);
         _PromptTextArea.setActionListener(callback);
 
-        _PickerType = new GuiStringPicker("Answer Type");
+        _PickerType = new GuiStringPicker("Answer Type", getResources());
         _PickerType.setStrings(_Types);
         _PickerType.setActionListener(callback);
 
@@ -173,7 +173,7 @@ class ChangePromptComponents extends DefaultPageComponents {
             case BOOL: text = _Types[1]; break;
             case DOUBLE: text = _Types[2]; break;
             case STRING: text = _Types[3]; break;
-            default : text = "";break;
+            default : text = ""; break;
         }
         return text;
     }

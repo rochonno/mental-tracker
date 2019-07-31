@@ -3,15 +3,17 @@ package tracker.GuiComponents.Individual;
 import com.codename1.ui.Component;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.spinner.Picker;
+import com.codename1.ui.util.Resources;
 
 public class GuiPicker {
 
     private Picker _Picker;
 
-    GuiPicker(final String name, final int pickerType) {
+    GuiPicker(final String name, final int pickerType, final Resources instanceTheme) {
         _Picker = new Picker();
         _Picker.setType(pickerType);
-        _Picker.setUseLightweightPopup(true);
+        _Picker.setUseLightweightPopup(false);
+        _Picker.setInlineStylesTheme(instanceTheme);
         setName(name);
     }
 

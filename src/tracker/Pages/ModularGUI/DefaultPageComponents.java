@@ -16,9 +16,9 @@ import tracker.GuiComponents.Individual.GuiLabel;
  *      Confirm/Next button must be created by calling the appropriate functions
  *
  *  Functions to call for no Confirm button:
- *          initDefault(), createComponents()
+ *          initDefault(), createDefaults()
  *  For Confirm button as well:
- *          initDefault(), initConfirmButton(), createComponents()
+ *          initDefault(), initConfirmButton(), createDefaults()
  ******************************************************************************/
 class DefaultPageComponents extends Form {
 
@@ -97,7 +97,7 @@ class DefaultPageComponents extends Form {
     }
 
     /**
-     * Initialized the confirm button. Need before calling createComponents().
+     * Initialized the confirm button. Need before calling createDefaults().
      */
     void initConfirmButton() {
         _ConfirmButton = new GuiButton(
@@ -113,7 +113,7 @@ class DefaultPageComponents extends Form {
     /**
      * Creates the default components in the Layered Layout.
      */
-    void createComponents() {
+    void createDefaults() {
         if (_TopInset == null) {
             return;
         }
