@@ -35,11 +35,11 @@ public class PromptListPage extends DefaultPageComponents {
      */
     private void createAllComponents() {
         initDefault();
-        createComponents();
+        createDefaults();
 
         initFloatButton();
         createFloatButton();
-        initPromptList();
+        createPromptList();
     }
 
     /**
@@ -160,7 +160,7 @@ public class PromptListPage extends DefaultPageComponents {
      * Initialize all the prompts on the screen individually.
      * Stores each prompt in a list (_PromptList).
      */
-    private void initPromptList() {
+    private void createPromptList() {
         PromptChangedCallback callback = new PromptChangedCallback();
 
         float location = 1F;

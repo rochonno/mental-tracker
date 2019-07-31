@@ -84,7 +84,7 @@ class ChangePromptComponents extends DefaultPageComponents {
     private void createDefaultComponents() {
         initDefault();
         initConfirmButton();
-        createComponents();
+        createDefaults();
     }
 
     private void initInputLabels() {

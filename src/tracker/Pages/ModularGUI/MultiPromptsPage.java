@@ -37,7 +37,7 @@ public class MultiPromptsPage extends DefaultPageComponents {
 
         super.initDefault();
         super.initConfirmButton();
-        super.createComponents();
+        super.createDefaults();
 
         createPrompts();
     }

@@ -38,7 +38,7 @@ public class AddDefaultPromptPage extends DefaultPageComponents {
      */
     private void createAllComponents() {
         initDefault();
-        createComponents();
+        createDefaults();
 
         initPromptList();
     }
