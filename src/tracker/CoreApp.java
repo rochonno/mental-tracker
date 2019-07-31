@@ -59,6 +59,9 @@ public class CoreApp implements LocalNotificationCallback {
         //scatter.execute();
         createLocalData create = new createLocalData();
 
+        createPieChartForm pie = new createPieChartForm();
+        pie.createYesNoPieChart("Yes/No");
+
     }
 
     public void stop() {

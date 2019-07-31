@@ -44,6 +44,14 @@ public class createPieChartForm {
         return series;
     }
 
+    protected CategorySeries buildCategoryDatasetYesNo(String title, double[] values) {
+        CategorySeries series = new CategorySeries(title);
+        int k = 0;
+        series.add("Yes", values[0]);
+        series.add("No", values[1]);
+        return series;
+    }
+
     public Form createPieChartForm() {
         // Generate the values
         double[] values = new double[]{12, 14, 11, 10, 19};
@@ -74,5 +82,30 @@ public class createPieChartForm {
         f.show();  //Pass back instead?
         return f;
 
+    }
+
+    public Form createYesNoPieChart(String title){
+        double[] values = new double[]{2, 3};
+        int[] colors = new int[]{ColorUtil.GREEN, ColorUtil.BLUE};
+        DefaultRenderer renderer = buildCategoryRenderer(colors);
+        renderer.setZoomButtonsVisible(true);
+        renderer.setZoomEnabled(true);
+        renderer.setChartTitleTextSize(24);
+        renderer.setDisplayValues(true);
+        renderer.setShowLabels(true);
+        SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
+        //r.setGradientEnabled(true);
+        //r.setGradientStart(0, ColorUtil.BLUE);
+        //r.setGradientStop(0, ColorUtil.GREEN);
+        r.setHighlighted(true);
+
+        PieChart chart = new PieChart (buildCategoryDatasetYesNo(title, values), renderer);
+
+        ChartComponent c = new ChartComponent(chart);
+
+        Form f = new Form(title, new BorderLayout());
+        f.add(BorderLayout.CENTER, c);
+        f.show();
+        return f;
     }
 }
