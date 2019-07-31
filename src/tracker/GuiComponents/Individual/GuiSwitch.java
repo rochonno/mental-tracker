@@ -10,6 +10,7 @@ public class GuiSwitch {
 
     public GuiSwitch(final String name, final Resources instanceTheme) {
         _Switch = new Switch();
+        _Switch.setName(name);
     }
 
     public void addActionListener(ActionListener callback) {

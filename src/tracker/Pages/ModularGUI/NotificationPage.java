@@ -5,7 +5,6 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
-import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiSwitch;
 import tracker.GuiComponents.Individual.GuiTimePicker;
@@ -18,7 +17,7 @@ public class NotificationPage extends DefaultPageComponents {
      * @param data     instance data
      * @param previous previous page
      */
-    NotificationPage(InstanceData data, Form previous) {
+    public NotificationPage(InstanceData data, Form previous) {
         super(data, previous, "NotificationPage");
 
         createAllComponents();
@@ -69,8 +68,8 @@ public class NotificationPage extends DefaultPageComponents {
     private void initTimePickers() {
         ReminderEventCallback callback = new ReminderEventCallback();
 
-        _PromptTime = new GuiTimePicker("PromptTime");
-        _MedTime = new GuiTimePicker("MedTime");
+        _PromptTime = new GuiTimePicker("PromptTime", getResources());
+        _MedTime = new GuiTimePicker("MedTime", getResources());
     }
 
 
@@ -142,11 +141,11 @@ public class NotificationPage extends DefaultPageComponents {
     }
 
     private void createMedLabel(final float location) {
-        addComponent(_PromptLabel.getLabel());
+        addComponent(_MedLabel.getLabel());
 
-        ((LayeredLayout) _PromptLabel.getLabel().getParent().getLayout()).
-                setInsets(_PromptLabel.getLabel(), "0 auto auto 2mm").
-                setReferenceComponentTop(_PromptLabel.getLabel(),
+        ((LayeredLayout) _MedLabel.getLabel().getParent().getLayout()).
+                setInsets(_MedLabel.getLabel(), "0 auto auto 2mm").
+                setReferenceComponentTop(_MedLabel.getLabel(),
                         getBackButton().getButton(), location);
     }
 
@@ -158,7 +157,7 @@ public class NotificationPage extends DefaultPageComponents {
                 setReferenceComponentTop(_PromptRemindSwitch.getSwitch(),
                         _PromptLabel.getLabel(), 0).
                 setReferenceComponentLeft(_PromptRemindSwitch.getSwitch(),
-                        _PromptLabel.getLabel(), .2f);
+                        _PromptLabel.getLabel(), 1.1f);
     }
 
     private void createMedRemindSwitch() {
@@ -167,9 +166,9 @@ public class NotificationPage extends DefaultPageComponents {
         ((LayeredLayout) _MedRemindSwitch.getSwitch().getParent().getLayout()).
                 setInsets(_MedRemindSwitch.getSwitch(), "0 auto auto 0").
                 setReferenceComponentTop(_MedRemindSwitch.getSwitch(),
-                        _MedLabel.getLabel(), .5f).
+                        _MedLabel.getLabel(), 0).
                 setReferenceComponentLeft(_MedRemindSwitch.getSwitch(),
-                        _MedLabel.getLabel(), .2f);
+                        _PromptRemindSwitch.getSwitch(), 0);
     }
 
     private void createPromptTimePicker() {
@@ -177,7 +176,9 @@ public class NotificationPage extends DefaultPageComponents {
 
         ((LayeredLayout) _PromptTime.getPicker().getParent().getLayout()).
                 setInsets(_PromptTime.getPicker(), "0 auto auto 0").
-                setReferenceComponentBottom(_PromptTime.getPicker(),
+                setReferenceComponentTop(_PromptTime.getPicker(),
+                        _PromptLabel.getLabel(), 1f).
+                setReferenceComponentLeft(_PromptTime.getPicker(),
                         _PromptLabel.getLabel(), 0);
     }
 
@@ -186,7 +187,9 @@ public class NotificationPage extends DefaultPageComponents {
 
         ((LayeredLayout) _MedTime.getPicker().getParent().getLayout()).
                 setInsets(_MedTime.getPicker(), "0 auto auto 0").
-                setReferenceComponentBottom(_MedTime.getPicker(),
+                setReferenceComponentTop(_MedTime.getPicker(),
+                        _MedLabel.getLabel(), 1f).
+                setReferenceComponentLeft(_MedTime.getPicker(),
                         _MedLabel.getLabel(), 0);
     }
 }
