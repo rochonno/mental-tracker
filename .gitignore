@@ -31,3 +31,5 @@ Versions\.properties
 \.idea/misc\.xml
 
 CheckstyleConfig
+
+build/
