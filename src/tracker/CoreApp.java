@@ -11,6 +11,7 @@ import com.codename1.ui.Toolbar;
 import tracker.Data.InstanceData;
 import tracker.Data.createLocalData;
 import tracker.GuiComponents.GuiCharts.ScatterChart;
+import tracker.GuiComponents.GuiCharts.createDaySeriesForm;
 import tracker.GuiComponents.GuiCharts.createPieChartForm;
 import tracker.GuiComponents.GuiCharts.createTimeSeriesForm;
 import tracker.Pages.ModularGUI.MainPage;
@@ -65,8 +66,13 @@ public class CoreApp implements LocalNotificationCallback {
 
         //pie.createCategoricalPieChart("Test");
 
-        createTimeSeriesForm time = new createTimeSeriesForm();
-        time.execute();
+        //createTimeSeriesForm time = new createTimeSeriesForm();
+        //time.execute();
+        //time.getTimeSeriesForm("Test");
+
+        createDaySeriesForm day = new createDaySeriesForm();
+        day.execute();
+        //day.getDaySeriesForm("Test", "test1", "test2");
     }
 
     public void stop() {

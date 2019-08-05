@@ -52,7 +52,7 @@ public abstract class AbstractDemoChart implements IDemoChart {
     Font largeFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_LARGE, Font.STYLE_PLAIN);
 
     protected XYMultipleSeriesDataset createTemperatureDataset() {
-        String[] titles = new String[]{"Crete", "Corfu", "Thassos", "Skiathos"};
+        String[] titles = new String[]{"Crete"}; //Only pass in one variable
         List<double[]> x = new ArrayList<double[]>();
         for (int i = 0; i < titles.length; i++) {
             x.add(new double[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
