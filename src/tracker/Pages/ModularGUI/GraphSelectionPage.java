@@ -15,6 +15,10 @@ import java.util.Vector;
 
 public class GraphSelectionPage extends DefaultPageComponents {
 
+    private String _PromptName;
+    private GraphTypes _GraphType;
+    private Date _StartDate;
+    private Date _EndDate;
 
     /**
      * Constructor for the DefaultComponents class.
@@ -189,17 +193,23 @@ public class GraphSelectionPage extends DefaultPageComponents {
     }
 
     private void onDatePickerStart() {
-        Date selectedDate = _DatePickerStart.getDate();
-
+        _StartDate = _DatePickerStart.getDate();
     }
 
     private void onDatePickerEnd() {
-        Date selectedDate = _DatePickerEnd.getDate();
-
+        _EndDate = _DatePickerEnd.getDate();
     }
 
     @Override
     void onConfirmButton() {
+        if (isInputComplete()) {
+
+        } else {
+
+        }
+    }
+
+    private void isInputComplete() {
 
     }
 
