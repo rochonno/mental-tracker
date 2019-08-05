@@ -1,4 +1,6 @@
 package tracker.GuiComponents.Individual;
+import com.codename1.ui.FontImage;
+import com.codename1.ui.Image;
 import com.codename1.ui.Slider;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
@@ -29,7 +31,11 @@ public class GuiSlider {
         setIncrements(1);
         setProgress(1);
         setGap(2);
+
+        _Slider.setThumbImage(
+                FontImage.createMaterial(FontImage.MATERIAL_RADIO_BUTTON_CHECKED, "sliderOval.png", 4).toImage());
     }
+
 
     public void setActionListener(final ActionListener listener) {
         _Slider.addActionListener(listener);

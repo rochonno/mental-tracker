@@ -9,6 +9,10 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.codename1.ui.Toolbar;
 import tracker.Data.InstanceData;
+import tracker.Data.createLocalData;
+import tracker.GuiComponents.GuiCharts.ScatterChart;
+import tracker.GuiComponents.GuiCharts.createPieChartForm;
+import tracker.GuiComponents.GuiCharts.createTimeSeriesForm;
 import tracker.Pages.ModularGUI.MainPage;
 
 /**
@@ -46,9 +50,23 @@ public class CoreApp implements LocalNotificationCallback {
         //LoginGUI login = new LoginGUI();
         //login.show();
 
-        MainPage main = new MainPage(_Data);
-        main.show();
+        //MainPage main = new MainPage(_Data);
+        //main.show();
 
+        //createPieChartForm pie = new createPieChartForm();
+        //pie.createPieChartForm();
+        
+        //ScatterChart scatter = new ScatterChart();
+        //scatter.execute();
+        createLocalData create = new createLocalData();
+
+        //createPieChartForm pie = new createPieChartForm();
+        //pie.createYesNoPieChart("Yes/No");
+
+        //pie.createCategoricalPieChart("Test");
+
+        createTimeSeriesForm time = new createTimeSeriesForm();
+        time.execute();
     }
 
     public void stop() {
