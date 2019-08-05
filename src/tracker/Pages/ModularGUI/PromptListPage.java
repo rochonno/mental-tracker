@@ -55,7 +55,7 @@ public class PromptListPage extends DefaultPageComponents {
      *      not already in use.
      */
     private void onAddDefault() {
-        Form addDefault = new AddDefaultPromptPage(getData(), getPreviousForm());
+        Form addDefault = new AddDefaultPromptPage(getData(), this);
         addDefault.show();
     }
 
