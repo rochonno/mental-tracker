@@ -219,7 +219,7 @@ public class GraphSelectionPage extends DefaultPageComponents {
     private void onDatePickerEnd() {
         _EndDate = _DatePickerEnd.getDate();
 
-        if ((_EndDate.after(_StartDate)) || (_EndDate.equals(_StartDate))) {
+        if ((_EndDate.before(_StartDate)) || (_EndDate.equals(_StartDate))) {
             Dialog.show(
                     "Invalid Date",
                     "End date needs to be before start",
