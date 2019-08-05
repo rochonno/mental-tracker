@@ -22,7 +22,7 @@ final class DefaultPrompts {
      */
     static MentalPrompt createSleepPrompt() {
         String name = "Sleep";
-        String prompt = "How much sleep did you get last night?";
+        String prompt = "Hours of sleep last night";
         PromptDataType promptDataType = PromptDataType.DOUBLE;
 
         MentalPrompt sleep =
@@ -36,7 +36,7 @@ final class DefaultPrompts {
      */
     static MentalPrompt createMoodPrompt() {
         String name = "Recent Mood";
-        String prompt = "Rate your recent mood (higher is better!)";
+        String prompt = "Recent mood (higher is better!)";
         PromptDataType promptDataType = PromptDataType.INT;
 
         return createPrompt(name, prompt, MIN, MAX, promptDataType);
@@ -47,8 +47,8 @@ final class DefaultPrompts {
      * @return MentalPrompt
      */
     static MentalPrompt createExercisePrompt() {
-        String name = "Exercise Past Day";
-        String prompt = "Did you exercise?";
+        String name = "Exercise";
+        String prompt = "Did you exercise recently?";
         PromptDataType promptDataType = PromptDataType.BOOL;
 
         return createPrompt(name, prompt, promptDataType);
@@ -63,15 +63,15 @@ final class DefaultPrompts {
     }
 
     static MentalPrompt createMoodShiftPrompt() {
-        String name = "Mood Shifts Past Day";
-        String prompt = "Mood shifts experienced since the last check-in?";
+        String name = "Mood Shifts";
+        String prompt = "Noticeable mood shifts since yesterday";
         PromptDataType promptDataType = PromptDataType.INT;
 
         return createPrompt(name, prompt, MIN, MAX, promptDataType);
     }
 
     static MentalPrompt createConfidencePrompt() {
-        String name = "Overall Confidence Level";
+        String name = "Confidence Level";
         String prompt = "How confident have you felt recently?";
         PromptDataType promptDataType = PromptDataType.INT;
 
@@ -79,7 +79,7 @@ final class DefaultPrompts {
     }
 
     static MentalPrompt createAnxietyPrompt() {
-        String name = "Overall Anxiety";
+        String name = "Anxiety";
         String prompt = "How anxious do you feel?";
         PromptDataType promptDataType = PromptDataType.INT;
 
@@ -87,7 +87,7 @@ final class DefaultPrompts {
     }
 
     static MentalPrompt createStressPrompt() {
-        String name = "Overall Stress";
+        String name = "Stress";
         String prompt = "How stressed are you?";
         PromptDataType promptDataType = PromptDataType.INT;
 
@@ -95,8 +95,8 @@ final class DefaultPrompts {
     }
 
     static MentalPrompt createPanicPrompt() {
-        String name = "Recent Panic Symptoms";
-        String prompt = "Any experiences symptoms of panic?";
+        String name = "Panic Symptoms";
+        String prompt = "Any symptoms of panic recently?";
         PromptDataType promptDataType = PromptDataType.BOOL;
 
         return createPrompt(name, prompt, promptDataType);
@@ -104,7 +104,7 @@ final class DefaultPrompts {
 
     static MentalPrompt createDepressedPrompt() {
         String name = "Depressed Mood";
-        String prompt = "Have you experienced a depressed mood?";
+        String prompt = "Have you had a depressed mood?";
         PromptDataType promptDataType = PromptDataType.BOOL;
 
         return createPrompt(name, prompt, MIN, MAX, promptDataType);
