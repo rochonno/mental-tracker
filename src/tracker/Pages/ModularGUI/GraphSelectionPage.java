@@ -1,10 +1,12 @@
 package tracker.Pages.ModularGUI;
 
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
+import tracker.Data.Prompts.PromptDataType;
 import tracker.GuiComponents.Individual.GuiDatePicker;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiStringPicker;
@@ -14,6 +16,10 @@ import java.util.Vector;
 
 public class GraphSelectionPage extends DefaultPageComponents {
 
+    private String _PromptName;
+    private GraphTypes _GraphType;
+    private Date _StartDate;
+    private Date _EndDate;
 
     /**
      * Constructor for the DefaultComponents class.
@@ -69,11 +75,13 @@ public class GraphSelectionPage extends DefaultPageComponents {
     private void initGraphLabel() {
         _GraphLabel = new GuiLabel("GraphLabel", getResources());
         _GraphLabel.setText("Choose Graph Type:");
+        _GraphLabel.setVisible(false);
     }
 
     private void initDateLabel() {
         _DateLabel = new GuiLabel("GraphLabel", getResources());
-        _DateLabel.setText("Set Beginning And End:");
+        _DateLabel.setText("Set Start & End Date:");
+        _DateLabel.setVisible(false);
     }
 
     private void initPromptPicker() {
@@ -92,16 +100,21 @@ public class GraphSelectionPage extends DefaultPageComponents {
 
     private void initGraphPicker() {
         _GraphPicker = new GuiStringPicker("GraphPicker", getResources());
+        _GraphPicker.setVisible(false);
 
         _GraphPicker.setActionListener(new GraphSelectionCallback());
     }
 
     private void initDatePickers() {
         _DatePickerStart = new GuiDatePicker("StartDate", getResources());
+        _DatePickerStart.setDate(null);
         _DatePickerEnd = new GuiDatePicker("EndDate", getResources());
+        _DatePickerEnd.setDate(null);
 
         _DatePickerStart.setActionListener(new GraphSelectionCallback());
         _DatePickerEnd.setActionListener(new GraphSelectionCallback());
+        _DatePickerStart.setVisible(false);
+        _DatePickerEnd.setVisible(false);
     }
 
 
@@ -171,24 +184,87 @@ public class GraphSelectionPage extends DefaultPageComponents {
     }
 
     private void onPromptPicker() {
-        String selectedPrompt = _PromptPicker.getSelectedString();
+        _PromptName = _PromptPicker.getSelectedString();
 
-        setGraphPickerContents(selectedPrompt);
+        setGraphPickerContents();
+        _GraphLabel.setVisible(true);
+        _GraphPicker.setVisible(true);
     }
 
     private void onGraphPicker() {
         String selectedGraph = _GraphPicker.getSelectedString();
+        _GraphType = GraphTypes.getGraphType(selectedGraph);
 
+        _DateLabel.setVisible(true);
+        _DatePickerStart.setVisible(true);
     }
 
     private void onDatePickerStart() {
-        Date selectedDate = _DatePickerStart.getDate();
+        _StartDate = _DatePickerStart.getDate();
 
+        if ((_StartDate.after(new Date())) || (_StartDate.equals(new Date()))) {
+            Dialog.show(
+                    "Invalid Date",
+                    "Start date must be before today",
+                    "OK!",
+                    null
+            );
+            _StartDate = null;
+            _DatePickerStart.setDate(null);
+        } else {
+            _DatePickerEnd.setVisible(true);
+        }
     }
 
     private void onDatePickerEnd() {
-        Date selectedDate = _DatePickerEnd.getDate();
+        _EndDate = _DatePickerEnd.getDate();
 
+        if ((_EndDate.before(_StartDate)) || (_EndDate.equals(_StartDate))) {
+            Dialog.show(
+                    "Invalid Date",
+                    "End date needs to be before start",
+                    "OK!",
+                    null
+            );
+            _EndDate = null;
+            _DatePickerEnd.setDate(null);
+        }
+    }
+
+    /**
+     * Create the graph page here and display it.
+     * Load all data in range to be implemented through an additional class.
+     */
+    @Override
+    void onConfirmButton() {
+        if (checkInputComplete()) {
+
+        }
+    }
+
+    private boolean checkInputComplete() {
+        boolean complete = true;
+        String message = null;
+
+        if (_PromptName == null) {
+            message = "Start by choosing a prompt";
+            complete = false;
+        } else if (_GraphType == null) {
+            message = "Select the graph type";
+            complete = false;
+        } else if (_EndDate == null) {
+            message = "Set the start date";
+            complete = false;
+        } else if (_StartDate == null) {
+            message = "Set the end date";
+            complete = false;
+        }
+
+        if (message != null) {
+            Dialog.show("Missing Info", message, "OK", null);
+        }
+
+        return complete;
     }
 
     class GraphSelectionCallback implements ActionListener {
@@ -203,29 +279,34 @@ public class GraphSelectionPage extends DefaultPageComponents {
         public void actionPerformed(ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
-            if (sourceName.equals(_PromptPicker)) {
+            if (sourceName.equals(_PromptPicker.getName())) {
                 onPromptPicker();
-            } else if (sourceName.equals(_GraphPicker)) {
+            } else if (sourceName.equals(_GraphPicker.getName())) {
                 onGraphPicker();
-            } else if (sourceName.equals(_DatePickerStart)) {
+            } else if (sourceName.equals(_DatePickerStart.getName())) {
                 onDatePickerStart();
-            } else if (sourceName.equals(_DatePickerEnd)) {
+            } else if (sourceName.equals(_DatePickerEnd.getName())) {
                 onDatePickerEnd();
             }
         }
     }
 
-    private void setGraphPickerContents(String promptName) {
-
-    }
-
-    private void resetDatePicker() {
-        if (_DateLabel == null) {
+    private void setGraphPickerContents() {
+        if (_PromptName == null) {
             return;
         }
+        PromptDataType dataType = getData().getTypeFromName(_PromptName);
 
-        removeComponent(_DateLabel.getLabel());
-        removeComponent(_DatePickerStart.getPicker());
-        removeComponent(_DatePickerEnd.getPicker());
+        if (dataType == null) {
+            return;
+        }
+        GraphTypes[] types = GraphTypes.getGraphTypes(dataType);
+
+        Vector<String> graphNames = new Vector<>();
+        for (GraphTypes type: types) {
+            graphNames.add(type.getNameString());
+        }
+
+        _GraphPicker.setStrings(graphNames.toArray(new String[0]));
     }
 }

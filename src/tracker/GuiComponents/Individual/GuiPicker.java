@@ -44,7 +44,7 @@ public class GuiPicker {
         _Picker.setName(name);
     }
 
-    public void setHidden(final boolean visible) {
-        _Picker.setHidden(visible);
+    public void setVisible(final boolean visible) {
+        _Picker.setVisible(visible);
     }
 }

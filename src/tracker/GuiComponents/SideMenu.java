@@ -26,10 +26,10 @@ public class SideMenu {
 
     private InstanceData _Data;
 
-    private final String MAIN_PAGE = "Home";
-    private final String PROMTPS_LIST = "Questions Page";
-    private final String REMINDERS = "Reminders";
-    private final String GRAPHS = "Graphs";
+    private final String MAIN_PAGE = " Home";
+    private final String PROMTPS_LIST = " Questions Page";
+    private final String REMINDERS = " Reminders";
+    private final String GRAPHS = " Graphs";
 
     public SideMenu(final Resources theme,
                     final Toolbar tb,

@@ -1,9 +1,6 @@
 package tracker.Data;
 
-import tracker.Data.Prompts.MentalPrompt;
-import tracker.Data.Prompts.MentalPrompts;
-import tracker.Data.Prompts.PromptResult;
-import tracker.Data.Prompts.PromptResults;
+import tracker.Data.Prompts.*;
 
 /**
  * Holds all the data needed for normal running of the application.
@@ -140,5 +137,9 @@ public class InstanceData {
      */
     public void setHasAnswered(final boolean hasAnswered) {
         _HasAnswered = true;
+    }
+
+    public PromptDataType getTypeFromName(final String name) {
+        return _AllPrompts.findFromName(name).getDataType();
     }
 }

@@ -76,7 +76,7 @@ public class GuiLabel {
         return _Label.getHeight();
     }
 
-    public void setHidden(final boolean visible) {
-        _Label.setHidden(visible);
+    public void setVisible(final boolean visible) {
+        _Label.setVisible(visible);
     }
 }
