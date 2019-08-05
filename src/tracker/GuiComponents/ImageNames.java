@@ -19,6 +19,8 @@ public class ImageNames {
     public static final String EDIT_PENCIL = "edit24px.png";
     public static final String DELETE_X = "deleteSign48px.png";
 
+    public static final String ADD_PLUS = "plus40px.png";
+
     public static final String CUSTOM_PROMPT = "custom30x.png";
     public static final String DEFAULT_PROMPT = "default40x.png";
 }

@@ -10,20 +10,34 @@ import tracker.GuiComponents.ImageNames;
 import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.Individual.GuiLabel;
 
-public class DefaultPageComponents extends Form {
+/******************************************************************************
+ * Parent class that holds/controls the default components used by every Page.
+ * Creates a top inset and back button.
+ *      Confirm/Next button must be created by calling the appropriate functions
+ *
+ *  Functions to call for no Confirm button:
+ *          initDefault(), createDefaults()
+ *  For Confirm button as well:
+ *          initDefault(), initConfirmButton(), createDefaults()
+ ******************************************************************************/
+class DefaultPageComponents extends Form {
 
+    /** The previous Page. */
     private Form _PreviousForm;
+    /** Current Resource Instance. */
     private Resources _ResourceInstance;
 
+    /** Data of the current instance (prompts and answers). */
     private InstanceData _Data;
 
-    private GuiLabel _TopInset;
-    private GuiButton _BackButton;
-    private GuiButton _ConfirmButton;
 
-    private DefaultButtonListener _Callback;
-
-    public DefaultPageComponents(final InstanceData data, Form previous, final String pageName) {
+    /**
+     * Constructor for the DefaultComponents class.
+     * @param data instance data
+     * @param previous previous page
+     * @param pageName name of the current page
+     */
+    DefaultPageComponents(final InstanceData data, Form previous, final String pageName) {
         _Data = data;
         _PreviousForm = previous;
         _ResourceInstance = Resources.getGlobalResources();
@@ -31,6 +45,18 @@ public class DefaultPageComponents extends Form {
         initializeLayout(pageName);
     }
 
+    /** Default TopInset. */
+    private GuiLabel _TopInset;
+    /** Default BackButton. */
+    private GuiButton _BackButton;
+    /** Confirm Button. Need to initialize before use. */
+    private GuiButton _ConfirmButton;
+
+
+    /**
+     * Initializes the Layered Layout.
+     * @param pageName name of the current page
+     */
     private void initializeLayout(final String pageName) {
         setLayout(new LayeredLayout());
         setInlineStylesTheme(_ResourceInstance);
@@ -41,11 +67,17 @@ public class DefaultPageComponents extends Form {
         setName(pageName);
     }
 
-    protected void setIsScrollable() {
+    /**
+     * Sets the page to be scrollable vertically.
+     */
+    void setIsScrollable() {
         setScrollableY(true);
     }
 
-    protected void initDefault() {
+    /**
+     * Initializes the default components. No Confirm button.
+     */
+    void initDefault() {
         initTopInset();
         initBackButton();
     }
@@ -64,7 +96,10 @@ public class DefaultPageComponents extends Form {
         _BackButton.setActionListener(new DefaultButtonListener());
     }
 
-    protected void initConfirmButton() {
+    /**
+     * Initialized the confirm button. Need before calling createDefaults().
+     */
+    void initConfirmButton() {
         _ConfirmButton = new GuiButton(
                 ImageNames.CONTINUE_UNSELECT,
                 _ResourceInstance,
@@ -75,7 +110,10 @@ public class DefaultPageComponents extends Form {
         _ConfirmButton.setActionListener(new DefaultButtonListener());
     }
 
-    protected void createComponents() {
+    /**
+     * Creates the default components in the Layered Layout.
+     */
+    void createDefaults() {
         if (_TopInset == null) {
             return;
         }
@@ -125,14 +163,24 @@ public class DefaultPageComponents extends Form {
                 "auto -125% 0 auto");
     }
 
+    /**
+     * Called when the back button is pressed.
+     */
     private void onBackButton() {
         _PreviousForm.showBack();
     }
 
-    protected void onConfirmButton() {
+    /**
+     * Needs to be overridden for functionality.
+     * Function changes based on current page.
+     */
+    void onConfirmButton() {
         
     }
 
+    /**
+     * Action Listener class for the default components.
+     */
     class DefaultButtonListener implements ActionListener {
 
         /**
@@ -153,23 +201,23 @@ public class DefaultPageComponents extends Form {
         }
     }
 
-    protected InstanceData getData() {
+    InstanceData getData() {
         return _Data;
     }
 
-    protected Form getPreviousForm() {
+    Form getPreviousForm() {
         return _PreviousForm;
     }
 
-    protected GuiLabel getTopInset() {
+    GuiLabel getTopInset() {
         return _TopInset;
     }
 
-    protected GuiButton getBackButton() {
+    GuiButton getBackButton() {
         return _BackButton;
     }
 
-    protected Resources getResources() {
+    Resources getResources() {
         return _ResourceInstance;
     }
 }

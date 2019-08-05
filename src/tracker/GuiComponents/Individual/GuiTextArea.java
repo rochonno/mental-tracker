@@ -66,6 +66,10 @@ public class GuiTextArea {
         }
     }
 
+    public void canEnter(boolean state) {
+        _TextArea.setEditable(state);
+    }
+
     public void setRefLocation(int refX, int refY, int x, int y) {
         setLocation(refX + x, refY + y);
     }

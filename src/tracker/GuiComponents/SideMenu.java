@@ -6,7 +6,8 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.InstanceData;
-import tracker.Pages.ModularGUI.PromptList;
+import tracker.Pages.ModularGUI.NotificationPage;
+import tracker.Pages.ModularGUI.PromptListPage;
 
 /******************************************************************************
  * @author Nolan Rochon
@@ -41,8 +42,8 @@ public class SideMenu {
     }
 
     private void initialize() {
-        Image sampleIcon = _Theme.getImage("icon.png");
-        Container topBar = BorderLayout.east(new Label(sampleIcon));
+        //Image sampleIcon = _Theme.getImage(ImageNames.LOGO);
+        Container topBar = BorderLayout.east(new Label());
 
         SideMenuActionListener callback = new SideMenuActionListener();
 
@@ -67,12 +68,13 @@ public class SideMenu {
     }
 
     private void onPromptsListSelected() {
-        PromptList promptList = new PromptList(_Data, _PageTb.getComponentForm());
+        PromptListPage promptList = new PromptListPage(_Data, _PageTb.getComponentForm());
         promptList.show();
     }
 
     private void onRemindersSelected() {
-
+        Form notificationPage = new NotificationPage(_Data, _PageTb.getComponentForm());
+        notificationPage.show();
     }
 
     private void onAboutSelected() {

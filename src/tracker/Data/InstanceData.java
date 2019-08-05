@@ -5,54 +5,140 @@ import tracker.Data.Prompts.MentalPrompts;
 import tracker.Data.Prompts.PromptResult;
 import tracker.Data.Prompts.PromptResults;
 
+/**
+ * Holds all the data needed for normal running of the application.
+ */
 public class InstanceData {
 
     public InstanceData() {
         _HasAnswered = false;
     }
 
+    /** All the current prompts. */
     private MentalPrompts _AllPrompts;
+    /** The prompt results. */
     private PromptResults _AllAnswers;
 
+    /** If the user has answered the daily prompts. */
     private boolean _HasAnswered;
 
-    public void deletePrompt(MentalPrompt prompt) {
+    /**
+     * Deletes the specified prompt from the list.
+     *
+     * @param prompt Prompt to find and delete
+     */
+    public void deletePrompt(final MentalPrompt prompt) {
         _AllPrompts.deletePrompt(prompt);
     }
 
-    public void changePrompt(MentalPrompt target, MentalPrompt changed) {
+    /**
+     * Changes the target prompt to the changed prompt.
+     *
+     * @param target The one to change
+     * @param changed What to change it to
+     */
+    public void changePrompt(final MentalPrompt target, MentalPrompt changed) {
         _AllPrompts.changePrompt(target, changed);
     }
 
-    public void addPrompt(MentalPrompt prompt) {
+    /**
+     * Adds a prompt to the list.
+     *
+     * @param prompt Prompt to be added
+     */
+    public void addPrompt(final MentalPrompt prompt) {
         _AllPrompts.add(prompt);
     }
 
+    /**
+     * Gets a prompt at specified index.
+     *
+     * @param index Where to find the prompt.
+     * @return MentalPrompt The prompt at the index
+     */
+    public MentalPrompt getSinglePrompt(int index) {
+        return _AllPrompts.getPrompt(index);
+    }
+
+    /**
+     * Gets the index of the specified prompt.
+     *
+     * @param prompt What prompt to look for.
+     * @return index Location of the prompt
+     */
+    public int getPromptIndex(MentalPrompt prompt) {
+        return _AllPrompts.getIndex(prompt);
+    }
+
+    /**
+     * Gets if the list has the prompt.
+     *
+     * @param prompt What prompt to look for
+     * @return boolean if the prompt is found
+     */
+    public boolean hasPrompt(MentalPrompt prompt) {
+        return _AllPrompts.doesContain(prompt);
+    }
+
+    /**
+     * Returns all the current prompts.
+     *
+     * @return MentalPrompts all the prompts
+     */
     public MentalPrompts getInstancePrompts() {
         return _AllPrompts;
     }
 
-    public void setInstancePrompts(MentalPrompts prompts) {
+    /**
+     * Sets the prompts.
+     * Usually for loading from file or generating defaults.
+     * @param prompts those to be set
+     */
+    public void setInstancePrompts(final MentalPrompts prompts) {
         _AllPrompts = prompts;
     }
 
-    public void addResult(PromptResult result) {
-        _AllAnswers.addResult(result);
+    /**
+     * Adds a result at a specified index.
+     *
+     * @param result The result to be added
+     * @param index Where to add the result
+     */
+    public void addResult(final PromptResult result, final int index) {
+        _AllAnswers.addResult(result, index);
     }
 
+    /**
+     * Gets the PromptResults.
+     *
+     * @return PromptResults all the prompt results
+     */
     public PromptResults getInstanceResults() {
         return _AllAnswers;
     }
 
-    public void setInstanceResults(PromptResults results) {
+    /**
+     * Sets the PromptResults.
+     */
+    public void setInstanceResults(final PromptResults results) {
         _AllAnswers = results;
     }
 
+    /**
+     * Stores if the prompts have been answered today yet.
+     *
+     * @return boolean if the user has answered the prompts yet.
+     */
     public boolean getHasAnswered() {
         return _HasAnswered;
     }
 
-    public void setHasAnswered(boolean hasAnswered) {
+    /**
+     * Sets if the user has answered the prompts yet.
+     *
+     * @param hasAnswered Has the user answered the prompts today
+     */
+    public void setHasAnswered(final boolean hasAnswered) {
         _HasAnswered = true;
     }
 }
