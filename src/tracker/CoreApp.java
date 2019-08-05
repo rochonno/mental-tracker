@@ -51,8 +51,8 @@ public class CoreApp implements LocalNotificationCallback {
         //LoginGUI login = new LoginGUI();
         //login.show();
 
-        //MainPage main = new MainPage(_Data);
-        //main.show();
+        MainPage main = new MainPage(_Data);
+        main.show();
 
         //createPieChartForm pie = new createPieChartForm();
         //pie.createPieChartForm();
@@ -70,8 +70,8 @@ public class CoreApp implements LocalNotificationCallback {
         //time.execute();
         //time.getTimeSeriesForm("Test");
 
-        createDaySeriesForm day = new createDaySeriesForm();
-        day.execute();
+        //createDaySeriesForm day = new createDaySeriesForm();
+        //day.execute();
         //day.getDaySeriesForm("Test", "test1", "test2");
     }
 

@@ -7,6 +7,8 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.PromptDataType;
+import tracker.GuiComponents.GuiCharts.createDaySeriesForm;
+import tracker.GuiComponents.GuiCharts.createPieChartForm;
 import tracker.GuiComponents.Individual.GuiDatePicker;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiStringPicker;
@@ -238,6 +240,13 @@ public class GraphSelectionPage extends DefaultPageComponents {
     @Override
     void onConfirmButton() {
         if (checkInputComplete()) {
+            if (_GraphType == GraphTypes.PIE_CHART){
+                createPieChartForm temp = new createPieChartForm();
+                temp.createCategoricalPieChart(_PromptName);
+            }else if(_GraphType == GraphTypes.TREND_LINE){
+                createDaySeriesForm temp = new createDaySeriesForm();
+                temp.getDaySeriesForm(_PromptName, "x-axis", "y-axis");
+            }
 
         }
     }
