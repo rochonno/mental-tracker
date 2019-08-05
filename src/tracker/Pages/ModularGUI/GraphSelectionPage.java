@@ -231,6 +231,10 @@ public class GraphSelectionPage extends DefaultPageComponents {
         }
     }
 
+    /**
+     * Create the graph page here and display it.
+     * Load all data in range to be implemented through an additional class.
+     */
     @Override
     void onConfirmButton() {
         if (checkInputComplete()) {
