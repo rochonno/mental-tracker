@@ -75,4 +75,8 @@ public class GuiLabel {
     public int getTotalHeight() {
         return _Label.getHeight();
     }
+
+    public void setHidden(final boolean visible) {
+        _Label.setHidden(visible);
+    }
 }
