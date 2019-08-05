@@ -1,5 +1,6 @@
 package tracker.Pages.ModularGUI;
 
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
@@ -74,11 +75,13 @@ public class GraphSelectionPage extends DefaultPageComponents {
     private void initGraphLabel() {
         _GraphLabel = new GuiLabel("GraphLabel", getResources());
         _GraphLabel.setText("Choose Graph Type:");
+        _GraphLabel.setVisible(false);
     }
 
     private void initDateLabel() {
         _DateLabel = new GuiLabel("GraphLabel", getResources());
         _DateLabel.setText("Set Start & End Date:");
+        _DateLabel.setVisible(false);
     }
 
     private void initPromptPicker() {
@@ -104,7 +107,9 @@ public class GraphSelectionPage extends DefaultPageComponents {
 
     private void initDatePickers() {
         _DatePickerStart = new GuiDatePicker("StartDate", getResources());
+        _DatePickerStart.setDate(null);
         _DatePickerEnd = new GuiDatePicker("EndDate", getResources());
+        _DatePickerEnd.setDate(null);
 
         _DatePickerStart.setActionListener(new GraphSelectionCallback());
         _DatePickerEnd.setActionListener(new GraphSelectionCallback());
@@ -179,38 +184,83 @@ public class GraphSelectionPage extends DefaultPageComponents {
     }
 
     private void onPromptPicker() {
-        String selectedPrompt = _PromptPicker.getSelectedString();
+        _PromptName = _PromptPicker.getSelectedString();
 
-        setGraphPickerContents(selectedPrompt);
+        setGraphPickerContents();
+        _GraphLabel.setVisible(true);
         _GraphPicker.setVisible(true);
     }
 
     private void onGraphPicker() {
         String selectedGraph = _GraphPicker.getSelectedString();
+        _GraphType = GraphTypes.getGraphType(selectedGraph);
 
+        _DateLabel.setVisible(true);
         _DatePickerStart.setVisible(true);
-        _DatePickerEnd.setVisible(true);
     }
 
     private void onDatePickerStart() {
         _StartDate = _DatePickerStart.getDate();
+
+        if ((_StartDate.after(new Date())) || (_StartDate.equals(new Date()))) {
+            Dialog.show(
+                    "Invalid Date",
+                    "Start date must be before today",
+                    "OK!",
+                    null
+            );
+            _StartDate = null;
+            _DatePickerStart.setDate(null);
+        } else {
+            _DatePickerEnd.setVisible(true);
+        }
     }
 
     private void onDatePickerEnd() {
         _EndDate = _DatePickerEnd.getDate();
+
+        if ((_EndDate.after(_StartDate)) || (_EndDate.equals(_StartDate))) {
+            Dialog.show(
+                    "Invalid Date",
+                    "End date needs to be before start",
+                    "OK!",
+                    null
+            );
+            _EndDate = null;
+            _DatePickerEnd.setDate(null);
+        }
     }
 
     @Override
     void onConfirmButton() {
-        if (isInputComplete()) {
-
-        } else {
+        if (checkInputComplete()) {
 
         }
     }
 
-    private void isInputComplete() {
+    private boolean checkInputComplete() {
+        boolean complete = true;
+        String message = null;
 
+        if (_PromptName == null) {
+            message = "Start by choosing a prompt";
+            complete = false;
+        } else if (_GraphType == null) {
+            message = "Select the graph type";
+            complete = false;
+        } else if (_EndDate == null) {
+            message = "Set the start date";
+            complete = false;
+        } else if (_StartDate == null) {
+            message = "Set the end date";
+            complete = false;
+        }
+
+        if (message != null) {
+            Dialog.show("Missing Info", message, "OK", null);
+        }
+
+        return complete;
     }
 
     class GraphSelectionCallback implements ActionListener {
@@ -237,8 +287,11 @@ public class GraphSelectionPage extends DefaultPageComponents {
         }
     }
 
-    private void setGraphPickerContents(String promptName) {
-        PromptDataType dataType = getData().getTypeFromName(promptName);
+    private void setGraphPickerContents() {
+        if (_PromptName == null) {
+            return;
+        }
+        PromptDataType dataType = getData().getTypeFromName(_PromptName);
 
         if (dataType == null) {
             return;

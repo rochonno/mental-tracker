@@ -8,6 +8,10 @@ public enum GraphTypes {
 
     SCATTER_PLOT, TREND_LINE, PIE_CHART;
 
+    private final static String _Scatter = "Scatter Plot";
+    private final static String _Trend = "Trend Line";
+    private final static String _Pie = "Pie Chart";
+
     public static GraphTypes[] getGraphTypes(final PromptDataType dataType) {
         Vector<GraphTypes> types = new Vector<>();
 
@@ -31,9 +35,19 @@ public enum GraphTypes {
 
     public String getNameString() {
         switch (this) {
-            case SCATTER_PLOT: return "Scatter Plot";
-            case TREND_LINE: return "Trend Line";
-            case PIE_CHART: return "Pie Chart";
+            case SCATTER_PLOT: return _Scatter;
+            case TREND_LINE: return _Trend;
+            case PIE_CHART: return _Pie;
+            default: return null;
+        }
+    }
+
+    public static GraphTypes getGraphType(final String type) {
+
+        switch (type) {
+            case _Scatter: return SCATTER_PLOT;
+            case _Trend: return TREND_LINE;
+            case _Pie: return PIE_CHART;
             default: return null;
         }
     }
