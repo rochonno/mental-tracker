@@ -241,11 +241,16 @@ public class GraphSelectionPage extends DefaultPageComponents {
     void onConfirmButton() {
         if (checkInputComplete()) {
             if (_GraphType == GraphTypes.PIE_CHART){
+                double[] tempVals = new double[]{10, 20};
+                String[] tempNames = new String[]{"Yes", "No"};
                 createPieChartForm temp = new createPieChartForm();
-                temp.createCategoricalPieChart(_PromptName);
+                temp.createCategoricalPieChart(_PromptName, tempNames, tempVals);
             }else if(_GraphType == GraphTypes.TREND_LINE){
+                double[] tempVals = new double[]{5, 7, 10, 12, 10, 3, 6, 5, 1, 2, 5, 10, 13, 4, 12,
+                9, 8, 7, 2, 5, 12, 10, 6, 7, 9, 8, 5, 5, 7, 4};
+                String[] tempNames = new String[]{_PromptName};
                 createDaySeriesForm temp = new createDaySeriesForm();
-                temp.getDaySeriesForm(_PromptName, "x-axis", "y-axis");
+                temp.getDaySeriesForm(_PromptName, "Day", "Unit");
             }
 
         }

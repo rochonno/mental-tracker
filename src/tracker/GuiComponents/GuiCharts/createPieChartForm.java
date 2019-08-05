@@ -121,15 +121,15 @@ public class createPieChartForm {
         return f;
     }
 
-    public Form createCategoricalPieChart(String title) {
+    public Form createCategoricalPieChart(String title,String[] tallyNames, double[] tally) {
         Random rand = new Random();
         /**
          * this array will be sorted before hand and passed as a parameter.
          */
-        double[] values = new double[]{2, 7, 1, 5, 6};
-        int[] colors = new int[values.length];
+        //double[] values = new double[]{2, 7, 1, 5, 6};
+        int[] colors = new int[tally.length];
         int i = 0;
-        for (double value : values) {
+        for (double value : tally) {
             colors[i] = ColorUtil.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
             i++;
         }
@@ -142,7 +142,7 @@ public class createPieChartForm {
         SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
         r.setHighlighted(true);
 
-        PieChart chart = new PieChart(buildCategoryDatasetCategorical(title, values), renderer);
+        PieChart chart = new PieChart(buildCategoryDatasetCategorical(title, tally), renderer);
 
         ChartComponent c = new ChartComponent(chart);
 
