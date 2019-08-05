@@ -17,7 +17,7 @@ public class GuiPicker {
         setName(name);
     }
 
-    public void centerAllign(boolean center) {
+    public void centerAllign(final boolean center) {
         if (center) {
             _Picker.setInlineAllStyles("alignment:center");
             _Picker.getStyle().setAlignment(4);
@@ -28,7 +28,7 @@ public class GuiPicker {
         _Picker.setVerticalAlignment(Component.CENTER);
     }
 
-    public void setActionListener(ActionListener callback) {
+    public void setActionListener(final ActionListener callback) {
         _Picker.addActionListener(callback);
     }
 
@@ -42,5 +42,9 @@ public class GuiPicker {
 
     private void setName(final String name) {
         _Picker.setName(name);
+    }
+
+    public void setVisible(final boolean visible) {
+        _Picker.setVisible(visible);
     }
 }

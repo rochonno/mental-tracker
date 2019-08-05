@@ -103,6 +103,15 @@ public class MentalPrompts implements Externalizable {
         return false;
     }
 
+    public MentalPrompt findFromName(final String name) {
+        for (MentalPrompt prompt : _Prompts) {
+            if (prompt.getName().equals(name)) {
+                return prompt;
+            }
+        }
+        return null;
+    }
+
     @Override
     public int getVersion() {
         return 0;

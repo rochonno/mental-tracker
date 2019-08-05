@@ -6,6 +6,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.InstanceData;
+import tracker.Pages.ModularGUI.GraphSelectionPage;
 import tracker.Pages.ModularGUI.NotificationPage;
 import tracker.Pages.ModularGUI.PromptListPage;
 
@@ -28,7 +29,7 @@ public class SideMenu {
     private final String MAIN_PAGE = "Home";
     private final String PROMTPS_LIST = "Questions Page";
     private final String REMINDERS = "Reminders";
-    private final String ABOUT = "About";
+    private final String GRAPHS = "Graphs";
 
     public SideMenu(final Resources theme,
                     final Toolbar tb,
@@ -58,7 +59,7 @@ public class SideMenu {
         _PageTb.addMaterialCommandToSideMenu(
                 REMINDERS, FontImage.MATERIAL_NOTIFICATIONS, callback);
         _PageTb.addMaterialCommandToSideMenu(
-                ABOUT, FontImage.MATERIAL_INFO, callback);
+                GRAPHS, FontImage.MATERIAL_TRENDING_UP, callback);
 
         _IsInit = true;
     }
@@ -77,8 +78,9 @@ public class SideMenu {
         notificationPage.show();
     }
 
-    private void onAboutSelected() {
-
+    private void onGraphsSelected() {
+        Form graphingPage = new GraphSelectionPage(_Data, _PageTb.getComponentForm());
+        graphingPage.show();
     }
 
     class SideMenuActionListener implements ActionListener {
@@ -99,8 +101,8 @@ public class SideMenu {
                 onPromptsListSelected();
             } else if (sourceName.equals(REMINDERS)) {
                 onRemindersSelected();
-            } else if (sourceName.equals(ABOUT)) {
-                onAboutSelected();
+            } else if (sourceName.equals(GRAPHS)) {
+                onGraphsSelected();
             }
         }
     }
