@@ -5,6 +5,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
+import tracker.Data.Prompts.PromptDataType;
 import tracker.GuiComponents.Individual.GuiDatePicker;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiStringPicker;
@@ -73,7 +74,7 @@ public class GraphSelectionPage extends DefaultPageComponents {
 
     private void initDateLabel() {
         _DateLabel = new GuiLabel("GraphLabel", getResources());
-        _DateLabel.setText("Set Beginning And End:");
+        _DateLabel.setText("Set Start & End Date:");
     }
 
     private void initPromptPicker() {
@@ -92,6 +93,7 @@ public class GraphSelectionPage extends DefaultPageComponents {
 
     private void initGraphPicker() {
         _GraphPicker = new GuiStringPicker("GraphPicker", getResources());
+        _GraphPicker.setVisible(false);
 
         _GraphPicker.setActionListener(new GraphSelectionCallback());
     }
@@ -102,6 +104,8 @@ public class GraphSelectionPage extends DefaultPageComponents {
 
         _DatePickerStart.setActionListener(new GraphSelectionCallback());
         _DatePickerEnd.setActionListener(new GraphSelectionCallback());
+        _DatePickerStart.setVisible(false);
+        _DatePickerEnd.setVisible(false);
     }
 
 
@@ -174,11 +178,14 @@ public class GraphSelectionPage extends DefaultPageComponents {
         String selectedPrompt = _PromptPicker.getSelectedString();
 
         setGraphPickerContents(selectedPrompt);
+        _GraphPicker.setVisible(true);
     }
 
     private void onGraphPicker() {
         String selectedGraph = _GraphPicker.getSelectedString();
 
+        _DatePickerStart.setVisible(true);
+        _DatePickerEnd.setVisible(true);
     }
 
     private void onDatePickerStart() {
@@ -188,6 +195,11 @@ public class GraphSelectionPage extends DefaultPageComponents {
 
     private void onDatePickerEnd() {
         Date selectedDate = _DatePickerEnd.getDate();
+
+    }
+
+    @Override
+    void onConfirmButton() {
 
     }
 
@@ -203,29 +215,31 @@ public class GraphSelectionPage extends DefaultPageComponents {
         public void actionPerformed(ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
-            if (sourceName.equals(_PromptPicker)) {
+            if (sourceName.equals(_PromptPicker.getName())) {
                 onPromptPicker();
-            } else if (sourceName.equals(_GraphPicker)) {
+            } else if (sourceName.equals(_GraphPicker.getName())) {
                 onGraphPicker();
-            } else if (sourceName.equals(_DatePickerStart)) {
+            } else if (sourceName.equals(_DatePickerStart.getName())) {
                 onDatePickerStart();
-            } else if (sourceName.equals(_DatePickerEnd)) {
+            } else if (sourceName.equals(_DatePickerEnd.getName())) {
                 onDatePickerEnd();
             }
         }
     }
 
     private void setGraphPickerContents(String promptName) {
+        PromptDataType dataType = getData().getTypeFromName(promptName);
 
-    }
-
-    private void resetDatePicker() {
-        if (_DateLabel == null) {
+        if (dataType == null) {
             return;
         }
+        GraphTypes[] types = GraphTypes.getGraphTypes(dataType);
 
-        removeComponent(_DateLabel.getLabel());
-        removeComponent(_DatePickerStart.getPicker());
-        removeComponent(_DatePickerEnd.getPicker());
+        Vector<String> graphNames = new Vector<>();
+        for (GraphTypes type: types) {
+            graphNames.add(type.getNameString());
+        }
+
+        _GraphPicker.setStrings(graphNames.toArray(new String[0]));
     }
 }
