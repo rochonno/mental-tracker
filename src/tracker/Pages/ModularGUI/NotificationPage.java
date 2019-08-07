@@ -145,7 +145,7 @@ public class NotificationPage extends DefaultPageComponents {
         int min = minutes % 60;
 
         _PromptsReminder.setHour(hour);
-        _PromptsReminder.setMinute(min);
+        _PromptsReminder.setMin(min);
 
         if (_PromptRemindSwitch.getValue()) {
             _PromptsReminder.createNotification();

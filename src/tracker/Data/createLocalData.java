@@ -28,7 +28,7 @@ public class createLocalData {
         }
         prompt.set_ResultsList(temp);
         try {
-            data.savePromptResults("2019.07.01", prompt);
+            data.savePromptResults("2019-07-01", prompt);
         }catch(Exception e){
             //ignore
         }
