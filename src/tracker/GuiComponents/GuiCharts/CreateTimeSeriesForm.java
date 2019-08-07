@@ -61,7 +61,7 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
     @Override
     public Component getChartModelEditor() {
         XYMultipleSeriesEditor x = new XYMultipleSeriesEditor();
-        x.init(getDataSet());
+        x.init(getCustomizedData());
         return x;
     }
 
@@ -114,7 +114,7 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
         }
 
         // lazy initialization of x...
-        getDataSet();
+        getCustomizedData();
         setChartSettings(renderer,
                 "Sensor temperature", "Hour", "Celsius degrees",
                 x.get(0)[0].getTime(), x.get(0)[HOURS - 1].getTime(),
@@ -132,7 +132,7 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
         renderer.setYLabelsAlign(Component.RIGHT);
         initRendererer(renderer);
 
-        TimeChart chart = new TimeChart(getDataSet(),
+        TimeChart chart = new TimeChart(getCustomizedData(),
                 renderer);
 
         ChartComponent c = new ChartComponent(chart);
@@ -175,7 +175,7 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
         renderer.setYLabelsAlign(Component.RIGHT);
         initRendererer(renderer);
 
-        TimeChart chart = new TimeChart(getDataSet(), renderer);
+        TimeChart chart = new TimeChart(getCustomizedData(), renderer);
 
         ChartComponent c = new ChartComponent(chart);
 
