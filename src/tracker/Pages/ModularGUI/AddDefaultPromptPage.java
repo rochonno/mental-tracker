@@ -15,9 +15,11 @@ import java.util.Vector;
 /**
  * Page for adding any default prompt that is not already included.
  */
-public class AddDefaultPromptPage extends DefaultPageComponents {
+class AddDefaultPromptPage extends DefaultPageComponents {
 
+    /** Stores the default prompts to compare to the current prompts. */
     private MentalPrompts _DefaultPrompts;
+    /** Gui components for the prompts that can be added. */
     private List<PromptAdd> _PromptList = new Vector<>();
 
     /**
@@ -26,7 +28,7 @@ public class AddDefaultPromptPage extends DefaultPageComponents {
      * @param data Instance data of the prompts and results
      * @param previous the previous page.
      */
-    public AddDefaultPromptPage(final InstanceData data, final Form previous) {
+    AddDefaultPromptPage(final InstanceData data, final Form previous) {
         super(data, previous, "Choose Default");
 
         _DefaultPrompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
@@ -49,12 +51,13 @@ public class AddDefaultPromptPage extends DefaultPageComponents {
         PromptAdd target = (PromptAdd) source;
         getData().addPrompt(target.getPrompt());
 
-        Form promptList = new PromptListPage(getData(), new MainPage(getData()));
+        Form promptList =
+                new PromptListPage(getData(), new MainPage(getData()));
         promptList.showBack();
     }
 
     /**
-     * Class that is called whenever the user chooses to edit or delete a prompt.
+     * Class that is called whenever the user chooses to edit/delete a prompt.
      * This is passed through to each prompt and invoke in it's method.
      */
     class PromptAddCallback implements ActionListener {

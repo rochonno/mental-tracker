@@ -14,6 +14,7 @@ public class GuiPicker {
         _Picker.setType(pickerType);
         _Picker.setUseLightweightPopup(false);
         _Picker.setInlineStylesTheme(instanceTheme);
+        _Picker.setInlineAllStyles("border:none; bgColor:efefef;");
         setName(name);
     }
 
