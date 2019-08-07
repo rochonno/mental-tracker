@@ -1,10 +1,11 @@
-package tracker.Data.Prompts;
-
 /******************************************************************************
  * @author Nolan Rochon
  *
  * This class constructs the basic default Prompts for the user individually
  ******************************************************************************/
+package tracker.Data.Prompts;
+
+
 final class DefaultPrompts {
 
     /** Default minimum value for slider input. */
