@@ -1,3 +1,10 @@
+/**
+ * @Author Douglas Yacenick
+ * Code partially modeled off of Steve Hannah from Codename One, in compliance of Apache License.
+ *
+ * Class renders user supplied data to display a pie chart.
+ */
+
 package tracker.ModularGUI;
 
 import com.codename1.charts.ChartComponent;
@@ -13,7 +20,10 @@ import java.util.Random;
 
 public class CreatePieChartForm {
 
-
+    /**
+     * @param colors An integer array of color values to render labels/piece colors.
+     * @return renderer for GUI.
+     */
     private DefaultRenderer buildCategoryRenderer(final int[] colors) {
         DefaultRenderer renderer = new DefaultRenderer();
         renderer.setLabelsTextSize(30);
@@ -28,7 +38,11 @@ public class CreatePieChartForm {
     }
 
 
-
+    /**
+     * @param title Name of prompt for the chart to be built.
+     * @param values Double values of the frequency of each categorical variable.
+     * @return CategorySeries
+     */
     protected CategorySeries buildCategoryDatasetCategorical(
             final String title, final double[] values) {
         CategorySeries series = new CategorySeries(title);
@@ -41,7 +55,10 @@ public class CreatePieChartForm {
         return series;
     }
 
-
+    /**
+     * @param title Name of prompt for the chart to be built.
+     * @return Form with pie chart displayed.
+     */
     public Form createYesNoPieChart(final String title) {
         /**
          * this array will be sorted before hand and passed as a parameter.
@@ -68,16 +85,18 @@ public class CreatePieChartForm {
         return f;
     }
 
+    /**
+     * @param title Name of the prompt for chart to be built.
+     * @param tallyNames Array of Categorical variable names.
+     * @param tally Array passed in with frequencies of corresponding categorical variables.
+     * @return
+     */
     public Form createCategoricalPieChart(
             final String title,
             final String[] tallyNames,
             final double[] tally) {
 
         Random rand = new Random();
-        /**
-         * this array will be sorted before hand and passed as a parameter.
-         */
-        //double[] values = new double[]{2, 7, 1, 5, 6};
         int[] colors = new int[tally.length];
         int i = 0;
         for (double value : tally) {

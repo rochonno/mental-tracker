@@ -1,4 +1,10 @@
-package tracker.GuiComponents.GuiCharts;
+/**
+ * @Author Douglas Yacenick
+ * Code partially modeled off of Steve Hannah from Codename One, in compliance of Apache License.
+ *
+ * Class renders user supplied data to display a line graph.
+ */
+package tracker.ModularGUI;
 
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.XYMultipleSeriesDataset;
@@ -10,6 +16,7 @@ import com.codename1.ui.Component;
 import com.codename1.ui.Form;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.layouts.BorderLayout;
+import tracker.GuiComponents.GuiCharts.AbstractDemoChart;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 
 public class CreateDaySeriesForm extends AbstractDemoChart {
@@ -18,18 +25,17 @@ public class CreateDaySeriesForm extends AbstractDemoChart {
     private XYMultipleSeriesDataset dataset;
 
     /**
-     * Returns the chart name.
-     *
-     * @return the chart name
+     * Included to adhere to contract.
+     * @return Name of the graph.
      */
     public String getName() {
         return "Average temperature";
     }
 
+
     /**
-     * Returns the chart description.
-     *
-     * @return the chart description
+     * Included to adhere to contract.
+     * @return Brief description of graph.
      */
     public String getDesc() {
         return "The average temperature in 4 Greek islands (line chart)";
@@ -83,17 +89,13 @@ public class CreateDaySeriesForm extends AbstractDemoChart {
         initRendererer(renderer);
 
         XYMultipleSeriesDataset dataset = getDataSet();
-        //series.addAnnotation("Vacation", 6, 28);
 
         XYSeriesRenderer r = (XYSeriesRenderer) renderer.getSeriesRendererAt(0);
         r.setAnnotationsColor(ColorUtil.GREEN);
-        //r.setAnnotationsTextFont(medFont);
-        //r.setAnnotationsTextAlign(Component.CENTER);
+
         LineChart chart = new LineChart(dataset, renderer);
         ChartComponent c = newChart(chart);
-        //Transform t = Transform.makeScale(2, 2);
-        //t.translate(50, 50);
-        //c.setTransform(t);
+
 
 
         Form f = new Form("test", new BorderLayout());
@@ -103,7 +105,13 @@ public class CreateDaySeriesForm extends AbstractDemoChart {
 
     }
 
-    //Pass in title, x axis, y axis names, min, max or just array
+    /**
+     * Creates a line graph tailored for our application's program.
+     * @param title Name of the prompt to generate a line graph for.
+     * @param xAxis
+     * @param yAxis
+     * @return
+     */
     public Component getDaySeriesForm(
             final String title,
             final String xAxis,

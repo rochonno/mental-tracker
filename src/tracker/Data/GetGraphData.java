@@ -1,3 +1,10 @@
+/**
+ * @Author Douglas Yacenick
+ *
+ * Class that takes in a start and end date, along with a prompt name to cycle through
+ * PromptResults stored in local data to send back an array of data pertaining to
+ * that prompt in that date range.
+ */
 package tracker.Data;
 
 import tracker.Data.Prompts.PromptResult;
@@ -10,11 +17,22 @@ import java.util.Date;
 import java.util.Calendar;
 
 public abstract class GetGraphData {
+    /** Start date selected by drop down box. */
     private Date _StartDate;
+    /** End date selected by drop down box. */
     private Date _EndDate;
+    /** Calendar for iterating through dates. */
     private Calendar _Calendar;
+    /** Instantiate DataStorage class to access local data. */
     private DataStorage _Data;
 
+    /**
+     *
+     * @param start Start date passed by drop down box.
+     * @param end End date passed by drop down box.
+     * @param name Name of prompt passed in.
+     * @return Array of all the prompt's values between date range.
+     */
     public ArrayList<String> getArrays(
             final Date start,
             final Date end,
