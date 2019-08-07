@@ -1,4 +1,4 @@
-package tracker.Pages.ModularGUI;
+package tracker.ModularGUI;
 
 import tracker.Data.Prompts.PromptDataType;
 

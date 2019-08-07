@@ -1,4 +1,4 @@
-package tracker.Pages.ModularGUI;
+package tracker.ModularGUI;
 
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;

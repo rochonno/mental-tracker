@@ -10,9 +10,9 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 import tracker.Data.InstanceData;
-import tracker.Pages.ModularGUI.GraphSelectionPage;
-import tracker.Pages.ModularGUI.NotificationPage;
-import tracker.Pages.ModularGUI.PromptListPage;
+import tracker.ModularGUI.GraphSelectionPage;
+import tracker.ModularGUI.NotificationPage;
+import tracker.ModularGUI.PromptListPage;
 
 /******************************************************************************
  * @author Nolan Rochon

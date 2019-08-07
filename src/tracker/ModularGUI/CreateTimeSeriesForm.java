@@ -1,4 +1,4 @@
-package tracker.Pages.ModularGUI;
+package tracker.ModularGUI;
 /**
  * Copyright (C) 2009 - 2013 SC 4ViewSoft SRL
  *
