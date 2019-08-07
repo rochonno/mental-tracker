@@ -14,6 +14,14 @@ import java.io.IOException;
  * Takes the result as a string, attempts to parse it based on the data type.
  ******************************************************************************/
 public class PromptResult implements Externalizable {
+    public String get_StringResult() {
+        return _StringResult;
+    }
+
+    public String get_PromptName() {
+        return _PromptName;
+    }
+
     // Registers the class to enable reading it in
     static {
         Util.register("PromptResult", PromptResult.class);
