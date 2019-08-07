@@ -7,22 +7,20 @@ import com.codename1.charts.renderers.XYMultipleSeriesRenderer;
 import com.codename1.charts.renderers.XYSeriesRenderer;
 import com.codename1.charts.views.LineChart;
 import com.codename1.charts.views.PointStyle;
-import com.codename1.io.Log;
 import com.codename1.ui.Component;
 import com.codename1.ui.Font;
 import com.codename1.ui.Form;
-import com.codename1.ui.Transform;
-import java.util.ArrayList;
-import java.util.List;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.layouts.BorderLayout;
-import tracker.GuiComponents.GuiCharts.AbstractDemoChart;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 
-public class createDaySeriesForm extends AbstractDemoChart {
+public class CreateDaySeriesForm extends AbstractDemoChart {
 
+    /** dataset for the multiple series. */
     private XYMultipleSeriesDataset dataset;
-    private Font medFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
+    /** Font for the series graph. */
+    private Font medFont = Font.createSystemFont(
+            Font.FACE_SYSTEM, Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
 
     /**
      * Returns the chart name.
@@ -55,7 +53,7 @@ public class createDaySeriesForm extends AbstractDemoChart {
     }
 
     private XYMultipleSeriesDataset getDataSet() {
-        if(dataset == null) {
+        if (dataset == null) {
             dataset = createTemperatureDataset();
         }
         return dataset;
@@ -63,15 +61,19 @@ public class createDaySeriesForm extends AbstractDemoChart {
 
     @Override
     public Component execute() {
-        int[] colors = new int[]{ColorUtil.BLUE, ColorUtil.GREEN, ColorUtil.CYAN, ColorUtil.YELLOW};
-        PointStyle[] styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+        int[] colors = new int[] {ColorUtil.BLUE,
+                ColorUtil.GREEN, ColorUtil.CYAN, ColorUtil.YELLOW};
+        PointStyle[] styles = new PointStyle[]{
+                PointStyle.CIRCLE, PointStyle.DIAMOND,
                 PointStyle.TRIANGLE, PointStyle.SQUARE};
         XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
         int length = renderer.getSeriesRendererCount();
         for (int i = 0; i < length; i++) {
-            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setFillPoints(true);
+            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).
+                    setFillPoints(true);
         }
-        setChartSettings(renderer, "Average temperature", "Month", "Temperature", 0, 12, -10, 40,
+        setChartSettings(renderer, "Average temperature",
+                "Month", "Temperature", 0, 12, -10, 40,
                 ColorUtil.LTGRAY, ColorUtil.LTGRAY);
         renderer.setXLabels(12);
         renderer.setYLabels(10);
@@ -107,13 +109,18 @@ public class createDaySeriesForm extends AbstractDemoChart {
 
     }
 
-    public Component getDaySeriesForm(String title, String xAxis, String yAxis)  {   //Pass in title, x axis, y axis names, min, max or just array
+    //Pass in title, x axis, y axis names, min, max or just array
+    public Component getDaySeriesForm(
+            final String title,
+            final String xAxis,
+            final String yAxis)  {
         int[] colors = new int[]{ColorUtil.BLUE};
         PointStyle[] styles = new PointStyle[]{PointStyle.DIAMOND};
         XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
         int length = renderer.getSeriesRendererCount();
         for (int i = 0; i < length; i++) {
-            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setFillPoints(true);
+            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).
+                    setFillPoints(true);
         }
         setChartSettings(renderer, title, xAxis, yAxis, 0, 12, -10, 40,
                 ColorUtil.LTGRAY, ColorUtil.LTGRAY);
