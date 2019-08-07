@@ -53,7 +53,10 @@ public class MentalPrompts implements Externalizable {
         _Prompts.remove(prompt);
     }
 
-    public void changePrompt(final MentalPrompt target, final MentalPrompt changed) {
+    public void changePrompt(
+            final MentalPrompt target,
+            final MentalPrompt changed) {
+
         int index = _Prompts.indexOf(target);
         _Prompts.remove(target);
         _Prompts.add(index, changed);
@@ -86,15 +89,15 @@ public class MentalPrompts implements Externalizable {
         return _Prompts;
     }
 
-    public MentalPrompt getPrompt(int index) {
+    public MentalPrompt getPrompt(final int index) {
         return _Prompts.get(index);
     }
 
-    public int getIndex(MentalPrompt prompt) {
+    public int getIndex(final MentalPrompt prompt) {
         return _Prompts.indexOf(prompt);
     }
 
-    public boolean doesContain(MentalPrompt searchPrompt) {
+    public boolean doesContain(final MentalPrompt searchPrompt) {
         for (MentalPrompt prompt : _Prompts) {
             if (prompt.equals(searchPrompt)) {
                 return true;

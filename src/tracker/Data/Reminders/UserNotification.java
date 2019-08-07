@@ -1,21 +1,22 @@
-/*******************************************************************************
- * @author: Nolan Rochon
- * @date: 07/10/19
- * @project: Mental Health Tracker
- *
- * This class creates and handles a single local notification
- ******************************************************************************/
-
 package tracker.Data.Reminders;
 
 import com.codename1.notifications.LocalNotification;
 import com.codename1.ui.Display;
 
+/**
+ * @author: Nolan Rochon
+ * @project: Mental Health Tracker
+ *
+ * This class creates and handles a single local notification
+ */
 public class UserNotification {
 
+    /** The local notification to set on the device. */
     private LocalNotification _Ln;
+    /** Id of the local notification on the device. */
     private String _Id;
 
+    /** First time of the local notification on the device. */
     private long _TimeInMilli;
 
     public UserNotification(final String title, final String body) {
