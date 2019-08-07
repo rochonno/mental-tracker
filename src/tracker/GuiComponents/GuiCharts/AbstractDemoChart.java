@@ -41,8 +41,10 @@ import java.util.List;
 public abstract class AbstractDemoChart implements IDemoChart {
 
     private boolean drawOnMutableImage;
-    Font smallFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_SMALL, Font.STYLE_PLAIN);
-    Font medFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
+    Font smallFont = Font.createSystemFont(
+            Font.FACE_SYSTEM, Font.SIZE_SMALL, Font.STYLE_PLAIN);
+    Font medFont = Font.createSystemFont(
+            Font.FACE_SYSTEM, Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
 
     protected XYMultipleSeriesDataset createTemperatureDataset() {
         String[] titles = new String[]{"Crete"}; //Only pass in one variable
@@ -51,11 +53,15 @@ public abstract class AbstractDemoChart implements IDemoChart {
             x.add(new double[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
         }
         List<double[]> values = new ArrayList<double[]>();
-        values.add(new double[]{12.3, 12.5, 13.8, 16.8, 20.4, 24.4, 26.4, 26.1, 23.6, 20.3, 17.2,
+        values.add(new double[]{12.3, 12.5, 13.8, 16.8, 20.4,
+                24.4, 26.4, 26.1, 23.6, 20.3, 17.2,
                 13.9});
-        values.add(new double[]{10, 10, 12, 15, 20, 24, 26, 26, 23, 18, 14, 11});
-        values.add(new double[]{5, 5.3, 8, 12, 17, 22, 24.2, 24, 19, 15, 9, 6});
-        values.add(new double[]{9, 10, 11, 15, 19, 23, 26, 25, 22, 18, 13, 10});
+        values.add(new double[]{10, 10, 12, 15, 20, 24,
+                26, 26, 23, 18, 14, 11});
+        values.add(new double[]{5, 5.3, 8, 12, 17, 22,
+                24.2, 24, 19, 15, 9, 6});
+        values.add(new double[]{9, 10, 11, 15, 19, 23,
+                26, 25, 22, 18, 13, 10});
         return buildDataset(titles, x, values);
     }
 
@@ -67,15 +73,18 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param yValues the values for the Y axis
      * @return the XY multiple dataset
      */
-    protected XYMultipleSeriesDataset buildDataset(String[] titles, List<double[]> xValues,
-                                                   List<double[]> yValues) {
+    protected XYMultipleSeriesDataset buildDataset(
+            final String[] titles,
+            final List<double[]> xValues,
+            final List<double[]> yValues) {
         XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
         addXYSeries(dataset, titles, xValues, yValues, 0);
         return dataset;
     }
 
-    public void addXYSeries(XYMultipleSeriesDataset dataset, String[] titles, List<double[]> xValues,
-                            List<double[]> yValues, int scale) {
+    public void addXYSeries(final XYMultipleSeriesDataset dataset,
+                            final String[] titles, final List<double[]> xValues,
+                            final List<double[]> yValues, final int scale) {
         int length = titles.length;
         for (int i = 0; i < length; i++) {
             XYSeries series = new XYSeries(titles[i], scale);
@@ -96,19 +105,23 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param styles the series point styles
      * @return the XY multiple series renderers
      */
-    protected XYMultipleSeriesRenderer buildRenderer(int[] colors, PointStyle[] styles) {
+    protected XYMultipleSeriesRenderer buildRenderer(
+            final int[] colors, final PointStyle[] styles) {
         XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
         setRenderer(renderer, colors, styles);
         return renderer;
     }
 
-    protected void setRenderer(XYMultipleSeriesRenderer renderer, int[] colors, PointStyle[] styles) {
+    protected void setRenderer(
+            final XYMultipleSeriesRenderer renderer, final int[] colors,
+            final PointStyle[] styles) {
         renderer.setAxisTitleTextSize(smallFont.getHeight() / 2f);
         renderer.setChartTitleTextSize(smallFont.getHeight());
         renderer.setLabelsTextSize(smallFont.getHeight() / 2f);
         renderer.setLegendTextSize(smallFont.getHeight() / 2f);
         renderer.setPointSize(5f);
-        renderer.setMargins(new int[]{medFont.getHeight(), medFont.getHeight(), 15, medFont.getHeight()});
+        renderer.setMargins(new int[]{medFont.getHeight(),
+                medFont.getHeight(), 15, medFont.getHeight()});
         int length = colors.length;
         for (int i = 0; i < length; i++) {
             XYSeriesRenderer r = new XYSeriesRenderer();
@@ -132,9 +145,16 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param axesColor the axes color
      * @param labelsColor the labels color
      */
-    protected void setChartSettings(XYMultipleSeriesRenderer renderer, String title, String xTitle,
-                                    String yTitle, double xMin, double xMax, double yMin, double yMax, int axesColor,
-                                    int labelsColor) {
+    protected void setChartSettings(
+            final XYMultipleSeriesRenderer renderer,
+            final String title, final String xTitle,
+            final String yTitle,
+            final double xMin,
+            final double xMax,
+            final double yMin,
+            final double yMax,
+            final int axesColor,
+            final int labelsColor) {
         renderer.setChartTitle(title);
         renderer.setXTitle(xTitle);
         renderer.setYTitle(yTitle);
@@ -154,8 +174,10 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param yValues the values for the Y axis
      * @return the XY multiple time dataset
      */
-    protected XYMultipleSeriesDataset buildDateDataset(String[] titles, List<Date[]> xValues,
-                                                       List<double[]> yValues) {
+    protected XYMultipleSeriesDataset buildDateDataset(
+            final String[] titles,
+            final List<Date[]> xValues,
+            final List<double[]> yValues) {
         XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
         int length = titles.length;
         for (int i = 0; i < length; i++) {
@@ -178,7 +200,8 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param values the values
      * @return the category series
      */
-    protected CategorySeries buildCategoryDataset(String title, double[] values) {
+    protected CategorySeries buildCategoryDataset(
+            final String title, final double[] values) {
         CategorySeries series = new CategorySeries(title);
         int k = 0;
         for (double value : values) {
@@ -195,8 +218,10 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param values the values
      * @return the category series
      */
-    protected MultipleCategorySeries buildMultipleCategoryDataset(String title,
-                                                                  List<String[]> titles, List<double[]> values) {
+    protected MultipleCategorySeries buildMultipleCategoryDataset(
+            final String title,
+            final List<String[]> titles,
+            final List<double[]> values) {
         MultipleCategorySeries series = new MultipleCategorySeries(title);
         int k = 0;
         for (double[] value : values) {
@@ -212,11 +237,12 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param colors the colors
      * @return the category renderer
      */
-    protected DefaultRenderer buildCategoryRenderer(int[] colors) {
+    protected DefaultRenderer buildCategoryRenderer(final int[] colors) {
         DefaultRenderer renderer = new DefaultRenderer();
         renderer.setLabelsTextSize(smallFont.getHeight() / 2f);
         renderer.setLegendTextSize(smallFont.getHeight() / 2f);
-        renderer.setMargins(new int[]{medFont.getHeight(), medFont.getHeight(), medFont.getHeight(), medFont.getHeight()});
+        renderer.setMargins(new int[]{medFont.getHeight(),
+                medFont.getHeight(), medFont.getHeight(), medFont.getHeight()});
         for (int color : colors) {
             SimpleSeriesRenderer r = new SimpleSeriesRenderer();
             r.setColor(color);
@@ -232,7 +258,8 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param values the values
      * @return the XY multiple bar dataset
      */
-    protected XYMultipleSeriesDataset buildBarDataset(String[] titles, List<double[]> values) {
+    protected XYMultipleSeriesDataset buildBarDataset(
+            final String[] titles, final List<double[]> values) {
         XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
         int length = titles.length;
         for (int i = 0; i < length; i++) {
@@ -253,7 +280,7 @@ public abstract class AbstractDemoChart implements IDemoChart {
      * @param colors the series renderers colors
      * @return the bar multiple series renderer
      */
-    protected XYMultipleSeriesRenderer buildBarRenderer(int[] colors) {
+    protected XYMultipleSeriesRenderer buildBarRenderer(final int[] colors) {
         XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
         renderer.setAxisTitleTextSize(smallFont.getHeight() / 2f);
         renderer.setChartTitleTextFont(smallFont);
@@ -268,7 +295,7 @@ public abstract class AbstractDemoChart implements IDemoChart {
         return renderer;
     }
 
-    public void setDrawOnMutableImage(boolean b) {
+    public void setDrawOnMutableImage(final boolean b) {
         this.drawOnMutableImage = b;
     }
 
@@ -277,24 +304,27 @@ public abstract class AbstractDemoChart implements IDemoChart {
     }
 
 
-    protected void initRendererer(DefaultRenderer renderer) {
+    protected void initRendererer(final DefaultRenderer renderer) {
         renderer.setBackgroundColor(0xffffffff);
         renderer.setApplyBackgroundColor(true);
         renderer.setLabelsColor(0xff000000);
         renderer.setAxesColor(0xff000000);
-        if(Font.isNativeFontSchemeSupported()) {
-            Font fnt = Font.createTrueTypeFont("native:MainLight", "native:MainLight").
-                    derive(Display.getInstance().convertToPixels(2.5f), Font.STYLE_PLAIN);
+        if (Font.isNativeFontSchemeSupported()) {
+            Font fnt = Font.createTrueTypeFont(
+                    "native:MainLight", "native:MainLight").
+                    derive(Display.getInstance().convertToPixels(
+                            2.5f), Font.STYLE_PLAIN);
             renderer.setTextTypeface(fnt);
             renderer.setChartTitleTextFont(fnt);
             renderer.setLabelsTextFont(fnt);
             renderer.setLegendTextFont(fnt);
 
-            if(renderer instanceof XYMultipleSeriesRenderer) {
-                ((XYMultipleSeriesRenderer)renderer).setAxisTitleTextFont(fnt);
+            if (renderer instanceof XYMultipleSeriesRenderer) {
+                ((XYMultipleSeriesRenderer) renderer).setAxisTitleTextFont(fnt);
             }
-            if(renderer instanceof XYMultipleSeriesRenderer) {
-                XYMultipleSeriesRenderer x = (XYMultipleSeriesRenderer)renderer;
+            if (renderer instanceof XYMultipleSeriesRenderer) {
+                XYMultipleSeriesRenderer x =
+                        (XYMultipleSeriesRenderer) renderer;
                 x.setMarginsColor(0xfff7f7f7);
                 x.setXLabelsColor(0xff000000);
                 x.setYLabelsColor(0, 0xff000000);
@@ -303,7 +333,7 @@ public abstract class AbstractDemoChart implements IDemoChart {
 
     }
 
-    protected ChartComponent newChart(AbstractChart chart) {
+    protected ChartComponent newChart(final AbstractChart chart) {
         ChartComponent c = new ChartComponent(chart);
         c.setFocusable(true);
         c.setZoomEnabled(true);

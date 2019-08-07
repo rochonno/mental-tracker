@@ -62,7 +62,7 @@ public class MentalPrompts implements Externalizable {
         _Prompts.add(index, changed);
     }
 
-    public void savePrompts(String filename) throws SaveFileException {
+    public void savePrompts(final String filename) throws SaveFileException {
         if (filename == null) {
             filename = FileSystemStorage.getInstance().getAppHomePath()
                     + this.getClass();
@@ -71,7 +71,7 @@ public class MentalPrompts implements Externalizable {
         storage.savePrompts(filename, this);
     }
 
-    public MentalPrompts loadPrompts(String filename)
+    public MentalPrompts loadPrompts(final String filename)
             throws ReadFileException {
         if (filename == null) {
             filename = FileSystemStorage.getInstance().getAppHomePath()
