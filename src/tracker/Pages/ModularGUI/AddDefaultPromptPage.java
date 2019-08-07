@@ -8,7 +8,6 @@ import tracker.Data.Prompts.GenerateDefaultPrompts;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.MentalPrompts;
 import tracker.GuiComponents.Containers.PromptAdd;
-import tracker.GuiComponents.Individual.GuiButton;
 
 import java.util.List;
 import java.util.Vector;
@@ -27,7 +26,7 @@ public class AddDefaultPromptPage extends DefaultPageComponents {
      * @param data Instance data of the prompts and results
      * @param previous the previous page.
      */
-    public AddDefaultPromptPage(InstanceData data, Form previous) {
+    public AddDefaultPromptPage(final InstanceData data, final Form previous) {
         super(data, previous, "Choose Default");
 
         _DefaultPrompts = GenerateDefaultPrompts.defaultMorningOnlyPrompts();
@@ -46,7 +45,7 @@ public class AddDefaultPromptPage extends DefaultPageComponents {
         initPromptList();
     }
 
-    private void onAddPrompt(Object source) {
+    private void onAddPrompt(final Object source) {
         PromptAdd target = (PromptAdd) source;
         getData().addPrompt(target.getPrompt());
 
@@ -65,7 +64,7 @@ public class AddDefaultPromptPage extends DefaultPageComponents {
          *
          * @param e the event to be processed
          */
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(final ActionEvent e) {
 
 
             if (e.getKeyEvent() == 0) {
