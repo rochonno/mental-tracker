@@ -75,6 +75,8 @@ public class NotificationPage extends DefaultPageComponents {
 
         _PromptTime = new GuiTimePicker("PromptTime", getResources());
         _MedTime = new GuiTimePicker("MedTime", getResources());
+        _PromptTime.setActionListener(callback);
+        _MedTime.setActionListener(callback);
     }
 
 

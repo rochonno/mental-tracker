@@ -19,14 +19,11 @@ import tracker.Pages.ModularGUI.MainPage;
 public class CoreApp implements LocalNotificationCallback {
 
     private Form current;
-    private Resources theme;
-
     private InstanceData _Data;
 
     public void init(final Object context) {
         // use two network threads instead of one
         updateNetworkThreadCount(2);
-        theme = UIManager.initFirstTheme("/theme");
         // Enable Toolbar on all Forms by default
         Toolbar.setGlobalToolbar(true);
 
