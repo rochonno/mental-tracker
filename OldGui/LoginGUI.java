@@ -3,7 +3,6 @@ package tracker.Pages;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
-import tracker.Pages.NeedDailyGUI;
 
 public class LoginGUI extends com.codename1.ui.Form {
 
