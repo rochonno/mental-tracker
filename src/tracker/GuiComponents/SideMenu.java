@@ -1,6 +1,10 @@
 package tracker.GuiComponents;
 
-import com.codename1.ui.*;
+import com.codename1.ui.Container;
+import com.codename1.ui.FontImage;
+import com.codename1.ui.Label;
+import com.codename1.ui.Toolbar;
+import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
@@ -24,16 +28,21 @@ public class SideMenu {
     /** If the sidemenu is added and initialized. */
     private boolean _IsInit;
 
+    /** The Mental data for this instance. */
     private InstanceData _Data;
 
-    private final String MAIN_PAGE = " Home";
-    private final String PROMTPS_LIST = " Questions Page";
-    private final String REMINDERS = " Reminders";
-    private final String GRAPHS = " Graphs";
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static final String MAIN_PAGE = " Home";
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static final String PROMTPS_LIST = " Questions Page";
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static final String REMINDERS = " Reminders";
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static  final String GRAPHS = " Graphs";
 
     public SideMenu(final Resources theme,
                     final Toolbar tb,
-                    InstanceData data) {
+                    final InstanceData data) {
         _Theme = theme;
         _PageTb = tb;
         _Data = data;
@@ -69,17 +78,20 @@ public class SideMenu {
     }
 
     private void onPromptsListSelected() {
-        PromptListPage promptList = new PromptListPage(_Data, _PageTb.getComponentForm());
+        PromptListPage promptList =
+                new PromptListPage(_Data, _PageTb.getComponentForm());
         promptList.show();
     }
 
     private void onRemindersSelected() {
-        Form notificationPage = new NotificationPage(_Data, _PageTb.getComponentForm());
+        Form notificationPage =
+                new NotificationPage(_Data, _PageTb.getComponentForm());
         notificationPage.show();
     }
 
     private void onGraphsSelected() {
-        Form graphingPage = new GraphSelectionPage(_Data, _PageTb.getComponentForm());
+        Form graphingPage =
+                new GraphSelectionPage(_Data, _PageTb.getComponentForm());
         graphingPage.show();
     }
 
@@ -92,7 +104,7 @@ public class SideMenu {
          *            as its trigger
          */
         @Override
-        public void actionPerformed(ActionEvent evt) {
+        public void actionPerformed(final ActionEvent evt) {
             String sourceName = evt.getSource().toString();
 
             if (sourceName.equals(MAIN_PAGE)) {

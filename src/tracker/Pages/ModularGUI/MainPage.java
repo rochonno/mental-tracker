@@ -2,12 +2,13 @@ package tracker.Pages.ModularGUI;
 
 import com.codename1.ui.events.ActionListener;
 import tracker.Data.InstanceData;
+import tracker.Data.Prompts.GenerateDefaultPrompts;
+import tracker.Data.Prompts.PromptResults;
 import tracker.GuiComponents.ImageNames;
 import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.Individual.GuiImageViewer;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.SideMenu;
-import tracker.Data.Prompts.*;
 import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.layouts.LayeredLayout;
@@ -22,13 +23,14 @@ import static com.codename1.ui.util.Resources.getGlobalResources;
  ******************************************************************************/
 public class MainPage extends Form {
 
-    private Form _Page;
+    /** The side menu of the page. */
     private SideMenu _SideMenu;
+    /** The current resource instance. */
     private Resources _InstanceResources;
-
+    /** The instance data. */
     private InstanceData _Data;
 
-    public MainPage(InstanceData data) {
+    public MainPage(final InstanceData data) {
         _Data = data;
         _InstanceResources = getGlobalResources();
 
@@ -49,9 +51,13 @@ public class MainPage extends Form {
         setName("MainPage");
     }
 
+    /** Top inset on the page used for spacing. */
     private GuiLabel _TopInset;
+    /** Title of the page. */
     private GuiLabel _PageTitle;
+    /** Logo of the app. */
     private GuiImageViewer _TrackerLogo;
+    /** Button to start the survey. */
     private GuiButton _StartButton;
 
     /**
@@ -61,7 +67,8 @@ public class MainPage extends Form {
         _TopInset = new GuiLabel("TopInset", _InstanceResources);
         _PageTitle = new GuiLabel("PageTitle", _InstanceResources);
         _PageTitle.setText("Home");
-        _TrackerLogo = new GuiImageViewer("Logo", _InstanceResources, ImageNames.LOGO);
+        _TrackerLogo =
+                new GuiImageViewer("Logo", _InstanceResources, ImageNames.LOGO);
 
         if (_Data.getHasAnswered()) {
             return;
@@ -171,7 +178,8 @@ public class MainPage extends Form {
         }*/
 
         if (_Data.getInstancePrompts() == null) {
-            _Data.setInstancePrompts(GenerateDefaultPrompts.defaultMorningOnlyPrompts());
+            _Data.setInstancePrompts(
+                    GenerateDefaultPrompts.defaultMorningOnlyPrompts());
         }
         if (_Data.getInstanceResults() == null) {
             _Data.setInstanceResults(new PromptResults());

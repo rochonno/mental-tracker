@@ -3,18 +3,22 @@ package tracker.GuiComponents.Individual;
 import com.codename1.components.FloatingActionButton;
 import com.codename1.ui.events.ActionListener;
 
-import java.util.List;
-import java.util.Vector;
-
 public class GuiFloatButton {
 
+    /** Floating button. */
     private FloatingActionButton _Button;
+    /** Sub button one of floating button. */
     private FloatingActionButton _Sub1;
+    /** Sub button two of floating button. */
     private FloatingActionButton _Sub2;
+    /** Action listener to be assigned to the buttons. */
     private ActionListener _Listener;
-    private List<FloatingActionButton> _SubButtons = new Vector<>();
 
-    public GuiFloatButton(final char icon, final String name, ActionListener listener) {
+    public GuiFloatButton(
+            final char icon,
+            final String name,
+            final ActionListener listener) {
+
         _Listener = listener;
         _Button = FloatingActionButton.createFAB(icon);
         _Button.setName(name);
@@ -22,15 +26,13 @@ public class GuiFloatButton {
         _Button.setText(name);
     }
 
-    public void addSubButton1(final char icon, final String text)
-    {
+    public void addSubButton1(final char icon, final String text) {
         _Sub1 = _Button.createSubFAB(icon, text);
         _Sub1.setName(text);
         _Sub1.addActionListener(_Listener);
     }
 
-    public void addSubButton2(final char icon, final String text)
-    {
+    public void addSubButton2(final char icon, final String text) {
         _Sub2 = _Button.createSubFAB(icon, text);
         _Sub2.setName(text);
         _Sub2.addActionListener(_Listener);

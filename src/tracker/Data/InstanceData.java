@@ -1,6 +1,11 @@
 package tracker.Data;
 
-import tracker.Data.Prompts.*;
+
+import tracker.Data.Prompts.MentalPrompt;
+import tracker.Data.Prompts.MentalPrompts;
+import tracker.Data.Prompts.PromptResult;
+import tracker.Data.Prompts.PromptResults;
+import tracker.Data.Prompts.PromptDataType;
 
 /**
  * Holds all the data needed for normal running of the application.
@@ -34,7 +39,9 @@ public class InstanceData {
      * @param target The one to change
      * @param changed What to change it to
      */
-    public void changePrompt(final MentalPrompt target, MentalPrompt changed) {
+    public void changePrompt(
+            final MentalPrompt target,
+            final MentalPrompt changed) {
         _AllPrompts.changePrompt(target, changed);
     }
 
@@ -53,7 +60,7 @@ public class InstanceData {
      * @param index Where to find the prompt.
      * @return MentalPrompt The prompt at the index
      */
-    public MentalPrompt getSinglePrompt(int index) {
+    public MentalPrompt getSinglePrompt(final int index) {
         return _AllPrompts.getPrompt(index);
     }
 
@@ -63,7 +70,7 @@ public class InstanceData {
      * @param prompt What prompt to look for.
      * @return index Location of the prompt
      */
-    public int getPromptIndex(MentalPrompt prompt) {
+    public int getPromptIndex(final MentalPrompt prompt) {
         return _AllPrompts.getIndex(prompt);
     }
 
@@ -73,7 +80,7 @@ public class InstanceData {
      * @param prompt What prompt to look for
      * @return boolean if the prompt is found
      */
-    public boolean hasPrompt(MentalPrompt prompt) {
+    public boolean hasPrompt(final MentalPrompt prompt) {
         return _AllPrompts.doesContain(prompt);
     }
 
@@ -116,6 +123,8 @@ public class InstanceData {
 
     /**
      * Sets the PromptResults.
+     *
+     * @param results the results to be set.
      */
     public void setInstanceResults(final PromptResults results) {
         _AllAnswers = results;
