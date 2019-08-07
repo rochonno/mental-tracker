@@ -70,7 +70,7 @@ public class MentalPrompt implements Externalizable {
         return _Prompt;
     }
 
-    public void setPrompt(String prompt) {
+    public void setPrompt(final String prompt) {
         _Prompt = prompt;
     }
 
@@ -86,7 +86,7 @@ public class MentalPrompt implements Externalizable {
         return _ResultType;
     }
 
-    public void setDataType(PromptDataType dataType) {
+    public void setDataType(final PromptDataType dataType) {
         _ResultType = dataType;
     }
 
@@ -115,7 +115,8 @@ public class MentalPrompt implements Externalizable {
      * </ul>
      *
      * @return a hash code value for this object.
-     * @implSpec As far as is reasonably practical, the {@code hashCode} method defined
+     * @implSpec As far as is reasonably practical, the {@code hashCode}
+     * method defined
      * by class {@code Object} returns distinct integers for distinct objects.
      * @see Object#equals(Object)
      * @see System#identityHashCode
@@ -133,14 +134,15 @@ public class MentalPrompt implements Externalizable {
      * @return boolean If the objects are equal
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (obj == null) {
             return false;
         }
 
         if (obj.getClass() == this.getClass()) {
             MentalPrompt prompt = (MentalPrompt) obj;
-            if ((_Prompt.equals(prompt._Prompt)) && (_Name.equals(prompt._Name))) {
+            if ((_Prompt.equals(prompt._Prompt))
+                    && (_Name.equals(prompt._Name))) {
                 if (_ResultType == prompt._ResultType) {
                     return (_Min == prompt._Min) && (_Max == prompt._Max);
                 }

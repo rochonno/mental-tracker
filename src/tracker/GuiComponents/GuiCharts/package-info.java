@@ -1,4 +1,4 @@
 /**
- * Package for the Gui pages of the graphs
+ * Package for the Gui pages of the graphs.
  */
 package tracker.GuiComponents.GuiCharts;
