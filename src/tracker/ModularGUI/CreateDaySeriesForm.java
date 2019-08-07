@@ -1,6 +1,7 @@
 /**
  * @Author Douglas Yacenick
- * Code partially modeled off of Steve Hannah from Codename One, in compliance of Apache License.
+ * Code partially modeled off of Steve Hannah from Codename One.
+ * In compliance of Apache License.
  *
  * Class renders user supplied data to display a line graph.
  */
@@ -21,7 +22,7 @@ import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 
 public class CreateDaySeriesForm extends AbstractDemoChart {
 
-    /** dataset for the multiple series. */
+    /** Dataset for MultipleSeries. */
     private XYMultipleSeriesDataset dataset;
 
     /**
@@ -108,9 +109,9 @@ public class CreateDaySeriesForm extends AbstractDemoChart {
     /**
      * Creates a line graph tailored for our application's program.
      * @param title Name of the prompt to generate a line graph for.
-     * @param xAxis
-     * @param yAxis
-     * @return
+     * @param xAxis Name of the x-axis.
+     * @param yAxis Name of the y-axis.
+     * @return Form with the line graph on it.
      */
     public Component getDaySeriesForm(
             final String title,

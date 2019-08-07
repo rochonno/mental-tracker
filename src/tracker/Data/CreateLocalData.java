@@ -1,7 +1,8 @@
 /**
  * @author Douglas Yacenick
  *
- * Class to instantiate local data upon startup for device simulator testing purposes.
+ * Class to instantiate local data upon startup for device
+ * simulator testing purposes.
  */
 
 package tracker.Data;
@@ -15,6 +16,10 @@ import tracker.Data.Storage.DataStorage;
 
 public class CreateLocalData {
 
+    /**
+     * Creates specified results for default questions.
+     * Adds results to a PromptResults object and stores it.
+     */
     public CreateLocalData() {
         DataStorage data = new DataStorage();
         PromptResults prompt = new PromptResults();
