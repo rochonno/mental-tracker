@@ -1,9 +1,12 @@
 tracker
-tracker.ComponentGenerators
 tracker.Data
 tracker.Data.Prompts
 tracker.Data.Reminders
+tracker.Data.Storage
 tracker.GuiComponents
+tracker.GuiComponents.Containers
+tracker.GuiComponents.GuiCharts
+tracker.GuiComponents.GuiCharts.models
+tracker.GuiComponents.Individual
 tracker.MentalExceptions
-tracker.Pages
-tracker.Pages.ModularGUI
+tracker.ModularGUI
