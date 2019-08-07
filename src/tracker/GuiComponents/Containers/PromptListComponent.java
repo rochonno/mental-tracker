@@ -9,23 +9,32 @@ import tracker.GuiComponents.Individual.GuiLabel;
 
 public class PromptListComponent {
 
+    /** Page that this will be displayed on. */
     private Form _Page;
+    /** MentalPrompt this is displaying. */
     private MentalPrompt _CurrPrompt;
+    /** Current Resource instance. */
     private Resources _Resources;
 
     PromptListComponent(
-            Form parentPage,
+            final Form parentPage,
             final MentalPrompt prompt,
-            Resources resources) {
+            final Resources resources) {
 
         _Page = parentPage;
         _Resources = resources;
         _CurrPrompt = prompt;
     }
 
+    /** Position down the page to space out evenly. */
     private float _Location;
+
+    /** Reference component to space this off of.
+     *      (Back Button is recommended)
+     */
     private Component _RefComponent;
 
+    /** Title of the prompt being displayed. */
     private GuiLabel _Title;
 
     void initializeDefault(final float location, final Component refComponent) {
@@ -42,7 +51,8 @@ public class PromptListComponent {
 
         ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
                 setInsets(_Title.getLabel(), "0 auto auto 2mm").
-                setReferenceComponentTop(_Title.getLabel(), _RefComponent, _Location);
+                setReferenceComponentTop(
+                        _Title.getLabel(), _RefComponent, _Location);
     }
 
     Form getParentPage() {

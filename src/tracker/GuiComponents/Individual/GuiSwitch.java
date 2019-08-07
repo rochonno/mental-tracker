@@ -6,6 +6,7 @@ import com.codename1.ui.util.Resources;
 
 public class GuiSwitch {
 
+    /** Switch component for the Gui. */
     private Switch _Switch;
 
     public GuiSwitch(final String name, final Resources instanceTheme) {
@@ -13,7 +14,7 @@ public class GuiSwitch {
         _Switch.setName(name);
     }
 
-    public void addActionListener(ActionListener callback) {
+    public void addActionListener(final ActionListener callback) {
         _Switch.addActionListener(callback);
     }
 
@@ -21,7 +22,7 @@ public class GuiSwitch {
         return _Switch.isValue();
     }
 
-    public void setValue(boolean value) {
+    public void setValue(final boolean value) {
         _Switch.setValue(value);
     }
 

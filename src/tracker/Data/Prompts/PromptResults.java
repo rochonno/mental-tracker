@@ -47,6 +47,16 @@ public class PromptResults implements Externalizable {
         promptRes.changeResult(result);
     }
 
+    public PromptResult getFromName(final String promptName) {
+
+        for (PromptResult result : _ResultsList) {
+            if (result.getName().equals(promptName)) {
+                return result;
+            }
+        }
+        return null;
+    }
+
     @Override
     public int getVersion() {
         return 0;

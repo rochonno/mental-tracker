@@ -9,7 +9,7 @@ import com.codename1.ui.util.Resources;
  */
 public class GuiStringPicker extends GuiPicker {
 
-    public GuiStringPicker(final String name, Resources instanceTheme) {
+    public GuiStringPicker(final String name, final Resources instanceTheme) {
         super(name, Display.PICKER_TYPE_STRINGS, instanceTheme);
     }
 
