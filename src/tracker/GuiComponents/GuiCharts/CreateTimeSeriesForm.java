@@ -28,13 +28,12 @@ import tracker.GuiComponents.GuiCharts.AbstractDemoChart;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 import com.codename1.ui.Display;
 
-/**
- * Temperature sensor demo chart.
- */
-public class CreateTimeSeriesForm extends AbstractDemoChart {
-    private XYMultipleSeriesDataset dataSet;
-    private List<Date[]> x;
 
+public class CreateTimeSeriesForm extends AbstractDemoChart {
+    /** Instance of XYMultipleSeiresDataset. */
+    private XYMultipleSeriesDataset dataSet;
+    /** Instance of a list of dates. */
+    private List<Date[]> x;
     private static final long HOUR = 3600 * 1000;
 
     private static final long DAY = HOUR * 24;
@@ -64,34 +63,6 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
         XYMultipleSeriesEditor x = new XYMultipleSeriesEditor();
         x.init(getDataSet());
         return x;
-    }
-
-    private XYMultipleSeriesDataset getDataSet() {
-        if (dataSet == null) {
-            String[] titles = new String[]{"Inside"}; //Change to y axis unit
-            long now = Math.round(new Date().getTime() / (float) DAY) * DAY;
-            x = new ArrayList<Date[]>();
-            for (int i = 0; i < titles.length; i++) {
-                Date[] dates = new Date[HOURS];
-                for (int j = 0; j < HOURS; j++) {
-                    dates[j] = new Date(now - (HOURS - j) * HOUR);
-                }
-                x.add(dates);
-            }
-            List<double[]> values = new ArrayList<double[]>();
-
-            values.add(new double[]{21.2, 21.5, 21.7, 21.5, 21.4,
-                    21.4, 21.3, 21.1, 20.6, 20.3, 20.2,
-                    19.9, 19.7, 19.6, 19.9, 20.3, 20.6, 20.9,
-                    21.2, 21.6, 21.9, 22.1, 21.7, 21.5});
-            values.add(new double[]{1.9, 1.2, 0.9, 0.5,
-                    0.1, -0.5, -0.6, MathHelper.NULL_VALUE,
-                    MathHelper.NULL_VALUE, -1.8, -0.3, 1.4, 3.4, 4.9,
-                    7.0, 6.4, 3.4, 2.0, 1.5, 0.9, -0.5,
-                    MathHelper.NULL_VALUE, -1.9, -2.5, -4.3});
-            dataSet = buildDateDataset(titles, x, values);
-        }
-        return dataSet;
     }
 
     private XYMultipleSeriesDataset getCustomizedData() {
