@@ -8,6 +8,7 @@ import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.PromptDataType;
 import tracker.GuiComponents.GuiCharts.createDaySeriesForm;
+import tracker.GuiComponents.GuiCharts.createPieChartForm;
 import tracker.GuiComponents.Individual.GuiDatePicker;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiStringPicker;

@@ -111,23 +111,23 @@ public class PromptResult implements Externalizable {
         return false;
     }
 
-    String getName() {
+    public String getName() {
         return _PromptName;
     }
 
-    int getIntResult() {
+    public int getIntResult() {
         return _IntResult;
     }
 
-    double getDoubleResult() {
+    public double getDoubleResult() {
         return _DoubleResult;
     }
 
-    boolean getBoolResult() {
+    public boolean getBoolResult() {
         return _BoolResult;
     }
 
-    String setStringResult() {
+    public String setStringResult() {
         return _StringResult;
     }
 
