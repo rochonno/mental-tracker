@@ -1,4 +1,4 @@
-package tracker.GuiComponents.GuiCharts;
+package tracker.Pages.ModularGUI;
 
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.CategorySeries;
@@ -11,10 +11,10 @@ import com.codename1.ui.layouts.BorderLayout;
 
 import java.util.Random;
 
-public class createPieChartForm {
+public class CreatePieChartForm {
 
 
-    private DefaultRenderer buildCategoryRenderer(int[] colors) {
+    private DefaultRenderer buildCategoryRenderer(final int[] colors) {
         DefaultRenderer renderer = new DefaultRenderer();
         renderer.setLabelsTextSize(30);
         renderer.setLegendTextSize(30);
@@ -29,10 +29,12 @@ public class createPieChartForm {
 
 
 
-    protected CategorySeries buildCategoryDatasetCategorical(String title, double[] values) {
+    protected CategorySeries buildCategoryDatasetCategorical(
+            final String title, final double[] values) {
         CategorySeries series = new CategorySeries(title);
         int k = 0;
-        for (double value : values){                          //Change this to use value names instead.
+        for (double value : values) {
+            //Change this to use value names instead.
             series.add("Project " + ++k, value);
         }
 
@@ -40,7 +42,7 @@ public class createPieChartForm {
     }
 
 
-    public Form createYesNoPieChart(String title) {
+    public Form createYesNoPieChart(final String title) {
         /**
          * this array will be sorted before hand and passed as a parameter.
          */
@@ -55,7 +57,8 @@ public class createPieChartForm {
         SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
         r.setHighlighted(true);
 
-        PieChart chart = new PieChart(buildCategoryDatasetCategorical(title, values), renderer);
+        PieChart chart = new PieChart(
+                buildCategoryDatasetCategorical(title, values), renderer);
 
         ChartComponent c = new ChartComponent(chart);
 
@@ -65,7 +68,11 @@ public class createPieChartForm {
         return f;
     }
 
-    public Form createCategoricalPieChart(String title,String[] tallyNames, double[] tally) {
+    public Form createCategoricalPieChart(
+            final String title,
+            final String[] tallyNames,
+            final double[] tally) {
+
         Random rand = new Random();
         /**
          * this array will be sorted before hand and passed as a parameter.
@@ -74,7 +81,8 @@ public class createPieChartForm {
         int[] colors = new int[tally.length];
         int i = 0;
         for (double value : tally) {
-            colors[i] = ColorUtil.rgb(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+            colors[i] = ColorUtil.rgb(
+                    rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
             i++;
         }
         DefaultRenderer renderer = buildCategoryRenderer(colors);
@@ -86,7 +94,8 @@ public class createPieChartForm {
         SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
         r.setHighlighted(true);
 
-        PieChart chart = new PieChart(buildCategoryDatasetCategorical(title, tally), renderer);
+        PieChart chart = new PieChart(buildCategoryDatasetCategorical(
+                title, tally), renderer);
 
         ChartComponent c = new ChartComponent(chart);
 

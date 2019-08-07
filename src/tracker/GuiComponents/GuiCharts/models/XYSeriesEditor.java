@@ -32,23 +32,25 @@ import com.codename1.ui.table.TableModel;
 import com.codename1.util.SuccessCallback;
 
 /**
- * A tool to edit an XYSeries
+ * A tool to edit an XYSeries.
  *
  * @author Shai Almog
  */
 public class XYSeriesEditor extends Container {
-    private XYSeries xy;
+    /** The XY series for the graph. */
     private static final String[] SERIES_COLUMN_NAMES = {"X", "Y", "Remove"};
-    private static final String[] ANNOTATION_COLUMN_NAMES = {"Annotation", "X", "Y", "Remove"};
+    private static final String[] ANNOTATION_COLUMN_NAMES =
+            {"Annotation", "X", "Y", "Remove"};
 
 
-    public void init(XYSeries xy, SuccessCallback<String> titleChanged) {
+    public void init(final XYSeries xy,
+                     final SuccessCallback<String> titleChanged) {
         setScrollableY(true);
-        this.xy = xy;
-        TextField title = new TextField(xy.getTitle(), "Series Title", 20, TextField.ANY);
+        TextField title = new TextField(
+                xy.getTitle(), "Series Title", 20, TextField.ANY);
         title.addActionListener(e -> {
             xy.setTitle(title.getText());
-            if(titleChanged != null) {
+            if (titleChanged != null) {
                 titleChanged.onSucess(title.getText());
             }
         });
@@ -65,18 +67,18 @@ public class XYSeriesEditor extends Container {
             }
 
             @Override
-            public String getColumnName(int i) {
+            public String getColumnName(final int i) {
                 return SERIES_COLUMN_NAMES[i];
             }
 
             @Override
-            public boolean isCellEditable(int row, int column) {
+            public boolean isCellEditable(final int row, final int column) {
                 return true;
             }
 
             @Override
-            public Object getValueAt(int row, int column) {
-                switch(column) {
+            public Object getValueAt(final int row, final int column) {
+                switch (column) {
                     case 0:
                         return xy.getX(row);
                     case 1:
@@ -87,8 +89,9 @@ public class XYSeriesEditor extends Container {
             }
 
             @Override
-            public void setValueAt(int row, int column, Object o) {
-                switch(column) {
+            public void setValueAt(final int row,
+                                   final int column, final Object o) {
+                switch (column) {
                     case 0:
                         double y = xy.getY(row);
                         xy.remove(row);
@@ -99,15 +102,16 @@ public class XYSeriesEditor extends Container {
                         xy.remove(row);
                         xy.add(row, x, Double.parseDouble(o.toString()));
                         break;
+                    default: break;
                 }
             }
 
             @Override
-            public void addDataChangeListener(DataChangedListener d) {
+            public void addDataChangeListener(final DataChangedListener d) {
             }
 
             @Override
-            public void removeDataChangeListener(DataChangedListener d) {
+            public void removeDataChangeListener(final DataChangedListener d) {
             }
         }, (row, column) -> xy.remove(row));
         series.setScrollable(false);
@@ -124,18 +128,18 @@ public class XYSeriesEditor extends Container {
             }
 
             @Override
-            public String getColumnName(int i) {
+            public String getColumnName(final int i) {
                 return ANNOTATION_COLUMN_NAMES[i];
             }
 
             @Override
-            public boolean isCellEditable(int row, int column) {
+            public boolean isCellEditable(final int row, final int column) {
                 return true;
             }
 
             @Override
-            public Object getValueAt(int row, int column) {
-                switch(column) {
+            public Object getValueAt(final int row, final int column) {
+                switch (column) {
                     case 0:
                         return xy.getAnnotationAt(row);
                     case 1:
@@ -148,32 +152,36 @@ public class XYSeriesEditor extends Container {
             }
 
             @Override
-            public void setValueAt(int row, int column, Object o) {
+            public void setValueAt(final int row,
+                                   final int column, final Object o) {
                 String a = xy.getAnnotationAt(row);
                 double x = xy.getAnnotationX(row);
                 double y = xy.getAnnotationY(row);
-                switch(column) {
+                switch (column) {
                     case 0:
                         xy.removeAnnotation(row);
                         xy.addAnnotation(o.toString(), row, x, y);
                         break;
                     case 1:
                         xy.removeAnnotation(row);
-                        xy.addAnnotation(a, row, Double.parseDouble(o.toString()), y);
+                        xy.addAnnotation(
+                                a, row, Double.parseDouble(o.toString()), y);
                         break;
                     case 2:
                         xy.removeAnnotation(row);
-                        xy.addAnnotation(a, row, x, Double.parseDouble(o.toString()));
+                        xy.addAnnotation(
+                                a, row, x, Double.parseDouble(o.toString()));
                         break;
+                    default: break;
                 }
             }
 
             @Override
-            public void addDataChangeListener(DataChangedListener d) {
+            public void addDataChangeListener(final DataChangedListener d) {
             }
 
             @Override
-            public void removeDataChangeListener(DataChangedListener d) {
+            public void removeDataChangeListener(final DataChangedListener d) {
             }
         }, (row, column) -> xy.removeAnnotation(row));
         annotations.setScrollable(false);

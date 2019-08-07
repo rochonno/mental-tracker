@@ -36,7 +36,7 @@ public class UserNotification {
      */
     public void setTime(final int hour, final int minute) {
         _TimeInMilli = System.currentTimeMillis()
-                + (hour * 60 * 60 * 1000) + (minute * 60 * 1000);
+                + ((long) ((hour * 60 * 60 * 1000) + (minute * 60 * 1000)));
     }
 
     public void activateDaily() {

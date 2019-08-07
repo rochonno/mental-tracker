@@ -23,7 +23,7 @@ public abstract class GetGraphData {
         ArrayList<String> values = new ArrayList<String>();
         PromptResults results;
         _Calendar.setTime(start);
-        while (_Calendar.getTime().toString() != end.toString()) {
+        while (_Calendar.getTime().toString().equals(end.toString())) {
             try {
                 results = _Data.loadPromptResults(
                         _Calendar.getTime().toString(),

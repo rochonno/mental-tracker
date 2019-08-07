@@ -1,5 +1,6 @@
 package tracker.Data;
 
+import com.codename1.io.Log;
 import com.codename1.io.Storage;
 import tracker.Data.Prompts.PromptDataType;
 import tracker.Data.Prompts.PromptResult;
@@ -26,7 +27,7 @@ public class CreateLocalData {
             prompt.addResult(new PromptResult(
                     "Sugar", PromptDataType.INT, "25.3"), 5);
         } catch (Exception e) {
-            //Ignore
+            Log.e(e.getCause());
         }
         try {
             data.savePromptResults("2019-07-01", prompt);

@@ -38,8 +38,9 @@ public class ScatterChart extends AbstractDemoChart {
     }
 
     private XYMultipleSeriesDataset getDataSet() {
-        if(dataSet == null) {
-            String[] titles = new String[]{"Series 1", "Series 2", "Series 3", "Series 4", "Series 5"};
+        if (dataSet == null) {
+            String[] titles = new String[]{
+                    "Series 1", "Series 2", "Series 3", "Series 4", "Series 5"};
             List<double[]> x = new ArrayList<double[]>();
             List<double[]> values = new ArrayList<double[]>();
             int count = 20;
@@ -67,20 +68,28 @@ public class ScatterChart extends AbstractDemoChart {
 
     @Override
     public Component execute() {
-        int[] colors = new int[]{ColorUtil.BLUE, ColorUtil.CYAN, ColorUtil.MAGENTA, ColorUtil.LTGRAY, ColorUtil.GREEN};
-        PointStyle[] styles = new PointStyle[]{PointStyle.X, PointStyle.DIAMOND, PointStyle.TRIANGLE,
+        int[] colors = new int[]{
+                ColorUtil.BLUE, ColorUtil.CYAN,
+                ColorUtil.MAGENTA, ColorUtil.LTGRAY,
+                ColorUtil.GREEN};
+        PointStyle[] styles = new PointStyle[]{
+                PointStyle.X, PointStyle.DIAMOND, PointStyle.TRIANGLE,
                 PointStyle.SQUARE, PointStyle.CIRCLE};
         XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
-        setChartSettings(renderer, "Scatter chart", "X", "Y", -10, 30, -10, 51, ColorUtil.GRAY,
+        setChartSettings(renderer, "Scatter chart", "X", "Y",
+                -10, 30, -10, 51, ColorUtil.GRAY,
                 ColorUtil.LTGRAY);
         renderer.setXLabels(10);
         renderer.setYLabels(10);
-        for (int i = 0; i < 5 ; i++) {
-            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setFillPoints(true);
+        for (int i = 0; i < 5; i++) {
+            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i))
+                    .setFillPoints(true);
         }
         initRendererer(renderer);
 
-        com.codename1.charts.views.ScatterChart chart = new com.codename1.charts.views.ScatterChart(getDataSet(), renderer);
+        com.codename1.charts.views.ScatterChart chart =
+                new com.codename1.charts.views.ScatterChart(
+                        getDataSet(), renderer);
         ChartComponent c = new ChartComponent(chart);
         Form f = new Form("Budget", new BorderLayout());
         f.add(BorderLayout.CENTER, c);

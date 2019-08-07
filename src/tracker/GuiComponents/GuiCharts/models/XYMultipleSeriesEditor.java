@@ -25,32 +25,33 @@ import com.codename1.components.Accordion;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.FontImage;
-import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BorderLayout;
-import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
 
 /**
- * Allows editing a multiple series set
+ * Allows editing a multiple series set.
  *
  * @author Shai Almog
  */
 public class XYMultipleSeriesEditor extends Container {
+    /** The data set for the series graph. XY coordinates. */
     private XYMultipleSeriesDataset xy;
     public XYMultipleSeriesEditor() {
         super(new BorderLayout());
     }
 
-    public void init(XYMultipleSeriesDataset xy) {
+    public void init(final XYMultipleSeriesDataset xy) {
         Accordion acc = new Accordion();
         add(BorderLayout.CENTER, acc);
         this.xy = xy;
         Style s = UIManager.getInstance().getComponentStyle("Button");
         s.setFgColor(0xff0000);
-        FontImage removeImage = FontImage.createMaterial(FontImage.MATERIAL_DELETE, s, 3.5f);
-        FontImage addImage = FontImage.createMaterial(FontImage.MATERIAL_ADD, s, 3.5f);
-        for(XYSeries xx : xy.getSeries()) {
+        FontImage removeImage =
+                FontImage.createMaterial(FontImage.MATERIAL_DELETE, s, 3.5f);
+        FontImage addImage =
+                FontImage.createMaterial(FontImage.MATERIAL_ADD, s, 3.5f);
+        for (XYSeries xx : xy.getSeries()) {
             addSeries(xx, acc, removeImage);
         }
         Button add = new Button(addImage);
@@ -62,8 +63,13 @@ public class XYMultipleSeriesEditor extends Container {
         });
     }
 
-    private void addSeries(XYSeries xx, Accordion acc, FontImage removeImage) {
-        tracker.GuiComponents.GuiCharts.models.XYSeriesEditor edit = new tracker.GuiComponents.GuiCharts.models.XYSeriesEditor();
+    private void addSeries(
+            final XYSeries xx,
+            final Accordion acc,
+            final FontImage removeImage) {
+
+        tracker.GuiComponents.GuiCharts.models.XYSeriesEditor edit =
+                new tracker.GuiComponents.GuiCharts.models.XYSeriesEditor();
         edit.init(xx, title -> acc.setHeader(title, edit));
         edit.setScrollable(false);
         Button remove = new Button(removeImage);

@@ -21,41 +21,49 @@ package tracker.GuiComponents.GuiCharts.models;
 import com.codename1.ui.Button;
 import com.codename1.ui.Component;
 import com.codename1.ui.FontImage;
-import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.table.Table;
 import com.codename1.ui.table.TableModel;
 
 /**
- * Special table whose last column is a "remove" button
+ * Special table whose last column is a "remove" button.
  *
  * @author Shai Almog
  */
 public class RemoveTable extends Table {
+    /** remove button. */
     private FontImage removeImage;
+    /** action when the remove button is pressed. */
+
     private OnRemove onRemove;
-    public RemoveTable(TableModel m, OnRemove onRemove) {
+    public RemoveTable(final TableModel m, final OnRemove onRemove) {
         super(m);
         this.onRemove = onRemove;
     }
 
     private FontImage getRemoveImage() {
-        if(removeImage == null) {
+        if (removeImage == null) {
             Style s = UIManager.getInstance().getComponentStyle("TableCell");
             s.setFgColor(0xff0000);
-            removeImage = FontImage.createMaterial(FontImage.MATERIAL_DELETE, s, 3.5f);
+            removeImage = FontImage.createMaterial(
+                    FontImage.MATERIAL_DELETE, s, 3.5f);
         }
         return removeImage;
     }
 
-    public static interface OnRemove {
-        public void removed(int row, int column);
+    public interface OnRemove {
+        void removed(int row, int column);
     }
 
     @Override
-    protected Component createCell(Object value, int row, int column, boolean editable) {
-        if(column == getModel().getColumnCount() - 1) {
+    protected Component createCell(
+            final Object value,
+            final int row,
+            final int column,
+            final boolean editable) {
+
+        if (column == getModel().getColumnCount() - 1) {
             Button removeButton = new Button(getRemoveImage());
             removeButton.addActionListener(e -> {
                 onRemove.removed(row, column);

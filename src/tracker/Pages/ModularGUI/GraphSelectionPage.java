@@ -7,8 +7,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.PromptDataType;
-import tracker.GuiComponents.GuiCharts.createDaySeriesForm;
-import tracker.GuiComponents.GuiCharts.createPieChartForm;
+import tracker.GuiComponents.GuiCharts.CreateDaySeriesForm;
 import tracker.GuiComponents.Individual.GuiDatePicker;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiStringPicker;
@@ -254,19 +253,16 @@ public class GraphSelectionPage extends DefaultPageComponents {
             if (_GraphType == GraphTypes.PIE_CHART) {
                 double[] tempVals = new double[]{10, 20};
                 String[] tempNames = new String[]{"Yes", "No"};
-                createPieChartForm temp = new createPieChartForm();
+                CreatePieChartForm temp = new CreatePieChartForm();
                 temp.createCategoricalPieChart(
                         _PromptName,
                         tempNames,
                         tempVals
                 );
             } else if (_GraphType == GraphTypes.TREND_LINE) {
-                double[] tempVals = new double[]{
-                        5, 7, 10, 12, 10, 3, 6, 5, 1, 2, 5, 10, 13, 4,
-                        12, 9, 8, 7, 2, 5, 12, 10, 6, 7, 9, 8, 5, 5, 7, 4};
-                String[] tempNames = new String[]{_PromptName};
-                createDaySeriesForm temp = new createDaySeriesForm();
+                CreateDaySeriesForm temp = new CreateDaySeriesForm();
                 temp.getDaySeriesForm(_PromptName, "Day", "Unit");
+
             }
 
         }

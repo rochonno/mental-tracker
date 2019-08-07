@@ -28,14 +28,8 @@ import com.codename1.charts.renderers.XYMultipleSeriesRenderer;
 import com.codename1.charts.renderers.XYSeriesRenderer;
 import com.codename1.charts.views.AbstractChart;
 import com.codename1.charts.views.PointStyle;
-import com.codename1.ui.Component;
 import com.codename1.ui.Display;
 import com.codename1.ui.Font;
-import com.codename1.ui.Form;
-import com.codename1.ui.Graphics;
-import com.codename1.ui.Image;
-import com.codename1.ui.Label;
-import com.codename1.ui.layouts.BorderLayout;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,7 +43,6 @@ public abstract class AbstractDemoChart implements IDemoChart {
     private boolean drawOnMutableImage;
     Font smallFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_SMALL, Font.STYLE_PLAIN);
     Font medFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
-    Font largeFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_LARGE, Font.STYLE_PLAIN);
 
     protected XYMultipleSeriesDataset createTemperatureDataset() {
         String[] titles = new String[]{"Crete"}; //Only pass in one variable
@@ -110,10 +103,10 @@ public abstract class AbstractDemoChart implements IDemoChart {
     }
 
     protected void setRenderer(XYMultipleSeriesRenderer renderer, int[] colors, PointStyle[] styles) {
-        renderer.setAxisTitleTextSize(smallFont.getHeight() / 2);
+        renderer.setAxisTitleTextSize(smallFont.getHeight() / 2f);
         renderer.setChartTitleTextSize(smallFont.getHeight());
-        renderer.setLabelsTextSize(smallFont.getHeight() / 2);
-        renderer.setLegendTextSize(smallFont.getHeight() / 2);
+        renderer.setLabelsTextSize(smallFont.getHeight() / 2f);
+        renderer.setLegendTextSize(smallFont.getHeight() / 2f);
         renderer.setPointSize(5f);
         renderer.setMargins(new int[]{medFont.getHeight(), medFont.getHeight(), 15, medFont.getHeight()});
         int length = colors.length;
@@ -221,8 +214,8 @@ public abstract class AbstractDemoChart implements IDemoChart {
      */
     protected DefaultRenderer buildCategoryRenderer(int[] colors) {
         DefaultRenderer renderer = new DefaultRenderer();
-        renderer.setLabelsTextSize(smallFont.getHeight() / 2);
-        renderer.setLegendTextSize(smallFont.getHeight() / 2);
+        renderer.setLabelsTextSize(smallFont.getHeight() / 2f);
+        renderer.setLegendTextSize(smallFont.getHeight() / 2f);
         renderer.setMargins(new int[]{medFont.getHeight(), medFont.getHeight(), medFont.getHeight(), medFont.getHeight()});
         for (int color : colors) {
             SimpleSeriesRenderer r = new SimpleSeriesRenderer();
@@ -262,10 +255,10 @@ public abstract class AbstractDemoChart implements IDemoChart {
      */
     protected XYMultipleSeriesRenderer buildBarRenderer(int[] colors) {
         XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
-        renderer.setAxisTitleTextSize(smallFont.getHeight() / 2);
+        renderer.setAxisTitleTextSize(smallFont.getHeight() / 2f);
         renderer.setChartTitleTextFont(smallFont);
-        renderer.setLabelsTextSize(smallFont.getHeight() / 2);
-        renderer.setLegendTextSize(smallFont.getHeight() / 2);
+        renderer.setLabelsTextSize(smallFont.getHeight() / 2f);
+        renderer.setLegendTextSize(smallFont.getHeight() / 2f);
         int length = colors.length;
         for (int i = 0; i < length; i++) {
             XYSeriesRenderer r = new XYSeriesRenderer();

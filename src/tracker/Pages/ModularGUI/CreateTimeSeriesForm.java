@@ -1,4 +1,4 @@
-package tracker.GuiComponents.GuiCharts;
+package tracker.Pages.ModularGUI;
 /**
  * Copyright (C) 2009 - 2013 SC 4ViewSoft SRL
  *
@@ -24,8 +24,6 @@ import com.codename1.charts.views.TimeChart;
 import com.codename1.ui.Component;
 import com.codename1.ui.Form;
 
-import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,14 +34,11 @@ import com.codename1.ui.layouts.BorderLayout;
 import tracker.GuiComponents.GuiCharts.AbstractDemoChart;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 import com.codename1.ui.Display;
-import java.util.Random;
-
-import static java.lang.Integer.parseInt;
 
 /**
  * Temperature sensor demo chart.
  */
-public class createTimeSeriesForm extends AbstractDemoChart {
+public class CreateTimeSeriesForm extends AbstractDemoChart {
     private XYMultipleSeriesDataset dataSet;
     private List<Date[]> x;
 
@@ -81,7 +76,7 @@ public class createTimeSeriesForm extends AbstractDemoChart {
     private XYMultipleSeriesDataset getDataSet() {
         if (dataSet == null) {
             String[] titles = new String[]{"Inside"}; //Change to y axis unit
-            long now = Math.round(new Date().getTime() / DAY) * DAY;
+            long now = Math.round(new Date().getTime() / (float) DAY) * DAY;
             x = new ArrayList<Date[]>();
             for (int i = 0; i < titles.length; i++) {
                 Date[] dates = new Date[HOURS];
@@ -92,10 +87,14 @@ public class createTimeSeriesForm extends AbstractDemoChart {
             }
             List<double[]> values = new ArrayList<double[]>();
 
-            values.add(new double[]{21.2, 21.5, 21.7, 21.5, 21.4, 21.4, 21.3, 21.1, 20.6, 20.3, 20.2,
-                    19.9, 19.7, 19.6, 19.9, 20.3, 20.6, 20.9, 21.2, 21.6, 21.9, 22.1, 21.7, 21.5});
-            values.add(new double[]{1.9, 1.2, 0.9, 0.5, 0.1, -0.5, -0.6, MathHelper.NULL_VALUE,
-                    MathHelper.NULL_VALUE, -1.8, -0.3, 1.4, 3.4, 4.9, 7.0, 6.4, 3.4, 2.0, 1.5, 0.9, -0.5,
+            values.add(new double[]{21.2, 21.5, 21.7, 21.5, 21.4,
+                    21.4, 21.3, 21.1, 20.6, 20.3, 20.2,
+                    19.9, 19.7, 19.6, 19.9, 20.3, 20.6, 20.9,
+                    21.2, 21.6, 21.9, 22.1, 21.7, 21.5});
+            values.add(new double[]{1.9, 1.2, 0.9, 0.5,
+                    0.1, -0.5, -0.6, MathHelper.NULL_VALUE,
+                    MathHelper.NULL_VALUE, -1.8, -0.3, 1.4, 3.4, 4.9,
+                    7.0, 6.4, 3.4, 2.0, 1.5, 0.9, -0.5,
                     MathHelper.NULL_VALUE, -1.9, -2.5, -4.3});
             dataSet = buildDateDataset(titles, x, values);
         }
@@ -106,22 +105,27 @@ public class createTimeSeriesForm extends AbstractDemoChart {
         //Needs Array of filenames for x axis
         ArrayList<String> fileName = new ArrayList<String>();
         fileName.add("2019.07.01");
-        if (dataSet == null)
-        {
+        if (dataSet == null) {
             String[] titles = new String[]{"Y-axis Unit Here"};
             x = new ArrayList<Date[]>();
             Date[] dates = new Date[1];
-            for (int i = 0; i < fileName.size(); i++){
-                dates[0] = new Date(Integer.parseInt(fileName.get(i).substring(0, 3)), Integer.parseInt(fileName.get(i).substring(5, 6)),
-                        Integer.parseInt(fileName.get(i).substring(8,9)));
+            for (int i = 0; i < fileName.size(); i++) {
+                dates[0] = new Date(Integer.parseInt(fileName.get(i).
+                        substring(0, 3)),
+                        Integer.parseInt(fileName.get(i).substring(5, 6)),
+                        Integer.parseInt(fileName.get(i).substring(8, 9)));
             }
             x.add(dates);
 
             List<double[]> values = new ArrayList<double[]>();
-            values.add(new double[]{21.2, 21.5, 21.7, 21.5, 21.4, 21.4, 21.3, 21.1, 20.6, 20.3, 20.2,
-                    19.9, 19.7, 19.6, 19.9, 20.3, 20.6, 20.9, 21.2, 21.6, 21.9, 22.1, 21.7, 21.5});
-            values.add(new double[]{1.9, 1.2, 0.9, 0.5, 0.1, -0.5, -0.6, MathHelper.NULL_VALUE,
-                    MathHelper.NULL_VALUE, -1.8, -0.3, 1.4, 3.4, 4.9, 7.0, 6.4, 3.4, 2.0, 1.5, 0.9, -0.5,
+            values.add(new double[]{21.2, 21.5, 21.7, 21.5, 21.4,
+                    21.4, 21.3, 21.1, 20.6, 20.3, 20.2,
+                    19.9, 19.7, 19.6, 19.9, 20.3, 20.6, 20.9, 21.2,
+                    21.6, 21.9, 22.1, 21.7, 21.5});
+            values.add(new double[]{1.9, 1.2, 0.9, 0.5, 0.1, -0.5,
+                    -0.6, MathHelper.NULL_VALUE,
+                    MathHelper.NULL_VALUE, -1.8, -0.3, 1.4, 3.4, 4.9,
+                    7.0, 6.4, 3.4, 2.0, 1.5, 0.9, -0.5,
                     MathHelper.NULL_VALUE, -1.9, -2.5, -4.3});
             dataSet = buildDateDataset(titles, x, values);
         }
@@ -136,21 +140,26 @@ public class createTimeSeriesForm extends AbstractDemoChart {
     @Override
     public Component execute() {
         int[] colors = new int[]{ColorUtil.GREEN, ColorUtil.BLUE};
-        PointStyle[] styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND};
+        PointStyle[] styles =
+                new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND};
         XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
         int length = renderer.getSeriesRendererCount();
         for (int i = 0; i < length; i++) {
-            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setFillPoints(true);
+            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).
+                    setFillPoints(true);
         }
 
         // lazy initialization of x...
         getDataSet();
-        setChartSettings(renderer, "Sensor temperature", "Hour", "Celsius degrees",
-                x.get(0)[0].getTime(), x.get(0)[HOURS - 1].getTime(), -5, 30, ColorUtil.LTGRAY, ColorUtil.LTGRAY);
+        setChartSettings(renderer,
+                "Sensor temperature", "Hour", "Celsius degrees",
+                x.get(0)[0].getTime(), x.get(0)[HOURS - 1].getTime(),
+                -5, 30, ColorUtil.LTGRAY, ColorUtil.LTGRAY);
 
         int strWidth = Display.getInstance().convertToPixels(25);
 
-        int numXLabels = Display.getInstance().getDisplayWidth() / (strWidth + 20);
+        int numXLabels =
+                Display.getInstance().getDisplayWidth() / (strWidth + 20);
 
         renderer.setXLabels(numXLabels);
         renderer.setYLabels(10);
@@ -170,7 +179,8 @@ public class createTimeSeriesForm extends AbstractDemoChart {
         return newChart(chart);
     }
 
-    public Component getTimeSeriesForm(String title) {              //Pass in title, firstdate
+    //Pass in title, firstdate
+    public Component getTimeSeriesForm(final String title) {
         String firstdate = "07/31/2019";
         String nextdate = "Test";
         int[] colors = new int[]{ColorUtil.BLUE};
@@ -178,15 +188,21 @@ public class createTimeSeriesForm extends AbstractDemoChart {
         XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
         int length = renderer.getSeriesRendererCount();
         for (int i = 0; i < length; i++) {
-            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setFillPoints(true);
+            ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).
+                    setFillPoints(true);
         }
         getCustomizedData();
-        setChartSettings(renderer, title, "Date", "Measured unit",  //Change yTitle
-                x.get(0)[0].getTime(), x.get(0)[length - 1].getTime(), -5, 30, ColorUtil.LTGRAY, ColorUtil.LTGRAY);  //x.get(0)[0].getDate(), x.get(0)[length - 1].getDate(), -5, 30
+        setChartSettings(renderer, title,
+                "Date", "Measured unit",  //Change yTitle
+                x.get(0)[0].getTime(), x.get(0)[length - 1].getTime(),
+                -5, 30, ColorUtil.LTGRAY, ColorUtil.LTGRAY);
+        //x.get(0)[0].getDate(), x.get(0)[length - 1].getDate(), -5, 30
 
-        int strWidth = Display.getInstance().convertToPixels(25);
+        int strWidth =
+                Display.getInstance().convertToPixels(25);
 
-        int numXLabels = Display.getInstance().getDisplayWidth() / (strWidth + 20);
+        int numXLabels =
+                Display.getInstance().getDisplayWidth() / (strWidth + 20);
 
         renderer.setXLabels(numXLabels);
         renderer.setYLabels(10);
@@ -206,9 +222,17 @@ public class createTimeSeriesForm extends AbstractDemoChart {
     }
 
     @Override
-    protected void setChartSettings(XYMultipleSeriesRenderer renderer, String title, String xTitle,
-                                    String yTitle, double xMin, double xMax, double yMin, double yMax, int axesColor,
-                                    int labelsColor) {
+    protected void setChartSettings(
+            final XYMultipleSeriesRenderer renderer,
+            final String title,
+            final String xTitle,
+            final String yTitle,
+            final double xMin,
+            final double xMax,
+            final double yMin,
+            final double yMax,
+            final int axesColor,
+            final int labelsColor) {
         renderer.setChartTitle(title);
         renderer.setXTitle(xTitle);
         renderer.setYTitle(yTitle);

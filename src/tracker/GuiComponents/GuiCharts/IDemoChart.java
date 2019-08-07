@@ -17,11 +17,6 @@ package tracker.GuiComponents.GuiCharts;
  */
 
 import com.codename1.ui.Component;
-import com.codename1.ui.Container;
-import com.codename1.ui.Form;
-
-
-
 
 
 /**
@@ -54,7 +49,7 @@ public interface IDemoChart {
      */
     Component execute();
 
-    public String getChartTitle();
+    String getChartTitle();
 
-    public Component getChartModelEditor();
+    Component getChartModelEditor();
 }
