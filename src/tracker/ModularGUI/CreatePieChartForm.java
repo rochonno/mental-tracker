@@ -21,7 +21,8 @@ import java.util.Random;
 public class CreatePieChartForm {
 
     /**
-     * @param colors An integer array of color values to render labels/piece colors.
+     * @param colors An integer array of color values to render
+     *               labels/piece colors.
      * @return renderer for GUI.
      */
     private DefaultRenderer buildCategoryRenderer(final int[] colors) {
@@ -38,10 +39,11 @@ public class CreatePieChartForm {
     }
 
 
-    /**
+    /**Adds Categorical string names to pie chart.
      * @param title Name of prompt for the chart to be built.
-     * @param values Double values of the frequency of each categorical variable.
-     * @return CategorySeries
+     * @param values Double values of the frequency of each
+     *               categorical variable.
+     * @return CategorySeries.
      */
     protected CategorySeries buildCategoryDatasetCategorical(
             final String title, final double[] values) {
@@ -55,14 +57,12 @@ public class CreatePieChartForm {
         return series;
     }
 
-    /**
+    /**Tailors a pie chart specifically for yes/no questions.
      * @param title Name of prompt for the chart to be built.
-     * @return Form with pie chart displayed.
+     * @return Form component with pie chart displayed.
      */
     public Form createYesNoPieChart(final String title) {
-        /**
-         * this array will be sorted before hand and passed as a parameter.
-         */
+
         double[] values = new double[]{2, 3};
         int[] colors = new int[]{ColorUtil.GREEN, ColorUtil.BLUE};
         DefaultRenderer renderer = buildCategoryRenderer(colors);
@@ -88,8 +88,9 @@ public class CreatePieChartForm {
     /**
      * @param title Name of the prompt for chart to be built.
      * @param tallyNames Array of Categorical variable names.
-     * @param tally Array passed in with frequencies of corresponding categorical variables.
-     * @return
+     * @param tally Array passed in with frequencies of corresponding
+     *              categorical variables.
+     * @return Form component with the pie chart.
      */
     public Form createCategoricalPieChart(
             final String title,

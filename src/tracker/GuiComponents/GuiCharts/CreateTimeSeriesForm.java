@@ -1,6 +1,7 @@
 /**
  * @Author Douglas Yacenick
- * Code partially modeled off of Steve Hannah from Codename One, in compliance of Apache License.
+ * Code partially modeled off of Steve Hannah from Codename One.
+ * In compliance of Apache License.
  *
  * Class renders user supplied data to display a Time Series graph.
  */
@@ -43,7 +44,7 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
     /**
      * Returns the chart name.
      *
-     * @return the chart name
+     * @return the chart name.
      */
     public String getName() {
         return "Sensor data";
@@ -52,7 +53,7 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
     /**
      * Returns the chart description.
      *
-     * @return the chart description
+     * @return the chart description.
      */
     public String getDesc() {
         return "The temperature, as read from an outside and an inside sensors";
