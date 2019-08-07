@@ -1,4 +1,4 @@
-package tracker.GuiComponents.GuiCharts;
+package tracker.Pages.ModularGUI;
 /**
  * Copyright (C) 2009 - 2013 SC 4ViewSoft SRL
  *
@@ -31,6 +31,7 @@ import java.util.List;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.charts.util.MathHelper;
 import com.codename1.ui.layouts.BorderLayout;
+import tracker.GuiComponents.GuiCharts.AbstractDemoChart;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 import com.codename1.ui.Display;
 

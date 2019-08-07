@@ -2,7 +2,6 @@ package tracker.GuiComponents.GuiCharts;
 
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.XYMultipleSeriesDataset;
-import com.codename1.charts.models.XYSeries;
 import com.codename1.charts.renderers.XYMultipleSeriesRenderer;
 import com.codename1.charts.renderers.XYSeriesRenderer;
 import com.codename1.charts.views.LineChart;

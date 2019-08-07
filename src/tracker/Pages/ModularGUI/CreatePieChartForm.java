@@ -1,4 +1,4 @@
-package tracker.GuiComponents.GuiCharts;
+package tracker.Pages.ModularGUI;
 
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.CategorySeries;
