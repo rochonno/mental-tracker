@@ -27,6 +27,8 @@ public class CoreApp implements LocalNotificationCallback {
         // Enable Toolbar on all Forms by default
         Toolbar.setGlobalToolbar(true);
 
+        UIManager.initFirstTheme("/theme");
+
     }
     
     public void start() {
