@@ -111,6 +111,26 @@ public class PromptResult implements Externalizable {
         return false;
     }
 
+    public String getName() {
+        return _PromptName;
+    }
+
+    public int getIntResult() {
+        return _IntResult;
+    }
+
+    public double getDoubleResult() {
+        return _DoubleResult;
+    }
+
+    public boolean getBoolResult() {
+        return _BoolResult;
+    }
+
+    public String setStringResult() {
+        return _StringResult;
+    }
+
     /**
      * Returns the version for the current persistence code.
      * The version will be passed to internalized thus allowing the

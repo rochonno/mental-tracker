@@ -16,26 +16,16 @@ import com.codename1.ui.Component;
 import com.codename1.ui.layouts.BorderLayout;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 
-/**
- * Scatter demo chart.
- */
+
 public class ScatterChart extends AbstractDemoChart {
     private XYMultipleSeriesDataset dataSet;
 
-    /**
-     * Returns the chart name.
-     *
-     * @return the chart name
-     */
+
     public String getName() {
         return "Scatter chart";
     }
 
-    /**
-     * Returns the chart description.
-     *
-     * @return the chart description
-     */
+
     public String getDesc() {
         return "Randomly generated values for the scatter chart";
     }
