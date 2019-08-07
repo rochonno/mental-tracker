@@ -1,6 +1,6 @@
 package tracker.Data.Prompts;
 
-import tracker.Data.DataStorage;
+import tracker.Data.Storage.DataStorage;
 import tracker.MentalExceptions.ReadFileException;
 import tracker.MentalExceptions.SaveFileException;
 import com.codename1.io.Externalizable;
