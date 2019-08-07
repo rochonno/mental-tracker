@@ -129,7 +129,6 @@ class DefaultPageComponents extends Form {
 
     private void createTopInset() {
         _TopInset.setSizeStr("inherit 4.2328043mm");
-        _TopInset.getLabel();
         addComponent(_TopInset.getLabel());
 
         ((LayeredLayout) _TopInset.getLabel().

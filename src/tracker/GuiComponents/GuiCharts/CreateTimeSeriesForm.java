@@ -75,7 +75,7 @@ public class CreateTimeSeriesForm extends AbstractDemoChart {
     private XYMultipleSeriesDataset getDataSet() {
         if (dataSet == null) {
             String[] titles = new String[]{"Inside"}; //Change to y axis unit
-            long now = Math.round(new Date().getTime() / DAY) * DAY;
+            long now = Math.round(new Date().getTime() / (float) DAY) * DAY;
             x = new ArrayList<Date[]>();
             for (int i = 0; i < titles.length; i++) {
                 Date[] dates = new Date[HOURS];

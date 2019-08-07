@@ -8,7 +8,6 @@ import com.codename1.charts.renderers.XYSeriesRenderer;
 import com.codename1.charts.views.LineChart;
 import com.codename1.charts.views.PointStyle;
 import com.codename1.ui.Component;
-import com.codename1.ui.Font;
 import com.codename1.ui.Form;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.layouts.BorderLayout;
@@ -18,9 +17,6 @@ public class CreateDaySeriesForm extends AbstractDemoChart {
 
     /** dataset for the multiple series. */
     private XYMultipleSeriesDataset dataset;
-    /** Font for the series graph. */
-    private Font medFont = Font.createSystemFont(
-            Font.FACE_SYSTEM, Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
 
     /**
      * Returns the chart name.
@@ -88,7 +84,6 @@ public class CreateDaySeriesForm extends AbstractDemoChart {
         initRendererer(renderer);
 
         XYMultipleSeriesDataset dataset = getDataSet();
-        XYSeries series = dataset.getSeriesAt(0);
         //series.addAnnotation("Vacation", 6, 28);
 
         XYSeriesRenderer r = (XYSeriesRenderer) renderer.getSeriesRendererAt(0);
@@ -138,7 +133,6 @@ public class CreateDaySeriesForm extends AbstractDemoChart {
         initRendererer(renderer);
 
         XYMultipleSeriesDataset dataset = getDataSet();
-        XYSeries series = dataset.getSeriesAt(0);
 
         XYSeriesRenderer r = (XYSeriesRenderer) renderer.getSeriesRendererAt(0);
         r.setAnnotationsColor(ColorUtil.GREEN);

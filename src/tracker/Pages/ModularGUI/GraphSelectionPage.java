@@ -261,12 +261,9 @@ public class GraphSelectionPage extends DefaultPageComponents {
                         tempVals
                 );
             } else if (_GraphType == GraphTypes.TREND_LINE) {
-                double[] tempVals = new double[]{
-                        5, 7, 10, 12, 10, 3, 6, 5, 1, 2, 5, 10, 13, 4,
-                        12, 9, 8, 7, 2, 5, 12, 10, 6, 7, 9, 8, 5, 5, 7, 4};
-                String[] tempNames = new String[]{_PromptName};
                 CreateDaySeriesForm temp = new CreateDaySeriesForm();
                 temp.getDaySeriesForm(_PromptName, "Day", "Unit");
+
             }
 
         }

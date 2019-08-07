@@ -38,7 +38,6 @@ import com.codename1.util.SuccessCallback;
  */
 public class XYSeriesEditor extends Container {
     /** The XY series for the graph. */
-    private XYSeries xy;
     private static final String[] SERIES_COLUMN_NAMES = {"X", "Y", "Remove"};
     private static final String[] ANNOTATION_COLUMN_NAMES =
             {"Annotation", "X", "Y", "Remove"};
@@ -47,7 +46,6 @@ public class XYSeriesEditor extends Container {
     public void init(final XYSeries xy,
                      final SuccessCallback<String> titleChanged) {
         setScrollableY(true);
-        this.xy = xy;
         TextField title = new TextField(
                 xy.getTitle(), "Series Title", 20, TextField.ANY);
         title.addActionListener(e -> {
