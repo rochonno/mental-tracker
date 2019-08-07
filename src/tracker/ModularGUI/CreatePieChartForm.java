@@ -1,6 +1,7 @@
 /**
  * @Author Douglas Yacenick
- * Code partially modeled off of Steve Hannah from Codename One, in compliance of Apache License.
+ * Code partially modeled off of Steve Hannah from Codename One.
+ * in compliance of Apache License.
  *
  * Class renders user supplied data to display a pie chart.
  */
