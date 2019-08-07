@@ -52,8 +52,6 @@ public class SinglePromptDisplay {
      */
     private Component _RefComponent;
 
-    /** Title of the prompt. */
-    private GuiLabel _Title;
     /** Question of the prompt. */
     private GuiLabel _Question;
     /** No answer button of the prompt. */
@@ -70,7 +68,6 @@ public class SinglePromptDisplay {
         setLocation(location);
         _RefComponent = refComponent;
 
-        _Title = new GuiLabel(_CurrPrompt.getName(), _Resources);
         _Question = new GuiLabel("PromptName", _Resources);
 
         PromptCallbackClass callback = new PromptCallbackClass();
@@ -235,21 +232,6 @@ public class SinglePromptDisplay {
         createSlider();
         createYesNo();
         createTextArea();
-        //createTitle();
-    }
-
-    public void createTitle() {
-        _Title.setText(_CurrPrompt.getName());
-        _Title.setSizeStr("126.455025mm 24.338625mm");
-        _Title.setLocation(50, 70);
-        _Title.centerAllign(true);
-
-        _Page.addComponent(_Title.getLabel());
-
-        ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
-                setInsets(_Title.getLabel(), "-92% 0 0 -70%").
-                setReferenceComponentTop(
-                        _Title.getLabel(), _Question.getLabel(), 1f);
     }
 
     private void createQuestion() {
