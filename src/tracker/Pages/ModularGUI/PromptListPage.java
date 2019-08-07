@@ -7,7 +7,6 @@ import com.codename1.ui.events.ActionListener;
 import tracker.Data.InstanceData;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.GuiComponents.Containers.PromptEditDelete;
-import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.Individual.GuiFloatButton;
 
 import java.util.List;
@@ -15,8 +14,9 @@ import java.util.Vector;
 
 public class PromptListPage extends DefaultPageComponents {
 
+    /** Components of the list of prompts to edit/delete. */
     private List<PromptEditDelete> _PromptList = new Vector<>();
-
+    /** Floating button for adding new prompts. */
     private GuiFloatButton _FloatButton;
 
     /**
@@ -24,7 +24,7 @@ public class PromptListPage extends DefaultPageComponents {
      * @param data Instance data of the prompts and results
      * @param previous the previous page.
      */
-    public PromptListPage(InstanceData data, Form previous) {
+    public PromptListPage(final InstanceData data, final Form previous) {
         super(data, previous, "All Questions");
 
         setIsScrollable();
@@ -80,7 +80,7 @@ public class PromptListPage extends DefaultPageComponents {
          *            as its trigger
          */
         @Override
-        public void actionPerformed(ActionEvent evt) {
+        public void actionPerformed(final ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
             if (sourceName.equals(_FloatButton.getSub1Name())) {
@@ -97,12 +97,13 @@ public class PromptListPage extends DefaultPageComponents {
      * Called when the user chooses to delete a single prompt.
      * @param source The source prompt to delete
      */
-    private void onDeletePrompt(Object source) {
+    private void onDeletePrompt(final Object source) {
         PromptEditDelete targetPrompt = (PromptEditDelete) source;
         MentalPrompt prompt = targetPrompt.getPrompt();
         getData().deletePrompt(prompt);
 
-        PromptListPage newList = new PromptListPage(getData(), getPreviousForm());
+        PromptListPage newList =
+                new PromptListPage(getData(), getPreviousForm());
         newList.show();
     }
 
@@ -110,16 +111,17 @@ public class PromptListPage extends DefaultPageComponents {
      * Called with the user chooses to edit a single prompt.
      * @param source The source prompt to edit
      */
-    private void onEditPrompt(Object source) {
+    private void onEditPrompt(final Object source) {
         PromptEditDelete target = (PromptEditDelete) source;
         MentalPrompt targetPrompt = target.getPrompt();
 
-        EditPromptPage editPage = new EditPromptPage(getData(), this, targetPrompt);
+        EditPromptPage editPage =
+                new EditPromptPage(getData(), this, targetPrompt);
         editPage.show();
     }
 
     /**
-     * Class that is called whenever the user chooses to edit or delete a prompt.
+     * Class that is called whenever the user chooses to edit/delete a prompt.
      * This is passed through to each prompt and invoke in it's method.
      */
     class PromptChangedCallback implements ActionListener {
@@ -129,7 +131,7 @@ public class PromptListPage extends DefaultPageComponents {
          *
          * @param e the event to be processed
          */
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(final ActionEvent e) {
             int event = e.getKeyEvent();
 
             if (event == 0) {
@@ -144,9 +146,19 @@ public class PromptListPage extends DefaultPageComponents {
      * Initializes the float button and its sub-buttons.
      */
     private void initFloatButton() {
-        _FloatButton = new GuiFloatButton(FontImage.MATERIAL_ADD, "Add", new PromptListCallback());
-        _FloatButton.addSubButton2(FontImage.MATERIAL_SUPERVISED_USER_CIRCLE, "Custom");
-        _FloatButton.addSubButton1(FontImage.MATERIAL_LAYERS, "Default");
+        _FloatButton = new GuiFloatButton(
+                FontImage.MATERIAL_ADD,
+                "Add",
+                new PromptListCallback()
+        );
+        _FloatButton.addSubButton2(
+                FontImage.MATERIAL_SUPERVISED_USER_CIRCLE,
+                "Custom"
+        );
+        _FloatButton.addSubButton1(
+                FontImage.MATERIAL_LAYERS,
+                "Default"
+        );
     }
 
     /**

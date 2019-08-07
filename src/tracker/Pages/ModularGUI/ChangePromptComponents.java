@@ -39,16 +39,23 @@ class ChangePromptComponents extends DefaultPageComponents {
     /** Text Area for max of prompt. */
     private GuiTextArea _MaxTextArea;
 
+    /** Show the user to enter the name. */
     private GuiLabel _NameLabel;
+    /** Show the user to enter the name. */
     private GuiLabel _PromptLabel;
+    /** Show the user to enter the answer type. */
     private GuiLabel _TypeLabel;
+    /** Show the user to enter the minimum value allowed. */
     private GuiLabel _MinLabel;
+    /** Show the user to enter the maximum value allowed. */
     private GuiLabel _MaxLabel;
 
-    private static final String[] _Types = {"slider", "yes/no", "number", "text"};
+    /** The names of the answer types that can be selected from. */
+    private static final String[] _Types =
+            {"slider", "yes/no", "number", "text"};
 
     /**
-     * Constructor for this parent class
+     * Constructor for this parent class.
      *
      * @param data All the current data for this instance of the app
      * @param previous The previous Form
@@ -59,7 +66,7 @@ class ChangePromptComponents extends DefaultPageComponents {
      */
     ChangePromptComponents(
             final InstanceData data,
-            Form previous,
+            final Form previous,
             final MentalPrompt target,
             final String pageName) {
         super(data, previous, pageName);

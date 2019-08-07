@@ -16,7 +16,7 @@ public class CreatePromptPage extends ChangePromptComponents {
      * @param data the instance data containing all prompts and answers;
      * @param previous the previous Form.
      */
-    public CreatePromptPage(InstanceData data, Form previous) {
+    CreatePromptPage(final InstanceData data, final Form previous) {
         super(data, previous, null, "Create Prompt");
     }
 
@@ -27,7 +27,8 @@ public class CreatePromptPage extends ChangePromptComponents {
     @Override
     protected void onConfirmButton() {
         getData().addPrompt(getNewPrompt());
-        Form promptList = new PromptListPage(getData(), new MainPage(getData()));
+        Form promptList =
+                new PromptListPage(getData(), new MainPage(getData()));
         promptList.showBack();
     }
 }

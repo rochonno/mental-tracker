@@ -37,7 +37,10 @@ class DefaultPageComponents extends Form {
      * @param previous previous page
      * @param pageName name of the current page
      */
-    DefaultPageComponents(final InstanceData data, Form previous, final String pageName) {
+    DefaultPageComponents(
+            final InstanceData data,
+            final Form previous,
+            final String pageName) {
         _Data = data;
         _PreviousForm = previous;
         _ResourceInstance = Resources.getGlobalResources();

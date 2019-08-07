@@ -18,7 +18,7 @@ public class EditPromptPage extends ChangePromptComponents {
      * @param previous the previous Form.
      * @param target the MentalPrompt to be edited
      */
-    public EditPromptPage(
+    EditPromptPage(
             final InstanceData data,
             final Form previous,
             final MentalPrompt target) {
@@ -35,7 +35,8 @@ public class EditPromptPage extends ChangePromptComponents {
     @Override
     protected void onConfirmButton() {
         getData().changePrompt(getTargetPrompt(), getNewPrompt());
-        Form promptList = new PromptListPage(getData(), new MainPage(getData()));
+        Form promptList = new
+                PromptListPage(getData(), new MainPage(getData()));
         promptList.showBack();
     }
 
