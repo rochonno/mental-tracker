@@ -8,15 +8,15 @@ import com.codename1.ui.util.Resources;
  */
 public class GuiTimePicker extends GuiPicker {
 
-    public GuiTimePicker(final String name, Resources instanceTheme) {
+    public GuiTimePicker(final String name, final Resources instanceTheme) {
         super(name, Display.PICKER_TYPE_TIME, instanceTheme);
     }
 
     public void setTime(final int hours, final int minutes) {
-        setTotalMinutes((hours*60) + minutes);
+        setTotalMinutes((hours * 60) + minutes);
     }
 
-    public void setTotalMinutes(final int mins) {
+    private void setTotalMinutes(final int mins) {
         getPicker().setTime(mins);
     }
 

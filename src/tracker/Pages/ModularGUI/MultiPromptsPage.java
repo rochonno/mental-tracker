@@ -18,7 +18,7 @@ import java.util.Vector;
  * Parent page for the prompts.
  * This genereates each prompt and collects the input from the user.
  */
-public class MultiPromptsPage extends DefaultPageComponents {
+class MultiPromptsPage extends DefaultPageComponents {
 
     /** Current index in the prompt list. */
     private int _PromptIndex;
@@ -31,7 +31,10 @@ public class MultiPromptsPage extends DefaultPageComponents {
      * @param previous The previous Form.
      * @param promptIndex The Index of the next prompt in the list to ask.
      */
-    public MultiPromptsPage(InstanceData data, Form previous, final int promptIndex) {
+    MultiPromptsPage(
+            final InstanceData data,
+            final Form previous,
+            final int promptIndex) {
         super(data, previous, "Daily Tracking");
         _PromptIndex = promptIndex;
 
@@ -63,16 +66,27 @@ public class MultiPromptsPage extends DefaultPageComponents {
     }
 
     /**
+     *
+     * @param location
+     * @param index
+     * @return
+     */
+    /**
      * Create a single prompt in the Gui.
      * @param location The location of the prompt in the Gui.
      *                 Used to space them vertically.
      *                 Is spaced according to a reference component
      *                      passed through in initialize().
+     * @param index Index of the prompt in the instance data prompt list
      * @return SinglePromptDisplay The Gui for an individual prompt.
      */
-    private SinglePromptDisplay createPrompt(final int location, final int index) {
+    private SinglePromptDisplay createPrompt(
+            final int location,
+            final int index) {
+
         MentalPrompt prompt = getData().getSinglePrompt(index);
-        SinglePromptDisplay newPrompt = new SinglePromptDisplay(this, prompt, getResources());
+        SinglePromptDisplay newPrompt =
+                new SinglePromptDisplay(this, prompt, getResources());
         newPrompt.initialize(location, getBackButton().getButton());
         return newPrompt;
     }
@@ -94,8 +108,12 @@ public class MultiPromptsPage extends DefaultPageComponents {
             return;
         }
 
-        MultiPromptsPage nextPrompts =
-                new MultiPromptsPage(getData(), this, _PromptIndex + _GuiPrompts.size());
+        MultiPromptsPage nextPrompts = new MultiPromptsPage(
+                getData(),
+                this,
+                _PromptIndex + _GuiPrompts.size()
+        );
+
         nextPrompts.show();
     }
 
@@ -116,9 +134,10 @@ public class MultiPromptsPage extends DefaultPageComponents {
 
             if (!currAnswer) {
                 answered = false;
+                String notAnsweredSrt = " has not been answered";
                 Dialog.show(
                         "Missing Answer",
-                        guiPrompt.getPrompt().getName() + " has not been answered",
+                        guiPrompt.getPrompt().getName() + notAnsweredSrt,
                         "OK!",
                         null
                 );

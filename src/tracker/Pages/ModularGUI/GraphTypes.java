@@ -6,11 +6,15 @@ import java.util.Vector;
 
 public enum GraphTypes {
 
+    /** All types of available graphs. */
     SCATTER_PLOT, TREND_LINE, PIE_CHART;
 
-    private final static String _Scatter = "Scatter Plot";
-    private final static String _Trend = "Trend Line";
-    private final static String _Pie = "Pie Chart";
+    /** Type of graph in String form. */
+    private static final String _Scatter = "Scatter Plot";
+    /** Type of graph in String form. */
+    private static final String _Trend = "Trend Line";
+    /** Type of graph in String form. */
+    private static final String _Pie = "Pie Chart";
 
     public static GraphTypes[] getGraphTypes(final PromptDataType dataType) {
         Vector<GraphTypes> types = new Vector<>();

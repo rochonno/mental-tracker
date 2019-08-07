@@ -27,53 +27,27 @@ public class GuiLabel {
         _Label.setIcon(image);
     }
 
-    public Label getLabel()
-    {
+    public Label getLabel() {
         return _Label;
     }
 
-    public void setLocation(int x, int y) {
-        _Label.setX(x);
-        _Label.setY(y);
-    }
-
-    public void centerAllign(boolean center) {
+    public void centerAllign(final boolean center) {
         if (center) {
             _Label.setInlineAllStyles("alignment:center");
         }
     }
 
-    public void setRefLocation(int refX, int refY, int x, int y) {
-        setLocation(refX + x, refY + y);
-    }
-
-    public void setTraverseIndex(int index) {
+    public void setTraverseIndex(final int index) {
         _Label.setTraversable(true);
         _Label.setPreferredTabIndex(index);
     }
 
-    public void setSmoothScroll(boolean smooth) {
+    public void setSmoothScroll(final boolean smooth) {
         _Label.setSmoothScrolling(smooth);
     }
 
-    public void setSizeStr(String size) {
+    public void setSizeStr(final String size) {
         _Label.setPreferredSizeStr(size);
-    }
-
-    public int getCenterX() {
-        return _Label.getX();
-    }
-
-    public int getCenterY() {
-        return _Label.getY();
-    }
-
-    public int getTotalWidth() {
-        return _Label.getWidth();
-    }
-
-    public int getTotalHeight() {
-        return _Label.getHeight();
     }
 
     public void setVisible(final boolean visible) {

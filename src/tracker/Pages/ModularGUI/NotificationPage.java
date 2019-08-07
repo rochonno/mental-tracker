@@ -6,6 +6,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
 import tracker.Data.Reminders.MedReminder;
+import tracker.Data.Reminders.MentalReminder;
 import tracker.Data.Reminders.PromptsReminder;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiSwitch;
@@ -19,13 +20,15 @@ public class NotificationPage extends DefaultPageComponents {
      * @param data     instance data
      * @param previous previous page
      */
-    public NotificationPage(InstanceData data, Form previous) {
+    public NotificationPage(final InstanceData data, final Form previous) {
         super(data, previous, "NotificationPage");
 
         createAllComponents();
     }
 
+    /** The local notification for the user to answer the prompts daily. */
     private PromptsReminder _PromptsReminder;
+    /** The local notification for the user to take their medication daily. */
     private MedReminder _MedReminder;
 
     /**
@@ -44,13 +47,19 @@ public class NotificationPage extends DefaultPageComponents {
         createTimePickers();
     }
 
+    /** Title of the prompt reminder switch. */
     private GuiLabel _PromptLabel;
+    /** Title of the med reminder switch. */
     private GuiLabel _MedLabel;
 
+    /** on/off switch for the prompt reminder. */
     private GuiSwitch _PromptRemindSwitch;
+    /** on/off switch for the med reminder. */
     private GuiSwitch _MedRemindSwitch;
 
+    /** Pick the time of the prompt reminder. */
     private GuiTimePicker _PromptTime;
+    /** Pick the time of the med reminder. */
     private GuiTimePicker _MedTime;
 
     private void initLabels() {
@@ -75,6 +84,8 @@ public class NotificationPage extends DefaultPageComponents {
 
         _PromptTime = new GuiTimePicker("PromptTime", getResources());
         _MedTime = new GuiTimePicker("MedTime", getResources());
+        _PromptTime.setActionListener(callback);
+        _MedTime.setActionListener(callback);
     }
 
 
@@ -87,7 +98,7 @@ public class NotificationPage extends DefaultPageComponents {
          *            as its trigger
          */
         @Override
-        public void actionPerformed(ActionEvent evt) {
+        public void actionPerformed(final ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
             if (sourceName.equals(_PromptRemindSwitch.getName())) {
@@ -131,11 +142,7 @@ public class NotificationPage extends DefaultPageComponents {
             _PromptsReminder = new PromptsReminder();
         }
         int minutes = _PromptTime.getTotalMins();
-        int hour = minutes / 60;
-        int min = minutes % 60;
-
-        _PromptsReminder.setHour(hour);
-        _PromptsReminder.setMinute(min);
+        setReminder(_PromptsReminder, minutes);
 
         if (_PromptRemindSwitch.getValue()) {
             _PromptsReminder.createNotification();
@@ -147,15 +154,20 @@ public class NotificationPage extends DefaultPageComponents {
             _MedReminder = new MedReminder();
         }
         int minutes = _MedTime.getTotalMins();
-        int hour = minutes / 60;
-        int min = minutes % 60;
-
-        _MedReminder.setHour(hour);
-        _MedReminder.setMin(min);
+        setReminder(_MedReminder, minutes);
 
         if (_MedRemindSwitch.getValue()) {
             _MedReminder.createNotification();
         }
+    }
+
+    private void setReminder(final MentalReminder reminder, final int minutes) {
+
+        int hour = minutes / 60;
+        int min = minutes % 60;
+
+        reminder.setHour(hour);
+        reminder.setMin(min);
     }
 
 
@@ -197,7 +209,8 @@ public class NotificationPage extends DefaultPageComponents {
     private void createPromptRemindSwitch() {
         addComponent(_PromptRemindSwitch.getSwitch());
 
-        ((LayeredLayout) _PromptRemindSwitch.getSwitch().getParent().getLayout()).
+        ((LayeredLayout) _PromptRemindSwitch.getSwitch().
+                getParent().getLayout()).
                 setInsets(_PromptRemindSwitch.getSwitch(), "0 auto auto 0").
                 setReferenceComponentTop(_PromptRemindSwitch.getSwitch(),
                         _PromptLabel.getLabel(), 0).

@@ -12,10 +12,11 @@ import tracker.GuiComponents.Individual.GuiButton;
 
 public class PromptAdd extends PromptListComponent {
 
+    /** ActionListener to invoke when the button is pressed. */
     private ActionListener _NotifyChange;
 
     public PromptAdd(
-            Form parentPage,
+            final Form parentPage,
             final MentalPrompt prompt,
             final Resources resources,
             final ActionListener callback) {
@@ -24,6 +25,7 @@ public class PromptAdd extends PromptListComponent {
         _NotifyChange = callback;
     }
 
+    /** Button to add a prompt. */
     private GuiButton _AddButton;
 
     public void initialize(final float location, final Component refComponent) {
@@ -57,7 +59,7 @@ public class PromptAdd extends PromptListComponent {
          *            as its trigger
          */
         @Override
-        public void actionPerformed(ActionEvent evt) {
+        public void actionPerformed(final ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
             if (sourceName.equals(_AddButton.getName())) {
@@ -71,9 +73,11 @@ public class PromptAdd extends PromptListComponent {
         _AddButton.getButton().setShouldCalcPreferredSize(true);
 
         ((LayeredLayout) _AddButton.getButton().getParent().getLayout()).
-                setInsets(_AddButton.getButton(),"0 auto auto 0").
-                setReferenceComponentLeft(_AddButton.getButton(), getTitle().getLabel(), 1.1F).
-                setReferenceComponentTop(_AddButton.getButton(), getTitle().getLabel(), 0);
+                setInsets(_AddButton.getButton(), "0 auto auto 0").
+                setReferenceComponentLeft(
+                        _AddButton.getButton(), getTitle().getLabel(), 1.1F).
+                setReferenceComponentTop(
+                        _AddButton.getButton(), getTitle().getLabel(), 0);
     }
 
 }

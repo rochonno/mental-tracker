@@ -68,48 +68,24 @@ public class GuiButton {
         return _Button;
     }
 
-    public void setLocation(int x, int y) {
-        _Button.setX(x);
-        _Button.setY(y);
-    }
 
-    public void centerAllign(boolean center) {
+    public void centerAllign(final boolean center) {
         if (center) {
             _Button.setInlineAllStyles("alignment:center");
         }
     }
 
-    public void setRefLocation(int refX, int refY, int x, int y) {
-        setLocation(refX + x, refY + y);
-    }
-
-    public void setTraverseIndex(int index) {
+    public void setTraverseIndex(final int index) {
         _Button.setTraversable(true);
         _Button.setPreferredTabIndex(index);
     }
 
-    public void setSmoothScroll(boolean smooth) {
+    public void setSmoothScroll(final boolean smooth) {
         _Button.setSmoothScrolling(smooth);
     }
 
-    public void setSizeStr(String size) {
+    public void setSizeStr(final String size) {
         _Button.setPreferredSizeStr(size);
-    }
-
-    public int getCenterX() {
-        return _Button.getX();
-    }
-
-    public int getCenterY() {
-        return _Button.getY();
-    }
-
-    public int getTotalWidth() {
-        return _Button.getWidth();
-    }
-
-    public int getTotalHeight() {
-        return _Button.getHeight();
     }
 
     public String getName() {

@@ -18,9 +18,13 @@ import java.util.Vector;
 
 public class GraphSelectionPage extends DefaultPageComponents {
 
+    /** Name of the prompt selected by the user. */
     private String _PromptName;
+    /** Type of graph selected selected by the user. */
     private GraphTypes _GraphType;
+    /** Start date selected by the user. */
     private Date _StartDate;
+    /** End date selected by the user. */
     private Date _EndDate;
 
     /**
@@ -29,22 +33,29 @@ public class GraphSelectionPage extends DefaultPageComponents {
      * @param data     instance data
      * @param previous previous page
      */
-    public GraphSelectionPage(InstanceData data, Form previous) {
+    public GraphSelectionPage(final InstanceData data, final Form previous) {
         super(data, previous, "GraphChooser");
 
         createAllComponents();
     }
 
+    /** Tells the user the prompt name is to be selected. */
     private GuiLabel _PromptLabel;
+    /** Tells the user the graph type is to be selected. */
     private GuiLabel _GraphLabel;
+    /** Tells the user the date range is to be set. */
     private GuiLabel _DateLabel;
 
+    /** Picker for the prompt. */
     private GuiStringPicker _PromptPicker;
 
+    /** Picker for the graph type. */
     private GuiStringPicker _GraphPicker;
 
+    /** Picker for the start date. */
     private GuiDatePicker _DatePickerStart;
 
+    /** Picker for the end date. */
     private GuiDatePicker _DatePickerEnd;
 
     private void createAllComponents() {
@@ -240,14 +251,19 @@ public class GraphSelectionPage extends DefaultPageComponents {
     @Override
     void onConfirmButton() {
         if (checkInputComplete()) {
-            if (_GraphType == GraphTypes.PIE_CHART){
+            if (_GraphType == GraphTypes.PIE_CHART) {
                 double[] tempVals = new double[]{10, 20};
                 String[] tempNames = new String[]{"Yes", "No"};
                 createPieChartForm temp = new createPieChartForm();
-                temp.createCategoricalPieChart(_PromptName, tempNames, tempVals);
-            }else if(_GraphType == GraphTypes.TREND_LINE){
-                double[] tempVals = new double[]{5, 7, 10, 12, 10, 3, 6, 5, 1, 2, 5, 10, 13, 4, 12,
-                9, 8, 7, 2, 5, 12, 10, 6, 7, 9, 8, 5, 5, 7, 4};
+                temp.createCategoricalPieChart(
+                        _PromptName,
+                        tempNames,
+                        tempVals
+                );
+            } else if (_GraphType == GraphTypes.TREND_LINE) {
+                double[] tempVals = new double[]{
+                        5, 7, 10, 12, 10, 3, 6, 5, 1, 2, 5, 10, 13, 4,
+                        12, 9, 8, 7, 2, 5, 12, 10, 6, 7, 9, 8, 5, 5, 7, 4};
                 String[] tempNames = new String[]{_PromptName};
                 createDaySeriesForm temp = new createDaySeriesForm();
                 temp.getDaySeriesForm(_PromptName, "Day", "Unit");
@@ -290,7 +306,7 @@ public class GraphSelectionPage extends DefaultPageComponents {
          *            as its trigger
          */
         @Override
-        public void actionPerformed(ActionEvent evt) {
+        public void actionPerformed(final ActionEvent evt) {
             String sourceName = evt.getComponent().getName();
 
             if (sourceName.equals(_PromptPicker.getName())) {
