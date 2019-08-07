@@ -3,14 +3,13 @@ package tracker.Data.Storage;
 import java.util.Calendar;
 import java.util.Date;
 
-public class FileNameGenerator {
+public final  class FileNameGenerator {
 
     private FileNameGenerator() {
     }
 
+    /** Name for the prompt result files. */
     private static final String PROMPT_RESULTS_ENDING = "_PromptResults";
-    private static final String PROMPT_LIST_ENDING = "_MentalPrompts";
-    private static final String NOTIFICAITONS = "NotificationSettings";
 
     public static String getPromptResultsFilename(final Date date) {
         return getDateStr(date) + PROMPT_RESULTS_ENDING;
