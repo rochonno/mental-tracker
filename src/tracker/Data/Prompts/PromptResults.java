@@ -13,11 +13,12 @@ import java.util.List;
 import java.util.Vector;
 
 /*******************************************************************************
- * @author Nolan Rochon
- *
  * This class holds the results from all the Prompts.
  * A time stamp is added once the questions have been completed to
- *      make storage and retrieval of the data simple.
+ *    make storage and retrieval of the data simple.
+ *
+ * @author Nolan Rochon
+ *
  ******************************************************************************/
 public class PromptResults implements Externalizable {
     // Registers the class to enable reading it in

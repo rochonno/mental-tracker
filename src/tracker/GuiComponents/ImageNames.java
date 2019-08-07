@@ -1,5 +1,8 @@
 package tracker.GuiComponents;
 
+/**
+ * Constants for the names of images used in the GUI.
+ */
 public final class ImageNames {
     private ImageNames() {
     }

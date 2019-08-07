@@ -7,6 +7,9 @@ import com.codename1.ui.util.Resources;
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.GuiComponents.Individual.GuiLabel;
 
+/**
+ * Single prompt for the list of prompts in the Gui page.
+ */
 public class PromptListComponent {
 
     /** Page that this will be displayed on. */

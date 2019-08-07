@@ -6,6 +6,9 @@
  ******************************************************************************/
 package tracker.Data.Reminders;
 
+/**
+ * Reminder for medication.
+ */
 public final class MedReminder extends MentalReminder {
 
     public MedReminder() {

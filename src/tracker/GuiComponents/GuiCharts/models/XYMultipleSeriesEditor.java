@@ -32,7 +32,6 @@ import com.codename1.ui.plaf.UIManager;
 /**
  * Allows editing a multiple series set.
  *
- * @author Shai Almog
  */
 public class XYMultipleSeriesEditor extends Container {
     /** The data set for the series graph. XY coordinates. */

@@ -6,6 +6,9 @@
  ******************************************************************************/
 package tracker.Data.Reminders;
 
+/**
+ * Reminder to answer the daily prompts.
+ */
 public final class PromptsReminder extends MentalReminder {
 
     public PromptsReminder() {

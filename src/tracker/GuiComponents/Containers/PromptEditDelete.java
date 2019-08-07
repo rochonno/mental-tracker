@@ -10,6 +10,9 @@ import tracker.Data.Prompts.MentalPrompt;
 import tracker.GuiComponents.Individual.GuiButton;
 import tracker.GuiComponents.ImageNames;
 
+/**
+ * Gui components for a prompt and the edit/delete buttons.
+ */
 public class PromptEditDelete extends PromptListComponent {
 
     /** ActionListener to invoke when a button is pressed. */

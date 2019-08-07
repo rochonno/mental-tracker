@@ -5,6 +5,9 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.spinner.Picker;
 import com.codename1.ui.util.Resources;
 
+/**
+ * Generic Gui picker.
+ */
 public class GuiPicker {
 
     /** Generic picker Gui component. */

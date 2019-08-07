@@ -15,9 +15,9 @@ import tracker.ModularGUI.NotificationPage;
 import tracker.ModularGUI.PromptListPage;
 
 /******************************************************************************
- * @author Nolan Rochon
- *
  * Adds a sidemenu to the current page.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class SideMenu {
 

@@ -3,7 +3,9 @@ package tracker.GuiComponents.Individual;
 import com.codename1.components.ImageViewer;
 import com.codename1.ui.util.Resources;
 
-
+/**
+ * Class to display an image on the screen.
+ */
 public class GuiImageViewer {
 
     private ImageViewer _Viewer;

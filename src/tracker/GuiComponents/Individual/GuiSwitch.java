@@ -4,6 +4,9 @@ import com.codename1.components.Switch;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 
+/**
+ * Class for a gui switch/toggle.
+ */
 public class GuiSwitch {
 
     /** Switch component for the Gui. */

@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
 
+/**
+ * Gets the graph data used for populate the info on a graph.
+ */
 public abstract class GetGraphData {
     /** Start date selected by drop down box. */
     private Date _StartDate;

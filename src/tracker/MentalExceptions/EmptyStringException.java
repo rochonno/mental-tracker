@@ -1,10 +1,10 @@
 package tracker.MentalExceptions;
 
 /*******************************************************************************
- * @author Nolan Rochon
- *
  * This exception is thrown when a valid non-empty string is expected.
  * An empty string occurs instead.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class EmptyStringException extends Exception {
 

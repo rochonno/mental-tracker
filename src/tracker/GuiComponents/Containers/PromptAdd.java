@@ -10,6 +10,9 @@ import tracker.Data.Prompts.MentalPrompt;
 import tracker.GuiComponents.ImageNames;
 import tracker.GuiComponents.Individual.GuiButton;
 
+/**
+ * A single prompt to add. Gui components for it.
+ */
 public class PromptAdd extends PromptListComponent {
 
     /** ActionListener to invoke when the button is pressed. */

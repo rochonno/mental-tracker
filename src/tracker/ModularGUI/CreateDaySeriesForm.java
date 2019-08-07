@@ -20,6 +20,9 @@ import com.codename1.ui.layouts.BorderLayout;
 import tracker.GuiComponents.GuiCharts.AbstractDemoChart;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 
+/**
+ * Class for creating a time series based on days.
+ */
 public class CreateDaySeriesForm extends AbstractDemoChart {
 
     /** Dataset for MultipleSeries. */

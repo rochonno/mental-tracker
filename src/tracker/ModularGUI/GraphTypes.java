@@ -4,6 +4,9 @@ import tracker.Data.Prompts.PromptDataType;
 
 import java.util.Vector;
 
+/**
+ * Types of supported graphs.
+ */
 public enum GraphTypes {
 
     /** All types of available graphs. */

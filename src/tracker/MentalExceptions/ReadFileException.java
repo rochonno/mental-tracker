@@ -1,9 +1,9 @@
 package tracker.MentalExceptions;
 
 /*******************************************************************************
- * @author Nolan Rochon
- *
  * This exception is thrown when a file fails to load
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class ReadFileException extends Exception {
 

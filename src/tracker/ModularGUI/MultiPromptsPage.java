@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * @author Nolan Rochon
- *
  * Parent page for the prompts.
  * This genereates each prompt and collects the input from the user.
+ *
+ * @author Nolan Rochon
  */
 class MultiPromptsPage extends DefaultPageComponents {
 

@@ -19,6 +19,9 @@ import com.codename1.ui.layouts.BorderLayout;
 
 import java.util.Random;
 
+/**
+ * Creates a pie chart form. Originally meant for yes/no questions.
+ */
 public class CreatePieChartForm {
 
     /**

@@ -4,9 +4,9 @@ import com.codename1.ui.Label;
 import com.codename1.ui.util.Resources;
 
 /******************************************************************************
- * @author Nolan Rochon
- *
  * Wrapper for a Label in the GUI.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class GuiLabel {
 

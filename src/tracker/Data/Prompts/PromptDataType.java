@@ -1,9 +1,9 @@
 package tracker.Data.Prompts;
 
 /*******************************************************************************
- * @author Nolan Rochon
- *
  * Simple enum to hold the different data types that answers can be expected in.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public enum PromptDataType {
     /**

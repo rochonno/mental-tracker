@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.Vector;
 
 /*******************************************************************************
- * @author Nolan Rochon
- *
  * This class holds a list of all the Prompts and manages it accordingly
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class MentalPrompts implements Externalizable {
     // Registers the class to enable reading it in

@@ -14,6 +14,10 @@ import tracker.GuiComponents.Individual.GuiStringPicker;
 import java.util.Date;
 import java.util.Vector;
 
+/**
+ * Page for choosing a prompt, the type of graph,
+ * and the time range to graph it over.
+ */
 public class GraphSelectionPage extends DefaultPageComponents {
 
     /** Name of the prompt selected by the user. */

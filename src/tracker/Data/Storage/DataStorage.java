@@ -14,6 +14,9 @@ import tracker.MentalExceptions.ReadFileException;
 import tracker.MentalExceptions.SaveFileException;
 import com.codename1.io.Storage;
 
+/**
+ * Controls the saving and loading the prompts and answers.
+ */
 public class DataStorage {
 
     public DataStorage() {

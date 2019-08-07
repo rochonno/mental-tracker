@@ -3,6 +3,10 @@ package tracker.Data.Storage;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Generates the filename used for answers.
+ *      Used for saving and loading them.
+ */
 public final  class FileNameGenerator {
 
     private FileNameGenerator() {

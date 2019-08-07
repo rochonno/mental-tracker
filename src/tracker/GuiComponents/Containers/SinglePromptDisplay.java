@@ -16,10 +16,10 @@ import tracker.GuiComponents.Individual.GuiSlider;
 import tracker.GuiComponents.Individual.GuiTextArea;
 
 /**
- * @author Nolan Rochon
- *
  * This creates all components needed for asking a single prompt.
  * Spacing is done to allow up to 4 on each page.
+ *
+ * @author Nolan Rochon
  */
 public class SinglePromptDisplay {
 

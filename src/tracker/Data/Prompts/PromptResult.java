@@ -8,10 +8,11 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /*******************************************************************************
- * @author Nolan Rochon
- *
  * This class hold a single user result from a specific prompt.
  * Takes the result as a string, attempts to parse it based on the data type.
+ *
+ * @author Nolan Rochon
+ *
  ******************************************************************************/
 public class PromptResult implements Externalizable {
     // Registers the class to enable reading it in

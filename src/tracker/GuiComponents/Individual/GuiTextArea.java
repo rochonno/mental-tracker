@@ -5,10 +5,10 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 
 /******************************************************************************
- * @author Nolan Rochon
- *
  * Wrapper for a Text Area in the GUI.
  * Used to get text input from the user.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class GuiTextArea {
 

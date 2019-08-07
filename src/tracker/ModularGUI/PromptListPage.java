@@ -12,6 +12,9 @@ import tracker.GuiComponents.Individual.GuiFloatButton;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Lists all the enabled prompts.
+ */
 public class PromptListPage extends DefaultPageComponents {
 
     /** Components of the list of prompts to edit/delete. */

@@ -1,10 +1,4 @@
-/**
- * @Author Douglas Yacenick
- * Code partially modeled off of Steve Hannah from Codename One.
- * In compliance of Apache License.
- *
- * Class renders user supplied data to display a Time Series graph.
- */
+
 package tracker.GuiComponents.GuiCharts;
 
 import com.codename1.charts.ChartComponent;
@@ -23,7 +17,13 @@ import com.codename1.ui.Component;
 import com.codename1.ui.layouts.BorderLayout;
 import tracker.GuiComponents.GuiCharts.models.XYMultipleSeriesEditor;
 
-
+/**Code partially modeled off of Steve Hannah from Codename One.
+ * In compliance of Apache License.
+ *
+ * Class renders user supplied data to display a Time Series graph.
+ *
+ * @Author Douglas Yacenick
+ */
 public class ScatterChart extends AbstractDemoChart {
     /** Instance of XYMultipleSeries */
     private XYMultipleSeriesDataset dataSet;

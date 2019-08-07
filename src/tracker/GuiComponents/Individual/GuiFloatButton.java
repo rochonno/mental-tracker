@@ -3,6 +3,9 @@ package tracker.GuiComponents.Individual;
 import com.codename1.components.FloatingActionButton;
 import com.codename1.ui.events.ActionListener;
 
+/**
+ * Wrapper class for a Gui floating button.
+ */
 public class GuiFloatButton {
 
     /** Floating button. */

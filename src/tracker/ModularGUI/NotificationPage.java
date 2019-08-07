@@ -12,6 +12,9 @@ import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiSwitch;
 import tracker.GuiComponents.Individual.GuiTimePicker;
 
+/**
+ * Page for editing the daily notifications.
+ */
 public class NotificationPage extends DefaultPageComponents {
 
     /**

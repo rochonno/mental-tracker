@@ -34,7 +34,6 @@ import com.codename1.util.SuccessCallback;
 /**
  * A tool to edit an XYSeries.
  *
- * @author Shai Almog
  */
 public class XYSeriesEditor extends Container {
     /** The XY series for the graph. */

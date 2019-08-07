@@ -6,9 +6,9 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 
 /******************************************************************************
- * @author Nolan Rochon
- *
  * Wrapper for a Button in the GUI.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class GuiButton {
 

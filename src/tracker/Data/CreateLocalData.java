@@ -14,12 +14,12 @@ import tracker.Data.Prompts.PromptResult;
 import tracker.Data.Prompts.PromptResults;
 import tracker.Data.Storage.DataStorage;
 
+/**
+ * Creates specified results for default questions.
+ * Adds results to a PromptResults object and stores it.
+ */
 public class CreateLocalData {
 
-    /**
-     * Creates specified results for default questions.
-     * Adds results to a PromptResults object and stores it.
-     */
     public CreateLocalData() {
         DataStorage data = new DataStorage();
         PromptResults prompt = new PromptResults();

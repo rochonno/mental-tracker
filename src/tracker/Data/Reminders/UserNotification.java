@@ -4,10 +4,10 @@ import com.codename1.notifications.LocalNotification;
 import com.codename1.ui.Display;
 
 /**
+ * This class creates and handles a single local notification
+ *
  * @author: Nolan Rochon
  * @project: Mental Health Tracker
- *
- * This class creates and handles a single local notification
  */
 public class UserNotification {
 

@@ -29,7 +29,6 @@ import com.codename1.ui.table.TableModel;
 /**
  * Special table whose last column is a "remove" button.
  *
- * @author Shai Almog
  */
 public class RemoveTable extends Table {
     /** remove button. */

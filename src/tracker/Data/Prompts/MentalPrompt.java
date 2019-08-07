@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /*******************************************************************************
- * @author Nolan Rochon
- *
  * This class holds a single prompt for the user.
- * Once created these objects are stored in a list
- *      retrieved each time the questions are asked.
+ *  * Once created these objects are stored in a list
+ *  *      retrieved each time the questions are asked.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class MentalPrompt implements Externalizable {
     // Registers the class to enable reading it in

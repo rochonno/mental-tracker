@@ -17,9 +17,9 @@ import com.codename1.ui.util.Resources;
 import static com.codename1.ui.util.Resources.getGlobalResources;
 
 /******************************************************************************
- * @author Nolan Rochon
- *
  * Main page (home) of the GUI. Displayed upon start-up.
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public class MainPage extends Form {
 

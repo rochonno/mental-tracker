@@ -1,9 +1,10 @@
 /**
- * @Author Douglas Yacenick
  * Code partially modeled off of Steve Hannah from Codename One.
  * In compliance of Apache License.
  *
  * Class renders user supplied data to display a Time Series graph.
+ *
+ * @Author Douglas Yacenick
  */
 package tracker.GuiComponents.GuiCharts;
 

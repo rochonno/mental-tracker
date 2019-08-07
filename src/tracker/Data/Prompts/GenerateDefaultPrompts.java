@@ -1,9 +1,9 @@
 package tracker.Data.Prompts;
 
 /*****************************************************************************
- * @author Nolan Rochon
- *
  * This class constructs the basic default Prompts for the user in groups
+ *
+ * @author Nolan Rochon
  ******************************************************************************/
 public final class GenerateDefaultPrompts {
 

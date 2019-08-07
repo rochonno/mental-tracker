@@ -1,5 +1,8 @@
 package tracker.Data.Reminders;
 
+/**
+ * Base Reminder class.
+ */
 public class MentalReminder {
 
     /** Prompt to display in the notification. */
