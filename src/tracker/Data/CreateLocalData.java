@@ -1,8 +1,8 @@
 /**
- * @author Douglas Yacenick
- *
  * Class to instantiate local data upon startup for device
  * simulator testing purposes.
+ *
+ * @author Douglas Yacenick
  */
 
 package tracker.Data;

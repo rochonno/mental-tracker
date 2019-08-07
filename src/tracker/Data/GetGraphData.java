@@ -1,11 +1,12 @@
 /**
- * @Author Douglas Yacenick
  *
  * Class that takes in a start and end date,
  * along with a prompt name to cycle through
  * PromptResults stored in local data to send
  * back an array of data pertaining to
  * that prompt in that date range.
+ *
+ * @Author Douglas Yacenick
  */
 package tracker.Data;
 
