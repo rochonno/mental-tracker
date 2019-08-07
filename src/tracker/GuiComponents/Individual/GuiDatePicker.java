@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class GuiDatePicker extends GuiPicker {
 
-    public GuiDatePicker(final String name, Resources instanceTheme) {
+    public GuiDatePicker(final String name, final Resources instanceTheme) {
         super(name, Display.PICKER_TYPE_CALENDAR, instanceTheme);
     }
 

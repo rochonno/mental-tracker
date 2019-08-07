@@ -46,7 +46,7 @@ public class GuiTextArea {
         return _TextArea.getText();
     }
 
-    public void setText(String text) {
+    public void setText(final String text) {
         _TextArea.setText(text);
     }
 
@@ -54,53 +54,28 @@ public class GuiTextArea {
         return _TextArea;
     }
 
-    public void setLocation(int x, int y) {
-        _TextArea.setX(x);
-        _TextArea.setY(y);
-    }
-
-    public void centerAllign(boolean center) {
+    public void centerAllign(final boolean center) {
         if (center) {
             _TextArea.setInlineAllStyles("alignment:center");
             _TextArea.getStyle().setAlignment(4);
         }
     }
 
-    public void canEnter(boolean state) {
+    public void canEnter(final boolean state) {
         _TextArea.setEditable(state);
     }
 
-    public void setRefLocation(int refX, int refY, int x, int y) {
-        setLocation(refX + x, refY + y);
-    }
-
-    public void setTraverseIndex(int index) {
+    public void setTraverseIndex(final int index) {
         _TextArea.setTraversable(true);
         _TextArea.setPreferredTabIndex(index);
     }
 
-    public void setSmoothScroll(boolean smooth) {
+    public void setSmoothScroll(final boolean smooth) {
         _TextArea.setSmoothScrolling(smooth);
     }
 
-    public void setSizeStr(String size) {
+    public void setSizeStr(final String size) {
         _TextArea.setPreferredSizeStr(size);
-    }
-
-    public int getCenterX() {
-        return _TextArea.getX();
-    }
-
-    public int getCenterY() {
-        return _TextArea.getY();
-    }
-
-    public int getTotalWidth() {
-        return _TextArea.getWidth();
-    }
-
-    public int getTotalHeight() {
-        return _TextArea.getHeight();
     }
 
     public String getName() {

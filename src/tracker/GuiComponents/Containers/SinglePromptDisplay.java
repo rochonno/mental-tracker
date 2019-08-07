@@ -22,27 +22,47 @@ import tracker.GuiComponents.Individual.GuiTextArea;
  * Spacing is done to allow up to 4 on each page.
  */
 public class SinglePromptDisplay {
+
+    /** Page this single prompt belongs to. */
     private Form _Page;
+    /** Prompt to be displayed. */
     private MentalPrompt _CurrPrompt;
+    /** String for the user answer (all answers are converted). */
     private String _UserAnswer = "";
+    /** PromptResult of this single prompt. */
     private PromptResult _Result;
+    /** Current instance resources. */
     private Resources _Resources;
 
 
-    public SinglePromptDisplay(Form parentPage, final MentalPrompt prompt, Resources resources) {
+    public SinglePromptDisplay(
+            final Form parentPage,
+            final MentalPrompt prompt,
+            final Resources resources) {
+
         _Page = parentPage;
         _Resources = resources;
         _CurrPrompt = prompt;
     }
 
+    /** Location of the prompt on the page. */
     private float _Location;
+    /** Reference component of the prompt.
+     *      (BackButton recommended)
+     */
     private Component _RefComponent;
 
+    /** Title of the prompt. */
     private GuiLabel _Title;
+    /** Question of the prompt. */
     private GuiLabel _Question;
+    /** No answer button of the prompt. */
     private GuiButton _NoButton;
+    /** Yes answer button of the prompt. */
     private GuiButton _YesButton;
+    /** Slider of the prompt. */
     private GuiSlider _Slider;
+    /** Text Area of the prompt. */
     private GuiTextArea _InputText;
 
 
@@ -60,14 +80,13 @@ public class SinglePromptDisplay {
             case STRING: initTextArea(callback); break;
             case BOOL: initYesNo(callback); break;
             case DOUBLE: initTextArea(callback); break;
-            default: break; //TODO: add new exception type
+            default: break;
         }
 
         createComponents();
     }
 
-    private void setLocation(final int location)
-    {
+    private void setLocation(final int location) {
         switch (location) {
             case 1: _Location = 1; break;
             case 2: _Location = 3; break;
@@ -229,7 +248,8 @@ public class SinglePromptDisplay {
 
         ((LayeredLayout) _Title.getLabel().getParent().getLayout()).
                 setInsets(_Title.getLabel(), "-92% 0 0 -70%").
-                setReferenceComponentTop(_Title.getLabel(), _Question.getLabel(), 1f);
+                setReferenceComponentTop(
+                        _Title.getLabel(), _Question.getLabel(), 1f);
     }
 
     private void createQuestion() {
@@ -237,7 +257,8 @@ public class SinglePromptDisplay {
         _Page.addComponent(_Question.getLabel());
         ((LayeredLayout) _Question.getLabel().getParent().getLayout()).
                 setInsets(_Question.getLabel(), "0% auto auto auto").
-                setReferenceComponentTop(_Question.getLabel(), _RefComponent, _Location);
+                setReferenceComponentTop(
+                        _Question.getLabel(), _RefComponent, _Location);
     }
 
     private void createSlider() {
@@ -251,7 +272,8 @@ public class SinglePromptDisplay {
 
         ((LayeredLayout) _Slider.getSlider().getParent().getLayout()).
                 setInsets(_Slider.getSlider(), "0 20% auto 20%").
-                setReferenceComponentTop(_Slider.getSlider(), _Question.getLabel(), 1f);
+                setReferenceComponentTop(
+                        _Slider.getSlider(), _Question.getLabel(), 1f);
     }
 
     private void createYesNo() {
@@ -265,8 +287,9 @@ public class SinglePromptDisplay {
 
         _Page.addComponent(_NoButton.getButton());
         ((LayeredLayout) _NoButton.getButton().getParent().getLayout()).
-                setInsets(_NoButton.getButton(),"0 60% auto 20%").
-                setReferenceComponentTop(_NoButton.getButton(), _Question.getLabel(), 1f);
+                setInsets(_NoButton.getButton(), "0 60% auto 20%").
+                setReferenceComponentTop(
+                        _NoButton.getButton(), _Question.getLabel(), 1f);
 
 
         _YesButton.setSelected(false);
@@ -275,9 +298,11 @@ public class SinglePromptDisplay {
 
         _Page.addComponent(_YesButton.getButton());
         ((LayeredLayout) _YesButton.getButton().getParent().getLayout()).
-                setInsets(_YesButton.getButton(),"0 auto auto 0").
-                setReferenceComponentLeft(_YesButton.getButton(), _NoButton.getButton(), 2f).
-                setReferenceComponentTop(_YesButton.getButton(), _NoButton.getButton(), 0);
+                setInsets(_YesButton.getButton(), "0 auto auto 0").
+                setReferenceComponentLeft(
+                        _YesButton.getButton(), _NoButton.getButton(), 2f).
+                setReferenceComponentTop(
+                        _YesButton.getButton(), _NoButton.getButton(), 0);
     }
 
     private void createTextArea() {
@@ -292,7 +317,8 @@ public class SinglePromptDisplay {
 
         ((LayeredLayout) _InputText.getTextArea().getParent().getLayout()).
                 setInsets(_InputText.getTextArea(), "0 30% auto 33%").
-                setReferenceComponentTop(_InputText.getTextArea(), _Question.getLabel(), 1f);
+                setReferenceComponentTop(
+                        _InputText.getTextArea(), _Question.getLabel(), 1f);
     }
 
     public MentalPrompt getPrompt() {

@@ -7,9 +7,14 @@ import com.codename1.ui.util.Resources;
 
 public class GuiPicker {
 
+    /** Generic picker Gui component. */
     private Picker _Picker;
 
-    GuiPicker(final String name, final int pickerType, final Resources instanceTheme) {
+    GuiPicker(
+            final String name,
+            final int pickerType,
+            final Resources instanceTheme) {
+
         _Picker = new Picker();
         _Picker.setType(pickerType);
         _Picker.setUseLightweightPopup(false);

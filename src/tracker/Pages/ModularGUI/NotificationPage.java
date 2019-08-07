@@ -6,6 +6,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.LayeredLayout;
 import tracker.Data.InstanceData;
 import tracker.Data.Reminders.MedReminder;
+import tracker.Data.Reminders.MentalReminder;
 import tracker.Data.Reminders.PromptsReminder;
 import tracker.GuiComponents.Individual.GuiLabel;
 import tracker.GuiComponents.Individual.GuiSwitch;
@@ -141,11 +142,7 @@ public class NotificationPage extends DefaultPageComponents {
             _PromptsReminder = new PromptsReminder();
         }
         int minutes = _PromptTime.getTotalMins();
-        int hour = minutes / 60;
-        int min = minutes % 60;
-
-        _PromptsReminder.setHour(hour);
-        _PromptsReminder.setMinute(min);
+        setReminder(_PromptsReminder, minutes);
 
         if (_PromptRemindSwitch.getValue()) {
             _PromptsReminder.createNotification();
@@ -157,15 +154,20 @@ public class NotificationPage extends DefaultPageComponents {
             _MedReminder = new MedReminder();
         }
         int minutes = _MedTime.getTotalMins();
-        int hour = minutes / 60;
-        int min = minutes % 60;
-
-        _MedReminder.setHour(hour);
-        _MedReminder.setMin(min);
+        setReminder(_MedReminder, minutes);
 
         if (_MedRemindSwitch.getValue()) {
             _MedReminder.createNotification();
         }
+    }
+
+    private void setReminder(final MentalReminder reminder, final int minutes) {
+
+        int hour = minutes / 60;
+        int min = minutes % 60;
+
+        reminder.setHour(hour);
+        reminder.setMin(min);
     }
 
 

@@ -1,4 +1,6 @@
 package tracker.GuiComponents.Individual;
+
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Slider;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
@@ -11,11 +13,16 @@ import com.codename1.ui.util.Resources;
  ******************************************************************************/
 public class GuiSlider {
 
-    /** Codename One object for receiving slider input from user. */
+    /**
+     * Codename One object for receiving slider input from user.
+     */
     private Slider _Slider;
 
-    public GuiSlider(final String name, final Resources instanceTheme,
-                     final int min, final int max) {
+    public GuiSlider(
+            final String name,
+            final Resources instanceTheme,
+            final int min, final int max) {
+
         _Slider = new Slider();
         _Slider.setName(name);
         _Slider.setInlineStylesTheme(instanceTheme);
@@ -29,7 +36,14 @@ public class GuiSlider {
         setIncrements(1);
         setProgress(1);
         setGap(2);
+
+        _Slider.setThumbImage(FontImage.createMaterial(
+                FontImage.MATERIAL_RADIO_BUTTON_CHECKED,
+                "sliderOval.png", 4
+                ).toImage()
+        );
     }
+
 
     public void setActionListener(final ActionListener listener) {
         _Slider.addActionListener(listener);
@@ -64,22 +78,13 @@ public class GuiSlider {
         return _Slider;
     }
 
-    public void setLocation(int x, int y) {
-        _Slider.setX(x);
-        _Slider.setY(y);
-    }
-
-    public void centerAllign(boolean center) {
+    public void centerAllign(final boolean center) {
         if (center) {
             _Slider.setInlineAllStyles("alignment:center");
         }
     }
 
-    public void setRefLocation(int refX, int refY, int x, int y) {
-        setLocation(refX + x, refY + y);
-    }
-
-    public void setTraverseIndex(int index) {
+    public void setTraverseIndex(final int index) {
         _Slider.setTraversable(true);
         _Slider.setPreferredTabIndex(index);
     }
@@ -90,22 +95,6 @@ public class GuiSlider {
 
     public void setSizeStr(final String size) {
         _Slider.setPreferredSizeStr(size);
-    }
-
-    public int getCenterX() {
-        return _Slider.getX();
-    }
-
-    public int getCenterY() {
-        return _Slider.getY();
-    }
-
-    public int getTotalWidth() {
-        return _Slider.getWidth();
-    }
-
-    public int getTotalHeight() {
-        return _Slider.getHeight();
     }
 
     public String getName() {
