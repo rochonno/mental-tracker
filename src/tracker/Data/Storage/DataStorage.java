@@ -5,7 +5,7 @@
  *
  * This class saves and loads the Prompts and Results from storage on the phone
  ******************************************************************************/
-package tracker.Data;
+package tracker.Data.Storage;
 
 import tracker.Data.Prompts.MentalPrompt;
 import tracker.Data.Prompts.MentalPrompts;
