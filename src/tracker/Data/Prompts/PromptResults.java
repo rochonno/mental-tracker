@@ -36,14 +36,24 @@ public class PromptResults implements Externalizable {
         _ResultsList = new Vector<>();
     }
 
-    public void addResult(final PromptResult result) {
-        _ResultsList.add(result);
+    public void addResult(final PromptResult result, final int index) {
+        _ResultsList.add(index, result);
     }
 
     public void updateResult(final PromptResult promptRes, final String result)
             throws EmptyStringException {
         _ResultsList.remove(promptRes);
         promptRes.changeResult(result);
+    }
+
+    public PromptResult getFromName(final String promptName) {
+
+        for (PromptResult result : _ResultsList) {
+            if (result.getName().equals(promptName)) {
+                return result;
+            }
+        }
+        return null;
     }
 
     @Override

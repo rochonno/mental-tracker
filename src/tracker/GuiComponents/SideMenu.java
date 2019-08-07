@@ -1,8 +1,18 @@
 package tracker.GuiComponents;
 
-import com.codename1.ui.*;
+import com.codename1.ui.Container;
+import com.codename1.ui.FontImage;
+import com.codename1.ui.Label;
+import com.codename1.ui.Toolbar;
+import com.codename1.ui.Form;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
+import tracker.Data.InstanceData;
+import tracker.ModularGUI.GraphSelectionPage;
+import tracker.ModularGUI.NotificationPage;
+import tracker.ModularGUI.PromptListPage;
 
 /******************************************************************************
  * @author Nolan Rochon
@@ -18,32 +28,95 @@ public class SideMenu {
     /** If the sidemenu is added and initialized. */
     private boolean _IsInit;
 
-    public SideMenu(final Resources theme, final Toolbar tb) {
+    /** The Mental data for this instance. */
+    private InstanceData _Data;
+
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static final String MAIN_PAGE = " Home";
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static final String PROMTPS_LIST = " Questions Page";
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static final String REMINDERS = " Reminders";
+    /** Name of the page for displaying the title in the sidemenu. */
+    private static  final String GRAPHS = " Graphs";
+
+    public SideMenu(final Resources theme,
+                    final Toolbar tb,
+                    final InstanceData data) {
         _Theme = theme;
         _PageTb = tb;
+        _Data = data;
         _IsInit = false;
 
         initialize();
     }
 
     private void initialize() {
-        Image sampleIcon = _Theme.getImage("icon.png");
-        Container topBar = BorderLayout.east(new Label(sampleIcon));
+        //Image sampleIcon = _Theme.getImage(ImageNames.LOGO);
+        Container topBar = BorderLayout.east(new Label());
+
+        SideMenuActionListener callback = new SideMenuActionListener();
 
         topBar.add(BorderLayout.SOUTH, new Label("Menu", "SideMenuTagline"));
         topBar.setUIID("SideCommand");
         _PageTb.addComponentToSideMenu(topBar);
 
         _PageTb.addMaterialCommandToSideMenu(
-                "Tracking", FontImage.MATERIAL_QUESTION_ANSWER, e -> { });
+                MAIN_PAGE, FontImage.MATERIAL_HOME, callback);
         _PageTb.addMaterialCommandToSideMenu(
-                "Settings", FontImage.MATERIAL_SETTINGS, e -> { });
+                PROMTPS_LIST, FontImage.MATERIAL_QUESTION_ANSWER, callback);
         _PageTb.addMaterialCommandToSideMenu(
-                "Profile", FontImage.MATERIAL_VERIFIED_USER, e -> { });
+                REMINDERS, FontImage.MATERIAL_NOTIFICATIONS, callback);
         _PageTb.addMaterialCommandToSideMenu(
-                "About", FontImage.MATERIAL_INFO, e -> { });
+                GRAPHS, FontImage.MATERIAL_TRENDING_UP, callback);
 
         _IsInit = true;
+    }
+
+    private void onMainPageSelected() {
+
+    }
+
+    private void onPromptsListSelected() {
+        PromptListPage promptList =
+                new PromptListPage(_Data, _PageTb.getComponentForm());
+        promptList.show();
+    }
+
+    private void onRemindersSelected() {
+        Form notificationPage =
+                new NotificationPage(_Data, _PageTb.getComponentForm());
+        notificationPage.show();
+    }
+
+    private void onGraphsSelected() {
+        Form graphingPage =
+                new GraphSelectionPage(_Data, _PageTb.getComponentForm());
+        graphingPage.show();
+    }
+
+    class SideMenuActionListener implements ActionListener {
+
+        /**
+         * Invoked when an action occurred on a component.
+         *
+         * @param evt event object describing the source of the action as well
+         *            as its trigger
+         */
+        @Override
+        public void actionPerformed(final ActionEvent evt) {
+            String sourceName = evt.getSource().toString();
+
+            if (sourceName.equals(MAIN_PAGE)) {
+                onMainPageSelected();
+            } else if (sourceName.equals(PROMTPS_LIST)) {
+                onPromptsListSelected();
+            } else if (sourceName.equals(REMINDERS)) {
+                onRemindersSelected();
+            } else if (sourceName.equals(GRAPHS)) {
+                onGraphsSelected();
+            }
+        }
     }
 
 }

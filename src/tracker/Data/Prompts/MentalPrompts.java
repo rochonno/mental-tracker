@@ -1,6 +1,6 @@
 package tracker.Data.Prompts;
 
-import tracker.Data.DataStorage;
+import tracker.Data.Storage.DataStorage;
 import tracker.MentalExceptions.ReadFileException;
 import tracker.MentalExceptions.SaveFileException;
 import com.codename1.io.Externalizable;
@@ -49,7 +49,20 @@ public class MentalPrompts implements Externalizable {
         }
     }
 
-    public void savePrompts(String filename) throws SaveFileException {
+    public void deletePrompt(final MentalPrompt prompt) {
+        _Prompts.remove(prompt);
+    }
+
+    public void changePrompt(
+            final MentalPrompt target,
+            final MentalPrompt changed) {
+
+        int index = _Prompts.indexOf(target);
+        _Prompts.remove(target);
+        _Prompts.add(index, changed);
+    }
+
+    public void savePrompts(final String filename) throws SaveFileException {
         if (filename == null) {
             filename = FileSystemStorage.getInstance().getAppHomePath()
                     + this.getClass();
@@ -58,7 +71,7 @@ public class MentalPrompts implements Externalizable {
         storage.savePrompts(filename, this);
     }
 
-    public MentalPrompts loadPrompts(String filename)
+    public MentalPrompts loadPrompts(final String filename)
             throws ReadFileException {
         if (filename == null) {
             filename = FileSystemStorage.getInstance().getAppHomePath()
@@ -69,7 +82,38 @@ public class MentalPrompts implements Externalizable {
     }
 
     public int getPromptCount() {
-        return _Prompts.size(); }
+        return _Prompts.size();
+    }
+
+    public List<MentalPrompt> getPrompts() {
+        return _Prompts;
+    }
+
+    public MentalPrompt getPrompt(final int index) {
+        return _Prompts.get(index);
+    }
+
+    public int getIndex(final MentalPrompt prompt) {
+        return _Prompts.indexOf(prompt);
+    }
+
+    public boolean doesContain(final MentalPrompt searchPrompt) {
+        for (MentalPrompt prompt : _Prompts) {
+            if (prompt.equals(searchPrompt)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public MentalPrompt findFromName(final String name) {
+        for (MentalPrompt prompt : _Prompts) {
+            if (prompt.getName().equals(name)) {
+                return prompt;
+            }
+        }
+        return null;
+    }
 
     @Override
     public int getVersion() {

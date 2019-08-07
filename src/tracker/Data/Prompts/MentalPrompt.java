@@ -6,6 +6,7 @@ import com.codename1.io.Util;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
 /*******************************************************************************
  * @author Nolan Rochon
@@ -53,20 +54,102 @@ public class MentalPrompt implements Externalizable {
         _Max = max;
     }
 
+    public void setMin(final int min) {
+        _Min = min;
+    }
+
     public String getName() {
-        return _Name; }
+        return _Name;
+    }
+
+    public void setName(final String name) {
+        _Name = name;
+    }
 
     public String getPrompt() {
-        return _Prompt; }
+        return _Prompt;
+    }
+
+    public void setPrompt(final String prompt) {
+        _Prompt = prompt;
+    }
 
     public int getMin() {
-        return _Min; }
+        return _Min;
+    }
 
     public int getMax() {
-        return _Max; }
+        return _Max;
+    }
 
     public PromptDataType getDataType() {
-        return _ResultType; }
+        return _ResultType;
+    }
+
+    public void setDataType(final PromptDataType dataType) {
+        _ResultType = dataType;
+    }
+
+    /**
+     * Returns a hash code value for the object. This method is
+     * supported for the benefit of hash tables such as those provided by
+     * {@link HashMap}.
+     * <p>
+     * The general contract of {@code hashCode} is:
+     * <ul>
+     * <li>Whenever it is invoked on the same object more than once during
+     * an execution of a Java application, the {@code hashCode} method
+     * must consistently return the same integer, provided no information
+     * used in {@code equals} comparisons on the object is modified.
+     * This integer need not remain consistent from one execution of an
+     * application to another execution of the same application.
+     * <li>If two objects are equal according to the {@code equals(Object)}
+     * method, then calling the {@code hashCode} method on each of
+     * the two objects must produce the same integer result.
+     * <li>It is <em>not</em> required that if two objects are unequal
+     * according to the {@link Object#equals(Object)}
+     * method, then calling the {@code hashCode} method on each of the
+     * two objects must produce distinct integer results.  However, the
+     * programmer should be aware that producing distinct integer results
+     * for unequal objects may improve the performance of hash tables.
+     * </ul>
+     *
+     * @return a hash code value for this object.
+     * @implSpec As far as is reasonably practical, the {@code hashCode}
+     * method defined
+     * by class {@code Object} returns distinct integers for distinct objects.
+     * @see Object#equals(Object)
+     * @see System#identityHashCode
+     */
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    /**
+     * Overrides the equals method.
+     * Only compares the fields that matter for a prompt.
+     *
+     * @param obj The object being compared
+     * @return boolean If the objects are equal
+     */
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (obj.getClass() == this.getClass()) {
+            MentalPrompt prompt = (MentalPrompt) obj;
+            if ((_Prompt.equals(prompt._Prompt))
+                    && (_Name.equals(prompt._Name))) {
+                if (_ResultType == prompt._ResultType) {
+                    return (_Min == prompt._Min) && (_Max == prompt._Max);
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Returns the version for the current persistance code.
